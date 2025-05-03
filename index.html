@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<!-- saved from url=(0243)file:///C:/Users/Dandi/project/kelompok/Kelompok%205%20-%20Perlindungan%20Guru%20dan%20Partisipasi%20Guru%20Dalam%20Organisasi%20Profesi%20serta%20Sejarah%20dan%20Perkembangan%20Unindra%20Sebagai%20Perguruan%20Tinggi%20PGRI%20di%20Jakarta.html -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasi Kelompok 5 - Perlindungan Guru &amp; Sejarah Unindra</title>
+    <script src="./Presentasi Kelompok 5 - Perlindungan Guru &amp; Sejarah Unindra_files/saved_resource"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Presentasi Kelompok 5 - Perlindungan Guru &amp; Sejarah Unindra_files/css2" rel="stylesheet">
+    <script src="./Presentasi Kelompok 5 - Perlindungan Guru &amp; Sejarah Unindra_files/lucide-react.js.download"></script>
+    <style>
+        /* Variabel Warna Neobrutalism */
+        :root {
+          --primary: #ff6b6b;
+          --secondary: #4ecdc4;
+          --accent: #ffe66d;
+          --text: #2c363f;
+          --background: #f7f7f7;
+          --card: #ffffff;
+          --border: #252525;
+        }
+
+        /* Reset dasar & Box Sizing */
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        /* Pengaturan Scroll Global (Normal Scroll) */
+        html {
+          scroll-behavior: smooth;
+        }
+
+        body {
+          font-family: 'Outfit', sans-serif;
+          color: var(--text);
+          background-color: var(--background);
+          line-height: 1.6;
+          /* overflow: hidden; Dihapus agar bisa scroll */
+        }
+
+        /* Pengaturan Font untuk Heading */
+        h1, h2, h3, h4, h5, h6 {
+          font-family: 'Space Grotesk', sans-serif;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+
+        /* Gaya Komponen Neobrutalism */
+        .neo-card {
+          background-color: var(--card);
+          border: 3px solid var(--border);
+          border-radius: 10px;
+          box-shadow: 6px 6px 0px var(--border);
+          transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+        }
+
+        .neo-card:hover {
+          transform: translate(-3px, -3px);
+          box-shadow: 9px 9px 0px var(--border);
+        }
+
+        .neo-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          background-color: var(--accent);
+          color: var(--border);
+          border: 3px solid var(--border);
+          border-radius: 8px;
+          box-shadow: 4px 4px 0px var(--border);
+          font-weight: 700;
+          padding: 0.6rem 1.5rem;
+          text-align: center;
+          transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out, color 0.2s ease-out;
+          position: relative;
+          overflow: hidden;
+          text-decoration: none; /* Pastikan tombol tidak ada underline */
+        }
+
+        .neo-button:hover {
+          transform: translate(-2px, -2px);
+          box-shadow: 6px 6px 0px var(--border);
+          background-color: var(--primary);
+          color: var(--card);
+        }
+
+        .neo-button:active {
+          transform: translate(1px, 1px);
+          box-shadow: 3px 3px 0px var(--border);
+        }
+
+        .heading-box {
+          display: inline-block;
+          padding: 0.5rem 1.5rem;
+          margin-bottom: 1.5rem;
+          background-color: var(--accent); /* Default */
+          border: 3px solid var(--border);
+          transform: rotate(-1deg);
+          transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .heading-box:hover {
+          transform: rotate(1deg);
+        }
+
+        /* Timeline Styles */
+        .timeline-dot {
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: var(--primary);
+          border: 2px solid var(--border);
+          transition: transform 0.3s ease-out;
+        }
+        .timeline-dot:hover {
+           transform: scale(1.2);
+        }
+        /* Garis timeline akan dibuat dengan border pada container */
+
+        /* Responsiveness Adjustments */
+        @media (max-width: 768px) {
+          .heading-box { padding: 0.35rem 1.2rem; margin-bottom: 1rem; }
+          h1 { font-size: 2.25rem; }
+          h2 { font-size: 1.75rem; }
+          h3 { font-size: 1.1rem; }
+          .neo-button { padding: 0.5rem 1.2rem; font-size: 0.9rem; }
+          /* Ukuran font sumber diperbesar */
+          .source-text { font-size: 0.875rem; /* 14px */ }
+        }
+        @media (min-width: 769px) {
+            /* Ukuran font sumber diperbesar */
+           .source-text { font-size: 0.875rem; /* 14px */ }
+        }
+
+        /* Utility Classes Tambahan */
+        .shadow-neo { box-shadow: 5px 5px 0px var(--border); }
+        .shadow-neo-lg { box-shadow: 8px 8px 0px var(--border); }
+
+        /* Animasi tambahan jika diperlukan */
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+          animation: spin-slow 15s linear infinite;
+        }
+        @keyframes pulse {
+          50% { opacity: .5; }
+        }
+        .animate-pulse {
+           animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes bounce {
+          0%, 100% { transform: translateY(-15%); animation-timing-function: cubic-bezier(0.8,0,1,1); }
+          50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }
+        }
+       .animate-bounce {
+           animation: bounce 1s infinite;
+       }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.16 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-bottom-3{bottom:-0.75rem}.-left-3{left:-0.75rem}.-left-\[12px\]{left:-12px}.-right-3{right:-0.75rem}.-top-3{top:-0.75rem}.bottom-1\/4{bottom:25%}.bottom-20{bottom:5rem}.left-1\/4{left:25%}.left-10{left:2.5rem}.right-1\/4{right:25%}.right-10{right:2.5rem}.top-1{top:0.25rem}.top-1\/3{top:33.333333%}.top-10{top:2.5rem}.z-0{z-index:0}.z-10{z-index:10}.mx-1{margin-left:0.25rem;margin-right:0.25rem}.mx-auto{margin-left:auto;margin-right:auto}.my-6{margin-top:1.5rem;margin-bottom:1.5rem}.mb-10{margin-bottom:2.5rem}.mb-12{margin-bottom:3rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.ml-2{margin-left:0.5rem}.ml-4{margin-left:1rem}.mr-2{margin-right:0.5rem}.mr-3{margin-right:0.75rem}.mr-4{margin-right:1rem}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mt-8{margin-top:2rem}.mt-auto{margin-top:auto}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.h-14{height:3.5rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-20{height:5rem}.h-24{height:6rem}.h-32{height:8rem}.w-16{width:4rem}.w-2{width:0.5rem}.w-20{width:5rem}.w-24{width:6rem}.w-32{width:8rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.flex-shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.-rotate-1{--tw-rotate:-1deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-rotate-6{--tw-rotate:-6deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-1{--tw-rotate:1deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-12{--tw-rotate:12deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-2{--tw-rotate:2deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-3{--tw-rotate:3deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-6{--tw-rotate:6deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-\[-1deg\]{--tw-rotate:-1deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.list-inside{list-style-position:inside}.list-decimal{list-style-type:decimal}.list-disc{list-style-type:disc}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded{border-radius:0.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.border{border-width:1px}.border-2{border-width:2px}.border-4{border-width:4px}.border-b-2{border-bottom-width:2px}.border-b-4{border-bottom-width:4px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-t-4{border-top-width:4px}.border-dashed{border-style:dashed}.border-black{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.border-blue-300{--tw-border-opacity:1;border-color:rgb(147 197 253 / var(--tw-border-opacity, 1))}.border-gray-400{--tw-border-opacity:1;border-color:rgb(156 163 175 / var(--tw-border-opacity, 1))}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity, 1))}.border-orange-500{--tw-border-opacity:1;border-color:rgb(249 115 22 / var(--tw-border-opacity, 1))}.border-yellow-400{--tw-border-opacity:1;border-color:rgb(250 204 21 / var(--tw-border-opacity, 1))}.bg-\[var\(--accent\)\]{background-color:var(--accent)}.bg-\[var\(--primary\)\]{background-color:var(--primary)}.bg-\[var\(--secondary\)\]{background-color:var(--secondary)}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-blue-200{--tw-bg-opacity:1;background-color:rgb(191 219 254 / var(--tw-bg-opacity, 1))}.bg-blue-300{--tw-bg-opacity:1;background-color:rgb(147 197 253 / var(--tw-bg-opacity, 1))}.bg-blue-400{--tw-bg-opacity:1;background-color:rgb(96 165 250 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-green-200{--tw-bg-opacity:1;background-color:rgb(187 247 208 / var(--tw-bg-opacity, 1))}.bg-green-300{--tw-bg-opacity:1;background-color:rgb(134 239 172 / var(--tw-bg-opacity, 1))}.bg-green-400{--tw-bg-opacity:1;background-color:rgb(74 222 128 / var(--tw-bg-opacity, 1))}.bg-green-50{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.bg-indigo-200{--tw-bg-opacity:1;background-color:rgb(199 210 254 / var(--tw-bg-opacity, 1))}.bg-indigo-300{--tw-bg-opacity:1;background-color:rgb(165 180 252 / var(--tw-bg-opacity, 1))}.bg-indigo-50{--tw-bg-opacity:1;background-color:rgb(238 242 255 / var(--tw-bg-opacity, 1))}.bg-orange-100{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.bg-orange-200{--tw-bg-opacity:1;background-color:rgb(254 215 170 / var(--tw-bg-opacity, 1))}.bg-orange-300{--tw-bg-opacity:1;background-color:rgb(253 186 116 / var(--tw-bg-opacity, 1))}.bg-orange-50{--tw-bg-opacity:1;background-color:rgb(255 247 237 / var(--tw-bg-opacity, 1))}.bg-purple-200{--tw-bg-opacity:1;background-color:rgb(233 213 255 / var(--tw-bg-opacity, 1))}.bg-purple-300{--tw-bg-opacity:1;background-color:rgb(216 180 254 / var(--tw-bg-opacity, 1))}.bg-purple-50{--tw-bg-opacity:1;background-color:rgb(250 245 255 / var(--tw-bg-opacity, 1))}.bg-red-200{--tw-bg-opacity:1;background-color:rgb(254 202 202 / var(--tw-bg-opacity, 1))}.bg-red-300{--tw-bg-opacity:1;background-color:rgb(252 165 165 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-teal-200{--tw-bg-opacity:1;background-color:rgb(153 246 228 / var(--tw-bg-opacity, 1))}.bg-teal-300{--tw-bg-opacity:1;background-color:rgb(94 234 212 / var(--tw-bg-opacity, 1))}.bg-teal-50{--tw-bg-opacity:1;background-color:rgb(240 253 250 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-yellow-200{--tw-bg-opacity:1;background-color:rgb(254 240 138 / var(--tw-bg-opacity, 1))}.bg-yellow-300{--tw-bg-opacity:1;background-color:rgb(253 224 71 / var(--tw-bg-opacity, 1))}.bg-yellow-400{--tw-bg-opacity:1;background-color:rgb(250 204 21 / var(--tw-bg-opacity, 1))}.bg-yellow-50{--tw-bg-opacity:1;background-color:rgb(254 252 232 / var(--tw-bg-opacity, 1))}.p-1{padding:0.25rem}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-12{padding-top:3rem;padding-bottom:3rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-1{padding-bottom:0.25rem}.pb-2{padding-bottom:0.5rem}.pl-6{padding-left:1.5rem}.pr-2{padding-right:0.5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-gray-200{--tw-text-opacity:1;color:rgb(229 231 235 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-green-800{--tw-text-opacity:1;color:rgb(22 101 52 / var(--tw-text-opacity, 1))}.text-indigo-800{--tw-text-opacity:1;color:rgb(55 48 163 / var(--tw-text-opacity, 1))}.text-orange-800{--tw-text-opacity:1;color:rgb(154 52 18 / var(--tw-text-opacity, 1))}.text-orange-900{--tw-text-opacity:1;color:rgb(124 45 18 / var(--tw-text-opacity, 1))}.text-purple-800{--tw-text-opacity:1;color:rgb(107 33 168 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-red-800{--tw-text-opacity:1;color:rgb(153 27 27 / var(--tw-text-opacity, 1))}.text-teal-800{--tw-text-opacity:1;color:rgb(17 94 89 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-800{--tw-text-opacity:1;color:rgb(133 77 14 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-15{opacity:0.15}.opacity-20{opacity:0.2}.shadow-\[0_-5px_0px_0px_rgba\(0\2c 0\2c 0\2c 1\)\]{--tw-shadow:0 -5px 0px 0px rgba(0,0,0,1);--tw-shadow-colored:0 -5px 0px 0px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[4px_4px_0px_0px_rgba\(0\2c 0\2c 0\2c 1\)\]{--tw-shadow:4px 4px 0px 0px rgba(0,0,0,1);--tw-shadow-colored:4px 4px 0px 0px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[8px_8px_0px_0px_rgba\(0\2c 0\2c 0\2c 1\)\]{--tw-shadow:8px 8px 0px 0px rgba(0,0,0,1);--tw-shadow-colored:8px 8px 0px 0px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-500{transition-delay:500ms}.duration-200{transition-duration:200ms}.duration-300{transition-duration:300ms}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.ease-out{transition-timing-function:cubic-bezier(0, 0, 0.2, 1)}.hover\:-translate-y-1:hover{--tw-translate-y:-0.25rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:rotate-0:hover{--tw-rotate:0deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:rotate-1:hover{--tw-rotate:1deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:rotate-\[-1deg\]:hover{--tw-rotate:-1deg;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-105:hover{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:scale-\[1\.02\]:hover{--tw-scale-x:1.02;--tw-scale-y:1.02;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:bg-blue-100:hover{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-50:hover{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.hover\:bg-green-100:hover{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.hover\:bg-green-50:hover{--tw-bg-opacity:1;background-color:rgb(240 253 244 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-100:hover{--tw-bg-opacity:1;background-color:rgb(224 231 255 / var(--tw-bg-opacity, 1))}.hover\:bg-purple-100:hover{--tw-bg-opacity:1;background-color:rgb(243 232 255 / var(--tw-bg-opacity, 1))}.hover\:bg-red-100:hover{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.hover\:bg-teal-100:hover{--tw-bg-opacity:1;background-color:rgb(204 251 241 / var(--tw-bg-opacity, 1))}.hover\:bg-yellow-100:hover{--tw-bg-opacity:1;background-color:rgb(254 249 195 / var(--tw-bg-opacity, 1))}.hover\:bg-yellow-50:hover{--tw-bg-opacity:1;background-color:rgb(254 252 232 / var(--tw-bg-opacity, 1))}.hover\:text-blue-600:hover{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.hover\:text-blue-800:hover{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.hover\:text-green-700:hover{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.hover\:text-indigo-700:hover{--tw-text-opacity:1;color:rgb(67 56 202 / var(--tw-text-opacity, 1))}.hover\:text-orange-700:hover{--tw-text-opacity:1;color:rgb(194 65 12 / var(--tw-text-opacity, 1))}.hover\:text-purple-700:hover{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.hover\:text-teal-700:hover{--tw-text-opacity:1;color:rgb(15 118 110 / var(--tw-text-opacity, 1))}.hover\:text-yellow-700:hover{--tw-text-opacity:1;color:rgb(161 98 7 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 768px){.md\:ml-6{margin-left:1.5rem}.md\:hidden{display:none}.md\:h-32{height:8rem}.md\:scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:p-4{padding:1rem}.md\:p-8{padding:2rem}.md\:py-20{padding-top:5rem;padding-bottom:5rem}.md\:py-24{padding-top:6rem;padding-bottom:6rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-6xl{font-size:3.75rem;line-height:1}.md\:text-base{font-size:1rem;line-height:1.5rem}.md\:text-lg{font-size:1.125rem;line-height:1.75rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}.md\:hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}</style></head>
+<body class="bg-gray-50">
+
+    <main>
+        <section class="relative bg-gray-100 flex flex-col items-center text-center px-4 py-16 md:py-24 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute top-10 left-10 w-24 h-24 bg-red-300 rounded-full opacity-20 animate-pulse"></div>
+                <div class="absolute bottom-20 right-10 w-32 h-32 bg-green-300 rounded-full opacity-20 animate-bounce delay-500"></div>
+                <div class="absolute top-1/3 right-1/4 w-16 h-16 bg-yellow-300 rounded-full opacity-20 animate-spin-slow"></div>
+                <div class="absolute bottom-1/4 left-1/4 w-20 h-20 bg-blue-300 rounded-lg opacity-15 transform rotate-12"></div>
+            </div>
+            <div class="z-10 flex flex-col items-center">
+                <div class="inline-block mb-6 rotate-2 bg-white p-3 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-transform hover:rotate-0">
+                    <img src="./Presentasi Kelompok 5 - Perlindungan Guru &amp; Sejarah Unindra_files/YwTS4V.png" alt="Logo Unindra" class="h-24 md:h-32" onerror="this.onerror=null;this.src=&#39;https://placehold.co/128x128/cccccc/ffffff?text=Logo&#39;;">
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight">
+                    <span class="inline-block bg-yellow-300 px-3 py-1 -rotate-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mb-2 transition-transform hover:rotate-0">
+                        Perlindungan Guru
+                    </span>
+                    <span class="text-4xl md:text-6xl font-black">&amp;</span>
+                    <br class="md:hidden">
+                    <span class="inline-block bg-blue-300 px-3 py-1 rotate-1 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] mt-2 transition-transform hover:rotate-0">
+                         Sejarah Unindra
+                    </span>
+                </h1>
+                <p class="text-lg md:text-xl max-w-2xl mx-auto my-6 bg-white p-4 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    Eksplorasi mendalam tentang perlindungan guru, organisasi profesi, dan sejarah Universitas Indraprasta PGRI.
+                </p>
+                <a href="file:///C:/Users/Dandi/project/kelompok/Kelompok%205%20-%20Perlindungan%20Guru%20dan%20Partisipasi%20Guru%20Dalam%20Organisasi%20Profesi%20serta%20Sejarah%20dan%20Perkembangan%20Unindra%20Sebagai%20Perguruan%20Tinggi%20PGRI%20di%20Jakarta.html#team-members" class="neo-button mt-8" aria-label="Lihat Anggota Tim">
+                    <span>Mulai Eksplorasi</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 lucide lucide-chevron-down flex-shrink-0"><path d="m6 9 6 6 6-6"></path></svg>
+                </a>
+            </div>
+        </section>
+
+        <section id="team-members" class="flex flex-col items-center px-8 py-16 md:py-20 bg-white">
+            <div class="heading-box mb-6 bg-yellow-300 transform -rotate-1 hover:rotate-1">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Kelompok 5
+                </h2>
+            </div>
+            <p class="text-lg md:text-xl text-center max-w-3xl mb-10 text-gray-700">
+                Anggota kelompok kami terdiri dari 9 Anggota.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl w-full">
+                <div class="neo-card p-5 bg-gray-50 hover:bg-yellow-50 transition-all duration-300 ease-in-out flex items-center space-x-4 transform hover:-translate-y-1" style="transform: rotate(-0.5deg);">
+                    <div class="flex-shrink-0 bg-gray-200 p-2 rounded-full border-2 border-black shadow-neo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 lucide lucide-user-circle"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold text-md md:text-lg leading-tight">Muhammad Naufal Nur Sya'bani</h3>
+                        <span class="inline-block bg-gray-200 rounded px-2 py-0.5 text-xs font-semibold text-gray-700 mt-1 border border-gray-400">NPM: 202343500113</span>
+                    </div>
+                </div>
+                <div class="neo-card p-5 bg-gray-50 hover:bg-yellow-50 transition-all duration-300 ease-in-out flex items-center space-x-4 transform hover:-translate-y-1" style="transform: rotate(0.2deg);">
+                     <div class="flex-shrink-0 bg-gray-200 p-2 rounded-full border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 lucide lucide-user-circle"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg> </div>
+                     <div class="flex-grow"> <h3 class="font-bold text-md md:text-lg leading-tight">Ahmad Dandi Subhani</h3> <span class="inline-block bg-gray-200 rounded px-2 py-0.5 text-xs font-semibold text-gray-700 mt-1 border border-gray-400">NPM: 202343500126</span> </div>
+                </div>
+                <div class="neo-card p-5 bg-gray-50 hover:bg-yellow-50 transition-all duration-300 ease-in-out flex items-center space-x-4 transform hover:-translate-y-1" style="transform: rotate(-0.8deg);">
+                     <div class="flex-shrink-0 bg-gray-200 p-2 rounded-full border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 lucide lucide-user-circle"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg> </div>
+                     <div class="flex-grow"> <h3 class="font-bold text-md md:text-lg leading-tight">Frisilia Elfira Maharani</h3> <span class="inline-block bg-gray-200 rounded px-2 py-0.5 text-xs font-semibold text-gray-700 mt-1 border border-gray-400">NPM: 202343500138</span> </div>
+                </div>
+                <div class="neo-card p-5 bg-gray-50 hover:bg-yellow-50 transition-all duration-300 ease-in-out flex items-center space-x-4 transform hover:-translate-y-1" style="transform: rotate(0.6deg);">
+                     <div class="flex-shrink-0 bg-gray-200 p-2 rounded-full border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 lucide lucide-user-circle"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg> </div>
+                     <div class="flex-grow"> <h3 class="font-bold text-md md:text-lg leading-tight">Febyana Mulia Putri</h3> <span class="inline-block bg-gray-200 rounded px-2 py-0.5 text-xs font-semibold text-gray-700 mt-1 border border-gray-400">NPM: 202343500151</span> </div>
+                </div>
+                 <div class="neo-card p-5 bg-gray-50 hover:bg-yellow-50 transition-all duration-300 ease-in-out flex items-center space-x-4 transform hover:-translate-y-1" style="transform: rotate(-0.1deg);">
+                     <div class="flex-shrink-0 bg-gray-200 p-2 rounded-full border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 lucide lucide-user-circle"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg> </div>
+                     <div class="flex-grow"> <h3 class="font-bold text-md md:text-lg leading-tight">Nur Cahya Adiningsih</h3> <span class="inline-block bg-gray-200 rounded px-2 py-0.5 text-xs font-semibold text-gray-700 mt-1 border border-gray-400">NPM: 202343570019</span> </div>
+                </div>
+                 <div class="neo-card p-5 bg-gray-50 hover:bg-yellow-50 transition-all duration-300 ease-in-out flex items-center space-x-4 transform hover:-translate-y-1" style="transform: rotate(0.9deg);">
+                     <div class="flex-shrink-0 bg-gray-200 p-2 rounded-full border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 lucide lucide-user-circle"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg> </div>
+                     <div class="flex-grow"> <h3 class="font-bold text-md md:text-lg leading-tight">Bagas Pratama Putra</h3> <span class="inline-block bg-gray-200 rounded px-2 py-0.5 text-xs font-semibold text-gray-700 mt-1 border border-gray-400">NPM: 202343500161</span> </div>
+                </div>
+                 <div class="neo-card p-5 bg-gray-50 hover:bg-yellow-50 transition-all duration-300 ease-in-out flex items-center space-x-4 transform hover:-translate-y-1" style="transform: rotate(-0.4deg);">
+                     <div class="flex-shrink-0 bg-gray-200 p-2 rounded-full border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 lucide lucide-user-circle"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg> </div>
+                     <div class="flex-grow"> <h3 class="font-bold text-md md:text-lg leading-tight">Ferdi Budi Utomo</h3> <span class="inline-block bg-gray-200 rounded px-2 py-0.5 text-xs font-semibold text-gray-700 mt-1 border border-gray-400">NPM: 202343500196</span> </div>
+                </div>
+                 <div class="neo-card p-5 bg-gray-50 hover:bg-yellow-50 transition-all duration-300 ease-in-out flex items-center space-x-4 transform hover:-translate-y-1" style="transform: rotate(0.1deg);">
+                     <div class="flex-shrink-0 bg-gray-200 p-2 rounded-full border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 lucide lucide-user-circle"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg> </div>
+                     <div class="flex-grow"> <h3 class="font-bold text-md md:text-lg leading-tight">Wanda Nurhasanah</h3> <span class="inline-block bg-gray-200 rounded px-2 py-0.5 text-xs font-semibold text-gray-700 mt-1 border border-gray-400">NPM: 202343500154</span> </div>
+                </div>
+                 <div class="neo-card p-5 bg-gray-50 hover:bg-yellow-50 transition-all duration-300 ease-in-out flex items-center space-x-4 transform hover:-translate-y-1" style="transform: rotate(-0.7deg);">
+                     <div class="flex-shrink-0 bg-gray-200 p-2 rounded-full border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 lucide lucide-user-circle"><path d="M18 20a6 6 0 0 0-12 0"></path><circle cx="12" cy="10" r="4"></circle><circle cx="12" cy="12" r="10"></circle></svg> </div>
+                     <div class="flex-grow"> <h3 class="font-bold text-md md:text-lg leading-tight">Dhani Kurnia Ramdani</h3> <span class="inline-block bg-gray-200 rounded px-2 py-0.5 text-xs font-semibold text-gray-700 mt-1 border border-gray-400">NPM: 202343500139</span> </div>
+                </div>
+                </div>
+        </section>
+
+        <section id="perlindungan" class="flex flex-col items-center px-8 py-16 md:py-20 bg-red-50">
+            <div class="heading-box mb-12 bg-red-300 transform rotate-1 hover:rotate-[-1deg]">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    Mengapa Perlindungan Guru Penting?
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <div class="neo-card p-6 bg-white hover:bg-red-100 transition-colors duration-200 flex flex-col">
+                     <div class="flex items-center mb-4">
+                        <div class="bg-red-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-800 lucide lucide-user-check"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="16 11 18 13 22 9"></polyline></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Peran Guru Sentral</h3>
+                     </div>
+                     <p class="text-base mb-3 flex-grow"> Guru memegang peranan vital dalam membangun SDM berkualitas dan kemajuan bangsa. Tugas mulia ini memerlukan dukungan kuat agar optimal. </p>
+                     <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: Logika Umum Pendidikan </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-red-100 transition-colors duration-200 flex flex-col md:scale-105 transform md:hover:scale-110">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-800 lucide lucide-book-user"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path><path d="M12 10a3 3 0 1 0-3-3"></path><path d="M12 14a3 3 0 0 0-3 3v1h6v-1a3 3 0 0 0-3-3Z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Kebutuhan Guru</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Membutuhkan lingkungan kerja kondusif, pengakuan profesionalitas, dan jaminan perlindungan memadai untuk menjalankan tugas dengan baik. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: Logika Umum Pendidikan </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-red-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-red-800 lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Lingkup Kajian Ini</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Mengkaji aspek perlindungan hukum &amp; profesi, peran &amp; partisipasi dalam organisasi profesi (fokus PGRI), serta sejarah &amp; perkembangan Unindra. </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-blue-50">
+            <div class="heading-box mb-12 bg-blue-300 transform rotate-1 hover:rotate-[-1deg]">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-gavel"><path d="m14 13-8.5 8.5a2.1 2.1 0 1 1-3-3L11 10"></path><path d="m15 12 6 6"></path><path d="m11 10 4.5-4.5a2.1 2.1 0 1 1 3 3L14 13"></path><path d="M3 21h6"></path><path d="m15 12-1.4-1.4"></path><path d="m11 10 1.4 1.4"></path></svg>
+                    Dasar Hukum Perlindungan Guru
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <div class="neo-card p-6 bg-white hover:bg-blue-100 transform transition-transform hover:-translate-y-1 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-800 lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Diatur Undang-Undang</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Perlindungan guru di Indonesia dijamin oleh kerangka hukum, utamanya UU No. 14 Tahun 2005 tentang Guru dan Dosen (Pasal 39) serta peraturan pelaksananya. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://luk.tsipil.ugm.ac.id/atur/UU14-2005GuruDosen.pdf" class="underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">UU No. 14/2005</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-blue-100 transform transition-transform hover:-translate-y-1 md:scale-105 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-800 lucide lucide-gavel"><path d="m14 13-8.5 8.5a2.1 2.1 0 1 1-3-3L11 10"></path><path d="m15 12 6 6"></path><path d="m11 10 4.5-4.5a2.1 2.1 0 1 1 3 3L14 13"></path><path d="M3 21h6"></path><path d="m15 12-1.4-1.4"></path><path d="m11 10 1.4 1.4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Definisi Perlindungan</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Segala upaya dari berbagai pihak (pemerintah, masyarakat, organisasi profesi, dll.) untuk memastikan guru dapat bertugas dengan tenang, aman, dan damai sebagai bagian dari HAM. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://ejournal.unisai.ac.id/index.php/jiam/article/download/936/739/3893" class="underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">Jurnal Ilmiah Administrasi Publik</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-blue-100 transform transition-transform hover:-translate-y-1 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-800 lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Tanggung Jawab Bersama</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Pelaksanaan perlindungan ini adalah tanggung jawab kolektif seluruh pemangku kepentingan, termasuk keluarga dan orang tua murid secara partisipatif. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://peraturan.bpk.go.id/Download/50709/PERDA-NO-7-TAHUN-2017-TTG-PERLINDUNGAN%20GURU.pdf" class="underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">Perda Perlindungan Guru (Contoh)</a> </div>
+                </div>
+            </div>
+        </section>
+        <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-green-50">
+            <div class="heading-box mb-12 bg-green-300 transform rotate-[-1deg] hover:rotate-1">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-scale"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M12 3v18"></path><path d="M3 7h18"></path><path d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"></path></svg>
+                    Dimensi Perlindungan Guru
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
+                <div class="neo-card p-6 bg-white hover:bg-green-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-800 lucide lucide-shield-check"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Perlindungan Hukum</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Melindungi dari tindak kekerasan, ancaman, diskriminasi, intimidasi, atau ketidakadilan. Termasuk konsultasi dan pendampingan hukum. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://jurnal.markandeyabali.ac.id/index.php/wahanachitta/article/download/21/18" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Kajian Pasal 39 UU Guru Dosen</a> <a href="https://www.hukumonline.com/klinik/a/perlindungan-hukum-bagi-guru-dalam-menjalankan-tugasnya-lt5ef1e6f0de53f/" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Klinik Hukumonline</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-green-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-800 lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Perlindungan Profesi</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Menjamin dari PHK sepihak, memastikan imbalan wajar, kebebasan akademik &amp; penilaian, hak berserikat, kesempatan pengembangan, dan penempatan sesuai keahlian. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://jurnal.markandeyabali.ac.id/index.php/wahanachitta/article/download/21/18" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Kajian Pasal 39 UU Guru Dosen</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-green-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-800 lucide lucide-heart-pulse"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path><path d="M3.22 12H9.5l.7-1 2.1 4.7 1.4-3 1.6 1.6H20.8"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Keselamatan &amp; Kesehatan Kerja (K3)</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Perlindungan terhadap risiko di tempat kerja (kecelakaan, kebakaran, bencana alam, kesehatan lingkungan) yang wajib disediakan satuan pendidikan. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://jurnal.markandeyabali.ac.id/index.php/wahanachitta/article/download/21/18" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Kajian Pasal 39 UU Guru Dosen</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-green-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-800 lucide lucide-brain"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3.06Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3.06Z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Hak Kekayaan Intelektual (HaKI)</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Pengakuan dan perlindungan hukum atas karya cipta guru, seperti buku, modul, media pembelajaran, atau inovasi lainnya. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://ejournal.unisai.ac.id/index.php/jiam/article/download/936/739/3893" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Jurnal Ilmiah Administrasi Publik</a> </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-yellow-50">
+            <div class="heading-box mb-12 bg-yellow-300 transform -rotate-1 hover:rotate-1">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg>
+                    Organisasi Profesi Guru: Peran &amp; Kewenangan
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full mb-10">
+                <div class="neo-card p-6 bg-white hover:bg-yellow-100 transition-colors duration-200 flex flex-col">
+                    <h3 class="text-xl font-bold font-space-grotesk mb-3 border-b-4 border-yellow-400 pb-2">Wadah Guru Profesional</h3>
+                    <p class="text-base mb-3 flex-grow"> Sesuai UU Guru &amp; Dosen, organisasi profesi adalah perkumpulan berbadan hukum untuk mengembangkan profesionalitas guru. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: UU No. 14/2005 Pasal 1 ayat 13 </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-yellow-100 transition-colors duration-200 md:scale-105 transform md:hover:scale-110 flex flex-col">
+                    <h3 class="text-xl font-bold font-space-grotesk mb-3 border-b-4 border-yellow-400 pb-2">PGRI sebagai Organisasi Utama</h3>
+                    <p class="text-base mb-3 flex-grow"> Persatuan Guru Republik Indonesia (PGRI) adalah salah satu organisasi profesi guru utama di Indonesia dengan jaringan luas. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://media.neliti.com/media/publications/276394-implementasi-kebijakan-organisasi-pgri-d-1e3139dc.pdf" class="underline hover:text-yellow-700" target="_blank" rel="noopener noreferrer">Neliti: Implementasi Kebijakan PGRI</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-yellow-100 transition-colors duration-200 flex flex-col">
+                    <h3 class="text-xl font-bold font-space-grotesk mb-3 border-b-4 border-yellow-400 pb-2">Fungsi &amp; Kewenangan</h3>
+                    <ul class="list-disc list-inside text-base space-y-1 mb-3 flex-grow">
+                        <li>Memajukan profesi</li>
+                        <li>Meningkatkan kompetensi &amp; kesejahteraan</li>
+                        <li>Memberikan perlindungan profesi (termasuk hukum)</li>
+                        <li>Menetapkan &amp; menegakkan kode etik</li>
+                        <li>Memajukan pendidikan nasional</li>
+                    </ul>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: UU No. 14/2005 Ps 41-42, <a href="https://fairuzelsaid.upy.ac.id/ke-pgri-an/pgri-sebagai-organisasi-profesi/" class="underline hover:text-yellow-700" target="_blank" rel="noopener noreferrer">UPY: PGRI sbg Org. Profesi</a> </div>
+                </div>
+            </div>
+            <div class="neo-card p-6 md:p-8 bg-white max-w-4xl w-full border-t-4 border-yellow-400">
+                <div class="flex items-center mb-4">
+                    <div class="bg-yellow-200 p-3 rounded-lg mr-4 border-2 border-black shadow-neo">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-800 lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold font-space-grotesk">Komitmen PGRI untuk Pendidikan</h3>
+                </div>
+                <p class="text-base md:text-lg mb-3"> PGRI berdiri sebagai wadah pemersatu guru dalam perjuangan meningkatkan mutu pendidikan dan martabat profesi. </p>
+                <p class="text-base md:text-lg"> Menjadi mitra strategis pemerintah dalam implementasi kebijakan pendidikan, sekaligus wadah aspirasi dan perlindungan bagi guru. </p>
+            </div>
+        </section>
+
+        <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-purple-50">
+            <div class="heading-box mb-12 bg-purple-300 transform rotate-1 hover:rotate-[-1deg]">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-award"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg>
+                    PGRI dalam Memajukan Guru: Praktik Nyata
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                <div class="neo-card p-6 bg-white hover:bg-purple-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-800 lucide lucide-book-open"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Peningkatan Kompetensi (PKB)</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Memfasilitasi berbagai kegiatan PKB (seminar, lokakarya, pelatihan) melalui forum seperti MGMP/KKG untuk memutakhirkan kompetensi guru. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://jurnal.stkipbjm.ac.id/index.php/sensaseda/article/download/1555/777/" class="underline hover:text-purple-700 block" target="_blank" rel="noopener noreferrer">Jurnal STKIP Bjm: Peran PGRI</a> <a href="https://edu.ojs.co.id/index.php/jpm/article/download/307/357/1145" class="underline hover:text-purple-700 block" target="_blank" rel="noopener noreferrer">Edu OJS: Jurnal Pendidikan</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-purple-100 transition-colors duration-200 flex flex-col md:scale-105 transform md:hover:scale-110">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-800 lucide lucide-dollar-sign"><line x1="12" x2="12" y1="2" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Perjuangan Kesejahteraan</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Aktif mengadvokasi peningkatan gaji, tunjangan, jaminan sosial, dan mengawal skema seperti PPPK melalui dialog konstruktif dengan pemerintah. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://www.pgrijawatengah.com/2024/08/aksi-nyata-pgri-bagi-guru-di-kabupaten.html" class="underline hover:text-purple-700 block" target="_blank" rel="noopener noreferrer">PGRI Jateng: Aksi Nyata</a> <a href="https://pgri.or.id/memperjuangkan-kesejahteraan-dan-kompetensi-guru/" class="underline hover:text-purple-700 block" target="_blank" rel="noopener noreferrer">PB PGRI: Kesejahteraan</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-purple-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-800 lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Pemersatu &amp; Pemberdaya</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Menjadi wadah aspirasi, membangun solidaritas, dan memberdayakan anggota melalui berbagai program internal dan kaderisasi kepemimpinan. </p>
+                    <p class="mt-auto text-sm italic text-purple-800"> "PGRI: Gerakan pemersatu guru untuk martabat profesi dan kualitas pendidikan." </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-indigo-50">
+             <div class="heading-box mb-12 bg-indigo-300 transform -rotate-1 hover:rotate-1">
+                 <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                     PGRI dalam Memberikan Perlindungan Konkret
+                 </h2>
+             </div>
+             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
+                 <div class="neo-card p-6 bg-white hover:bg-indigo-100 transition-colors duration-200 flex flex-col">
+                     <div class="flex items-center mb-4">
+                         <div class="bg-indigo-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-800 lucide lucide-scale"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"></path><path d="M12 3v18"></path><path d="M3 7h18"></path><path d="M12 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"></path></svg>
+                         </div>
+                         <h3 class="text-xl font-bold font-space-grotesk">Penegakan Kode Etik</h3>
+                     </div>
+                     <p class="text-base mb-3 flex-grow"> Melalui Dewan Kehormatan Guru Indonesia (DKGI), PGRI berperan aktif dalam menjaga martabat dan menegakkan kode etik profesi guru. </p>
+                     <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: UU No. 14/2005 pasal 42 </div>
+                 </div>
+                 <div class="neo-card p-6 bg-white hover:bg-indigo-100 transition-colors duration-200 flex flex-col md:scale-105 transform md:hover:scale-110">
+                     <div class="flex items-center mb-4">
+                         <div class="bg-indigo-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-800 lucide lucide-alert-circle"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg>
+                         </div>
+                         <h3 class="text-xl font-bold font-space-grotesk">Bantuan Hukum (LKBH)</h3>
+                     </div>
+                     <p class="text-base mb-3 flex-grow"> Menyediakan Lembaga Konsultasi dan Bantuan Hukum (LKBH) di berbagai tingkatan untuk memberikan pendampingan hukum bagi guru yang menghadapi masalah profesi. </p>
+                     <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://id.scribd.com/document/512325352/Bidang-Advokasi-Bantuan-Hukum-Dan-Perlindungan-Profesi" class="underline hover:text-indigo-700 block" target="_blank" rel="noopener noreferrer">Scribd: Bidang Advokasi LKBH</a> <a href="https://pgri.or.id/wp-content/uploads/2024/10/PK-PGRI-POLRI-2022-1-KECIL.pdf" class="underline hover:text-indigo-700 block" target="_blank" rel="noopener noreferrer">Pedoman Kerja Sama PGRI-POLRI</a> </div>
+                 </div>
+                 <div class="neo-card p-6 bg-white hover:bg-indigo-100 transition-colors duration-200 flex flex-col">
+                     <div class="flex items-center mb-4">
+                         <div class="bg-indigo-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-800 lucide lucide-handshake"><path d="M14.5 17.5c1.5-1.5 2-4 1.5-5.5l-8-8c-.5-.5-1-.75-1.5-.75s-1 .25-1.5.75l-4 4c-.5.5-.75 1-.75 1.5s.25 1 .75 1.5l4 4c.5.5 1 .75 1.5.75s1-.25 1.5-.75l1.5-1.5"></path><path d="m2 14 4 4"></path><path d="m12 10 4 4"></path><path d="m18 4 4 4"></path><path d="m15 11 4 4"></path></svg>
+                         </div>
+                         <h3 class="text-xl font-bold font-space-grotesk">Advokasi Lintas Lembaga</h3>
+                     </div>
+                     <p class="text-base mb-3 flex-grow"> Menjalin kerja sama strategis dengan lembaga eksekutif, legislatif, yudikatif, hingga Kepolisian RI untuk memastikan perlindungan hukum profesi guru terlaksana efektif. </p>
+                     <p class="mt-auto text-sm italic text-indigo-800"> "Sinergi PGRI dengan berbagai lembaga negara kunci perlindungan guru yang komprehensif." </p>
+                 </div>
+             </div>
+         </section>
+         <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-orange-50">
+            <div class="heading-box mb-12 bg-orange-300 transform -rotate-1 hover:rotate-1">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    Urgensi &amp; Kewajiban Partisipasi Guru
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl w-full">
+                <div class="neo-card p-8 bg-white flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="bg-orange-200 p-4 rounded-full mb-5 border-2 border-black shadow-neo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-800 lucide lucide-file-text"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><line x1="10" x2="8" y1="9" y2="9"></line></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold font-space-grotesk mb-3">Mandat Undang-Undang</h3>
+                    <p class="text-lg mb-4 flex-grow"> Bergabung dan berpartisipasi aktif dalam organisasi profesi bukan hanya hak, melainkan juga <strong class="font-bold">kewajiban</strong> yang diamanatkan oleh UU Guru dan Dosen. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://www.igi.or.id/mengapa-guru-harus-menjadi-anggota-organisasi-profesi.html" class="underline hover:text-orange-700" target="_blank" rel="noopener noreferrer">IGI: Mengapa Harus Bergabung?</a> </div>
+                </div>
+                <div class="neo-card p-8 bg-white flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300">
+                    <div class="bg-orange-200 p-4 rounded-full mb-5 border-2 border-black shadow-neo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-800 lucide lucide-alert-triangle"><path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" x2="12" y1="9" y2="13"></line><line x1="12" x2="12.01" y1="17" y2="17"></line></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold font-space-grotesk mb-3">Mengapa Sangat Penting?</h3>
+                    <p class="text-lg mb-5 flex-grow"> Keanggotaan dan partisipasi aktif memiliki urgensi signifikan karena memberikan <strong class="font-bold">manfaat nyata</strong> bagi pengembangan diri guru dan kemajuan profesi secara kolektif. </p>
+                    <div class="mt-auto p-4 bg-orange-100 rounded-lg border-l-4 border-orange-500 w-full shadow-inner">
+                        <p class="text-md italic font-medium text-orange-900"> "Organisasi profesi adalah rumah bagi pendidik untuk bertumbuh, berbagi, dan berjuang bersama demi martabat profesi." </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-teal-50">
+            <div class="heading-box mb-12 bg-teal-300 transform rotate-1 hover:rotate-[-1deg]">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                    Manfaat Nyata Partisipasi bagi Guru
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full">
+                <div class="neo-card p-6 bg-white hover:bg-teal-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-800 lucide lucide-graduation-cap"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.084a1 1 0 0 0 0 1.838l8.57 3.908a2 2 0 0 0 1.66 0z"></path><path d="M22 10v6"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Pengembangan Profesional</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Akses ke pelatihan, seminar, workshop, dan sumber daya terbaru (jurnal, publikasi) untuk meningkatkan kompetensi berkelanjutan. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://www.igi.or.id/mengapa-guru-harus-menjadi-anggota-organisasi-profesi.html" class="underline hover:text-teal-700" target="_blank" rel="noopener noreferrer">IGI: Mengapa Harus Bergabung?</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-teal-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-800 lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Dukungan &amp; Advokasi</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Memperkuat posisi tawar dan mendapatkan dukungan (hukum/profesi) saat menghadapi masalah, serta melindungi dari intervensi eksternal. </p>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-teal-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-800 lucide lucide-network"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Jaringan &amp; Kolaborasi</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Platform ideal untuk membangun networking, bertukar pengalaman, dan berkolaborasi dengan rekan sejawat dari berbagai latar belakang. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://www.igi.or.id/mengapa-guru-harus-menjadi-anggota-organisasi-profesi.html" class="underline hover:text-teal-700" target="_blank" rel="noopener noreferrer">IGI: Mengapa Harus Bergabung?</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-teal-100 transition-colors duration-200 flex flex-col">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-teal-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-teal-800 lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-space-grotesk">Karier &amp; Kontribusi</h3>
+                    </div>
+                    <p class="text-base mb-3 flex-grow"> Mendukung pengembangan karier, mendapatkan pengakuan profesional, dan berkontribusi lebih luas pada isu pendidikan serta pengabdian masyarakat. </p>
+                    <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://osf.io/a68u9/download" class="underline hover:text-teal-700 block" target="_blank" rel="noopener noreferrer">OSF: Pentingnya Peran Profesi Guru</a> </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-blue-100">
+            <div class="heading-box mb-8 bg-blue-300 transform rotate-1 hover:rotate-[-1deg]">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-history"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M12 5v5l4 2"></path></svg>
+                    Sejarah Unindra
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl w-full mb-10">
+                 <div class="neo-card p-5 bg-white hover:bg-blue-50 transition-colors duration-200 relative flex flex-col"> <h3 class="text-lg font-bold font-space-grotesk mb-2">Cikal Bakal IKIP PGRI</h3> <p class="text-sm mb-2 flex-grow"> Berawal dari upaya PGRI Jakarta memenuhi kebutuhan tenaga pendidik, dengan pendirian dua IKIP PGRI di Jakarta pada awal 1970-an. </p> <div class="mt-auto text-xs text-gray-500 source-text">Sumber: Draf Buku Sejarah Unindra</div> <div class="absolute -top-3 -right-3 bg-blue-400 text-white p-1.5 border-2 border-black rounded-lg transform rotate-6 shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-school"><path d="M14 22v-4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4"></path><path d="M18 10a2 2 0 0 0-2-2h-1"></path><path d="M10 10.5V14"></path><path d="m4 10 8-8 8 8v10H4z"></path></svg> </div> </div>
+                 <div class="neo-card p-5 bg-white hover:bg-blue-50 transition-colors duration-200 relative flex flex-col"> <h3 class="text-lg font-bold font-space-grotesk mb-2">Merger menjadi STKIP</h3> <p class="text-sm mb-2 flex-grow"> Kedua IKIP tersebut kemudian digabungkan pada tahun 1982 menjadi STKIP PGRI Jakarta. </p> <div class="mt-auto text-xs text-gray-500 source-text">Sumber: Website Unindra</div> <div class="absolute -top-3 -left-3 bg-green-400 text-white p-1.5 border-2 border-black rounded-lg transform -rotate-6 shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-medal"><path d="M7.21 15 2.66 7.14a1 1 0 0 1 .13-1.1L4.5 4.5a1 1 0 0 1 1.1-.13L13 7.21"></path><path d="M10 12.5 13.5 9"></path><path d="M7.21 15 13 7.21"></path><path d="m16.8 8.8-1.5-1.5"></path><path d="m10 12.5-1.8-1.8"></path><path d="m7.21 15 1.8 1.8"></path><path d="M13 7.21 15.5 4.5a1 1 0 0 1 1.1.13l1.7 1.7a1 1 0 0 1 .13 1.1L16.8 8.8"></path><path d="M7.21 15 2.66 19.54A1 1 0 0 0 3.76 21L8 21l5-5"></path><path d="M16.8 15.2a1 1 0 0 1 1.1.13l1.7 1.7a1 1 0 0 1 .13 1.1l-4.54 4.54a1 1 0 0 1-1.1.13L9 18.8"></path><circle cx="12" cy="12" r="3"></circle></svg> </div> </div>
+                 <div class="neo-card p-5 bg-white hover:bg-blue-50 transition-colors duration-200 relative flex flex-col"> <h3 class="text-lg font-bold font-space-grotesk mb-2">Transformasi Menjadi Universitas</h3> <p class="text-sm mb-2 flex-grow"> Pada 6 September 2004, STKIP PGRI Jakarta resmi berubah bentuk menjadi Universitas Indraprasta PGRI, menandai perluasan bidang ilmu. </p> <div class="mt-auto text-xs text-gray-500 source-text">Sumber: Website Unindra</div> <div class="absolute -bottom-3 -right-3 bg-yellow-400 text-black p-1.5 border-2 border-black rounded-lg transform rotate-3 shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect><path d="M9 22v-4h6v4"></path><path d="M8 6h.01"></path><path d="M16 6h.01"></path><path d="M12 6h.01"></path><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path></svg> </div> </div>
+                 <div class="neo-card p-5 bg-white hover:bg-blue-50 transition-colors duration-200 relative flex flex-col"> <h3 class="text-lg font-bold font-space-grotesk mb-2">Hubungan Kelembagaan</h3> <p class="text-sm mb-2 flex-grow"> Didirikan dan dibina oleh PGRI, bernaung di bawah YPLP PGRI, menunjukkan misi sejalan dalam memajukan pendidikan. </p> <div class="mt-auto text-xs text-gray-500 source-text">Sumber: Wikipedia Unindra</div> </div>
+            </div>
+            <div class="w-full max-w-3xl mt-6">
+                <h3 class="text-2xl font-bold mb-6 text-center font-space-grotesk flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 lucide lucide-calendar"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
+                    Timeline Sejarah Unindra
+                </h3>
+                <div class="relative pl-6 border-l-4 border-black border-dashed py-4 pr-2">
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(-0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">1971</span> <p class="text-sm md:text-base text-gray-800">IKIP PGRI Jakarta berdiri di Jakarta Utara, sebagai cikal bakal pembentukan Universitas Indraprasta PGRI Jakarta.</p> </div> </div>
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">1974</span> <p class="text-sm md:text-base text-gray-800">IKIP PGRI Jaya didirikan di Jakarta Selatan.</p> </div> </div>
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(-0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">1982</span> <p class="text-sm md:text-base text-gray-800">IKIP PGRI Jakarta dan IKIP PGRI Jaya bergabung dan membentuk STKIP PGRI Jakarta.</p> </div> </div>
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">1983</span> <p class="text-sm md:text-base text-gray-800">STKIP PGRI Ciputat berdiri.</p> </div> </div>
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(-0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">1986</span> <p class="text-sm md:text-base text-gray-800">STKIP PGRI Ciputat bergabung dengan STKIP PGRI Jakarta.</p> </div> </div>
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">2004</span> <p class="text-sm md:text-base text-gray-800">STKIP PGRI Jakarta berubah menjadi Universitas Indraprasta PGRI (UNINDRA) pada tanggal 6 September (Dies Natalis).</p> </div> </div>
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(-0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">2007</span> <p class="text-sm md:text-base text-gray-800">Program Pascasarjana Unindra dibuka dengan menyelenggarakan pendidikan Strata 2.</p> </div> </div>
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">2012</span> <p class="text-sm md:text-base text-gray-800">Diresmikan Kampus B Unindra (Gedung II) di Jl. Nangka, Tanjung Barat. (Lokasi: Gedong, Pasar Rebo berdasarkan sumber lain).</p> </div> </div>
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(-0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">2018</span> <p class="text-sm md:text-base text-gray-800">FTMIPA berkembang menjadi dua fakultas: FMIPA dan FTIK.</p> </div> </div>
+                     <div class="mb-6 relative"> <div class="timeline-dot absolute -left-[12px] top-1 bg-primary border-black"></div> <div class="ml-4 md:ml-6 neo-card p-3 md:p-4 bg-white transform hover:scale-[1.02] transition-transform duration-200 ease-out" style="transform: rotate(0.5deg);"> <span class="font-bold text-md md:text-lg text-blue-700 bg-blue-100 px-2 py-0.5 rounded border border-blue-300 inline-block mb-2">2019-2024</span> <p class="text-sm md:text-base text-gray-800">Kampus C di Depok diresmikan (2019). Penambahan 4 Prodi baru (2023) dan 2 Prodi baru (2024) [Sistem Informasi, Bisnis Digital, Manajemen Ritel, Sains Data, Ilmu Pendidikan Doktor].</p> </div> </div>
+                     </div>
+            </div>
+        </section>
+
+        <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-green-100">
+            <div class="heading-box mb-12 bg-green-300 transform rotate-[-1deg] hover:rotate-1">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+                    Unindra Masa Kini: Pertumbuhan &amp; Pencapaian
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl w-full mb-10">
+                <div class="neo-card p-6 bg-white hover:bg-green-50 transition-colors duration-200 flex flex-col">
+                     <div class="flex items-center mb-4"> <div class="bg-green-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-800 lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> </div> <h3 class="text-xl font-bold font-space-grotesk">Pertumbuhan Mahasiswa Pesat</h3> </div>
+                     <p class="text-base mb-3 flex-grow"> Mengalami lonjakan jumlah mahasiswa signifikan, menjadi salah satu PTS terbesar di Jakarta, didukung komitmen PGRI pada pendidikan terjangkau. </p>
+                     <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://www.rakyatnasional.com/news-4338-prof-sumaryoto%E2%80%93unindra-merupakan-kampus-5-terbesar-jumlah-mahasiswanya.html" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Rakyat Nasional: Kampus Terbesar</a> <a href="https://unindra.ac.id/about" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Visi Unindra (Terjangkau)</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-green-50 transition-colors duration-200 flex flex-col">
+                     <div class="flex items-center mb-4"> <div class="bg-green-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-800 lucide lucide-bar-chart"><line x1="12" x2="12" y1="20" y2="10"></line><line x1="18" x2="18" y1="20" y2="4"></line><line x1="6" x2="6" y1="20" y2="16"></line></svg> </div> <h3 class="text-xl font-bold font-space-grotesk">Pengembangan Kampus &amp; Akademik</h3> </div>
+                     <p class="text-base mb-3 flex-grow"> Memiliki beberapa lokasi kampus dan mendiversifikasi prodi di berbagai fakultas (S1-S3), tidak hanya keguruan tapi juga bidang lain yang relevan. </p>
+                     <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://en.wikipedia.org/wiki/Indraprasta_PGRI_University" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Wikipedia Unindra</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-green-50 transition-colors duration-200 flex flex-col">
+                     <div class="flex items-center mb-4"> <div class="bg-green-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-800 lucide lucide-award"><circle cx="12" cy="8" r="6"></circle><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path></svg> </div> <h3 class="text-xl font-bold font-space-grotesk">Kualitas Terakui</h3> </div>
+                     <p class="text-base mb-3 flex-grow"> Kualitas institusi diakui dengan Akreditasi Institusi "B" oleh BAN-PT dan meningkatnya akreditasi banyak program studi. </p>
+                     <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://www.rakyatnasional.com/news-4338-prof-sumaryoto%E2%80%93unindra-merupakan-kampus-5-terbesar-jumlah-mahasiswanya.html" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Update Akreditasi B (Juli 2023)</a> <a href="https://campus.quipper.com/directory/universitas-indraprasta-pgri" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Quipper Campus Akreditasi</a> </div>
+                </div>
+                <div class="neo-card p-6 bg-white hover:bg-green-50 transition-colors duration-200 flex flex-col">
+                     <div class="flex items-center mb-4"> <div class="bg-green-200 p-3 rounded-lg mr-3 border-2 border-black shadow-neo"> <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-800 lucide lucide-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> </div> <h3 class="text-xl font-bold font-space-grotesk">Prestasi dan Visi</h3> </div>
+                     <p class="text-base mb-3 flex-grow"> Aktif meraih prestasi regional/nasional. Mengusung visi menjadi "Excellent Teaching University" 2029, terus berupaya meningkatkan layanan pendidikan. </p>
+                     <div class="mt-auto text-xs text-gray-500 source-text"> Sumber: <a href="https://unindra.ac.id/about" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Visi Unindra</a> <a href="https://unindra.ac.id/events/pekan-pendidikan-tinggi-jakarta-pptj-ke-20-tahun-2025?language=en" class="underline hover:text-green-700 block" target="_blank" rel="noopener noreferrer">Event PPTJ</a> </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="flex flex-col items-center px-8 py-16 md:py-20 bg-gray-200">
+            <div class="heading-box mb-10 bg-white transform rotate-[-1deg] hover:rotate-1">
+                <h2 class="text-3xl md:text-4xl font-bold flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 lucide lucide-book-marked"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path><polyline points="10 2 10 10 13 7 16 10 16 2"></polyline></svg>
+                    Daftar Pustaka / Sumber
+                </h2>
+            </div>
+            <div class="neo-card bg-white p-6 md:p-8 w-full max-w-4xl">
+                <ul class="space-y-3 list-decimal list-inside text-sm md:text-base leading-relaxed">
+                    <li>UU No. 14 Tahun 2005 tentang Guru dan Dosen. <a href="https://luk.tsipil.ugm.ac.id/atur/UU14-2005GuruDosen.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Jurnal Ilmiah Administrasi Publik: Definisi Perlindungan Guru. <a href="https://ejournal.unisai.ac.id/index.php/jiam/article/download/936/739/3893" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Peraturan Daerah (Contoh) tentang Perlindungan Guru. <a href="https://peraturan.bpk.go.id/Download/50709/PERDA-NO-7-TAHUN-2017-TTG-PERLINDUNGAN%20GURU.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Neliti: Implementasi Kebijakan Organisasi PGRI. <a href="https://media.neliti.com/media/publications/276394-implementasi-kebijakan-organisasi-pgri-d-1e3139dc.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Fairuzelsaid UPY: PGRI Sebagai Organisasi Profesi. <a href="https://fairuzelsaid.upy.ac.id/ke-pgri-an/pgri-sebagai-organisasi-profesi/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Ikatan Guru Indonesia (IGI): Mengapa Guru Harus Menjadi Anggota Organisasi Profesi? <a href="https://www.igi.or.id/mengapa-guru-harus-menjadi-anggota-organisasi-profesi.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>OSF Preprints: Pentingnya Peran Profesi Guru dalam Meningkatkan Kualitas Pendidikan. <a href="https://osf.io/a68u9/download" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Jurnal STKIP Banjarmasin: Peranan PGRI dalam Peningkatan Kompetensi Berkelanjutan. <a href="https://jurnal.stkipbjm.ac.id/index.php/sensaseda/article/download/1555/777/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Edu OJS: Jurnal Pendidikan Multidisipliner - Organisasi Profesi Keguruan. <a href="https://edu.ojs.co.id/index.php/jpm/article/download/307/357/1145" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>PGRI Jawa Tengah: Aksi Nyata PGRI bagi Guru di Kabupaten Batang. <a href="https://www.pgrijawatengah.com/2024/08/aksi-nyata-pgri-bagi-guru-di-kabupaten.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Website PB PGRI: Memperjuangkan Kesejahteraan dan Kompetensi Guru. <a href="https://pgri.or.id/memperjuangkan-kesejahteraan-dan-kompetensi-guru/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Scribd: Bidang Advokasi, Bantuan Hukum Dan Perlindungan Profesi. <a href="https://id.scribd.com/document/512325352/Bidang-Advokasi-Bantuan-Hukum-Dan-Perlindungan-Profesi" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Website PB PGRI: Pedoman Kerja Sama PGRI-POLRI. <a href="https://pgri.or.id/wp-content/uploads/2024/10/PK-PGRI-POLRI-2022-1-KECIL.pdf" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Jurnal Markandeya Bali: Kajian Pasal 39 UU Guru Dosen. <a href="https://jurnal.markandeyabali.ac.id/index.php/wahanachitta/article/download/21/18" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Hukumonline Klinik: Perlindungan Hukum Bagi Guru. <a href="https://www.hukumonline.com/klinik/a/perlindungan-hukum-bagi-guru-dalam-menjalankan-tugasnya-lt5ef1e6f0de53f/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Rakyat Nasional: Prof. Sumaryoto – Unindra Merupakan Kampus 5 Terbesar Jumlah Mahasiswanya. <a href="https://www.rakyatnasional.com/news-4338-prof-sumaryoto%E2%80%93unindra-merupakan-kampus-5-terbesar-jumlah-mahasiswanya.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Website Unindra: Visi, Misi, Sejarah, Tentang. <a href="https://unindra.ac.id/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Wikipedia: Universitas Indraprasta PGRI. <a href="https://id.wikipedia.org/wiki/Universitas_Indraprasta_PGRI" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Quipper Campus: Universitas Indraprasta PGRI. <a href="https://campus.quipper.com/directory/universitas-indraprasta-pgri" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Website Unindra Events: Pekan Pendidikan Tinggi Jakarta. <a href="https://unindra.ac.id/events/pekan-pendidikan-tinggi-jakarta-pptj-ke-20-tahun-2025?language=en" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline ml-1">[Link]</a></li>
+                    <li>Draf Buku Sejarah Unindra <span class="text-gray-500 ml-1">[Sumber Internal]</span></li>
+                    </ul>
+            </div>
+            <p class="mt-4 text-xs text-gray-600">Catatan: Daftar sumber ini mungkin belum lengkap dan perlu diverifikasi.</p>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-900 text-gray-200 py-12 border-t-4 border-black shadow-[0_-5px_0px_0px_rgba(0,0,0,1)]">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div>
+                    <div class="flex items-center mb-5">
+                        <img src="./Presentasi Kelompok 5 - Perlindungan Guru &amp; Sejarah Unindra_files/YwTS4V.png" alt="Logo Unindra" class="h-14 mr-4 bg-white p-1 border-2 border-black shadow-neo" onerror="this.onerror=null;this.src=&#39;https://placehold.co/64x64/cccccc/ffffff?text=Logo&#39;;">
+                        <div>
+                            <h3 class="text-xl font-bold font-space-grotesk text-white">Universitas Indraprasta PGRI</h3>
+                            <p class="text-gray-400 text-sm">Berkomitmen pada pendidikan berkualitas</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 mt-1 text-secondary flex-shrink-0 lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <p>Jl. Nangka No.58 C, Tanjung Barat, Jagakarsa, Jakarta Selatan, DKI Jakarta 12530</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-secondary lucide lucide-phone"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <p>(021) 7818718 / 78835283</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-secondary lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                            <p>info@unindra.ac.id</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 text-secondary lucide lucide-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            <a href="https://unindra.ac.id/" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors duration-300 underline"> unindra.ac.id </a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold font-space-grotesk mb-4 text-white border-b-2 border-accent pb-1 inline-block">Tentang Presentasi</h3>
+                    <p class="mb-4 text-sm"> Presentasi ini dibuat oleh Kelompok 5 sebagai bagian dari tugas mata kuliah, membahas topik Perlindungan Guru, Partisipasi dalam Organisasi Profesi (PGRI), serta Sejarah dan Perkembangan Universitas Indraprasta PGRI. </p>
+                    <p class="text-sm"> Semua sumber informasi yang digunakan telah dicantumkan sebagai bentuk penghormatan terhadap hak cipta dan kekayaan intelektual. </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold font-space-grotesk mb-4 text-white border-b-2 border-accent pb-1 inline-block">Tema Utama</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center"> <span class="w-2 h-2 bg-[var(--primary)] rounded-full mr-2 border border-black"></span> Perlindungan Guru &amp; Aspek Hukum </li>
+                        <li class="flex items-center"> <span class="w-2 h-2 bg-[var(--accent)] rounded-full mr-2 border border-black"></span> Organisasi Profesi Guru (PGRI) </li>
+                        <li class="flex items-center"> <span class="w-2 h-2 bg-[var(--secondary)] rounded-full mr-2 border border-black"></span> Sejarah &amp; Perkembangan Unindra </li>
+                        <li class="flex items-center"> <span class="w-2 h-2 bg-green-400 rounded-full mr-2 border border-black"></span> Partisipasi Guru dalam Organisasi </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-10 pt-8 text-center text-sm text-gray-400">
+                <p class="flex items-center justify-center"> Dibuat dengan
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="mx-1 text-red-500 lucide lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg>
+                    oleh Kelompok 5 | © <span id="current-year">2025</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Script sederhana untuk menampilkan tahun copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+
+</body></html>
