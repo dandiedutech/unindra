@@ -1320,7 +1320,7 @@
     {
       "kode_prodi": "P61209",
       "nama_prodi": "Bisnis Digital",
-      "fakultas": "Ilmu Pendidikan dan Pengetahuan Sosial",
+      "fakultas": "Fakultas Ilmu Pendidikan dan Pengetahuan Sosial",
       "jenjang": "S1",
       "akreditasi": "Baik",
       "keterangan": {
@@ -3493,7 +3493,7 @@
     {
       "kode_prodi": "P49202",
       "nama_prodi": "Sains Data",
-      "fakultas": "Matematika dan Ilmu Pengetahuan Alam",
+      "fakultas": "Fakultas Matematika dan Ilmu Pengetahuan Alam",
       "jenjang": "S1",
       "akreditasi": "-",
       "keterangan": {
@@ -4479,7 +4479,7 @@
     {
       "kode_prodi": "P26201",
       "nama_prodi": "Teknik Industri",
-      "fakultas": "Teknik dan Ilmu Komputer",
+      "fakultas": "Fakultas Teknik dan Ilmu Komputer",
       "jenjang": "S1",
       "akreditasi": "B",
       "keterangan": {
@@ -5000,7 +5000,7 @@
     {
       "kode_prodi": "P55201",
       "nama_prodi": "Teknik Informatika",
-      "fakultas": "Teknik dan Ilmu Komputer",
+      "fakultas": "Fakultas Teknik dan Ilmu Komputer",
       "jenjang": "S1",
       "akreditasi": "B",
       "keterangan": {
@@ -5449,7 +5449,7 @@
     {
       "kode_prodi": "P57201",
       "nama_prodi": "Sistem Informasi",
-      "fakultas": "Teknik dan Ilmu Komputer",
+      "fakultas": "Fakultas Teknik dan Ilmu Komputer",
       "jenjang": "S1",
       "akreditasi": "Baik",
       "keterangan": {
@@ -7304,3 +7304,4 @@
     }
   ]
 }
+
