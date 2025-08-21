@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengumuman Kelulusan PMB UNINDRA</title>
+    <title>Generator Pengumuman Kelulusan PMB UNINDRA</title>
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,11 +45,6 @@
             animation: pulse 2s infinite ease-in-out;
         }
 
-        /* Styling for the main card */
-        #announcementCard {
-            border: 1px solid #e2e8f0; /* slate-200 */
-        }
-
         /* Header gradient on the card */
         .gradient-header {
             background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); /* Brighter blue gradient */
@@ -61,12 +56,12 @@
             box-shadow: 0 10px 25px -5px rgba(22, 163, 74, 0.3), 0 8px 10px -6px rgba(22, 163, 74, 0.2);
         }
 
-        /* Download button styling */
-        .btn-download {
+        /* Button styling */
+        .btn {
             background-color: #2563eb; /* blue-600 */
             transition: all 0.3s ease;
         }
-        .btn-download:hover {
+        .btn:hover {
             background-color: #1d4ed8; /* blue-700 */
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
@@ -83,6 +78,15 @@
             max-height: 1000px; /* Large enough to fit content */
             opacity: 1;
         }
+        
+        /* Styling for form inputs */
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
 
     </style>
 </head>
@@ -91,109 +95,204 @@
     <div class="container mx-auto p-4 md:p-8 max-w-4xl min-h-screen flex flex-col justify-center">
         
         <!-- Header Section -->
-        <header class="flex items-center space-x-4 mb-8 fade-in" style="animation-delay: 0.1s;">
+        <header class="flex items-center space-x-4 mb-8">
             <img src="https://ik.imagekit.io/dandie/website%20rb%2013/Logo_Universitas_Indraprasta_PGRI_(UNINDRA).png" alt="Logo UNINDRA" class="h-16 md:h-20 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/80x80/EBF4FF/0056B3?text=UNINDRA';">
             <div>
-                <h1 class="font-bold text-xl sm:text-2xl md:text-3xl text-slate-900">Penerimaan Mahasiswa Baru</h1>
+                <h1 class="font-bold text-xl sm:text-2xl md:text-3xl text-slate-900">Generator Pengumuman PMB</h1>
                 <p class="text-sm md:text-base text-slate-600">Universitas Indraprasta PGRI</p>
             </div>
         </header>
 
-        <main class="flex-grow">
-            <!-- Announcement Card -->
-            <div id="announcementCard" class="bg-white rounded-2xl shadow-2xl overflow-hidden mb-8 fade-in" style="animation-delay: 0.2s;">
-                <div class="gradient-header text-white p-6 md:p-8 text-center relative overflow-hidden">
-                    <h2 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-wide">PENGUMUMAN KELULUSAN</h2>
-                    <!-- Decorative elements -->
-                    <div class="absolute top-0 left-0 w-full h-full opacity-10">
-                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="scale(2) rotate(45)"><rect x="0" y="0" width="100%" height="100%" fill="hsla(0,0%,100%,1)"/><path d="M10-5v20M-5 10h20" stroke-width="1" stroke="hsla(223, 64%, 21%, 1)" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(#a)"/></svg>
+        <!-- Generator Form Section -->
+        <section id="generatorSection" class="bg-white p-8 rounded-2xl shadow-xl mb-12 fade-in">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 text-center">Masukkan Data Calon Mahasiswa</h2>
+            <form id="generatorForm" class="space-y-6">
+                <div>
+                    <label for="namaLengkap" class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
+                    <input type="text" id="namaLengkap" name="namaLengkap" class="form-input block w-full px-4 py-3 border border-slate-300 rounded-lg shadow-sm" placeholder="Contoh: Budi Sanjaya" required>
+                </div>
+                <div>
+                    <label for="idPendaftaran" class="block text-sm font-medium text-slate-700 mb-1">ID Pendaftaran</label>
+                    <input type="text" id="idPendaftaran" name="idPendaftaran" class="form-input block w-full px-4 py-3 border border-slate-300 rounded-lg shadow-sm" placeholder="Contoh: 202501001234" required>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="gelombang" class="block text-sm font-medium text-slate-700 mb-1">Gelombang</label>
+                        <select id="gelombang" name="gelombang" class="form-input block w-full px-4 py-3 border border-slate-300 rounded-lg shadow-sm bg-white" required>
+                            <option value="1">Gelombang 1</option>
+                            <option value="2">Gelombang 2</option>
+                            <option value="3" selected>Gelombang 3</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="programStudi" class="block text-sm font-medium text-slate-700 mb-1">Pilihan Program Studi</label>
+                        <select id="programStudi" name="programStudi" class="form-input block w-full px-4 py-3 border border-slate-300 rounded-lg shadow-sm bg-white" required>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <button type="submit" class="btn text-white font-bold py-4 px-8 rounded-xl shadow-lg w-full flex items-center justify-center">
+                        Buat Pengumuman
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Result Section - Initially Hidden -->
+        <div id="resultSection" class="hidden">
+            <main class="flex-grow">
+                <!-- Announcement Card -->
+                <div id="announcementCard" class="bg-white rounded-2xl shadow-2xl overflow-hidden mb-8">
+                    <div class="gradient-header text-white p-6 md:p-8 text-center relative overflow-hidden">
+                        <h2 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-wide">PENGUMUMAN KELULUSAN</h2>
+                        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="scale(2) rotate(45)"><rect x="0" y="0" width="100%" height="100%" fill="hsla(0,0%,100%,1)"/><path d="M10-5v20M-5 10h20" stroke-width="1" stroke="hsla(223, 64%, 21%, 1)" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(#a)"/></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-12 text-center">
+                        <p class="text-lg text-slate-500 mb-2">Dengan ini menyatakan bahwa:</p>
+                        <h3 id="displayName" class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mb-2 break-words">NAMA MAHASISWA</h3>
+                        <p class="text-base text-slate-500 mb-8">ID Pendaftaran: <strong id="displayId">ID PENDAFTARAN</strong></p>
+                        
+                        <p class="text-lg text-slate-500 mb-4">Telah dinyatakan</p>
+                        
+                        <div class="inline-block badge-lulus text-white font-extrabold text-xl sm:text-2xl md:text-3xl py-3 px-8 sm:px-10 rounded-full mb-8 tracking-widest pulse-badge">
+                            LULUS
+                        </div>
+                        
+                        <p class="text-base md:text-lg text-slate-600 max-w-md mx-auto">
+                            Sebagai calon mahasiswa baru Program Studi <strong id="displayProgram">PROGRAM STUDI</strong>,
+                            <span id="displayFaculty">FAKULTAS</span>.
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 border-t border-slate-200 p-4 text-center text-xs text-slate-500">
+                        Surat keterangan ini bersifat resmi dan dapat dipertanggungjawabkan.
                     </div>
                 </div>
                 
-                <div class="p-8 md:p-12 text-center">
-                    <p class="text-lg text-slate-500 mb-2">Dengan ini menyatakan bahwa:</p>
-                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mb-2 break-words">AHMAD DANDI SUBHANI</h3>
-                    <p class="text-base text-slate-500 mb-8">ID Pendaftaran: <strong>202301003713</strong></p>
-                    
-                    <p class="text-lg text-slate-500 mb-4">Telah dinyatakan</p>
-                    
-                    <div class="inline-block badge-lulus text-white font-extrabold text-xl sm:text-2xl md:text-3xl py-3 px-8 sm:px-10 rounded-full mb-8 tracking-widest pulse-badge">
-                        LULUS
-                    </div>
-                    
-                    <p class="text-base md:text-lg text-slate-600 max-w-md mx-auto">
-                        Sebagai calon mahasiswa baru Program Studi <strong>Teknik Informatika</strong>,
-                        Fakultas Teknik dan Ilmu Komputer.
-                    </p>
-                </div>
-                <div class="bg-slate-50 border-t border-slate-200 p-4 text-center text-xs text-slate-500">
-                    Surat keterangan ini bersifat resmi dan dapat dipertanggungjawabkan.
-                </div>
-            </div>
-
-            <!-- Action Button -->
-            <div class="text-center mb-12 fade-in" style="animation-delay: 0.3s;">
-                <button id="downloadButton" class="btn-download text-white font-bold py-4 px-8 rounded-xl shadow-lg flex items-center justify-center mx-auto space-x-3">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    <span>Unduh Bukti Kelulusan</span>
-                </button>
-                <p id="downloading-text" class="text-sm text-slate-500 mt-3" style="display: none;">Mempersiapkan file, mohon tunggu...</p>
-            </div>
-
-            <!-- Important Info Section -->
-            <div class="bg-white rounded-2xl shadow-xl fade-in" style="animation-delay: 0.4s;">
-                <div id="info-header" class="flex justify-between items-center p-5 cursor-pointer hover:bg-slate-50 rounded-t-2xl transition-colors">
-                    <div class="flex items-center space-x-3">
-                        <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h3 class="text-lg font-bold text-slate-800">Informasi Penting & Langkah Selanjutnya</h3>
-                    </div>
-                    <svg id="info-arrow" class="w-6 h-6 text-slate-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                </div>
-                <div id="info-content" class="border-t border-slate-200">
-                    <div class="prose max-w-none text-slate-700 p-6 space-y-4">
-                        <p><strong>Pendaftaran GELOMBANG 3</strong> HINGGA <strong>25 Juli 2025, Jam: 23.59 WIB</strong>. Pembayaran Registrasi Awal sampai dengan <strong>05 Agustus 2025</strong> (selama kuota belum terpenuhi).</p>
-                        <p>Jumlah tagihan dapat dilihat di menu <strong>Biaya Registrasi Awal</strong>. Silakan tonton video panduan pembayaran di sini: <a href="#" class="text-blue-600 font-semibold hover:underline">Cara Bayar Registrasi Awal</a></p>
-                        <hr class="my-4">
-                        <p>Jika mengalami kendala pembayaran, hubungi tim kami melalui WhatsApp:</p>
-                        <ul class="list-disc list-inside">
-                            <li><a href="https://wa.me/6285693009054" target="_blank" class="text-blue-600 font-semibold hover:underline">0856-9300-9054</a></li>
-                            <li><a href="https://wa.me/6285283782416" target="_blank" class="text-blue-600 font-semibold hover:underline">0852-8378-2416</a></li>
-                        </ul>
-                        <div class="mt-4 p-4 bg-blue-50 text-blue-800 rounded-lg text-sm">
-                            <p><strong>Jam Pelayanan WA:</strong> Senin-Sabtu, 08.30-15.30 WIB (Hari libur nasional tutup).</p>
+                <!-- Important Info Section -->
+                <div class="bg-white rounded-2xl shadow-xl">
+                    <div id="info-header" class="flex justify-between items-center p-5 cursor-pointer hover:bg-slate-50 rounded-t-2xl transition-colors">
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <h3 class="text-lg font-bold text-slate-800">Informasi Penting & Langkah Selanjutnya</h3>
                         </div>
-                        <div class="mt-4 p-4 bg-amber-50 text-amber-800 rounded-lg text-sm">
-                            <p><strong>Perhatian:</strong> Pembayaran dan berkas yang sudah masuk tidak dapat ditarik kembali.</p>
+                        <svg id="info-arrow" class="w-6 h-6 text-slate-500 transition-transform transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div id="info-content" class="border-t border-slate-200">
+                        <div class="prose max-w-none text-slate-700 p-6 space-y-4">
+                            <p id="infoGelombang"><strong>Pendaftaran GELOMBANG 3</strong> HINGGA <strong>25 Juli 2025, Jam: 23.59 WIB</strong>. Pembayaran Registrasi Awal sampai dengan <strong>05 Agustus 2025</strong> (selama kuota belum terpenuhi).</p>
+                            <p>Jumlah tagihan dapat dilihat di menu <strong>Biaya Registrasi Awal</strong>. Silakan tonton video panduan pembayaran di sini: <a href="#" class="text-blue-600 font-semibold hover:underline">Cara Bayar Registrasi Awal</a></p>
+                            <hr class="my-4">
+                            <p>Jika mengalami kendala pembayaran, hubungi tim kami melalui WhatsApp:</p>
+                            <ul class="list-disc list-inside">
+                                <li><a href="https://wa.me/6285693009054" target="_blank" class="text-blue-600 font-semibold hover:underline">0856-9300-9054</a></li>
+                                <li><a href="https://wa.me/6285283782416" target="_blank" class="text-blue-600 font-semibold hover:underline">0852-8378-2416</a></li>
+                            </ul>
+                            <div class="mt-4 p-4 bg-blue-50 text-blue-800 rounded-lg text-sm">
+                                <p><strong>Jam Pelayanan WA:</strong> Senin-Sabtu, 08.30-15.30 WIB (Hari libur nasional tutup).</p>
+                            </div>
+                            <div class="mt-4 p-4 bg-amber-50 text-amber-800 rounded-lg text-sm">
+                                <p><strong>Perhatian:</strong> Pembayaran dan berkas yang sudah masuk tidak dapat ditarik kembali.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
-        
-        <footer class="text-center mt-12 py-4 text-sm text-slate-500 fade-in" style="animation-delay: 0.5s;">
-            <p>&copy; 2025 Universitas Indraprasta PGRI. All rights reserved.</p>
-        </footer>
+            </main>
+            
+            <footer class="text-center mt-12 py-4 text-sm text-slate-500">
+                <p>&copy; 2025 Universitas Indraprasta PGRI. All rights reserved.</p>
+            </footer>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Logic for the accordion (Important Info section) ---
+            const PROGRAM_MAP = {
+                '435': { program: 'Teknik Informatika', faculty: 'Fakultas Teknik dan Ilmu Komputer (FTIK)' },
+                '445': { program: 'Teknik Industri', faculty: 'Fakultas Teknik dan Ilmu Komputer (FTIK)' },
+                '455': { program: 'Arsitektur', faculty: 'Fakultas Teknik dan Ilmu Komputer (FTIK)' },
+                '335': { program: 'Sistem Informasi', faculty: 'Fakultas Teknik dan Ilmu Komputer (FTIK)' },
+                '015': { program: 'Bimbingan dan Konseling', faculty: 'Fakultas Ilmu Pendidikan dan Pengetahuan Sosial (FIPPS)' },
+                '315': { program: 'Bisnis Digital', faculty: 'Fakultas Ilmu Pendidikan dan Pengetahuan Sosial (FIPPS)' },
+                '325': { program: 'Manajemen Ritel', faculty: 'Fakultas Ilmu Pendidikan dan Pengetahuan Sosial (FIPPS)' },
+                '155': { program: 'Pendidikan Sejarah', faculty: 'Fakultas Ilmu Pendidikan dan Pengetahuan Sosial (FIPPS)' },
+                '145': { program: 'Pendidikan Ekonomi', faculty: 'Fakultas Ilmu Pendidikan dan Pengetahuan Sosial (FIPPS)' },
+                '475': { program: 'Sains Data', faculty: 'Fakultas Matematika dan Ilmu Pengetahuan Alam (FMIPA)' },
+                '135': { program: 'Pendidikan Matematika', faculty: 'Fakultas Matematika dan Ilmu Pengetahuan Alam (FMIPA)' },
+                '415': { program: 'Pendidikan Biologi', faculty: 'Fakultas Matematika dan Ilmu Pengetahuan Alam (FMIPA)' },
+                '425': { program: 'Pendidikan Fisika', faculty: 'Fakultas Matematika dan Ilmu Pengetahuan Alam (FMIPA)' },
+                '125': { program: 'Pendidikan Bahasa Inggris', faculty: 'Fakultas Bahasa dan Seni (FBS)' },
+                '215': { program: 'Pendidikan Bahasa & Sastra Indonesia', faculty: 'Fakultas Bahasa dan Seni (FBS)' },
+                '465': { program: 'Desain Komunikasi Visual', faculty: 'Fakultas Bahasa dan Seni (FBS)' }
+            };
+
+            let studentNameForDownload = 'Nama-Mahasiswa';
+
+            // --- Populate Program Studi Dropdown ---
+            const programStudiSelect = document.getElementById('programStudi');
+            for (const code in PROGRAM_MAP) {
+                const option = document.createElement('option');
+                option.value = code;
+                option.textContent = PROGRAM_MAP[code].program;
+                programStudiSelect.appendChild(option);
+            }
+
+            // --- Form Submission Logic ---
+            const generatorForm = document.getElementById('generatorForm');
+            const resultSection = document.getElementById('resultSection');
+            
+            generatorForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(generatorForm);
+                const name = formData.get('namaLengkap');
+                const id = formData.get('idPendaftaran');
+                const wave = formData.get('gelombang');
+                const programCode = formData.get('programStudi');
+                
+                const { program, faculty } = PROGRAM_MAP[programCode];
+                
+                // Update display elements
+                document.getElementById('displayName').textContent = name.toUpperCase();
+                document.getElementById('displayId').textContent = id;
+                document.getElementById('displayProgram').textContent = program;
+                document.getElementById('displayFaculty').textContent = faculty;
+                
+                // Update student name for download filename
+                studentNameForDownload = name.replace(/ /g, '-');
+
+                // Update wave info
+                // This is a placeholder, you can customize the dates for each wave
+                const infoGelombang = document.getElementById('infoGelombang');
+                if(wave === '1') {
+                    infoGelombang.innerHTML = `<strong>Pendaftaran GELOMBANG 1</strong> HINGGA <strong>25 Maret 2025, Jam: 23.59 WIB</strong>. Pembayaran Registrasi Awal sampai dengan <strong>05 April 2025</strong> (selama kuota belum terpenuhi).`;
+                } else if (wave === '2') {
+                    infoGelombang.innerHTML = `<strong>Pendaftaran GELOMBANG 2</strong> HINGGA <strong>25 Mei 2025, Jam: 23.59 WIB</strong>. Pembayaran Registrasi Awal sampai dengan <strong>05 Juni 2025</strong> (selama kuota belum terpenuhi).`;
+                } else {
+                    infoGelombang.innerHTML = `<strong>Pendaftaran GELOMBANG 3</strong> HINGGA <strong>25 Juli 2025, Jam: 23.59 WIB</strong>. Pembayaran Registrasi Awal sampai dengan <strong>05 Agustus 2025</strong> (selama kuota belum terpenuhi).`;
+                }
+
+                // Show result and scroll to it
+                resultSection.classList.remove('hidden');
+                resultSection.classList.add('fade-in');
+                resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+
+
+            // --- Accordion Logic ---
             const infoHeader = document.getElementById('info-header');
             const infoContent = document.getElementById('info-content');
             const infoArrow = document.getElementById('info-arrow');
 
             infoHeader.addEventListener('click', () => {
-                const isOpen = infoContent.classList.contains('open');
-                if (isOpen) {
-                    infoContent.classList.remove('open');
-                    infoArrow.classList.remove('rotate-180');
-                } else {
-                    infoContent.classList.add('open');
-                    infoArrow.classList.add('rotate-180');
-                }
+                infoContent.classList.toggle('open');
+                infoArrow.classList.toggle('rotate-180');
             });
 
-            // --- Logic for downloading the announcement card as an image ---
+            // --- Download Logic ---
             const downloadButton = document.getElementById('downloadButton');
             const announcementCard = document.getElementById('announcementCard');
             const downloadingText = document.getElementById('downloading-text');
@@ -203,19 +302,16 @@
                 downloadButton.disabled = true;
                 downloadButton.classList.add('opacity-50', 'cursor-not-allowed');
 
-                // Use html2canvas to capture the element
                 html2canvas(announcementCard, {
-                    scale: 2.5, // Higher scale for better image quality
+                    scale: 2.5,
                     useCORS: true,
                     backgroundColor: '#ffffff'
                 }).then(canvas => {
-                    // Create a link to trigger the download
                     const link = document.createElement('a');
-                    link.download = 'Bukti-Kelulusan-UNINDRA-Ahmad-Dandi.png';
+                    link.download = `Bukti-Kelulusan-UNINDRA-${studentNameForDownload}.png`;
                     link.href = canvas.toDataURL('image/png');
                     link.click();
                     
-                    // Reset button state after a short delay
                     setTimeout(() => {
                         downloadingText.style.display = 'none';
                         downloadButton.disabled = false;
@@ -224,12 +320,10 @@
 
                 }).catch(err => {
                     console.error('Download failed:', err);
-                    // In a real app, you'd show a user-friendly message here instead of an alert.
-                    // For this example, we'll just log it and reset the button.
                     downloadingText.textContent = 'Gagal mengunduh. Silakan coba lagi.';
                     setTimeout(() => {
                         downloadingText.style.display = 'none';
-                        downloadingText.textContent = 'Mempersiapkan file, mohon tunggu...'; // Reset text
+                        downloadingText.textContent = 'Mempersiapkan file, mohon tunggu...';
                         downloadButton.disabled = false;
                         downloadButton.classList.remove('opacity-50', 'cursor-not-allowed');
                     }, 3000);
