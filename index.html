@@ -148,7 +148,6 @@
                 <div id="announcementCard" class="bg-white rounded-2xl shadow-2xl overflow-hidden mb-8">
                     <div class="gradient-header text-white p-6 md:p-8 text-center relative overflow-hidden">
                         <h2 class="text-xl sm:text-2xl md:text-3xl font-bold tracking-wide">PENGUMUMAN KELULUSAN</h2>
-                        <p id="displayGelombang" class="text-sm md:text-base font-medium tracking-wide mt-1">GELOMBANG</p>
                         <div class="absolute top-0 left-0 w-full h-full opacity-10">
                             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="a" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="scale(2) rotate(45)"><rect x="0" y="0" width="100%" height="100%" fill="hsla(0,0%,100%,1)"/><path d="M10-5v20M-5 10h20" stroke-width="1" stroke="hsla(223, 64%, 21%, 1)" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(#a)"/></svg>
                         </div>
@@ -167,7 +166,7 @@
                         
                         <p class="text-base md:text-lg text-slate-600 max-w-md mx-auto">
                             Sebagai calon mahasiswa baru Program Studi <strong id="displayProgram">PROGRAM STUDI</strong>,
-                            <span id="displayFaculty">FAKULTAS</span>.
+                            <span id="displayFaculty">FAKULTAS</span>, melalui jalur pendaftaran <strong id="displayGelombangText">GELOMBANG</strong>.
                         </p>
                     </div>
                     <div class="bg-slate-50 border-t border-slate-200 p-4 text-center text-xs text-slate-500">
@@ -265,7 +264,7 @@
                 document.getElementById('displayId').textContent = id;
                 document.getElementById('displayProgram').textContent = program;
                 document.getElementById('displayFaculty').textContent = faculty;
-                document.getElementById('displayGelombang').textContent = waveText.toUpperCase();
+                document.getElementById('displayGelombangText').textContent = waveText;
                 
                 // Update student name for download filename
                 studentNameForDownload = name.replace(/ /g, '-');
