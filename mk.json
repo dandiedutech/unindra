@@ -1,0 +1,2468 @@
+{
+  "metadata": {
+    "academic_year": "2025/2026",
+    "description": "Distribusi Mata Kuliah Program Studi Universitas PGRI Indraprasta (Unindra)"
+  },
+  "programs": [
+    {
+      "program_name": "Bimbingan dan Konseling",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB01J120", "name": "Dasar-Dasar Bimbingan dan Konseling", "sks": 3, "notes": "UPM" },
+            { "code": "PB01J130", "name": "Psikologi Konseling", "sks": 2, "notes": "" },
+            { "code": "PK01J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "KK01J110", "name": "Dasar-Dasar Ilmu Pendidikan", "sks": 3, "notes": "UPM" },
+            { "code": "KK01J111", "name": "Psikologi Umum", "sks": 3, "notes": "UPM" },
+            { "code": "PK01J102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK01J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "KK01J123", "name": "Filsafat Ilmu", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB01J231", "name": "Psikologi Pendidikan", "sks": 2, "notes": "" },
+            { "code": "KK01J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "KB01J278", "name": "Pengantar TIK", "sks": 2, "notes": "" },
+            { "code": "KK01J213", "name": "Psikologi Perkembangan Anak & Remaja", "sks": 3, "notes": "UPM" },
+            { "code": "KK01J212", "name": "Belajar dan Pembelajaran", "sks": 2, "notes": "" },
+            { "code": "PB01J233", "name": "Psikologi Sosial", "sks": 2, "notes": "" },
+            { "code": "PB01J243", "name": "Pengembangan Profesi Konseling", "sks": 3, "notes": "UPM" },
+            { "code": "PB01J256", "name": "Manajemen BK", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB01J350", "name": "Metodologi Pembelajaran", "sks": 2, "notes": "" },
+            { "code": "KK01J321", "name": "Instrumentasi Nontes", "sks": 3, "notes": "" },
+            { "code": "KK01J329", "name": "Psikologi Kepribadian", "sks": 2, "notes": "" },
+            { "code": "PK01J308", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KK01J334", "name": "BK Karir", "sks": 3, "notes": "UPM" },
+            { "code": "KK01J349", "name": "Keterampilan Dasar Konseling", "sks": 3, "notes": "UPM" },
+            { "code": "KB01J319", "name": "Statistik Dasar", "sks": 3, "notes": "" },
+            { "code": "KB01J327", "name": "Perangkat Kinerja dan Program BK", "sks": 3, "notes": "UPM" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB01J436", "name": "Konseling Format Klasikal", "sks": 3, "notes": "UPM" },
+            { "code": "KB01J437", "name": "Konseling Format Khusus", "sks": 2, "notes": "" },
+            { "code": "KB01J463", "name": "Aplikasi Statistika dalam BK", "sks": 3, "notes": "" },
+            { "code": "KK01J422", "name": "Instrumentasi Tes", "sks": 2, "notes": "" },
+            { "code": "KK01J432", "name": "Psikologi Perkembangan Dewasa & Usia Lanjut", "sks": 2, "notes": "" },
+            { "code": "KK01J446", "name": "Layanan BK Kelompok", "sks": 2, "notes": "UPM" },
+            { "code": "KK01J447", "name": "Model-Model Konseling", "sks": 3, "notes": "UPM" },
+            { "code": "KK01J462", "name": "Kesehatan Mental", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB01J539", "name": "Konseling Pernikahan dan Keluarga", "sks": 2, "notes": "UPM" },
+            { "code": "KB01J555", "name": "Praktik Laboratorium BK Kelompok", "sks": 3, "notes": "#)" },
+            { "code": "KB01J558", "name": "Teknologi Informasi dalam BK", "sks": 3, "notes": "UPM" },
+            { "code": "KB01J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB01J548", "name": "Kegiatan Pendukung BK", "sks": 2, "notes": "" },
+            { "code": "KB01J525", "name": "Metode Riset Kualitatif", "sks": 3, "notes": "" },
+            { "code": "KB01J553", "name": "Konstruksi dan Pengukuran BK", "sks": 3, "notes": "UPM" },
+            { "code": "BB01J538", "name": "BK Industri", "sks": 3, "notes": "p" },
+            { "code": "KK01J565", "name": "Kecakapan Interpersonal", "sks": 3, "notes": "p" },
+            { "code": "PB01J551", "name": "Analisis Jabatan dan Personil", "sks": 3, "notes": "p" },
+            { "code": "KK01J561", "name": "Psikologi Abnormal", "sks": 3, "notes": "p" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB01J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB01J626", "name": "Metode Riset Kuantitatif", "sks": 3, "notes": "" },
+            { "code": "KB01J654", "name": "Praktik Laboratorium Konseling Perorangan", "sks": 3, "notes": "#" },
+            { "code": "KB01J657", "name": "Studi Kasus dalam BK", "sks": 3, "notes": "UPM" },
+            { "code": "KK01J635", "name": "Diagnostik Kesulitan Belajar & Remedial", "sks": 2, "notes": "UPM" },
+            { "code": "PB01J614", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "PK01J617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "KK01J660", "name": "Rehabilitasi Sosial", "sks": 3, "notes": "P" },
+            { "code": "PB01J666", "name": "Manajemen Sumber Daya Manusia", "sks": 3, "notes": "P" },
+            { "code": "PK01J605", "name": "Ilmu Kealaman Dasar", "sks": 3, "notes": "P" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB01J775", "name": "Pengenalan Lapangan Persekolahan", "sks": 4, "notes": "#) MI" },
+            { "code": "BB01J776", "name": "Seminar Proposal", "sks": 3, "notes": "" },
+            { "code": "KB01J724", "name": "Evaluasi Pembelajaran", "sks": 2, "notes": "" },
+            { "code": "KK01J767", "name": "Layanan BK di Pendidikan Dasar dan Menengah", "sks": 3, "notes": "" },
+            { "code": "BB01J741", "name": "Konseling Lintas Budaya", "sks": 2, "notes": "" },
+            { "code": "KB01J740", "name": "Konseling Populasi Khusus", "sks": 2, "notes": "P" },
+            { "code": "KB01J742", "name": "Konseling Traumatik", "sks": 2, "notes": "P" },
+            { "code": "KK01J759", "name": "Konseling Kesehatan", "sks": 2, "notes": "P" }
+          ],
+          "total_sks": 16
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK01J877", "name": "Tugas Akhir", "sks": 6, "notes": "" },
+            { "code": "PK01J816", "name": "English for Guidance", "sks": 2, "notes": "" },
+            { "code": "PK01J806", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 10
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 138,
+        "sks_pilihan": 27,
+        "total_sks": 165
+      }
+    },
+    {
+      "program_name": "Pendidikan Ekonomi",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK14J110", "name": "Pengantar Pendidikan", "sks": 3, "notes": "UPM" },
+            { "code": "KK14J124", "name": "Matematika Ekonomi", "sks": 3, "notes": "" },
+            { "code": "KK14J131", "name": "Pengantar Bisnis", "sks": 3, "notes": "UPM" },
+            { "code": "PK14J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "PK14J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK14J102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK14J108", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KK14J178", "name": "Komputer Terapan", "sks": 3, "notes": "#) Praktikum" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK14J226", "name": "Prinsip-prinsip Dasar Akuntansi", "sks": 3, "notes": "UPM" },
+            { "code": "KK14J232", "name": "Manajemen Umum", "sks": 3, "notes": "UPM" },
+            { "code": "KB14J216", "name": "Bahasa Inggris Bisnis", "sks": 2, "notes": "" },
+            { "code": "KK14J213", "name": "Perkembangan Peserta Didik", "sks": 3, "notes": "" },
+            { "code": "PK14J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "PK14J205", "name": "Ilmu Kealaman Dasar", "sks": 2, "notes": "" },
+            { "code": "PK14J223", "name": "Filsafat Ilmu", "sks": 2, "notes": "" },
+            { "code": "PK14J217", "name": "Akhlak dan Etika", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK14J341", "name": "Teori Ekonomi Mikro", "sks": 3, "notes": "" },
+            { "code": "KB14J340", "name": "Kurikulum Pendidikan", "sks": 3, "notes": "" },
+            { "code": "KB14J334", "name": "Pengantar Manajemen Keuangan", "sks": 3, "notes": "" },
+            { "code": "KB14J335", "name": "Pengantar Manajemen Pemasaran", "sks": 3, "notes": "" },
+            { "code": "KB14J333", "name": "Manajemen Sumber Daya Manusia", "sks": 3, "notes": "UPM" },
+            { "code": "PK14J373", "name": "Ilmu Sosial dan Budaya Dasar", "sks": 2, "notes": "" },
+            { "code": "KK14J321", "name": "Sejarah Pemikiran Ekonomi", "sks": 2, "notes": "" },
+            { "code": "KK14J327", "name": "Akuntansi Lanjutan", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB14J437", "name": "Manajemen Pemasaran dan Perilaku Konsumen", "sks": 3, "notes": "UPM" },
+            { "code": "KB14J436", "name": "Manajemen Keuangan dan Investasi", "sks": 3, "notes": "UPM" },
+            { "code": "KB14J428", "name": "Akuntansi Biaya", "sks": 3, "notes": "" },
+            { "code": "KB14J412", "name": "Strategi Belajar Pembelajaran", "sks": 3, "notes": "" },
+            { "code": "PK14J406", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "PK14J414", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "KK14J419", "name": "Statistik Deskriptif", "sks": 3, "notes": "UPM" },
+            { "code": "KK14J442", "name": "Teori Ekonomi Makro", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB14J545", "name": "Bank dan Lembaga Keuangan Lainnya", "sks": 3, "notes": "" },
+            { "code": "KK14J511", "name": "Profesi Kependidikan", "sks": 3, "notes": "UPM" },
+            { "code": "KK14J520", "name": "Statistik Inferensial", "sks": 3, "notes": "" },
+            { "code": "KB14J547", "name": "Perencanaan Pembelajaran", "sks": 3, "notes": "" },
+            { "code": "KB14J538", "name": "Manajemen Produksi", "sks": 3, "notes": "UPM" },
+            { "code": "KK14J546", "name": "Perpajakan", "sks": 3, "notes": "" },
+            { "code": "PB14J509", "name": "Kewirausahaan", "sks": 2, "notes": "UPM" },
+            { "code": "KK14J522", "name": "Ekonomi Pembangunan", "sks": 3, "notes": "UPM" }
+          ],
+          "total_sks": 23
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB14J652", "name": "Pembinaan Kompetensi Mengajar", "sks": 3, "notes": "#)" },
+            { "code": "PB14J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "PB14J625", "name": "Metode Riset", "sks": 3, "notes": "" },
+            { "code": "PB14J651", "name": "Perilaku Organisasi", "sks": 3, "notes": "UPM" },
+            { "code": "KB14J650", "name": "Etika dan Hukum dalam Bisnis", "sks": 3, "notes": "UPM" },
+            { "code": "KB14J648", "name": "Evaluasi Pembelajaran", "sks": 3, "notes": "UPM" },
+            { "code": "KK14J629", "name": "Laboratorium Akuntansi", "sks": 3, "notes": "#)" },
+            { "code": "BB14J654", "name": "Perkoperasian dan UMKM", "sks": 3, "notes": "UPM" }
+          ],
+          "total_sks": 23
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB14J776", "name": "Seminar Proposal", "sks": 1, "notes": "" },
+            { "code": "KB14J756", "name": "Strategi Pemasaran", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KB14J739", "name": "Manajemen Pendidikan", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK14J730", "name": "Akuntansi Sektor Publik", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KB14J753", "name": "Perdagangan Luar Negeri", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "PB14J775", "name": "Pengenalan Lapangan Persekolahan", "sks": 3, "notes": "+)# Pilihan" },
+            { "code": "KB14J749", "name": "Pasar Uang dan Pasar Modal", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KB14J755", "name": "Ekonomi Syariah", "sks": 3, "notes": "+) Pilihan" }
+          ],
+          "total_sks": 10,
+          "note": "Matakuliah pilihan, minimal diambil 9 SKS"
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "PB14J877", "name": "Tugas Akhir", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 6
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 136,
+        "sks_pilihan": 9,
+        "total_sks": 145
+      }
+    },
+    {
+      "program_name": "Pendidikan Sejarah",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK15J110", "name": "Pengantar Pendidikan", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J120", "name": "Pengantar Ilmu Sejarah", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J121", "name": "Paham-Paham Sejarah", "sks": 2, "notes": "" },
+            { "code": "KK15J122", "name": "Pengantar Ilmu Sosial", "sks": 2, "notes": "" },
+            { "code": "KK15J178", "name": "Pembelajaran IPS Terpadu", "sks": 2, "notes": "" },
+            { "code": "PK15J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "PK15J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK15J102", "name": "Pancasila", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB15J213", "name": "Perkembangan Peserta Didik", "sks": 2, "notes": "" },
+            { "code": "BB15J223", "name": "Filsafat Ilmu", "sks": 2, "notes": "" },
+            { "code": "BB15J226", "name": "Pengantar Antropologi", "sks": 2, "notes": "" },
+            { "code": "KK15J229", "name": "Sejarah Indonesia Kuno", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J232", "name": "Sejarah Asia Tenggara", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J225", "name": "Geografi Sejarah", "sks": 2, "notes": "" },
+            { "code": "KK15J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "PB15J279", "name": "TIK Dalam Pembelajaran Sejarah", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB15J341", "name": "Administrasi Supervisi Pendidikan", "sks": 2, "notes": "" },
+            { "code": "KB15J327", "name": "Pengantar Arkeologi", "sks": 2, "notes": "" },
+            { "code": "KK15J330", "name": "Sejarah Indonesia Madya", "sks": 3, "notes": "" },
+            { "code": "KK15J333", "name": "Sejarah Asia Selatan", "sks": 2, "notes": "" },
+            { "code": "KK15J336", "name": "Sejarah Eropa", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J337", "name": "Sejarah Amerika", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J338", "name": "Sejarah Amerika Latin", "sks": 2, "notes": "" },
+            { "code": "KK15J362", "name": "Kurikulum Buku Teks", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB15J411", "name": "Profesi Kependidikan", "sks": 3, "notes": "UPM" },
+            { "code": "KB15J431", "name": "Sejarah Indonesia Modern", "sks": 3, "notes": "" },
+            { "code": "KB15J439", "name": "Sejarah Australia dan Oceania", "sks": 3, "notes": "UPM" },
+            { "code": "KB15J412", "name": "Strategi Pembelajaran Sejarah", "sks": 3, "notes": "" },
+            { "code": "KK15J442", "name": "Perencanaan Pengajaran Sejarah", "sks": 2, "notes": "" },
+            { "code": "KK15J443", "name": "Bibliografi Sejarah", "sks": 3, "notes": "" },
+            { "code": "KK15J449", "name": "Sejarah Lokal", "sks": 2, "notes": "" },
+            { "code": "KK15J463", "name": "Sejarah Pendidikan Indonesia", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB15J524", "name": "Filsafat Sejarah", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J508", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KK15J519", "name": "Pengantar Statistik", "sks": 3, "notes": "" },
+            { "code": "KK15J534", "name": "Sejarah Asia Timur", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J550", "name": "Sejarah Kebudayaan Islam", "sks": 2, "notes": "" },
+            { "code": "PB15J528", "name": "Pengantar Sosiologi", "sks": 2, "notes": "" },
+            { "code": "PB15J545", "name": "Evaluasi Pendidikan Sejarah", "sks": 2, "notes": "" },
+            { "code": "PB15J509", "name": "Kewirausahaan", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB15J653", "name": "Riset Pendidikan Sejarah", "sks": 2, "notes": "" },
+            { "code": "KB15J651", "name": "Metode & Historiografi", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J614", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "KK15J635", "name": "Sejarah Asia Barat Daya", "sks": 2, "notes": "UPM" },
+            { "code": "KK15J646", "name": "Sejarah Politik dan Ekonomi", "sks": 3, "notes": "UPM" },
+            { "code": "KK15J647", "name": "Sejarah Sosial dan Budaya", "sks": 3, "notes": "UPM" },
+            { "code": "PB15J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "PK15J617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB15J755", "name": "Kapita Selekta Sejarah", "sks": 3, "notes": "UPM" },
+            { "code": "BB15J776", "name": "Seminar Proposal Sejarah", "sks": 2, "notes": "" },
+            { "code": "KB15J756", "name": "Pembinaan Kompetensi Mengajar Sejarah (PKMS)", "sks": 3, "notes": "" },
+            { "code": "KK15J754", "name": "Sejarah Hubungan Internasional", "sks": 2, "notes": "" },
+            { "code": "KK15J764", "name": "Media Pembelajaran Sejarah", "sks": 3, "notes": "UPM" },
+            { "code": "PK15J706", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "BB15J757", "name": "Pengantar Pariwisata", "sks": 3, "notes": "p" },
+            { "code": "BB15J775", "name": "Pengenalan Lapangan Persekolahan", "sks": 4, "notes": "#)" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB15J877", "name": "Tugas Akhir", "sks": 6, "notes": "" },
+            { "code": "KK15J816", "name": "Bahasa Inggris Sejarah", "sks": 2, "notes": "" },
+            { "code": "KK15J879", "name": "Sejarah Kota", "sks": 3, "notes": "p" },
+            { "code": "BB15J861", "name": "Sosiologi Perkotaan", "sks": 0, "notes": "p (SKS check required)" },
+            { "code": "BB15J859", "name": "Manajemen Pariwisata", "sks": 0, "notes": "p (SKS check required)" },
+            { "code": "BB15J860", "name": "Sosiologi Pembangunan", "sks": 0, "notes": "p (SKS check required)" },
+            { "code": "PK15J805", "name": "Ilmu Kealaman Dasar", "sks": 2, "notes": "p" }
+          ],
+          "total_sks": 13
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 138,
+        "sks_pilihan": 8,
+        "total_sks": 146
+      }
+    },
+    {
+      "program_name": "Bisnis Digital",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "PK31B101", "name": "Pendidikan Agama", "sks": 2, "notes": "" },
+            { "code": "PK31B102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK31B107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "KK31B108", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KK31B110", "name": "Pengantar Teknologi Informasi", "sks": 3, "notes": "UPM" },
+            { "code": "KB31B111", "name": "Pengantar Manajemen", "sks": 2, "notes": "UPM" },
+            { "code": "PK31B112", "name": "Matematika Bisnis", "sks": 2, "notes": "" },
+            { "code": "KK31B128", "name": "Akuntansi Dasar", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "PK31B203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "BB31B232", "name": "Kecakapan Antar Personal", "sks": 2, "notes": "" },
+            { "code": "KK31B252", "name": "Algoritma Pemrogramman", "sks": 3, "notes": "#) UPM" },
+            { "code": "KB31B236", "name": "Manajemen Pemasaran", "sks": 3, "notes": "UPM" },
+            { "code": "KK31B230", "name": "Akuntansi Lanjutan", "sks": 3, "notes": "" },
+            { "code": "KK31B278", "name": "Komputer Terapan", "sks": 2, "notes": "#)" },
+            { "code": "KK31B213", "name": "Pengantar Bisnis Digital", "sks": 2, "notes": "UPM" },
+            { "code": "PK31B217", "name": "Akhlak dan Etika", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB31B355", "name": "Desain Grafis", "sks": 3, "notes": "#) UPM" },
+            { "code": "KB31B356", "name": "Komunikasi Bisnis", "sks": 2, "notes": "" },
+            { "code": "KB31B335", "name": "Sistem Basis Data", "sks": 3, "notes": "#)" },
+            { "code": "KB31B337", "name": "Perilaku Konsumen", "sks": 3, "notes": "UPM" },
+            { "code": "KB31B333", "name": "Manajemen SDM", "sks": 3, "notes": "" },
+            { "code": "KK31B362", "name": "Teori Ilmu Ekonomi", "sks": 3, "notes": "" },
+            { "code": "KK31B329", "name": "Komputer Akuntansi", "sks": 3, "notes": "#)" },
+            { "code": "KK31B342", "name": "Copywriting", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "PK31B414", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "KB31B420", "name": "Manajemen Operasional", "sks": 3, "notes": "" },
+            { "code": "KB31B443", "name": "Multimedia", "sks": 3, "notes": "#) UPM" },
+            { "code": "KK31B424", "name": "Sistem Informasi Manajemen", "sks": 3, "notes": "UPM" },
+            { "code": "KB31B416", "name": "Bahasa Inggris Bisnis", "sks": 2, "notes": "" },
+            { "code": "KB31B457", "name": "Data analytic", "sks": 3, "notes": "#) UPM" },
+            { "code": "KB31B434", "name": "Manajemen Keuangan", "sks": 3, "notes": "" },
+            { "code": "KB31B451", "name": "Digital Marketing", "sks": 3, "notes": "UPM" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "PB31B509", "name": "Kewirausahaan", "sks": 2, "notes": "UPM" },
+            { "code": "KK31B519", "name": "Statistik Bisnis", "sks": 3, "notes": "#)" },
+            { "code": "KB31B559", "name": "E-Commerce", "sks": 3, "notes": "UPM" },
+            { "code": "KK31B531", "name": "Manajemen Proyek", "sks": 3, "notes": "" },
+            { "code": "BB31B570", "name": "Studi Kelayakan Bisnis", "sks": 3, "notes": "" },
+            { "code": "KK31B544", "name": "Manajemen Media Sosial", "sks": 3, "notes": "" },
+            { "code": "KK31B571", "name": "Financial Technology", "sks": 3, "notes": "UPM" },
+            { "code": "KK31B554", "name": "UI & UX Design", "sks": 3, "notes": "#)" }
+          ],
+          "total_sks": 23
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "PB31B618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "PB31B625", "name": "Metode Riset", "sks": 3, "notes": "" },
+            { "code": "KB31B668", "name": "Manajemen Strategik", "sks": 3, "notes": "UPM" },
+            { "code": "PK31B623", "name": "Filsafat Ilmu", "sks": 2, "notes": "" },
+            { "code": "KB31B664", "name": "Manajemen Resiko", "sks": 3, "notes": "" },
+            { "code": "KK31B646", "name": "Perpajakan", "sks": 3, "notes": "" },
+            { "code": "KK31B639", "name": "SEM & SEO", "sks": 3, "notes": "#)" },
+            { "code": "KK31B673", "name": "Technopreneurship", "sks": 3, "notes": "+)" },
+            { "code": "KK31B648", "name": "Customer Relation Manajemen", "sks": 3, "notes": "+)" },
+            { "code": "KK31B622", "name": "Riset Pemasaran", "sks": 3, "notes": "+)" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK31B740", "name": "Teori Pengambilan Keputusan", "sks": 3, "notes": "UPM" },
+            { "code": "PB31B775", "name": "Kuliah Kerja Praktek (KKP)", "sks": 3, "notes": "" },
+            { "code": "KB31B750", "name": "Hukum dan Etika Bisnis", "sks": 2, "notes": "" },
+            { "code": "PK31B706", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "BB31B776", "name": "Seminar Proposal", "sks": 1, "notes": "" },
+            { "code": "KK31B772", "name": "Pengembangan Bisnis", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK31B749", "name": "Artificial Inteligen (AI)", "sks": 3, "notes": "+) #)" }
+          ],
+          "total_sks": 14
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB31B877", "name": "Tugas Akhir", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 6
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 140,
+        "sks_pilihan": 6,
+        "total_sks": 146
+      }
+    },
+    {
+      "program_name": "Manajemen Ritel",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "PK32B101", "name": "Pendidikan Agama", "sks": 2, "notes": "" },
+            { "code": "KB32B108", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "PK32B102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "KB32B111", "name": "Pengantar Manajemen", "sks": 3, "notes": "" },
+            { "code": "PK32B107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "KK32B126", "name": "Masalah dan Inovasi Ritel", "sks": 3, "notes": "* UPM" },
+            { "code": "KK32B105", "name": "Ilmu Kealaman Dasar", "sks": 2, "notes": "" },
+            { "code": "KK32B156", "name": "Komunikasi Bisnis Ritel", "sks": 3, "notes": "* UPM" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "PK32B203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "KK32B278", "name": "Komputer Terapan", "sks": 2, "notes": "#" },
+            { "code": "KB32B216", "name": "Bahasa Inggris Bisnis", "sks": 2, "notes": "" },
+            { "code": "KK32B228", "name": "Pengantar Akuntansi", "sks": 3, "notes": "" },
+            { "code": "KB32B212", "name": "Manajemen Pemasaran", "sks": 3, "notes": "* UPM" },
+            { "code": "PK32B217", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "KB32B233", "name": "Manajemen SDM", "sks": 3, "notes": "* UPM" },
+            { "code": "PK32B223", "name": "Filsafat Ilmu", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB32B334", "name": "Manajemen Keuangan", "sks": 3, "notes": "* UPM" },
+            { "code": "KB32B320", "name": "Hukum Bisnis Ritel", "sks": 3, "notes": "" },
+            { "code": "KB32B313", "name": "Manajemen Pemasaran Ritel", "sks": 3, "notes": "* UPM" },
+            { "code": "KB32B353", "name": "Manajemen Operasi Ritel", "sks": 3, "notes": "* UPM" },
+            { "code": "KK32B330", "name": "Perencanaan Merchandise", "sks": 3, "notes": "" },
+            { "code": "KB32B315", "name": "Akuntansi Ritel", "sks": 3, "notes": "#" },
+            { "code": "KK32B324", "name": "Sistem Informasi Manajemen", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK32B441", "name": "Pengantar Ekonomi Mikro", "sks": 3, "notes": "" },
+            { "code": "KB32B421", "name": "Manajemen Pelayanan Ritel", "sks": 3, "notes": "* UPM" },
+            { "code": "KK32B439", "name": "Analisis Lokasi Ritel", "sks": 3, "notes": "* UPM" },
+            { "code": "PB32B452", "name": "Metode Riset Bisnis Ritel", "sks": 3, "notes": "" },
+            { "code": "KK32B429", "name": "Aplikasi Statistik Bisnis Ritel", "sks": 3, "notes": "" },
+            { "code": "PK32B414", "name": "Penulisan Ilmiah", "sks": 3, "notes": "" },
+            { "code": "PK32B406", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK32B542", "name": "Pengantar Ekonomi Makro", "sks": 3, "notes": "" },
+            { "code": "KB32B536", "name": "Manajemen Ekspor Impor", "sks": 3, "notes": "* UPM" },
+            { "code": "KB32B522", "name": "Pengantar Logistik", "sks": 3, "notes": "" },
+            { "code": "KK32B547", "name": "Pemasaran Media Sosial", "sks": 3, "notes": "" },
+            { "code": "KB32B531", "name": "Pembelian Ritel dan Merchandise", "sks": 3, "notes": "" },
+            { "code": "KB32B540", "name": "Manajemen Hubungan Pelanggan", "sks": 3, "notes": "* UPM" },
+            { "code": "PB32B509", "name": "Kewirausahaan", "sks": 2, "notes": "* UPM" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK32B645", "name": "Retail Consumer Insight", "sks": 3, "notes": "* UPM" },
+            { "code": "KK32B646", "name": "Visual Merchandising", "sks": 3, "notes": "" },
+            { "code": "KK32B643", "name": "Manajemen Rantai Pasok", "sks": 3, "notes": "* UPM" },
+            { "code": "KK32B648", "name": "Ritel, SIG dan Geodemografi", "sks": 3, "notes": "" },
+            { "code": "PB32B618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "BB32B673", "name": "Studi Kelayakan Bisnis Ritel", "sks": 3, "notes": "" },
+            { "code": "KK32B627", "name": "Matematika Bisnis Ritel", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK32B750", "name": "Strategi Ritel", "sks": 3, "notes": "* UPM" },
+            { "code": "KK32B751", "name": "Strategi Karir Ritel", "sks": 3, "notes": "* UPM" },
+            { "code": "KK32B744", "name": "Manajemen Penjualan Ritel", "sks": 3, "notes": "" },
+            { "code": "BB32B776", "name": "Seminar Proposal", "sks": 1, "notes": "" },
+            { "code": "KK32B738", "name": "Ritel Omnichannel", "sks": 3, "notes": "" },
+            { "code": "PB32B775", "name": "Praktek Kerja Lapangan", "sks": 4, "notes": "+)" },
+            { "code": "KK32B732", "name": "Manajemen Inovasi dan Teknologi", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK32B735", "name": "Riset Ritel Terapan", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK32B754", "name": "Periklanan Digital", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK32B749", "name": "Visualisasi Data", "sks": 3, "notes": "+) Pilihan" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB32B877", "name": "Tugas Akhir", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 6
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 137,
+        "sks_pilihan": 9,
+        "total_sks": 146
+      }
+    },
+    {
+      "program_name": "Pendidikan Bahasa Inggris",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK12J110", "name": "Pengantar Pendidikan", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J111", "name": "Profesi Pendidikan", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J120", "name": "Basic Listening", "sks": 2, "notes": "#" },
+            { "code": "KK12J121", "name": "Basic Speaking", "sks": 2, "notes": "#" },
+            { "code": "KK12J123", "name": "Basic Structure", "sks": 3, "notes": "" },
+            { "code": "PK12J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK12J102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK12J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK12J226", "name": "Cross Cultural Understanding", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J227", "name": "Pronunciation Practice", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J229", "name": "Speaking for Daily Expression", "sks": 2, "notes": "#" },
+            { "code": "KK12J228", "name": "Intermediate Listening", "sks": 2, "notes": "#" },
+            { "code": "KK12J222", "name": "Basic Reading", "sks": 3, "notes": "" },
+            { "code": "KK12J212", "name": "Belajar dan Pembelajaran", "sks": 2, "notes": "" },
+            { "code": "PK12J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "PK12J268", "name": "Filsafat Ilmu Pendidikan", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK12J333", "name": "English Linguistics", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J334", "name": "Vocabulary", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J336", "name": "Fundamental Structure", "sks": 3, "notes": "" },
+            { "code": "KK12J337", "name": "Speaking for Group Activities", "sks": 2, "notes": "#" },
+            { "code": "KK12J324", "name": "Basic Writing", "sks": 3, "notes": "" },
+            { "code": "KK12J330", "name": "Active Reading", "sks": 3, "notes": "" },
+            { "code": "PB12J335", "name": "Drama", "sks": 2, "notes": "" },
+            { "code": "KB12J304", "name": "Komputer", "sks": 2, "notes": "#" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK12J416", "name": "English Phonology", "sks": 3, "notes": "* UPM" },
+            { "code": "KB12J442", "name": "Teaching English as A Foreign Language", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J438", "name": "Critical Reading", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J431", "name": "Academic Speaking", "sks": 2, "notes": "#" },
+            { "code": "KK12J440", "name": "Understanding Structure", "sks": 3, "notes": "" },
+            { "code": "KK12J439", "name": "English Syntax", "sks": 2, "notes": "" },
+            { "code": "KB12J456", "name": "Computer Assisted Language Learning", "sks": 2, "notes": "" },
+            { "code": "PK12J406", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "KK12J413", "name": "Perkembangan Peserta Didik", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK12J544", "name": "Advanced Structure", "sks": 3, "notes": "* UPM" },
+            { "code": "KB12J553", "name": "Translation", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J545", "name": "Contrastive Linguistics and Error Analysis", "sks": 2, "notes": "" },
+            { "code": "KK12J547", "name": "Intensive Writing", "sks": 3, "notes": "" },
+            { "code": "KK12J549", "name": "Perencanaan dan Pengajaran Bahasa Inggris", "sks": 3, "notes": "" },
+            { "code": "KK12J546", "name": "Dictation", "sks": 2, "notes": "#" },
+            { "code": "BB12J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "PB12J525", "name": "Metode Riset", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB12J641", "name": "Curriculum and Material Development", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J648", "name": "Academic Writing", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J632", "name": "Advanced Listening", "sks": 3, "notes": "* UPM" },
+            { "code": "KB12J660", "name": "Pembinaan Kompetensi Mengajar", "sks": 2, "notes": "" },
+            { "code": "PB12J619", "name": "Statistik Penelitian Pendidikan", "sks": 3, "notes": "" },
+            { "code": "BB12J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "PK12J614", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "KK12J650", "name": "English Proficiency", "sks": 2, "notes": "#" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK12J751", "name": "English For Specific Purposes", "sks": 3, "notes": "* UPM" },
+            { "code": "KK12J752", "name": "Literature", "sks": 3, "notes": "* UPM" },
+            { "code": "BB12J774", "name": "Seminar on Language Teaching", "sks": 3, "notes": "" },
+            { "code": "KB12J743", "name": "Language Testing", "sks": 3, "notes": "" },
+            { "code": "PK12J705", "name": "Ilmu Kealaman Dasar", "sks": 2, "notes": "+" },
+            { "code": "KB12J759", "name": "English for Business and Correspondence", "sks": 0, "notes": "+ (SKS check required)" },
+            { "code": "KB12J758", "name": "Teaching English for Children", "sks": 0, "notes": "+ (SKS check required)" },
+            { "code": "BB12J775", "name": "Pengenalan Lapangan Persekolahan", "sks": 0, "notes": "+ (SKS check required)" },
+            { "code": "KB12J761", "name": "Intepreting", "sks": 0, "notes": "+ (SKS check required)" }
+          ],
+          "total_sks": 14
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK12J817", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "KB12J863", "name": "Discourse Analysis in Translation", "sks": 2, "notes": "+" },
+            { "code": "KB12J857", "name": "Semantics in Translation", "sks": 0, "notes": "+ (SKS check required)" },
+            { "code": "KB12J862", "name": "Pragmatics", "sks": 0, "notes": "+ (SKS check required)" },
+            { "code": "KB12J855", "name": "English for Public Relation", "sks": 0, "notes": "+ (SKS check required)" },
+            { "code": "KB12J854", "name": "English For Journalism", "sks": 0, "notes": "+ (SKS check required)" },
+            { "code": "PK12J873", "name": "Ilmu Sosial dan Budaya Dasar", "sks": 0, "notes": "+ (SKS check required)" },
+            { "code": "BB12J877", "name": "Tugas Akhir", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 10
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 142,
+        "sks_pilihan": 4,
+        "total_sks": 146
+      }
+    },
+    {
+      "program_name": "Pendidikan Bahasa & Sastra Indonesia",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB21J110", "name": "Pengantar Pendidikan", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB21J120", "name": "Linguistik Umum", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK21J108", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KB21J160", "name": "Menyimak", "sks": 2, "notes": "" },
+            { "code": "PK21J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK21J102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK21J106", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "PK21J168", "name": "Filsafat Ilmu Pendidikan", "sks": 2, "notes": "NEW" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB21J221", "name": "Fonologi Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "KB21J222", "name": "Morfologi Bahasa Indonesia", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB21J261", "name": "Berbicara", "sks": 2, "notes": "" },
+            { "code": "KK21J211", "name": "Profesi Kependidikan", "sks": 3, "notes": "*) UPM" },
+            { "code": "PB21J216", "name": "Bahasa Inggris Khusus", "sks": 2, "notes": "" },
+            { "code": "PK21J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "KB21J204", "name": "Komputer", "sks": 2, "notes": "# NEW" }
+          ],
+          "total_sks": 16
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB21J326", "name": "Membaca", "sks": 2, "notes": "" },
+            { "code": "KB21J327", "name": "Menulis", "sks": 3, "notes": "" },
+            { "code": "KB21J329", "name": "Sejarah Sastra", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB21J330", "name": "Teori Sastra", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK21J312", "name": "Belajar dan Pembelajaran", "sks": 2, "notes": "" },
+            { "code": "KK21J313", "name": "Perkembangan Peserta Didik", "sks": 2, "notes": "" },
+            { "code": "KK21J328", "name": "Teori Belajar Bahasa", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 17
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB21J431", "name": "Kajian Puisi", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB21J436", "name": "Sosiolinguistik", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB21J437", "name": "Psikologi Sastra", "sks": 3, "notes": "" },
+            { "code": "KB21J438", "name": "Sosiologi Sastra", "sks": 2, "notes": "" },
+            { "code": "KB21J407", "name": "Bahasa Indonesia Korespondensi", "sks": 3, "notes": "" },
+            { "code": "KK21J448", "name": "Retorika", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK21J473", "name": "Ilmu Sosial dan Budaya Dasar", "sks": 3, "notes": "+) P" },
+            { "code": "PB21J456", "name": "Pengajaran BIPA", "sks": 3, "notes": "+) P" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB21J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB21J532", "name": "Kritik Sastra", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB21J564", "name": "Kajian Prosa Fiksi Indonesia", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK21J514", "name": "Menulis Artikel Ilmiah", "sks": 3, "notes": "" },
+            { "code": "PK21J525", "name": "Metode Riset", "sks": 2, "notes": "Ubah Nama" },
+            { "code": "KK21J565", "name": "Desain Pembelajaran", "sks": 2, "notes": "" },
+            { "code": "PB21J542", "name": "Penyuntingan", "sks": 3, "notes": "" },
+            { "code": "PB21J541", "name": "Kehumasan", "sks": 2, "notes": "+) P" },
+            { "code": "KB21J555", "name": "Pewara", "sks": 2, "notes": "+) P" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB21J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB21J644", "name": "Semantik Bahasa Indonesia", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB21J645", "name": "Sintaksis Bahasa Indonesia", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB21J646", "name": "Riset Pendidikan Bahasa", "sks": 3, "notes": "Ubah Nama" },
+            { "code": "KK21J647", "name": "Perencanaan Pengajaran Bahasa Indonesia", "sks": 3, "notes": "" },
+            { "code": "PB21J634", "name": "Menulis Kreatif", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK21J619", "name": "Pengantar Statistik", "sks": 2, "notes": "" },
+            { "code": "PB21J657", "name": "Riset Linguistik", "sks": 2, "notes": "+) P" },
+            { "code": "PB21J658", "name": "Riset Sastra", "sks": 2, "notes": "+) P" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB21J763", "name": "Wacana dan Pragmatik Bahasa Indonesia", "sks": 3, "notes": "*) UPM" },
+            { "code": "PB21J743", "name": "Sastra Bandingan", "sks": 2, "notes": "" },
+            { "code": "PB21J740", "name": "Jurnalistik", "sks": 2, "notes": "" },
+            { "code": "KK21J739", "name": "Evaluasi Pengajaran Bahasa", "sks": 3, "notes": "" },
+            { "code": "PB21J749", "name": "Analisis Kesalahan Berbahasa", "sks": 3, "notes": "*) UPM" },
+            { "code": "PB21J776", "name": "Seminar Proposal", "sks": 3, "notes": "" },
+            { "code": "PB21J753", "name": "Penerjemahan", "sks": 2, "notes": "+) P" },
+            { "code": "PB21J775", "name": "Pengenalan Lapangan Persekolahan (PLP)", "sks": 2, "notes": "# +) P" },
+            { "code": "PK21J705", "name": "Ilmu Kealaman Dasar", "sks": 2, "notes": "+) P" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB21J877", "name": "Tugas Akhir", "sks": 6, "notes": "" },
+            { "code": "KB21J835", "name": "Psikolinguistik", "sks": 3, "notes": "" },
+            { "code": "KB21J824", "name": "Pembinaan dan Pengembangan Bahasa Indonesia", "sks": 3, "notes": "" },
+            { "code": "KK21J862", "name": "Literasi ICT dan Media Pembelajaran Bahasa Indonesia", "sks": 3, "notes": "" },
+            { "code": "PB21J817", "name": "Akhlak dan Etika", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 17
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 138,
+        "sks_pilihan": 9,
+        "total_sks": 147
+      }
+    },
+    {
+      "program_name": "Desain Komunikasi Visual",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK46J121", "name": "Desain Elementer Dwimatra", "sks": 3, "notes": "#" },
+            { "code": "KK46J127", "name": "Pengantar Desain Komunikasi Visual", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK46J135", "name": "Gambar Bentuk", "sks": 3, "notes": "# *) UPM" },
+            { "code": "PB46J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK46J102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK46J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "PK46J108", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "PK46J110", "name": "Pengantar Ilmu Komunikasi", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB46J211", "name": "Pengantar Budaya Nusantara", "sks": 2, "notes": "" },
+            { "code": "BB46J223", "name": "Filsafat Ilmu", "sks": 2, "notes": "" },
+            { "code": "KK46J213", "name": "Karakter Visual", "sks": 3, "notes": "# *) UPM" },
+            { "code": "KK46J222", "name": "Desain Elementer Trimatra", "sks": 3, "notes": "# *) UPM" },
+            { "code": "KK46J226", "name": "Desain Visual Dasar", "sks": 2, "notes": "# *) UPM" },
+            { "code": "PB46J243", "name": "Teknik Presentasi", "sks": 2, "notes": "" },
+            { "code": "PK46J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "PK46J216", "name": "Bahasa Inggris Desain", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB46J340", "name": "Perkembangan Media", "sks": 2, "notes": "" },
+            { "code": "KB46J312", "name": "Wawasan Budaya Nusantara", "sks": 2, "notes": "" },
+            { "code": "KB46J348", "name": "Fotografi Dasar", "sks": 3, "notes": "#" },
+            { "code": "KB46J371", "name": "Filsafat Seni", "sks": 2, "notes": "" },
+            { "code": "KK46J319", "name": "Tipografi Dasar", "sks": 3, "notes": "# *) UPM" },
+            { "code": "KK46J328", "name": "Desain Komunikasi Visual 1", "sks": 3, "notes": "#" },
+            { "code": "KK46J336", "name": "Gambar Ilustrasi", "sks": 3, "notes": "# *) UPM" },
+            { "code": "PB46J372", "name": "Ragam Hias Nusantara", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK46J446", "name": "Periklanan", "sks": 2, "notes": "*) UPM" },
+            { "code": "PB46J433", "name": "Desain dan Kebudayaan", "sks": 2, "notes": "" },
+            { "code": "KB46J438", "name": "Fotografi Terapan", "sks": 3, "notes": "#" },
+            { "code": "KB46J424", "name": "Kajian Seni Rupa dan Desain", "sks": 2, "notes": "" },
+            { "code": "KK46J420", "name": "Tipografi Terapan", "sks": 3, "notes": "#" },
+            { "code": "KK46J429", "name": "Desain Komunikasi Visual 2", "sks": 3, "notes": "#" },
+            { "code": "KK46J437", "name": "Gambar Etnik", "sks": 3, "notes": "*# UPM" },
+            { "code": "PB46J483", "name": "Seni Rupa Wayang", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB46J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "BB46J534", "name": "Filsafat Nusantara", "sks": 2, "notes": "" },
+            { "code": "BB46J570", "name": "Industri Budaya", "sks": 2, "notes": "" },
+            { "code": "KB46J564", "name": "Manajemen Proyek", "sks": 2, "notes": "" },
+            { "code": "KK46J530", "name": "Desain Komunikasi Visual 3", "sks": 3, "notes": "# *) UPM" },
+            { "code": "KB46J584", "name": "Grafika dan Cetak Digital", "sks": 2, "notes": "" },
+            { "code": "PB46J541", "name": "Logika Berpikir Desain", "sks": 2, "notes": "" },
+            { "code": "PB46J558", "name": "Bahasa Visual", "sks": 2, "notes": "*) UPM" },
+            { "code": "BB46J505", "name": "Ilmu Budaya Dasar", "sks": 3, "notes": "+) p" },
+            { "code": "KB46J555", "name": "Sosiologi Desain", "sks": 3, "notes": "+) p" },
+            { "code": "KB46J556", "name": "Komunikasi Bisnis", "sks": 3, "notes": "+) p" },
+            { "code": "KB46J578", "name": "Pemasaran Digital", "sks": 3, "notes": "+) p" },
+            { "code": "KB46J553", "name": "Audio Visual", "sks": 3, "notes": "+) p" },
+            { "code": "KK46J565", "name": "Komunikasi Visual Periklanan", "sks": 3, "notes": "+) p" },
+            { "code": "PB46J580", "name": "Desain Media Pembelajaran", "sks": 3, "notes": "+) p" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB46J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB46J642", "name": "Budaya Visual", "sks": 2, "notes": "*) UPM" },
+            { "code": "KB46J644", "name": "Manajemen Pemasaran", "sks": 2, "notes": "" },
+            { "code": "PB46J625", "name": "Metode Riset Desain", "sks": 2, "notes": "*) UPM" },
+            { "code": "PB46J647", "name": "Kekayaan Intelektual", "sks": 2, "notes": "" },
+            { "code": "PB46J650", "name": "Desain dan Media", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK46J614", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "PK46J617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "BB46J673", "name": "Ilmu Sosial Dasar", "sks": 3, "notes": "+) p" },
+            { "code": "KB46J651", "name": "Menulis Kreatif", "sks": 3, "notes": "+) p" },
+            { "code": "KB46J657", "name": "Komunikasi Antarbudaya", "sks": 3, "notes": "+) p" },
+            { "code": "KB46J660", "name": "Desain Eksperimental", "sks": 3, "notes": "# +) p" },
+            { "code": "KB46J663", "name": "Desain dan Lingkungan", "sks": 3, "notes": "+) p" },
+            { "code": "KB46J645", "name": "Komputer Grafik", "sks": 3, "notes": "+) p" },
+            { "code": "KB46J659", "name": "Desain Kemasan", "sks": 3, "notes": "# +) p" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB46J775", "name": "Kerja Praktik", "sks": 4, "notes": "#" },
+            { "code": "BB46J776", "name": "Seminar Desain Komunikasi Visual", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK46J732", "name": "Proyek Desain Komunikasi Visual", "sks": 3, "notes": "## *) UPM" },
+            { "code": "PK46J706", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "KB46J739", "name": "Fotografi Tematik", "sks": 3, "notes": "# +) p" },
+            { "code": "KB46J754", "name": "Manajemen Publikasi", "sks": 3, "notes": "# +) p" },
+            { "code": "KB46J761", "name": "Perancangan Buku", "sks": 3, "notes": "# +) p" },
+            { "code": "KB46J762", "name": "Infografik", "sks": 3, "notes": "# +) p" },
+            { "code": "KB46J766", "name": "Film Animasi", "sks": 3, "notes": "# +) p" },
+            { "code": "KB46J767", "name": "Pengantar Sinematografi", "sks": 3, "notes": "# +) p" },
+            { "code": "PB46J779", "name": "Media Sosial", "sks": 3, "notes": "+) p" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB46J877", "name": "Tugas Akhir", "sks": 8, "notes": "" },
+            { "code": "KB46J868", "name": "Presentasi Karya", "sks": 2, "notes": "" },
+            { "code": "PB46J852", "name": "Etika Profesi", "sks": 2, "notes": "" },
+            { "code": "KB46J881", "name": "Komputer", "sks": 2, "notes": "#" }
+          ],
+          "total_sks": 14
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 136,
+        "sks_pilihan": 9,
+        "total_sks": 145
+      }
+    },
+    {
+      "program_name": "Pendidikan Matematika",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK13J124", "name": "Pengantar Dasar Matematika", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK13J110", "name": "Pengantar Pendidikan", "sks": 2, "notes": "*) UPM" },
+            { "code": "PK13J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK13J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "KB13J108", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KB13J145", "name": "Biologi Umum", "sks": 2, "notes": "" },
+            { "code": "KB13J140", "name": "Geometri Datar", "sks": 2, "notes": "" },
+            { "code": "PK13J102", "name": "Pancasila", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 17
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB13J278", "name": "Aljabar dan Trigonometri", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB13J204", "name": "Komputer", "sks": 2, "notes": "#)" },
+            { "code": "KK13J211", "name": "Profesi Kependidikan", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK13J216", "name": "Bahasa Inggris Matematika", "sks": 2, "notes": "" },
+            { "code": "PK13J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "KB13J241", "name": "Geometri Ruang", "sks": 2, "notes": "" },
+            { "code": "KK13J213", "name": "Perkembangan Peserta Didik", "sks": 2, "notes": "" },
+            { "code": "PK13J279", "name": "Sejarah dan Filsafat Matematika", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 17
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB13J337", "name": "Kalkulus Diferensial", "sks": 3, "notes": "*) UPM" },
+            { "code": "PB13J319", "name": "Statistika Dasar", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK13J312", "name": "Belajar dan Pembelajaran", "sks": 2, "notes": "" },
+            { "code": "KB13J380", "name": "Fisika Mekanika", "sks": 3, "notes": "" },
+            { "code": "KB13J335", "name": "Kimia Dasar", "sks": 2, "notes": "" },
+            { "code": "PK13J306", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "KK13J765", "name": "Telaah dan Desain Pembelajaran Matematika", "sks": 2, "notes": "" },
+            { "code": "KB13J330", "name": "Teori Bilangan", "sks": 3, "notes": "UPM" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB13J432", "name": "Aljabar Linier Dasar", "sks": 3, "notes": "*) UPM" },
+            { "code": "PB13J453", "name": "Evaluasi Pembelajaran Matematika", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB13J481", "name": "Fisika Listrik Magnet", "sks": 3, "notes": "" },
+            { "code": "KB13J442", "name": "Geometri Transformasi", "sks": 2, "notes": "" },
+            { "code": "KB13J438", "name": "Kalkulus Integral", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB13J436", "name": "Kimia Lanjut", "sks": 2, "notes": "" },
+            { "code": "KK13J443", "name": "Metode Pembelajaran Matematika", "sks": 2, "notes": "" },
+            { "code": "PB13J420", "name": "Statistika Lanjut", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB13J521", "name": "Pengantar Teori Peluang", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB13J555", "name": "Geometri Analitik", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK13J533", "name": "Aljabar Linier Lanjut", "sks": 2, "notes": "" },
+            { "code": "KK13J539", "name": "Kalkulus Perubah Banyak", "sks": 3, "notes": "" },
+            { "code": "PB13J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KK13J547", "name": "Matematika Diskrit", "sks": 3, "notes": "" },
+            { "code": "KK13J546", "name": "Workshop Matematika", "sks": 2, "notes": "#)" },
+            { "code": "KB13J582", "name": "Analisis Kebijakan Pendidikan", "sks": 3, "notes": "+) p" },
+            { "code": "KK13J559", "name": "Matematika Ekonomi", "sks": 3, "notes": "+) p" },
+            { "code": "KK13J583", "name": "Pemrograman Komputer", "sks": 3, "notes": "#) +) p" },
+            { "code": "KK13J584", "name": "Kajian Pendidikan Matematika", "sks": 3, "notes": "+) p" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB13J648", "name": "Metode Numerik", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB13J650", "name": "Persamaan Diferensial Dasar", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK13J622", "name": "Statistika Matematika", "sks": 2, "notes": "" },
+            { "code": "KK13J628", "name": "Analisa Real", "sks": 3, "notes": "*) UPM" },
+            { "code": "PB13J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "PB13J625", "name": "Metode Penelitian", "sks": 2, "notes": "" },
+            { "code": "KK13J654", "name": "Pembinaan Kompetensi Mengajar Matematika", "sks": 2, "notes": "" },
+            { "code": "KK13J689", "name": "Media Pembelajaran Matematika Berbasis TIK", "sks": 2, "notes": "#)" },
+            { "code": "KK13J658", "name": "Matematika Keuangan", "sks": 3, "notes": "+) P" },
+            { "code": "PB13J666", "name": "Penelitian Kualitatif", "sks": 3, "notes": "+) p" },
+            { "code": "KB13J686", "name": "E-Learning", "sks": 3, "notes": "#) +) p" },
+            { "code": "KK13J661", "name": "Inovasi Pembelajaran Matematika", "sks": 3, "notes": "+) p" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB13J729", "name": "Analisa Kompleks", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB13J751", "name": "Persamaan Diferensial Lanjut", "sks": 2, "notes": "" },
+            { "code": "KB13J776", "name": "Seminar Pra Skripsi", "sks": 2, "notes": "" },
+            { "code": "KK13J752", "name": "Struktur Aljabar", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB13I749", "name": "Program Linier", "sks": 3, "notes": "" },
+            { "code": "BB13J775", "name": "Pengenalan Lingkungan Persekolahan", "sks": 2, "notes": "#)" },
+            { "code": "KB13J787", "name": "Etnomatematika", "sks": 3, "notes": "+) p" },
+            { "code": "KB13J768", "name": "Manajemen dan Kepemimpinan Pendidikan", "sks": 3, "notes": "+) p" },
+            { "code": "KK13J757", "name": "Matematika Asuransi", "sks": 3, "notes": "+) p" },
+            { "code": "KK13J762", "name": "Pembelajaran Matematika Inklusif", "sks": 3, "notes": "+) p" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "PK13J617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "PK13J814", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "BB13J885", "name": "Pengetahuan Lingkungan", "sks": 2, "notes": "" },
+            { "code": "KB13J877", "name": "Skripsi", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 12
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 137,
+        "sks_pilihan": 9,
+        "total_sks": 146
+      }
+    },
+    {
+      "program_name": "Pendidikan Biologi",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB41J110", "name": "Pengantar Pendidikan", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK41J108", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KK41J120", "name": "Biologi Umum", "sks": 2, "notes": "#)" },
+            { "code": "KK41J178", "name": "Komputer Terapan", "sks": 2, "notes": "#)" },
+            { "code": "KK41J179", "name": "Kalkulus Diferensial", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK41J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK41J102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK41J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "KK41J141", "name": "Biologi Sel", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK41J216", "name": "Bahasa Inggris Khusus", "sks": 2, "notes": "" },
+            { "code": "KK41J288", "name": "Morfologi & Anatomi Tumbuhan", "sks": 3, "notes": "# )*) UPM" },
+            { "code": "KK41J230", "name": "Taksonomi Tumbuhan", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK41J289", "name": "Tik & Media Pembelajaran Biologi", "sks": 2, "notes": "" },
+            { "code": "KK41J235", "name": "Kimia Dasar", "sks": 3, "notes": "#)" },
+            { "code": "KK41J281", "name": "Kalkulus Integral", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK41J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "BB41J228", "name": "Struktur Hewan", "sks": 3, "notes": "#)" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB41J311", "name": "Profesi Kependidikan", "sks": 2, "notes": "*) UPM" },
+            { "code": "KB41J313", "name": "Perkembangan Peserta Didik", "sks": 2, "notes": "" },
+            { "code": "KK41J331", "name": "Taksonomi Hewan", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK41J336", "name": "Kimia Organik", "sks": 3, "notes": "#)" },
+            { "code": "KK41J340", "name": "Biokimia", "sks": 3, "notes": "" },
+            { "code": "KK41J382", "name": "Fisika Mekanika", "sks": 3, "notes": "" },
+            { "code": "PK41J306", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "PK41J323", "name": "Filsafat MIPA", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB41J412", "name": "Belajar dan Pembelajaran", "sks": 2, "notes": "" },
+            { "code": "KK41J419", "name": "Biostatistika", "sks": 3, "notes": "" },
+            { "code": "KK41J442", "name": "Biologi Terapan", "sks": 3, "notes": "" },
+            { "code": "KK41J422", "name": "Mikrobiologi", "sks": 3, "notes": "#)" },
+            { "code": "KK41J432", "name": "Fisiologi Tumbuhan", "sks": 3, "notes": "#) *) UPM" },
+            { "code": "KK41J439", "name": "Pengetahuan Lingkungan", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK41J483", "name": "Fisika Listrik Magnet", "sks": 3, "notes": "" },
+            { "code": "PK41J414", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB41J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KK41J533", "name": "Fisiologi Hewan", "sks": 3, "notes": "#) *) UPM" },
+            { "code": "KK41J545", "name": "Genetika", "sks": 3, "notes": "#) *) UPM" },
+            { "code": "KK41J547", "name": "Zoologi Invertebrata", "sks": 2, "notes": "" },
+            { "code": "PB41J550", "name": "Strategi Belajar Mengajar Biologi", "sks": 2, "notes": "" },
+            { "code": "KK41J564", "name": "Telaah Kurikulum Biologi", "sks": 3, "notes": "" },
+            { "code": "KK41J553", "name": "Ekologi", "sks": 3, "notes": "#)" },
+            { "code": "KK41J574", "name": "Seminar Biologi", "sks": 3, "notes": "Pilihan" },
+            { "code": "BB41J573", "name": "Ilmu Sosial dan Budaya Dasar", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK41J557", "name": "Kulturjaringan", "sks": 3, "notes": "+) Pilihan" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK41J680", "name": "Bioinformatika", "sks": 3, "notes": "#)" },
+            { "code": "BB41J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KK41J625", "name": "Metodologi Riset", "sks": 2, "notes": "" },
+            { "code": "KK41J643", "name": "Biologi Reproduksi", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK41J648", "name": "Zoologi Vertebrata", "sks": 3, "notes": "#)" },
+            { "code": "KK41J649", "name": "Anatomi dan Fisiologi Tubuh Manusia", "sks": 2, "notes": "*) UPM" },
+            { "code": "PB41J684", "name": "Evaluasi Pembelajaran Biologi", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK41J617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "KK41J661", "name": "Biokonservasi", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK41J685", "name": "Agroindustri", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK41J646", "name": "Ilmu Gizi", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK41J663", "name": "Holtikultura", "sks": 3, "notes": "+) Pilihan" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB41J775", "name": "Pengenalan Lapangan Persekolahan", "sks": 2, "notes": "#)" },
+            { "code": "BB41J776", "name": "Seminar Proposal", "sks": 2, "notes": "" },
+            { "code": "KK41J744", "name": "Bioteknologi", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK41J755", "name": "Evolusi", "sks": 3, "notes": "*) UPM" },
+            { "code": "PB41J752", "name": "Pembinaan Kompetensi Mengajar Biologi", "sks": 3, "notes": "" },
+            { "code": "KK41J760", "name": "Analisis Mengenai Dampak Lingkungan", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK41J786", "name": "Bioentrepreneurship", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK41J787", "name": "Bioetika", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KK41J758", "name": "Parasitologi", "sks": 3, "notes": "+) Pilihan" }
+          ],
+          "total_sks": 16
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB41J877", "name": "Tugas Akhir", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 6
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 136,
+        "sks_pilihan": 9,
+        "total_sks": 145
+      }
+    },
+    {
+      "program_name": "Pendidikan Fisika",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK42J178", "name": "Komputer Terapan", "sks": 2, "notes": "" },
+            { "code": "KK42J185", "name": "Teknik Analisis Data Statistik", "sks": 3, "notes": "" },
+            { "code": "KK42J126", "name": "Fisika Mekanika", "sks": 3, "notes": "*) #) UPM" },
+            { "code": "KK42J135", "name": "Kimia Dasar", "sks": 2, "notes": "" },
+            { "code": "KK42J137", "name": "Kalkulus Diferensial", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK42J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK42J102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK42J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK42J210", "name": "Pengantar Pendidikan", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK42J215", "name": "Pemrograman Komputer", "sks": 2, "notes": "#)" },
+            { "code": "KK42J227", "name": "Fisika Listrik Magnet", "sks": 3, "notes": "*) #) UPM" },
+            { "code": "KK42J236", "name": "Kimia Lanjut", "sks": 2, "notes": "" },
+            { "code": "KK42J238", "name": "Kalkulus Integral", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK42J208", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "PB42J213", "name": "Perkembangan Peserta Didik", "sks": 2, "notes": "" },
+            { "code": "PK42J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB42J333", "name": "Elektronika Dasar", "sks": 3, "notes": "#)" },
+            { "code": "KK42J328", "name": "Fisika Matematika", "sks": 3, "notes": "" },
+            { "code": "KK42J329", "name": "Fisika Modern", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK42J339", "name": "Kalkulus Perubah Banyak", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK42J316", "name": "Bahasa Inggris Fisika", "sks": 2, "notes": "" },
+            { "code": "KK42J360", "name": "Fisika Komputasi", "sks": 3, "notes": "" },
+            { "code": "PB42J320", "name": "Biologi Umum", "sks": 2, "notes": "" },
+            { "code": "PB42J323", "name": "Filsafat MIPA", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB42J422", "name": "Metode Numerik", "sks": 3, "notes": "" },
+            { "code": "KB42J434", "name": "Sistem Digital", "sks": 3, "notes": "" },
+            { "code": "KB42J459", "name": "Teknologi Media Pembelajaran Fisika", "sks": 3, "notes": "" },
+            { "code": "KK42J458", "name": "Teknik Pengukuran Fisika", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK42J441", "name": "Gelombang", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK42J442", "name": "Termodinamika", "sks": 3, "notes": "" },
+            { "code": "PB42J479", "name": "Pengetahuan Lingkungan", "sks": 2, "notes": "*) UPM" },
+            { "code": "PK42J414", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB42J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB42J530", "name": "Fisika Optik", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB42J547", "name": "Kapita Selekta Fisika Sekolah", "sks": 2, "notes": "" },
+            { "code": "KK42J512", "name": "Belajar dan Pembelajaran", "sks": 2, "notes": "" },
+            { "code": "KK42J545", "name": "Pengantar Mekanika Kuantum", "sks": 3, "notes": "" },
+            { "code": "PB42J525", "name": "Metode Riset", "sks": 3, "notes": "" },
+            { "code": "PB42J546", "name": "Telaah Kurikulum Fisika", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK42J561", "name": "Teknologi Sensor", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB42J674", "name": "Seminar Fisika", "sks": 3, "notes": "" },
+            { "code": "KB42J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB42J644", "name": "Pembinaan Kompetensi Mengajar Fisika", "sks": 3, "notes": "" },
+            { "code": "PK42J617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "KK42J611", "name": "Profesi Kependidikan", "sks": 2, "notes": "*) UPM" },
+            { "code": "KB42J652", "name": "Pengelolaan & Manajemen Laboratorium Fisika", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB42J686", "name": "Manajemen dan Kepemimpinan Pendidikan", "sks": 3, "notes": "+) P" },
+            { "code": "KK42J681", "name": "Geofisika", "sks": 3, "notes": "+) P" },
+            { "code": "KK42J649", "name": "IPA Terpadu", "sks": 3, "notes": "+) P" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB42J776", "name": "Seminar Proposal", "sks": 3, "notes": "" },
+            { "code": "KK42J754", "name": "Desain Pembuatan Alat Peraga IPA", "sks": 3, "notes": "" },
+            { "code": "PB42J753", "name": "Evaluasi Pembelajaran Fisika", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK42J706", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "KK42J755", "name": "Pengantar Fisika Statistik", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK42J782", "name": "Laboratorium Virtual", "sks": 3, "notes": "+) P" },
+            { "code": "BB42J783", "name": "Kuliah Kerja Nyata", "sks": 3, "notes": "+) P" },
+            { "code": "BB42J775", "name": "Pengenalan Lapangan Persekolahan", "sks": 2, "notes": "#)" },
+            { "code": "KK42J762", "name": "Kajian Hasil Riset Pendidikan Fisika & Aplikasinya", "sks": 3, "notes": "+) P" }
+          ],
+          "total_sks": 22
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB42J877", "name": "Tugas Akhir", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 6
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 138,
+        "sks_pilihan": 9,
+        "total_sks": 147
+      }
+    },
+    {
+      "program_name": "Sains Data",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "PK47A102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK47A101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK47A107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "KK47A108", "name": "Bahasa Inggris I", "sks": 2, "notes": "" },
+            { "code": "KK47A104", "name": "Pengantar Komputer Bisnis", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK47A112", "name": "Arsitektur Informasi", "sks": 2, "notes": "" },
+            { "code": "KK47A137", "name": "Kalkulus Dasar", "sks": 3, "notes": "" },
+            { "code": "KK47A113", "name": "Algoritma dan Pemrograman", "sks": 3, "notes": "*) #) UPM & Prak" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "PK47A203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "KK47A216", "name": "Bahasa Inggris II", "sks": 2, "notes": "" },
+            { "code": "KK47A224", "name": "Sistem Informasi Dasar", "sks": 3, "notes": "" },
+            { "code": "KK47A247", "name": "Matematika Diskrit", "sks": 3, "notes": "" },
+            { "code": "KK47A238", "name": "Kalkulus", "sks": 3, "notes": "" },
+            { "code": "KB47A272", "name": "Manajemen Rekod", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB47A273", "name": "Pemrograman python", "sks": 3, "notes": "*) #) UPM & Prak" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "PK47A306", "name": "SPJD PGRI", "sks": 2, "notes": "" },
+            { "code": "KK47A332", "name": "Aljabar Linear", "sks": 2, "notes": "" },
+            { "code": "KK47A321", "name": "Pengantar Teori Peluang", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK47A319", "name": "Statistika", "sks": 3, "notes": "" },
+            { "code": "KK47A327", "name": "Sistem Temu Kembali", "sks": 2, "notes": "" },
+            { "code": "KB47A328", "name": "Data Warehouse", "sks": 3, "notes": "*) #) UPM & Prak" },
+            { "code": "KK47A326", "name": "Fisika Dasar", "sks": 2, "notes": "" },
+            { "code": "KB47A336", "name": "Basis Data", "sks": 3, "notes": "*) #) UPM & Prak" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK47A420", "name": "Biologi Umum", "sks": 2, "notes": "" },
+            { "code": "PK47A417", "name": "Ahlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "KK47A440", "name": "Kurasi Digital", "sks": 2, "notes": "" },
+            { "code": "BB47A455", "name": "Riset Operasi", "sks": 3, "notes": "" },
+            { "code": "KK47A410", "name": "Pengantar Sains Data", "sks": 3, "notes": "*) #) UPM & Prak" },
+            { "code": "KB47A441", "name": "Analisis Data dengan Spreadsheet", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB47A467", "name": "Keamanan Informasi dan Jaringan Komputer", "sks": 3, "notes": "*) #) UPM & Prak" },
+            { "code": "KB47A485", "name": "Manajemen Pengetahuan", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "PB47A509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KK47A535", "name": "Kimia Dasar", "sks": 2, "notes": "" },
+            { "code": "KB47A542", "name": "Knowledge Discovery in Database", "sks": 3, "notes": "*) #) UPM & Prak" },
+            { "code": "KB47A543", "name": "Statistik Bisnis dengan Spreadsheet", "sks": 3, "notes": "" },
+            { "code": "KK47A544", "name": "Pembelajaran Mesin", "sks": 3, "notes": "*) #) UPM & Prak" },
+            { "code": "BB47A554", "name": "Rekayasa Perangkat Lunak", "sks": 2, "notes": "" },
+            { "code": "KK47A549", "name": "Visualisasi Data", "sks": 3, "notes": "*) #) UPM & Prak" },
+            { "code": "KB47A556", "name": "Komunikasi Bisnis", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB47A571", "name": "Kepemimpinan", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB47A580", "name": "Bio Informatika", "sks": 2, "notes": "+) Pilihan" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "PB47A625", "name": "Metodologi Penelitian", "sks": 2, "notes": "" },
+            { "code": "PB47A618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KK47A646", "name": "Pembelajaran Mesin Lanjut", "sks": 3, "notes": "*) #) UPM & Prak" },
+            { "code": "KB47A659", "name": "Data Mining", "sks": 3, "notes": "*) #) UPM & Prak" },
+            { "code": "KK47A648", "name": "Pemodelan Kecerdasan Bisnis", "sks": 3, "notes": "*) #) UPM & Prak" },
+            { "code": "KK47A634", "name": "Manajemen Proyek", "sks": 3, "notes": "" },
+            { "code": "KB47A650", "name": "Teknik Lobi dan Negosiasi", "sks": 2, "notes": "+) pilihan" },
+            { "code": "KB47A631", "name": "Objeck Oriented Programming", "sks": 2, "notes": "+)#) pilihan & Prak" },
+            { "code": "KB47A651", "name": "Metode Pengajaran Sains Data", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KK47A660", "name": "Fisika Komputasi", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KK47A679", "name": "Cloud Computing", "sks": 2, "notes": "+) Pilihan" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "PB47A775", "name": "Praktek Kerja Lapangan", "sks": 4, "notes": "" },
+            { "code": "PB47A714", "name": "Penulisan Karya Ilmiah", "sks": 2, "notes": "" },
+            { "code": "KB47A781", "name": "Kemometrik", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB47A782", "name": "Analisa Keputusan", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB47A783", "name": "Enterprise Oriented Programming", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB47A758", "name": "Analisis Big Data", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KB47A776", "name": "Seminar sains data", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB47A784", "name": "Artificial Intelegence", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KB47A752", "name": "Analisis Kecerdasan Bisnis", "sks": 3, "notes": "+) Pilihan" },
+            { "code": "KB47A786", "name": "Deep learning", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB47A787", "name": "Manajemen informasi", "sks": 2, "notes": "+) Pilihan" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB47A877", "name": "Tugas Akhir", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 6
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 124,
+        "sks_pilihan": 20,
+        "total_sks": 144
+      }
+    },
+    {
+      "program_name": "Arsitektur",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB45J111", "name": "Gambar Arsitektur", "sks": 3, "notes": "# *) UPM" },
+            { "code": "KB45J120", "name": "Estetika Bentuk", "sks": 3, "notes": "#" },
+            { "code": "KK45J178", "name": "Komputer Terapan", "sks": 2, "notes": "#" },
+            { "code": "KK45J110", "name": "Pengantar Arsitektur", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK45J112", "name": "Matematika Arsitektur 1", "sks": 2, "notes": "" },
+            { "code": "PK45J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK45J102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK45J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB45J224", "name": "Gambar Teknik", "sks": 3, "notes": "#" },
+            { "code": "KB45J228", "name": "Struktur Bangunan Tidak Bertingkat", "sks": 3, "notes": "# *) UPM" },
+            { "code": "KB45J232", "name": "Studio Perancangan Arsitektur 1", "sks": 4, "notes": "# *) UPM" },
+            { "code": "KK45J250", "name": "Teori Arsitektur 1", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK45J239", "name": "Teknik Komunikasi Arsitektur", "sks": 2, "notes": "#" },
+            { "code": "KK45J222", "name": "Metode Perancangan Arsitektur 1", "sks": 2, "notes": "" },
+            { "code": "KK45J226", "name": "Komputer Arsitektur 2 dimensi", "sks": 2, "notes": "#" },
+            { "code": "PK45J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB45J329", "name": "Struktur Bangunan Bertingkat Sedang", "sks": 3, "notes": "# *) UPM" },
+            { "code": "KK45J308", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KK45J321", "name": "Pengetahuan Bahan Bangunan", "sks": 2, "notes": "" },
+            { "code": "KK45J327", "name": "Komputer Arsitektur 3 dimensi", "sks": 2, "notes": "#" },
+            { "code": "KK45J333", "name": "Studio Perancangan Arsitektur 2", "sks": 4, "notes": "# *) UPM" },
+            { "code": "KK45J344", "name": "Mekanika Teknik 2", "sks": 2, "notes": "" },
+            { "code": "KK45J343", "name": "Fisika Bangunan", "sks": 2, "notes": "" },
+            { "code": "KK45J347", "name": "Tata Ruang Dalam", "sks": 2, "notes": "#" },
+            { "code": "KK45J345", "name": "Perkembangan Arsitektur Dunia", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB45J430", "name": "Struktur Bangunan Bertingkat Tinggi", "sks": 3, "notes": "# *) UPM" },
+            { "code": "KK45J416", "name": "Bahasa Inggris Arsitektur", "sks": 2, "notes": "" },
+            { "code": "KK45J423", "name": "Metode Perancangan Arsitektur 2", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK45J434", "name": "Studio Perancangan Arsitektur 3", "sks": 4, "notes": "# *) UPM" },
+            { "code": "KK45J413", "name": "Matematika Arsitektur 2", "sks": 2, "notes": "" },
+            { "code": "KK45J440", "name": "Teknologi Bangunan", "sks": 2, "notes": "" },
+            { "code": "KK45J448", "name": "Tata Ruang Luar", "sks": 2, "notes": "#" },
+            { "code": "KK45J415", "name": "Aplikasi Komputer", "sks": 2, "notes": "#" },
+            { "code": "KK45J446", "name": "Perkembangan Arsitektur Nusantara", "sks": 2, "notes": "*) UPM" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB45J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB45J531", "name": "Struktur Bangunan Bentang Lebar", "sks": 3, "notes": "# *) UPM" },
+            { "code": "KB45J535", "name": "Studio Perancangan Arsitektur 4", "sks": 4, "notes": "# *) UPM" },
+            { "code": "KK45J519", "name": "Statistik", "sks": 2, "notes": "" },
+            { "code": "KK45J552", "name": "Arsitektur Pemukiman", "sks": 2, "notes": "#" },
+            { "code": "KK45J541", "name": "Utilitas Bangunan", "sks": 2, "notes": "#" },
+            { "code": "KK45J551", "name": "Teori Arsitektur 2", "sks": 2, "notes": "*) UPM" },
+            { "code": "PB45J554", "name": "Real Estate", "sks": 3, "notes": "+) p" },
+            { "code": "PB45J555", "name": "Sistem Bangunan Terintegrasi", "sks": 3, "notes": "+) p" },
+            { "code": "PB45J556", "name": "Topografi", "sks": 3, "notes": "+) p" },
+            { "code": "PB45J557", "name": "Vernakular", "sks": 3, "notes": "+) p" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB45J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB45J636", "name": "Studio Perancangan Arsitektur 5", "sks": 4, "notes": "# *) UPM" },
+            { "code": "BB45J675", "name": "Kerja Praktik", "sks": 2, "notes": "#" },
+            { "code": "KK45J653", "name": "Arsitektur Perkotaan", "sks": 2, "notes": "#" },
+            { "code": "PB45J625", "name": "Metode Penelitan Arsitektur", "sks": 2, "notes": "" },
+            { "code": "PK45J614", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "PK45J617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "PB45J649", "name": "Manajemen Proyek (ISO)", "sks": 2, "notes": "" },
+            { "code": "BB45J673", "name": "Ilmu Sosial dan Budaya Dasar", "sks": 3, "notes": "+) p" },
+            { "code": "PB45J658", "name": "Arsitektur dan Kota Kolonial", "sks": 3, "notes": "+) p" },
+            { "code": "PB45J659", "name": "Arsitektur dan Perilaku", "sks": 3, "notes": "+) p" },
+            { "code": "PB45J660", "name": "Arsitektur Tropis", "sks": 3, "notes": "+) p" },
+            { "code": "PB45J661", "name": "Fotografi Arsitektur", "sks": 3, "notes": "+) p" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK45J738", "name": "Arsitektur Lingkungan", "sks": 2, "notes": "" },
+            { "code": "BB45J776", "name": "Seminar Arsitektur", "sks": 2, "notes": "" },
+            { "code": "KB45J737", "name": "Studio Perancangan Arsitektur 6", "sks": 4, "notes": "# *) UPM" },
+            { "code": "KK45J742", "name": "Estimasi Proyek", "sks": 2, "notes": "" },
+            { "code": "PK45J706", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "PB45J762", "name": "Komputer Arsitektur lanjut", "sks": 3, "notes": "+#) p" },
+            { "code": "PB45J763", "name": "Konservasi Arsitektur", "sks": 3, "notes": "+) p" },
+            { "code": "PB45J764", "name": "Psikologi Arsitektur", "sks": 3, "notes": "+) p" },
+            { "code": "PB45J765", "name": "Tipologi Arsitektur", "sks": 3, "notes": "+) p" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB45J877", "name": "Tugas Akhir", "sks": 8, "notes": "" }
+          ],
+          "total_sks": 8
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 135,
+        "sks_pilihan": 9,
+        "total_sks": 144
+      }
+    },
+    {
+      "program_name": "Teknik Industri",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK44J110", "name": "Pengantar Teknik Industri", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK44J111", "name": "Menggambar Teknik", "sks": 3, "notes": "#" },
+            { "code": "KK44J126", "name": "Fisika I", "sks": 2, "notes": "" },
+            { "code": "KK44J137", "name": "Kalkulus I", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK44J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK44J102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK44J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "PK44J108", "name": "Bahasa Inggris", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK44J204", "name": "Komputer Dasar", "sks": 2, "notes": "#" },
+            { "code": "KK44J222", "name": "Material Teknik", "sks": 2, "notes": "" },
+            { "code": "KK44J223", "name": "Mekanika Teknik", "sks": 2, "notes": "" },
+            { "code": "KK44J227", "name": "Fisika II", "sks": 3, "notes": "#" },
+            { "code": "KK44J235", "name": "Kimia", "sks": 2, "notes": "" },
+            { "code": "KK44J238", "name": "Kalkulus II", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK44J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" },
+            { "code": "PK44J216", "name": "Bahasa Inggris Teknik", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB44J379", "name": "Ergonomika", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK44J378", "name": "Komputer Terapan", "sks": 2, "notes": "#" },
+            { "code": "KK44J381", "name": "Ekonomika dan Ekonomika Teknik", "sks": 3, "notes": "" },
+            { "code": "KK44J320", "name": "Statistika I", "sks": 2, "notes": "#)" },
+            { "code": "KK44J332", "name": "Aljabar Linier", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK44J339", "name": "Proses Manufaktur", "sks": 3, "notes": "" },
+            { "code": "PB44J380", "name": "Ekologi Industri", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB44J482", "name": "Pengukuran dan Perancangan Sistem Kerja", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB44J433", "name": "Perencanaan dan Pengendalian Produksi", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB44J465", "name": "Kesehatan Keselamatan Kerja", "sks": 2, "notes": "" },
+            { "code": "KK44J483", "name": "Analitika Data", "sks": 3, "notes": "#" },
+            { "code": "KK44J421", "name": "Statistika II", "sks": 2, "notes": "#*) UPM" },
+            { "code": "KK44J428", "name": "Riset Operasi I", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK44J436", "name": "Analisis dan Pengendalian Biaya", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB44J585", "name": "Sistem Rantai Pasok", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB44J545", "name": "Perancangan Fasilitas", "sks": 3, "notes": "#*) UPM" },
+            { "code": "KB44J574", "name": "Pengendalian dan Penjaminan Mutu", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK44J529", "name": "Riset Operasi II", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK44J553", "name": "Standardisasi", "sks": 2, "notes": "" },
+            { "code": "PB44J551", "name": "Perilaku Organisasi", "sks": 2, "notes": "" },
+            { "code": "PB44J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "PK44J506", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB44J649", "name": "Pemodelan Sistem", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK44J684", "name": "Simulasi Sistem", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK44J688", "name": "Perancangan dan Manjemen Organisasi Industri", "sks": 3, "notes": "" },
+            { "code": "KK44J625", "name": "Metodologi Penelitian", "sks": 2, "notes": "" },
+            { "code": "PB44J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "PK44J614", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "PK44J617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "KB44J690", "name": "Praktikum Terintegrasi", "sks": 3, "notes": "#" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB44J786", "name": "Perencanaan dan Pengembangan Produk", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB44J754", "name": "Analisis Keputusan", "sks": 3, "notes": "+) p" },
+            { "code": "KB44J755", "name": "Analisis Produktivitas", "sks": 3, "notes": "+) p" },
+            { "code": "KB44J757", "name": "Kapita Selekta Manufaktur", "sks": 3, "notes": "+) p" },
+            { "code": "KB44J758", "name": "Lean Production", "sks": 3, "notes": "+) p" },
+            { "code": "KB44J761", "name": "Manajemen Proyek", "sks": 3, "notes": "+) p" },
+            { "code": "KB44J762", "name": "Sistem Produksi Tepat Waktu", "sks": 3, "notes": "(+) p" },
+            { "code": "KB44J763", "name": "Strategi Industri", "sks": 3, "notes": "(+) p" },
+            { "code": "KB44J775", "name": "Kerja Praktek", "sks": 2, "notes": "#" },
+            { "code": "KB44J776", "name": "Seminar", "sks": 2, "notes": "" },
+            { "code": "KK44J740", "name": "Analisis dan Perancangan Sistem Informasi", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 16
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "BB44J873", "name": "Ilmu Sosial dan Budaya Dasar", "sks": 3, "notes": "+) P" },
+            { "code": "KB44J860", "name": "Manajemen Produk", "sks": 3, "notes": "+) P" },
+            { "code": "KB44J864", "name": "E-commerce", "sks": 3, "notes": "+) P" },
+            { "code": "KB44J866", "name": "Manajemen Berbasis Pengetahuan", "sks": 3, "notes": "+) P" },
+            { "code": "KB44J868", "name": "Manajemen Strategi", "sks": 3, "notes": "+) P" },
+            { "code": "KB44J869", "name": "Sistem Manufaktur Terintegrasi", "sks": 3, "notes": "+) P" },
+            { "code": "KB44J870", "name": "Sistem Manusia Mesin", "sks": 3, "notes": "+) P" },
+            { "code": "KB44J877", "name": "Tugas Akhir", "sks": 6, "notes": "" },
+            { "code": "KK44J887", "name": "Perancangan Sistem Terpadu", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 15
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 132,
+        "sks_pilihan": 12,
+        "total_sks": 144
+      }
+    },
+    {
+      "program_name": "Teknik Informatika",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK43J110", "name": "Pengantar Teknologi Informasi", "sks": 2, "notes": "" },
+            { "code": "KK43J111", "name": "Algoritma 1", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK43J128", "name": "Pemrograman 1", "sks": 2, "notes": "#)" },
+            { "code": "KK43J108", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KK43J137", "name": "Kalkulus Dasar", "sks": 2, "notes": "*) UPM" },
+            { "code": "PK43J101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK43J107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" },
+            { "code": "PK43J102", "name": "Pancasila", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 16
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB43J215", "name": "Sistem Digital", "sks": 3, "notes": "##)" },
+            { "code": "KK43J212", "name": "Algoritma 2", "sks": 3, "notes": "*) #) UPM" },
+            { "code": "KK43J229", "name": "Pemrograman 2", "sks": 3, "notes": "*) #) UPM" },
+            { "code": "KK43J216", "name": "Bahasa Inggris Informatika", "sks": 2, "notes": "" },
+            { "code": "KK43J213", "name": "Logika Matematika", "sks": 2, "notes": "" },
+            { "code": "KK43J238", "name": "Kalkulus Lanjut", "sks": 2, "notes": "" },
+            { "code": "BB43J251", "name": "Komputer dan Masyarakat", "sks": 2, "notes": "" },
+            { "code": "PK43J203", "name": "Kewarganegaraan", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB43J346", "name": "Jaringan Komputer", "sks": 3, "notes": "*) ##) UPM" },
+            { "code": "KK43J330", "name": "Pemrograman 3", "sks": 3, "notes": "#)" },
+            { "code": "KK43J347", "name": "Matematika Diskrit", "sks": 3, "notes": "" },
+            { "code": "KK43J324", "name": "Sistem Informasi", "sks": 3, "notes": "" },
+            { "code": "KK43J319", "name": "Statistika Dasar", "sks": 3, "notes": "" },
+            { "code": "KK43J321", "name": "Struktur Data", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK43J322", "name": "Praktikum Struktur Data", "sks": 1, "notes": "#)" },
+            { "code": "KK43J326", "name": "Fisika Gerak", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB43J425", "name": "Arsitektur dan Organisasi Komputer", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK43J448", "name": "Metode Numerik", "sks": 3, "notes": "" },
+            { "code": "KK43J433", "name": "Aljabar Linier dan Matrik", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK43J434", "name": "Manajemen Proyek", "sks": 3, "notes": "" },
+            { "code": "PK43J406", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "KB43J435", "name": "Sistem Basis Data", "sks": 2, "notes": "*) UPM" },
+            { "code": "KB43J436", "name": "Praktikum Sistem Basis Data", "sks": 1, "notes": "#)" },
+            { "code": "KK43J427", "name": "Fisika Listrik Magnet", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK43J520", "name": "Statistika Lanjut", "sks": 2, "notes": "" },
+            { "code": "BB43J532", "name": "Kecakapan Antar Personal (Interpersonal skill)", "sks": 2, "notes": "" },
+            { "code": "KB43J541", "name": "Teori Bahasa Automata", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB43J540", "name": "Sistem Operasi", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB43J531", "name": "Pemrograman Berorientasi Objek", "sks": 3, "notes": "#)" },
+            { "code": "KB43J542", "name": "Pemrograman Web Dasar", "sks": 2, "notes": "#)" },
+            { "code": "PB43J509", "name": "Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "BB43J573", "name": "Ilmu Sosial dan Budaya Dasar", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB43J657", "name": "Penambangan Data", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB43J649", "name": "Interaksi Manusia & Komputer", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB43J650", "name": "Teknik Kompilasi", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK43J644", "name": "Pemrograman Visual", "sks": 3, "notes": "#)" },
+            { "code": "PK43J614", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "PB43J618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "PK43J617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "KB43J643", "name": "Pemrograman Web Lanjut", "sks": 3, "notes": "#)" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB43J752", "name": "Keamanan Komputer", "sks": 2, "notes": "" },
+            { "code": "KB43J753", "name": "Komputer Grafik", "sks": 3, "notes": "*) #) UPM" },
+            { "code": "BB43J754", "name": "Rekayasa Perangkat Lunak", "sks": 3, "notes": "*) ##) UPM" },
+            { "code": "BB43J755", "name": "Riset Operasional", "sks": 3, "notes": "" },
+            { "code": "PB43J756", "name": "Etika Profesi", "sks": 2, "notes": "" },
+            { "code": "PK43J723", "name": "Filsafat Ilmu", "sks": 2, "notes": "" },
+            { "code": "KB43J759", "name": "E-Commerce", "sks": 2, "notes": "+) #) P" },
+            { "code": "KB43J760", "name": "Sistem Berbasis Pengetahuan", "sks": 2, "notes": "+) P" },
+            { "code": "KB43J758", "name": "Aplikasi Jaringan", "sks": 2, "notes": "+) P" },
+            { "code": "KB43J775", "name": "Kuliah Kerja Praktek (KKP)", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB43J863", "name": "Pengolahan Citra", "sks": 3, "notes": "+) ##) P" },
+            { "code": "KB43J862", "name": "Multimedia", "sks": 0, "notes": "+) #) P (SKS Check)" },
+            { "code": "KB43J845", "name": "Analisa & Perancangan Sistem Informasi", "sks": 0, "notes": "+) P (SKS Check)" },
+            { "code": "KB43J861", "name": "Jaringan Syaraf Tiruan", "sks": 2, "notes": "+) P" },
+            { "code": "BB43J864", "name": "Teknik Simulasi", "sks": 0, "notes": "+) P (SKS Check)" },
+            { "code": "KB43J877", "name": "Tugas Akhir", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 11
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 138,
+        "sks_pilihan": 9,
+        "total_sks": 147
+      }
+    },
+    {
+      "program_name": "Sistem Informasi",
+      "level": "S1",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK33B174", "name": "Konsep Sistem Informasi", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK33B111", "name": "Algoritma 1", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK33B128", "name": "Pemrograman 1", "sks": 2, "notes": "#)" },
+            { "code": "KK33B108", "name": "Bahasa Inggris", "sks": 2, "notes": "" },
+            { "code": "KK33B113", "name": "Matematika", "sks": 2, "notes": "*) UPM" },
+            { "code": "PK33B102", "name": "Pancasila", "sks": 2, "notes": "" },
+            { "code": "PK33B101", "name": "Agama", "sks": 2, "notes": "" },
+            { "code": "PK33B107", "name": "Bahasa Indonesia", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 17
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK33B224", "name": "Manajemen Proses Bisnis", "sks": 2, "notes": "" },
+            { "code": "KK33B212", "name": "Algoritma 2", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK33B229", "name": "Pemrograman 2", "sks": 2, "notes": "#)" },
+            { "code": "KB33B216", "name": "Bahasa Inggris Bisnis", "sks": 2, "notes": "" },
+            { "code": "KK33B219", "name": "Statistika", "sks": 3, "notes": "" },
+            { "code": "KK33B226", "name": "Sistem Informasi Manajemen", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB33B246", "name": "Jaringan Komputer", "sks": 3, "notes": "##)" },
+            { "code": "PK33B203", "name": "Kewarganegaraan", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 19
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KB33B325", "name": "Arsitektur dan Organisasi Komputer", "sks": 3, "notes": "" },
+            { "code": "KB33B342", "name": "Pemrograman Web Dasar", "sks": 2, "notes": "#)" },
+            { "code": "KK33B310", "name": "Pengantar Teknologi Informasi", "sks": 2, "notes": "" },
+            { "code": "KB33B340", "name": "Sistem Operasi", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK33B333", "name": "Matriks dan Transformasi Linier", "sks": 3, "notes": "" },
+            { "code": "KK33B330", "name": "Tata Kelola Teknologi Informasi", "sks": 3, "notes": "" },
+            { "code": "KK33B321", "name": "Struktur Data", "sks": 2, "notes": "*) UPM" },
+            { "code": "KK33B322", "name": "Praktikum Struktur Data", "sks": 2, "notes": "#)" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "KB33B435", "name": "Sistem Basis Data", "sks": 2, "notes": "*) UPM" },
+            { "code": "KB33B436", "name": "Praktikum Sistem Basis Data", "sks": 2, "notes": "#)" },
+            { "code": "KK33B480", "name": "Desain Antarmuka Pengguna", "sks": 3, "notes": "" },
+            { "code": "KB33B445", "name": "Analisa & Perancangan Sistem Informasi", "sks": 3, "notes": "*) UPM" },
+            { "code": "BB33B432", "name": "Kecakapan Antar Personal (KAP)", "sks": 2, "notes": "" },
+            { "code": "KK33B434", "name": "Manajemen Proyek", "sks": 3, "notes": "" },
+            { "code": "KB33B443", "name": "Pemrograman Web Lanjut", "sks": 3, "notes": "*) #) UPM" },
+            { "code": "KK33B481", "name": "Transformasi Digital", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "V",
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB33B554", "name": "Rekayasa Perangkat Lunak", "sks": 3, "notes": "" },
+            { "code": "KB33B582", "name": "Sistem Pendukung Keputusan", "sks": 3, "notes": "" },
+            { "code": "KK33B548", "name": "CRM (Manajemen Hubungan Pelanggan)", "sks": 2, "notes": "" },
+            { "code": "KK33B568", "name": "Rekayasa E- Bisnis", "sks": 3, "notes": "*) #) UPM" },
+            { "code": "KK33B539", "name": "Analisa Proses Bisnis", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK33B556", "name": "ERP (Perencanaan Sumber Daya Perusahaan)", "sks": 2, "notes": "" },
+            { "code": "KK33B557", "name": "Manajemen Layanan Teknologi Informasi", "sks": 2, "notes": "" },
+            { "code": "PB33B509", "name": "Kewirausahaan", "sks": 2, "notes": "" }
+          ],
+          "total_sks": 20
+        },
+        {
+          "semester": "VI",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK33B653", "name": "Berpikir Komputasional", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK33B662", "name": "Akuntansi Keuangan", "sks": 3, "notes": "" },
+            { "code": "KB33B638", "name": "Sistem Informasi Perusahaan dan Akuntansi", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB33B670", "name": "Machine Learning", "sks": 3, "notes": "#)" },
+            { "code": "PK33B614", "name": "Penulisan Ilmiah", "sks": 2, "notes": "" },
+            { "code": "PK33B617", "name": "Akhlak dan Etika", "sks": 2, "notes": "" },
+            { "code": "PB33B618", "name": "Aplikasi Kewirausahaan", "sks": 2, "notes": "" },
+            { "code": "KB33B631", "name": "Pemrograman Berorientasi Objek", "sks": 3, "notes": "#)" }
+          ],
+          "total_sks": 21
+        },
+        {
+          "semester": "VII",
+          "type": "Gasal",
+          "courses": [
+            { "code": "PB33B767", "name": "Keamanan Informasi", "sks": 3, "notes": "*) UPM" },
+            { "code": "KB33B783", "name": "Audit Sistem Informasi", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK33B723", "name": "Filsafat Ilmu", "sks": 2, "notes": "" },
+            { "code": "KK33B771", "name": "Kepemimpinan dan Manajemen Organisasi", "sks": 2, "notes": "" },
+            { "code": "PK33B706", "name": "Sejarah Pendidikan dan PGRI", "sks": 2, "notes": "" },
+            { "code": "KB33B775", "name": "Kerja Praktek (KP)", "sks": 2, "notes": "" },
+            { "code": "KB33B769", "name": "Sistem Informasi Geografis (SIG)", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB33B765", "name": "Manajemen Rantai Persediaan", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB33B772", "name": "Manajemen Data", "sks": 2, "notes": "+) Pilihan" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": "VIII",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK33B884", "name": "Arsitektur Perusahaan", "sks": 2, "notes": "+) Pilihan" },
+            { "code": "KB33B863", "name": "Pengolahan Citra", "sks": 3, "notes": "+) ##)" },
+            { "code": "KB33B873", "name": "Aplikasi Mobile", "sks": 3, "notes": "+) ##)" },
+            { "code": "KK33B886", "name": "Star Up Digital", "sks": 3, "notes": "+) ##)" },
+            { "code": "KK33B878", "name": "Teknologi Cloud", "sks": 2, "notes": "+)" },
+            { "code": "KB33B877", "name": "Tugas Akhir", "sks": 6, "notes": "" }
+          ],
+          "total_sks": 11
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 137,
+        "sks_pilihan": 9,
+        "total_sks": 146
+      }
+    },
+    {
+      "program_name": "Pendidikan Bahasa Indonesia (Magister/S2)",
+      "level": "S2",
+      "semesters": [
+        {
+          "semester": "I",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK71J101", "name": "Landasan Pendidikan", "sks": 3, "notes": "" },
+            { "code": "KK71J115", "name": "Kajian Linguistik Makro", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK71J116", "name": "Apresiasi dan Praktik Pengajaran Sastra Indonesia", "sks": 3, "notes": "" },
+            { "code": "PB71J104", "name": "Aplikasi Statistika dalam Riset Pendidikan", "sks": 3, "notes": "*) UPM" },
+            { "code": "PK71J105", "name": "Filsafat Ilmu", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": "II",
+          "type": "Genap",
+          "courses": [
+            { "code": "KK71J217", "name": "Inovasi Pembelajaran Bahasa dan Sastra Indonesia Berbasis TIK", "sks": 3, "notes": "" },
+            { "code": "KK71J218", "name": "Evaluasi Pembelajaran Bahasa dan Sastra Indonesia", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK71J222", "name": "Keterampilan Berbahasa Reseptif dan Produktif", "sks": 3, "notes": "" },
+            { "code": "KK71J221", "name": "Linguistik Komparatif", "sks": 3, "notes": "" },
+            { "code": "PB71J206", "name": "Metodologi Riset dan Penulisan Karya Ilmiah", "sks": 3, "notes": "*) UPM" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": "III",
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK71J314", "name": "Kajian Wacana Kritis", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK71J323", "name": "Psikologi Pembelajaran Bahasa dan Sastra", "sks": 3, "notes": "" },
+            { "code": "KK71J324", "name": "Kurikulum dan Desain Pembelajaran Bahasa dan Sastra", "sks": 3, "notes": "*) UPM" },
+            { "code": "KK71J325", "name": "Kajian Hasil Riset Pendidikan Bahasa dan Sastra Indonesia", "sks": 3, "notes": "" },
+            { "code": "BB71J319", "name": "Seminar Proposal", "sks": 3, "notes": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": "IV",
+          "type": "Genap",
+          "courses": [
+            { "code": "PB71J426", "name": "Diseminasi", "sks": 2, "notes": "" },
+            { "code": "BB71J420", "name": "Tesis", "sks": 7, "notes": "" }
+          ],
+          "total_sks": 9
+        }
+      ],
+      "curriculum_summary": {
+        "sks_wajib": 54,
+        "sks_pilihan": 0,
+        "total_sks": 54
+      }
+    },
+    {
+      "program_name": "Magister Pendidikan Bahasa Inggris",
+      "degree": "S-2",
+      "academic_year": "2025/2026",
+      "total_sks_required": 54,
+      "semesters": [
+        {
+          "semester": 1,
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK71J101", "name": "Landasan Pendidikan", "sks": 3, "note": "" },
+            { "code": "KK71J115", "name": "Kajian Linguistik Makro *)", "sks": 3, "note": "UPM" },
+            { "code": "KK71J116", "name": "Apresiasi dan Praktik Pengajaran Sastra Indonesia", "sks": 3, "note": "" },
+            { "code": "PB71J104", "name": "Aplikasi Statistika dalam Riset Pendidikan*)", "sks": 3, "note": "UPM" },
+            { "code": "PK71J105", "name": "Filsafat Ilmu", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 2,
+          "type": "Genap",
+          "courses": [
+            { "code": "KK71J217", "name": "Inovasi Pembelajaran Bahasa dan Sastra Indonesia Berbasis TIK", "sks": 3, "note": "" },
+            { "code": "KK71J218", "name": "Evaluasi Pembelajaran Bahasa dan Sastra Indonesia*)", "sks": 3, "note": "UPM" },
+            { "code": "KK71J222", "name": "Keterampilan Berbahasa Reseptif dan Produktif", "sks": 3, "note": "" },
+            { "code": "KK71J221", "name": "Linguistik Komparatif", "sks": 3, "note": "" },
+            { "code": "PB71J206", "name": "Metodologi Riset dan Penulisan Karya Ilmiah*)", "sks": 3, "note": "UPM" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 3,
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK71J314", "name": "Kajian Wacana Kritis*)", "sks": 3, "note": "UPM" },
+            { "code": "KK71J323", "name": "Psikologi Pembelajaran Bahasa dan Sastra", "sks": 3, "note": "" },
+            { "code": "KK71J324", "name": "Kurikulum dan Desain Pembelajaran Bahasa dan Sastra*)", "sks": 3, "note": "UPM" },
+            { "code": "KK71J325", "name": "Kajian Hasil Riset Pendidikan Bahasa dan Sastra Indonesia", "sks": 3, "note": "" },
+            { "code": "BB71J319", "name": "Seminar Proposal", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 4,
+          "type": "Genap",
+          "courses": [
+            { "code": "PB71J426", "name": "Diseminasi", "sks": 2, "note": "" },
+            { "code": "BB71J420", "name": "Tesis", "sks": 7, "note": "" }
+          ],
+          "total_sks": 9
+        }
+      ]
+    },
+    {
+      "program_name": "Magister Pendidikan Bahasa Inggris (International Class/TESOL)",
+      "degree": "S-2",
+      "academic_year": "2025/2026",
+      "total_sks_required": 54,
+      "semesters": [
+        {
+          "semester": 1,
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK74J101", "name": "Principles of Education in ELT", "sks": 3, "note": "" },
+            { "code": "KK74J102", "name": "Academic Speaking for Scientific Purposes", "sks": 3, "note": "" },
+            { "code": "KK74J127", "name": "Critical Theories in Language and Literature Teaching*", "sks": 3, "note": "UPM" },
+            { "code": "PB74J104", "name": "Statistics for Educational Research*", "sks": 3, "note": "UPM" },
+            { "code": "PK74J105", "name": "Philosophy of Science in Language Education", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 2,
+          "type": "Genap",
+          "courses": [
+            { "code": "KK74J228", "name": "Advanced and Functional Grammar", "sks": 3, "note": "" },
+            { "code": "KK74J229", "name": "Academic Reading and Writing for Scientific Purposes*", "sks": 3, "note": "UPM" },
+            { "code": "KK74J230", "name": "Advanced and Functional Linguistics*", "sks": 3, "note": "" },
+            { "code": "KK74J224", "name": "Curriculum and Learning Design in ELT", "sks": 3, "note": "" },
+            { "code": "PB74J206", "name": "Research Methodology in Language Education*", "sks": 3, "note": "UPM" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 3,
+          "type": "Gasal",
+          "courses": [
+            { "code": "PK74J323", "name": "Psychology of learning in ELT", "sks": 3, "note": "" },
+            { "code": "KK74J331", "name": "Language Testing and Assessment*", "sks": 3, "note": "UPM" },
+            { "code": "KK74J332", "name": "Methodology in TESOL", "sks": 3, "note": "" },
+            { "code": "KK74J333", "name": "Digital Literacies and ICT in ELT*", "sks": 3, "note": "UPM" },
+            { "code": "BB74J319", "name": "Thesis Proposal Seminar", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 4,
+          "type": "Genap",
+          "courses": [
+            { "code": "PB74J426", "name": "Research Dissemination and Publication", "sks": 2, "note": "" },
+            { "code": "BB74J420", "name": "Thesis Writing", "sks": 7, "note": "" }
+          ],
+          "total_sks": 9
+        }
+      ]
+    },
+    {
+      "program_name": "Magister Pendidikan IPS",
+      "degree": "S-2",
+      "academic_year": "2025/2026",
+      "total_sks_required": 54,
+      "semesters": [
+        {
+          "semester": 1,
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK73J101", "name": "Landasan Pendidikan", "sks": 3, "note": "" },
+            { "code": "KK73J102", "name": "Teori Proses, dan Sosial Budaya", "sks": 3, "note": "" },
+            { "code": "KB73J134", "name": "Pendidikan Lintas Budaya*)", "sks": 3, "note": "UPM" },
+            { "code": "KK73J104", "name": "Aplikasi Statistika dalam Riset Pendidikan*)", "sks": 3, "note": "UPM" },
+            { "code": "PK73J105", "name": "Filsafat Ilmu", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 2,
+          "type": "Genap",
+          "courses": [
+            { "code": "KK73J206", "name": "Metode Riset Pendidikan IPS*)", "sks": 3, "note": "UPM" },
+            { "code": "KK73J235", "name": "Geografi Sosial dan Lingkungan", "sks": 3, "note": "" },
+            { "code": "KK73J218", "name": "Evaluasi Pembelajaran IPS*)", "sks": 3, "note": "UPM" },
+            { "code": "KK73J217", "name": "Inovasi Pendidikan IPS berbasis TIK", "sks": 3, "note": "" },
+            { "code": "KK73J224", "name": "Kurikulum dan Desain Pembelajaran IPS", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 3,
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK73J323", "name": "Psikologi Pembelajaran IPS", "sks": 3, "note": "" },
+            { "code": "BB73J312", "name": "Sejarah Indonesia*)", "sks": 3, "note": "UPM" },
+            { "code": "BB73J313", "name": "Ekonomi Indonesia*)", "sks": 3, "note": "UPM" },
+            { "code": "KK73J336", "name": "Pemetaan Problem Sosial", "sks": 3, "note": "" },
+            { "code": "KB73J319", "name": "Seminar Proposal", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 4,
+          "type": "Genap",
+          "courses": [
+            { "code": "PB73J426", "name": "Diseminasi", "sks": 2, "note": "" },
+            { "code": "KB73J420", "name": "Tesis", "sks": 7, "note": "" }
+          ],
+          "total_sks": 9
+        }
+      ]
+    },
+    {
+      "program_name": "Magister Pendidikan Matematika dan IPA",
+      "degree": "S-2",
+      "academic_year": "2025/2026",
+      "total_sks_required": 54,
+      "semesters": [
+        {
+          "semester": 1,
+          "type": "Gasal",
+          "courses": [
+            { "code": "BB72J104", "name": "Aplikasi Statistika dalam Riset Pendidikan*)", "sks": 3, "note": "UPM" },
+            { "code": "BB72J105", "name": "Filsafat Ilmu", "sks": 3, "note": "" },
+            { "code": "KK72J108", "name": "Konsep-konsep MIPA*)", "sks": 3, "note": "UPM" },
+            { "code": "KK72J137", "name": "Matematika Terapan", "sks": 3, "note": "" },
+            { "code": "KK72J101", "name": "Landasan Pendidikan", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 2,
+          "type": "Genap",
+          "courses": [
+            { "code": "BB72J206", "name": "Metode Riset Pendidikan*)", "sks": 3, "note": "UPM" },
+            { "code": "KK72J207", "name": "Pendidikan Kependudukan dan Lingkungan Hidup", "sks": 3, "note": "" },
+            { "code": "KK72J217", "name": "Inovasi Pembelajaran MIPA Berbasis TIK", "sks": 3, "note": "" },
+            { "code": "PK72J209", "name": "Desain dan Analisis Eksperimen*)", "sks": 3, "note": "UPM" },
+            { "code": "KK72J238", "name": "IPA Terpadu", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 3,
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK72J323", "name": "Psikologi Pembelajaran MIPA", "sks": 3, "note": "" },
+            { "code": "KK72J324", "name": "Kurikulum dan Desain Pembelajaran MIPA*)", "sks": 3, "note": "UPM" },
+            { "code": "KK72J318", "name": "Evaluasi Pembelajaran MIPA*)", "sks": 3, "note": "UPM" },
+            { "code": "KK72J325", "name": "Kajian Hasil Riset Pendidikan MIPA", "sks": 3, "note": "" },
+            { "code": "KB72J319", "name": "Seminar Proposal", "sks": 3, "note": "" }
+          ],
+          "total_sks": 15
+        },
+        {
+          "semester": 4,
+          "type": "Genap",
+          "courses": [
+            { "code": "PB72J426", "name": "Diseminasi", "sks": 2, "note": "" },
+            { "code": "KB72J420", "name": "Tesis", "sks": 7, "note": "" }
+          ],
+          "total_sks": 9
+        }
+      ]
+    },
+    {
+      "program_name": "Pendidikan Profesi Guru (PPG)",
+      "degree": "Profesi",
+      "academic_year": "2025/2026",
+      "total_sks_required": 38,
+      "semesters": [
+        {
+          "semester": 1,
+          "type": "Gasal",
+          "courses": [
+            { "code": "KK75PJ101", "name": "Filosofi Pendidikan Indonesia", "sks": 2, "note": "" },
+            { "code": "PK75PJ102", "name": "Pemahaman tentang Peserta Didik dan Pembelajarannya", "sks": 3, "note": "" },
+            { "code": "KB75PJ103", "name": "Prinsip Pengajaran dan Asesmen I", "sks": 3, "note": "" },
+            { "code": "KK75PJ104", "name": "Pembelajaran Berdiferensiasi", "sks": 2, "note": "" },
+            { "code": "KK75PJ105", "name": "Teknologi Baru dalam Pengajaran dan Pembelajaran", "sks": 2, "note": "" },
+            { "code": "BB75PJ106", "name": "Praktik Pengalaman Lapangan (PPL) I", "sks": 6, "note": "" }
+          ],
+          "total_sks": 18
+        },
+        {
+          "semester": 2,
+          "type": "Genap",
+          "courses": [
+            { "code": "KK75PJ208", "name": "Pembelajaran Sosial Emosional", "sks": 3, "note": "" },
+            { "code": "KB75PJ209", "name": "Prinsip Pengajaran dan Asesmen II", "sks": 3, "note": "" },
+            { "code": "KK75PJ207", "name": "Mata Kuliah Selektif 3", "sks": 2, "note": "" },
+            { "code": "BB75PJ210", "name": "Praktik Pengalaman Lapangan (PPL) II", "sks": 8, "note": "" },
+            { "code": "PK75PJ211", "name": "Projek Kepemimpinan", "sks": 2, "note": "" }
+          ],
+          "total_sks": 20
+        }
+      ]
+    },
+    {
+      "program_name": "Program Doktor Pendidikan",
+      "degree": "S-3",
+      "academic_year": "2025/2026",
+      "total_sks_required": 42,
+      "semesters": [
+        {
+          "semester": 1,
+          "type": "Gasal",
+          "courses": [
+            { "code": "PDP9101", "name": "Filsafat Ilmu", "sks": 2, "note": "" },
+            { "code": "PDP9103", "name": "Metodologi Penelitian Kependidikan Lanjut", "sks": 2, "note": "" },
+            { "code": "PDP9105", "name": "Wawasan Pedagogi Pendidikan", "sks": 2, "note": "" },
+            { "code": "PDP9107", "name": "Analisis Pengelolaan dan Kebijakan Pendidikan", "sks": 2, "note": "" }
+          ],
+          "total_sks": 8
+        },
+        {
+          "semester": 2,
+          "type": "Genap",
+          "courses": [
+            { "code": "PDP9102", "name": "Pengembangan dan Implementasi Teknologi Pembelajaran", "sks": 2, "note": "" },
+            { "code": "PDP9104", "name": "Statistika Terapan", "sks": 2, "note": "" },
+            { "code": "PDP9106", "name": "Pengembangan Kajian Keilmuan", "sks": 2, "note": "" },
+            { "code": "PDP9108", "name": "Literatur Review Pendidikan", "sks": 2, "note": "" }
+          ],
+          "total_sks": 8
+        },
+        {
+          "semester": 3,
+          "type": "Gasal",
+          "courses": [
+            { "code": "PDP9201", "name": "Prelium/Ujian Kualifikasi", "sks": 0, "note": "" },
+            { "code": "PDP9203", "name": "Seminar Proposal", "sks": 2, "note": "" },
+            { "code": "PDP9205", "name": "Publikasi I Jurnal Nasional", "sks": 2, "note": "" }
+          ],
+          "total_sks": 4
+        },
+        {
+          "semester": 4,
+          "type": "Genap",
+          "courses": [
+            { "code": "PDP9202", "name": "Seminar Hasil Penelitian", "sks": 2, "note": "" }
+          ],
+          "total_sks": 2
+        },
+        {
+          "semester": 5,
+          "type": "Gasal",
+          "courses": [
+            { "code": "PDP9301", "name": "Publikasi II Jurnal Internasional bereputasi", "sks": 3, "note": "" },
+            { "code": "PDP9303", "name": "Ujian Tertutup", "sks": 3, "note": "" }
+          ],
+          "total_sks": 6
+        },
+        {
+          "semester": 6,
+          "type": "Genap",
+          "courses": [
+            { "code": "PDP9302", "name": "Ujian Terbuka", "sks": 3, "note": "" },
+            { "code": "PDP9304", "name": "Disertasi", "sks": 11, "note": "" }
+          ],
+          "total_sks": 14
+        }
+      ]
+    }
+  ]
+}
