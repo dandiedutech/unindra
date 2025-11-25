@@ -2380,44 +2380,6 @@
       "total_sks": 54
     }
   },
-
-  {
-    "program_name": "Pendidikan Profesi Guru (PPG)",
-    "level": "Profesi",
-    "semesters": [
-      {
-        "semester": "I",
-        "type": "Gasal",
-        "courses": [
-          { "code": "KK75PJ101", "name": "Filosofi Pendidikan Indonesia", "sks": 2, "notes": "" },
-          { "code": "PK75PJ102", "name": "Pemahaman tentang Peserta Didik dan Pembelajarannya", "sks": 3, "notes": "" },
-          { "code": "KB75PJ103", "name": "Prinsip Pengajaran dan Asesmen I", "sks": 3, "notes": "" },
-          { "code": "KK75PJ104", "name": "Pembelajaran Berdiferensiasi", "sks": 2, "notes": "" },
-          { "code": "KK75PJ105", "name": "Teknologi Baru dalam Pengajaran dan Pembelajaran", "sks": 2, "notes": "" },
-          { "code": "BB75PJ106", "name": "Praktik Pengalaman Lapangan (PPL) I", "sks": 6, "notes": "" }
-        ],
-        "total_sks": 18
-      },
-      {
-        "semester": "II",
-        "type": "Genap",
-        "courses": [
-          { "code": "KK75PJ208", "name": "Pembelajaran Sosial Emosional", "sks": 3, "notes": "" },
-          { "code": "KB75PJ209", "name": "Prinsip Pengajaran dan Asesmen II", "sks": 3, "notes": "" },
-          { "code": "KK75PJ207", "name": "Mata Kuliah Selektif 3", "sks": 2, "notes": "" },
-          { "code": "BB75PJ210", "name": "Praktik Pengalaman Lapangan (PPL) II", "sks": 8, "notes": "" },
-          { "code": "PK75PJ211", "name": "Projek Kepemimpinan", "sks": 2, "notes": "" }
-        ],
-        "total_sks": 20
-      }
-    ],
-    "curriculum_summary": {
-      "sks_wajib": 38,
-      "sks_pilihan": 0,
-      "total_sks": 38
-    }
-  },
-
   {
     "program_name": "Pendidikan (Doktor/S3)",
     "level": "S3",
@@ -2486,6 +2448,43 @@
       "sks_pilihan": 0,
       "total_sks": 42
     }
+  },
+  {
+    "program_name": "Pendidikan Profesi Guru (PPG)",
+    "level": "Profesi",
+    "semesters": [
+      {
+        "semester": "I",
+        "type": "Gasal",
+        "courses": [
+          { "code": "KK75PJ101", "name": "Filosofi Pendidikan Indonesia", "sks": 2, "notes": "" },
+          { "code": "PK75PJ102", "name": "Pemahaman tentang Peserta Didik dan Pembelajarannya", "sks": 3, "notes": "" },
+          { "code": "KB75PJ103", "name": "Prinsip Pengajaran dan Asesmen I", "sks": 3, "notes": "" },
+          { "code": "KK75PJ104", "name": "Pembelajaran Berdiferensiasi", "sks": 2, "notes": "" },
+          { "code": "KK75PJ105", "name": "Teknologi Baru dalam Pengajaran dan Pembelajaran", "sks": 2, "notes": "" },
+          { "code": "BB75PJ106", "name": "Praktik Pengalaman Lapangan (PPL) I", "sks": 6, "notes": "" }
+        ],
+        "total_sks": 18
+      },
+      {
+        "semester": "II",
+        "type": "Genap",
+        "courses": [
+          { "code": "KK75PJ208", "name": "Pembelajaran Sosial Emosional", "sks": 3, "notes": "" },
+          { "code": "KB75PJ209", "name": "Prinsip Pengajaran dan Asesmen II", "sks": 3, "notes": "" },
+          { "code": "KK75PJ207", "name": "Mata Kuliah Selektif 3", "sks": 2, "notes": "" },
+          { "code": "BB75PJ210", "name": "Praktik Pengalaman Lapangan (PPL) II", "sks": 8, "notes": "" },
+          { "code": "PK75PJ211", "name": "Projek Kepemimpinan", "sks": 2, "notes": "" }
+        ],
+        "total_sks": 20
+      }
+    ],
+    "curriculum_summary": {
+      "sks_wajib": 38,
+      "sks_pilihan": 0,
+      "total_sks": 38
+    }
   }
-]
+ ]
 }
+
