@@ -2153,316 +2153,339 @@
         "total_sks": 54
       }
     },
-    {
-      "program_name": "Magister Pendidikan Bahasa Inggris",
-      "degree": "S-2",
-      "academic_year": "2025/2026",
-      "total_sks_required": 54,
-      "semesters": [
-        {
-          "semester": 1,
-          "type": "Gasal",
-          "courses": [
-            { "code": "KK71J101", "name": "Landasan Pendidikan", "sks": 3, "note": "" },
-            { "code": "KK71J115", "name": "Kajian Linguistik Makro *)", "sks": 3, "note": "UPM" },
-            { "code": "KK71J116", "name": "Apresiasi dan Praktik Pengajaran Sastra Indonesia", "sks": 3, "note": "" },
-            { "code": "PB71J104", "name": "Aplikasi Statistika dalam Riset Pendidikan*)", "sks": 3, "note": "UPM" },
-            { "code": "PK71J105", "name": "Filsafat Ilmu", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 2,
-          "type": "Genap",
-          "courses": [
-            { "code": "KK71J217", "name": "Inovasi Pembelajaran Bahasa dan Sastra Indonesia Berbasis TIK", "sks": 3, "note": "" },
-            { "code": "KK71J218", "name": "Evaluasi Pembelajaran Bahasa dan Sastra Indonesia*)", "sks": 3, "note": "UPM" },
-            { "code": "KK71J222", "name": "Keterampilan Berbahasa Reseptif dan Produktif", "sks": 3, "note": "" },
-            { "code": "KK71J221", "name": "Linguistik Komparatif", "sks": 3, "note": "" },
-            { "code": "PB71J206", "name": "Metodologi Riset dan Penulisan Karya Ilmiah*)", "sks": 3, "note": "UPM" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 3,
-          "type": "Gasal",
-          "courses": [
-            { "code": "KK71J314", "name": "Kajian Wacana Kritis*)", "sks": 3, "note": "UPM" },
-            { "code": "KK71J323", "name": "Psikologi Pembelajaran Bahasa dan Sastra", "sks": 3, "note": "" },
-            { "code": "KK71J324", "name": "Kurikulum dan Desain Pembelajaran Bahasa dan Sastra*)", "sks": 3, "note": "UPM" },
-            { "code": "KK71J325", "name": "Kajian Hasil Riset Pendidikan Bahasa dan Sastra Indonesia", "sks": 3, "note": "" },
-            { "code": "BB71J319", "name": "Seminar Proposal", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 4,
-          "type": "Genap",
-          "courses": [
-            { "code": "PB71J426", "name": "Diseminasi", "sks": 2, "note": "" },
-            { "code": "BB71J420", "name": "Tesis", "sks": 7, "note": "" }
-          ],
-          "total_sks": 9
-        }
-      ]
-    },
-    {
-      "program_name": "Magister Pendidikan Bahasa Inggris (International Class/TESOL)",
-      "degree": "S-2",
-      "academic_year": "2025/2026",
-      "total_sks_required": 54,
-      "semesters": [
-        {
-          "semester": 1,
-          "type": "Gasal",
-          "courses": [
-            { "code": "KK74J101", "name": "Principles of Education in ELT", "sks": 3, "note": "" },
-            { "code": "KK74J102", "name": "Academic Speaking for Scientific Purposes", "sks": 3, "note": "" },
-            { "code": "KK74J127", "name": "Critical Theories in Language and Literature Teaching*", "sks": 3, "note": "UPM" },
-            { "code": "PB74J104", "name": "Statistics for Educational Research*", "sks": 3, "note": "UPM" },
-            { "code": "PK74J105", "name": "Philosophy of Science in Language Education", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 2,
-          "type": "Genap",
-          "courses": [
-            { "code": "KK74J228", "name": "Advanced and Functional Grammar", "sks": 3, "note": "" },
-            { "code": "KK74J229", "name": "Academic Reading and Writing for Scientific Purposes*", "sks": 3, "note": "UPM" },
-            { "code": "KK74J230", "name": "Advanced and Functional Linguistics*", "sks": 3, "note": "" },
-            { "code": "KK74J224", "name": "Curriculum and Learning Design in ELT", "sks": 3, "note": "" },
-            { "code": "PB74J206", "name": "Research Methodology in Language Education*", "sks": 3, "note": "UPM" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 3,
-          "type": "Gasal",
-          "courses": [
-            { "code": "PK74J323", "name": "Psychology of learning in ELT", "sks": 3, "note": "" },
-            { "code": "KK74J331", "name": "Language Testing and Assessment*", "sks": 3, "note": "UPM" },
-            { "code": "KK74J332", "name": "Methodology in TESOL", "sks": 3, "note": "" },
-            { "code": "KK74J333", "name": "Digital Literacies and ICT in ELT*", "sks": 3, "note": "UPM" },
-            { "code": "BB74J319", "name": "Thesis Proposal Seminar", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 4,
-          "type": "Genap",
-          "courses": [
-            { "code": "PB74J426", "name": "Research Dissemination and Publication", "sks": 2, "note": "" },
-            { "code": "BB74J420", "name": "Thesis Writing", "sks": 7, "note": "" }
-          ],
-          "total_sks": 9
-        }
-      ]
-    },
-    {
-      "program_name": "Magister Pendidikan IPS",
-      "degree": "S-2",
-      "academic_year": "2025/2026",
-      "total_sks_required": 54,
-      "semesters": [
-        {
-          "semester": 1,
-          "type": "Gasal",
-          "courses": [
-            { "code": "KK73J101", "name": "Landasan Pendidikan", "sks": 3, "note": "" },
-            { "code": "KK73J102", "name": "Teori Proses, dan Sosial Budaya", "sks": 3, "note": "" },
-            { "code": "KB73J134", "name": "Pendidikan Lintas Budaya*)", "sks": 3, "note": "UPM" },
-            { "code": "KK73J104", "name": "Aplikasi Statistika dalam Riset Pendidikan*)", "sks": 3, "note": "UPM" },
-            { "code": "PK73J105", "name": "Filsafat Ilmu", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 2,
-          "type": "Genap",
-          "courses": [
-            { "code": "KK73J206", "name": "Metode Riset Pendidikan IPS*)", "sks": 3, "note": "UPM" },
-            { "code": "KK73J235", "name": "Geografi Sosial dan Lingkungan", "sks": 3, "note": "" },
-            { "code": "KK73J218", "name": "Evaluasi Pembelajaran IPS*)", "sks": 3, "note": "UPM" },
-            { "code": "KK73J217", "name": "Inovasi Pendidikan IPS berbasis TIK", "sks": 3, "note": "" },
-            { "code": "KK73J224", "name": "Kurikulum dan Desain Pembelajaran IPS", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 3,
-          "type": "Gasal",
-          "courses": [
-            { "code": "KK73J323", "name": "Psikologi Pembelajaran IPS", "sks": 3, "note": "" },
-            { "code": "BB73J312", "name": "Sejarah Indonesia*)", "sks": 3, "note": "UPM" },
-            { "code": "BB73J313", "name": "Ekonomi Indonesia*)", "sks": 3, "note": "UPM" },
-            { "code": "KK73J336", "name": "Pemetaan Problem Sosial", "sks": 3, "note": "" },
-            { "code": "KB73J319", "name": "Seminar Proposal", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 4,
-          "type": "Genap",
-          "courses": [
-            { "code": "PB73J426", "name": "Diseminasi", "sks": 2, "note": "" },
-            { "code": "KB73J420", "name": "Tesis", "sks": 7, "note": "" }
-          ],
-          "total_sks": 9
-        }
-      ]
-    },
-    {
-      "program_name": "Magister Pendidikan Matematika dan IPA",
-      "degree": "S-2",
-      "academic_year": "2025/2026",
-      "total_sks_required": 54,
-      "semesters": [
-        {
-          "semester": 1,
-          "type": "Gasal",
-          "courses": [
-            { "code": "BB72J104", "name": "Aplikasi Statistika dalam Riset Pendidikan*)", "sks": 3, "note": "UPM" },
-            { "code": "BB72J105", "name": "Filsafat Ilmu", "sks": 3, "note": "" },
-            { "code": "KK72J108", "name": "Konsep-konsep MIPA*)", "sks": 3, "note": "UPM" },
-            { "code": "KK72J137", "name": "Matematika Terapan", "sks": 3, "note": "" },
-            { "code": "KK72J101", "name": "Landasan Pendidikan", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 2,
-          "type": "Genap",
-          "courses": [
-            { "code": "BB72J206", "name": "Metode Riset Pendidikan*)", "sks": 3, "note": "UPM" },
-            { "code": "KK72J207", "name": "Pendidikan Kependudukan dan Lingkungan Hidup", "sks": 3, "note": "" },
-            { "code": "KK72J217", "name": "Inovasi Pembelajaran MIPA Berbasis TIK", "sks": 3, "note": "" },
-            { "code": "PK72J209", "name": "Desain dan Analisis Eksperimen*)", "sks": 3, "note": "UPM" },
-            { "code": "KK72J238", "name": "IPA Terpadu", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 3,
-          "type": "Gasal",
-          "courses": [
-            { "code": "KK72J323", "name": "Psikologi Pembelajaran MIPA", "sks": 3, "note": "" },
-            { "code": "KK72J324", "name": "Kurikulum dan Desain Pembelajaran MIPA*)", "sks": 3, "note": "UPM" },
-            { "code": "KK72J318", "name": "Evaluasi Pembelajaran MIPA*)", "sks": 3, "note": "UPM" },
-            { "code": "KK72J325", "name": "Kajian Hasil Riset Pendidikan MIPA", "sks": 3, "note": "" },
-            { "code": "KB72J319", "name": "Seminar Proposal", "sks": 3, "note": "" }
-          ],
-          "total_sks": 15
-        },
-        {
-          "semester": 4,
-          "type": "Genap",
-          "courses": [
-            { "code": "PB72J426", "name": "Diseminasi", "sks": 2, "note": "" },
-            { "code": "KB72J420", "name": "Tesis", "sks": 7, "note": "" }
-          ],
-          "total_sks": 9
-        }
-      ]
-    },
-    {
-      "program_name": "Pendidikan Profesi Guru (PPG)",
-      "degree": "Profesi",
-      "academic_year": "2025/2026",
-      "total_sks_required": 38,
-      "semesters": [
-        {
-          "semester": 1,
-          "type": "Gasal",
-          "courses": [
-            { "code": "KK75PJ101", "name": "Filosofi Pendidikan Indonesia", "sks": 2, "note": "" },
-            { "code": "PK75PJ102", "name": "Pemahaman tentang Peserta Didik dan Pembelajarannya", "sks": 3, "note": "" },
-            { "code": "KB75PJ103", "name": "Prinsip Pengajaran dan Asesmen I", "sks": 3, "note": "" },
-            { "code": "KK75PJ104", "name": "Pembelajaran Berdiferensiasi", "sks": 2, "note": "" },
-            { "code": "KK75PJ105", "name": "Teknologi Baru dalam Pengajaran dan Pembelajaran", "sks": 2, "note": "" },
-            { "code": "BB75PJ106", "name": "Praktik Pengalaman Lapangan (PPL) I", "sks": 6, "note": "" }
-          ],
-          "total_sks": 18
-        },
-        {
-          "semester": 2,
-          "type": "Genap",
-          "courses": [
-            { "code": "KK75PJ208", "name": "Pembelajaran Sosial Emosional", "sks": 3, "note": "" },
-            { "code": "KB75PJ209", "name": "Prinsip Pengajaran dan Asesmen II", "sks": 3, "note": "" },
-            { "code": "KK75PJ207", "name": "Mata Kuliah Selektif 3", "sks": 2, "note": "" },
-            { "code": "BB75PJ210", "name": "Praktik Pengalaman Lapangan (PPL) II", "sks": 8, "note": "" },
-            { "code": "PK75PJ211", "name": "Projek Kepemimpinan", "sks": 2, "note": "" }
-          ],
-          "total_sks": 20
-        }
-      ]
-    },
-    {
-      "program_name": "Program Doktor Pendidikan",
-      "degree": "S-3",
-      "academic_year": "2025/2026",
-      "total_sks_required": 42,
-      "semesters": [
-        {
-          "semester": 1,
-          "type": "Gasal",
-          "courses": [
-            { "code": "PDP9101", "name": "Filsafat Ilmu", "sks": 2, "note": "" },
-            { "code": "PDP9103", "name": "Metodologi Penelitian Kependidikan Lanjut", "sks": 2, "note": "" },
-            { "code": "PDP9105", "name": "Wawasan Pedagogi Pendidikan", "sks": 2, "note": "" },
-            { "code": "PDP9107", "name": "Analisis Pengelolaan dan Kebijakan Pendidikan", "sks": 2, "note": "" }
-          ],
-          "total_sks": 8
-        },
-        {
-          "semester": 2,
-          "type": "Genap",
-          "courses": [
-            { "code": "PDP9102", "name": "Pengembangan dan Implementasi Teknologi Pembelajaran", "sks": 2, "note": "" },
-            { "code": "PDP9104", "name": "Statistika Terapan", "sks": 2, "note": "" },
-            { "code": "PDP9106", "name": "Pengembangan Kajian Keilmuan", "sks": 2, "note": "" },
-            { "code": "PDP9108", "name": "Literatur Review Pendidikan", "sks": 2, "note": "" }
-          ],
-          "total_sks": 8
-        },
-        {
-          "semester": 3,
-          "type": "Gasal",
-          "courses": [
-            { "code": "PDP9201", "name": "Prelium/Ujian Kualifikasi", "sks": 0, "note": "" },
-            { "code": "PDP9203", "name": "Seminar Proposal", "sks": 2, "note": "" },
-            { "code": "PDP9205", "name": "Publikasi I Jurnal Nasional", "sks": 2, "note": "" }
-          ],
-          "total_sks": 4
-        },
-        {
-          "semester": 4,
-          "type": "Genap",
-          "courses": [
-            { "code": "PDP9202", "name": "Seminar Hasil Penelitian", "sks": 2, "note": "" }
-          ],
-          "total_sks": 2
-        },
-        {
-          "semester": 5,
-          "type": "Gasal",
-          "courses": [
-            { "code": "PDP9301", "name": "Publikasi II Jurnal Internasional bereputasi", "sks": 3, "note": "" },
-            { "code": "PDP9303", "name": "Ujian Tertutup", "sks": 3, "note": "" }
-          ],
-          "total_sks": 6
-        },
-        {
-          "semester": 6,
-          "type": "Genap",
-          "courses": [
-            { "code": "PDP9302", "name": "Ujian Terbuka", "sks": 3, "note": "" },
-            { "code": "PDP9304", "name": "Disertasi", "sks": 11, "note": "" }
-          ],
-          "total_sks": 14
-        }
-      ]
+  {
+    "program_name": "Pendidikan Bahasa Inggris (Magister/S2)",
+    "level": "S2",
+    "semesters": [
+      {
+        "semester": "I",
+        "type": "Gasal",
+        "courses": [
+          { "code": "KK71J101", "name": "Landasan Pendidikan", "sks": 3, "notes": "" },
+          { "code": "KK71J115", "name": "Kajian Linguistik Makro", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK71J116", "name": "Apresiasi dan Praktik Pengajaran Sastra Indonesia", "sks": 3, "notes": "" },
+          { "code": "PB71J104", "name": "Aplikasi Statistika dalam Riset Pendidikan", "sks": 3, "notes": "*) UPM" },
+          { "code": "PK71J105", "name": "Filsafat Ilmu", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "II",
+        "type": "Genap",
+        "courses": [
+          { "code": "KK71J217", "name": "Inovasi Pembelajaran Bahasa dan Sastra Indonesia Berbasis TIK", "sks": 3, "notes": "" },
+          { "code": "KK71J218", "name": "Evaluasi Pembelajaran Bahasa dan Sastra Indonesia", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK71J222", "name": "Keterampilan Berbahasa Reseptif dan Produktif", "sks": 3, "notes": "" },
+          { "code": "KK71J221", "name": "Linguistik Komparatif", "sks": 3, "notes": "" },
+          { "code": "PB71J206", "name": "Metodologi Riset dan Penulisan Karya Ilmiah", "sks": 3, "notes": "*) UPM" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "III",
+        "type": "Gasal",
+        "courses": [
+          { "code": "KK71J314", "name": "Kajian Wacana Kritis", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK71J323", "name": "Psikologi Pembelajaran Bahasa dan Sastra", "sks": 3, "notes": "" },
+          { "code": "KK71J324", "name": "Kurikulum dan Desain Pembelajaran Bahasa dan Sastra", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK71J325", "name": "Kajian Hasil Riset Pendidikan Bahasa dan Sastra Indonesia", "sks": 3, "notes": "" },
+          { "code": "BB71J319", "name": "Seminar Proposal", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "IV",
+        "type": "Genap",
+        "courses": [
+          { "code": "PB71J426", "name": "Diseminasi", "sks": 2, "notes": "" },
+          { "code": "BB71J420", "name": "Tesis", "sks": 7, "notes": "" }
+        ],
+        "total_sks": 9
+      }
+    ],
+    "curriculum_summary": {
+      "sks_wajib": 54,
+      "sks_pilihan": 0,
+      "total_sks": 54
     }
-  ]
+  },
+
+  {
+    "program_name": "Pendidikan Bahasa Inggris – International Class/TESOL (Magister/S2)",
+    "level": "S2",
+    "semesters": [
+      {
+        "semester": "I",
+        "type": "Gasal",
+        "courses": [
+          { "code": "KK74J101", "name": "Principles of Education in ELT", "sks": 3, "notes": "" },
+          { "code": "KK74J102", "name": "Academic Speaking for Scientific Purposes", "sks": 3, "notes": "" },
+          { "code": "KK74J127", "name": "Critical Theories in Language and Literature Teaching", "sks": 3, "notes": "*) UPM" },
+          { "code": "PB74J104", "name": "Statistics for Educational Research", "sks": 3, "notes": "*) UPM" },
+          { "code": "PK74J105", "name": "Philosophy of Science in Language Education", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "II",
+        "type": "Genap",
+        "courses": [
+          { "code": "KK74J228", "name": "Advanced and Functional Grammar", "sks": 3, "notes": "" },
+          { "code": "KK74J229", "name": "Academic Reading and Writing for Scientific Purposes", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK74J230", "name": "Advanced and Functional Linguistics", "sks": 3, "notes": "" },
+          { "code": "KK74J224", "name": "Curriculum and Learning Design in ELT", "sks": 3, "notes": "" },
+          { "code": "PB74J206", "name": "Research Methodology in Language Education", "sks": 3, "notes": "*) UPM" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "III",
+        "type": "Gasal",
+        "courses": [
+          { "code": "PK74J323", "name": "Psychology of Learning in ELT", "sks": 3, "notes": "" },
+          { "code": "KK74J331", "name": "Language Testing and Assessment", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK74J332", "name": "Methodology in TESOL", "sks": 3, "notes": "" },
+          { "code": "KK74J333", "name": "Digital Literacies and ICT in ELT", "sks": 3, "notes": "*) UPM" },
+          { "code": "BB74J319", "name": "Thesis Proposal Seminar", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "IV",
+        "type": "Genap",
+        "courses": [
+          { "code": "PB74J426", "name": "Research Dissemination and Publication", "sks": 2, "notes": "" },
+          { "code": "BB74J420", "name": "Thesis Writing", "sks": 7, "notes": "" }
+        ],
+        "total_sks": 9
+      }
+    ],
+    "curriculum_summary": {
+      "sks_wajib": 54,
+      "sks_pilihan": 0,
+      "total_sks": 54
+    }
+  },
+
+  {
+    "program_name": "Pendidikan IPS (Magister/S2)",
+    "level": "S2",
+    "semesters": [
+      {
+        "semester": "I",
+        "type": "Gasal",
+        "courses": [
+          { "code": "KK73J101", "name": "Landasan Pendidikan", "sks": 3, "notes": "" },
+          { "code": "KK73J102", "name": "Teori Proses, dan Sosial Budaya", "sks": 3, "notes": "" },
+          { "code": "KB73J134", "name": "Pendidikan Lintas Budaya", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK73J104", "name": "Aplikasi Statistika dalam Riset Pendidikan", "sks": 3, "notes": "*) UPM" },
+          { "code": "PK73J105", "name": "Filsafat Ilmu", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "II",
+        "type": "Genap",
+        "courses": [
+          { "code": "KK73J206", "name": "Metode Riset Pendidikan IPS", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK73J235", "name": "Geografi Sosial dan Lingkungan", "sks": 3, "notes": "" },
+          { "code": "KK73J218", "name": "Evaluasi Pembelajaran IPS", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK73J217", "name": "Inovasi Pendidikan IPS berbasis TIK", "sks": 3, "notes": "" },
+          { "code": "KK73J224", "name": "Kurikulum dan Desain Pembelajaran IPS", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "III",
+        "type": "Gasal",
+        "courses": [
+          { "code": "KK73J323", "name": "Psikologi Pembelajaran IPS", "sks": 3, "notes": "" },
+          { "code": "BB73J312", "name": "Sejarah Indonesia", "sks": 3, "notes": "*) UPM" },
+          { "code": "BB73J313", "name": "Ekonomi Indonesia", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK73J336", "name": "Pemetaan Problem Sosial", "sks": 3, "notes": "" },
+          { "code": "KB73J319", "name": "Seminar Proposal", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "IV",
+        "type": "Genap",
+        "courses": [
+          { "code": "PB73J426", "name": "Diseminasi", "sks": 2, "notes": "" },
+          { "code": "KB73J420", "name": "Tesis", "sks": 7, "notes": "" }
+        ],
+        "total_sks": 9
+      }
+    ],
+    "curriculum_summary": {
+      "sks_wajib": 54,
+      "sks_pilihan": 0,
+      "total_sks": 54
+    }
+  },
+
+  {
+    "program_name": "Pendidikan Matematika dan IPA (Magister/S2)",
+    "level": "S2",
+    "semesters": [
+      {
+        "semester": "I",
+        "type": "Gasal",
+        "courses": [
+          { "code": "BB72J104", "name": "Aplikasi Statistika dalam Riset Pendidikan", "sks": 3, "notes": "*) UPM" },
+          { "code": "BB72J105", "name": "Filsafat Ilmu", "sks": 3, "notes": "" },
+          { "code": "KK72J108", "name": "Konsep-konsep MIPA", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK72J137", "name": "Matematika Terapan", "sks": 3, "notes": "" },
+          { "code": "KK72J101", "name": "Landasan Pendidikan", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "II",
+        "type": "Genap",
+        "courses": [
+          { "code": "BB72J206", "name": "Metode Riset Pendidikan", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK72J207", "name": "Pendidikan Kependudukan dan Lingkungan Hidup", "sks": 3, "notes": "" },
+          { "code": "KK72J217", "name": "Inovasi Pembelajaran MIPA Berbasis TIK", "sks": 3, "notes": "" },
+          { "code": "PK72J209", "name": "Desain dan Analisis Eksperimen", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK72J238", "name": "IPA Terpadu", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "III",
+        "type": "Gasal",
+        "courses": [
+          { "code": "KK72J323", "name": "Psikologi Pembelajaran MIPA", "sks": 3, "notes": "" },
+          { "code": "KK72J324", "name": "Kurikulum dan Desain Pembelajaran MIPA", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK72J318", "name": "Evaluasi Pembelajaran MIPA", "sks": 3, "notes": "*) UPM" },
+          { "code": "KK72J325", "name": "Kajian Hasil Riset Pendidikan MIPA", "sks": 3, "notes": "" },
+          { "code": "KB72J319", "name": "Seminar Proposal", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 15
+      },
+      {
+        "semester": "IV",
+        "type": "Genap",
+        "courses": [
+          { "code": "PB72J426", "name": "Diseminasi", "sks": 2, "notes": "" },
+          { "code": "KB72J420", "name": "Tesis", "sks": 7, "notes": "" }
+        ],
+        "total_sks": 9
+      }
+    ],
+    "curriculum_summary": {
+      "sks_wajib": 54,
+      "sks_pilihan": 0,
+      "total_sks": 54
+    }
+  },
+
+  {
+    "program_name": "Pendidikan Profesi Guru (PPG)",
+    "level": "Profesi",
+    "semesters": [
+      {
+        "semester": "I",
+        "type": "Gasal",
+        "courses": [
+          { "code": "KK75PJ101", "name": "Filosofi Pendidikan Indonesia", "sks": 2, "notes": "" },
+          { "code": "PK75PJ102", "name": "Pemahaman tentang Peserta Didik dan Pembelajarannya", "sks": 3, "notes": "" },
+          { "code": "KB75PJ103", "name": "Prinsip Pengajaran dan Asesmen I", "sks": 3, "notes": "" },
+          { "code": "KK75PJ104", "name": "Pembelajaran Berdiferensiasi", "sks": 2, "notes": "" },
+          { "code": "KK75PJ105", "name": "Teknologi Baru dalam Pengajaran dan Pembelajaran", "sks": 2, "notes": "" },
+          { "code": "BB75PJ106", "name": "Praktik Pengalaman Lapangan (PPL) I", "sks": 6, "notes": "" }
+        ],
+        "total_sks": 18
+      },
+      {
+        "semester": "II",
+        "type": "Genap",
+        "courses": [
+          { "code": "KK75PJ208", "name": "Pembelajaran Sosial Emosional", "sks": 3, "notes": "" },
+          { "code": "KB75PJ209", "name": "Prinsip Pengajaran dan Asesmen II", "sks": 3, "notes": "" },
+          { "code": "KK75PJ207", "name": "Mata Kuliah Selektif 3", "sks": 2, "notes": "" },
+          { "code": "BB75PJ210", "name": "Praktik Pengalaman Lapangan (PPL) II", "sks": 8, "notes": "" },
+          { "code": "PK75PJ211", "name": "Projek Kepemimpinan", "sks": 2, "notes": "" }
+        ],
+        "total_sks": 20
+      }
+    ],
+    "curriculum_summary": {
+      "sks_wajib": 38,
+      "sks_pilihan": 0,
+      "total_sks": 38
+    }
+  },
+
+  {
+    "program_name": "Pendidikan (Doktor/S3)",
+    "level": "S3",
+    "semesters": [
+      {
+        "semester": "I",
+        "type": "Gasal",
+        "courses": [
+          { "code": "PDP9101", "name": "Filsafat Ilmu", "sks": 2, "notes": "" },
+          { "code": "PDP9103", "name": "Metodologi Penelitian Kependidikan Lanjut", "sks": 2, "notes": "" },
+          { "code": "PDP9105", "name": "Wawasan Pedagogi Pendidikan", "sks": 2, "notes": "" },
+          { "code": "PDP9107", "name": "Analisis Pengelolaan dan Kebijakan Pendidikan", "sks": 2, "notes": "" }
+        ],
+        "total_sks": 8
+      },
+      {
+        "semester": "II",
+        "type": "Genap",
+        "courses": [
+          { "code": "PDP9102", "name": "Pengembangan dan Implementasi Teknologi Pembelajaran", "sks": 2, "notes": "" },
+          { "code": "PDP9104", "name": "Statistika Terapan", "sks": 2, "notes": "" },
+          { "code": "PDP9106", "name": "Pengembangan Kajian Keilmuan", "sks": 2, "notes": "" },
+          { "code": "PDP9108", "name": "Literatur Review Pendidikan", "sks": 2, "notes": "" }
+        ],
+        "total_sks": 8
+      },
+      {
+        "semester": "III",
+        "type": "Gasal",
+        "courses": [
+          { "code": "PDP9201", "name": "Prelium/Ujian Kualifikasi", "sks": 0, "notes": "" },
+          { "code": "PDP9203", "name": "Seminar Proposal", "sks": 2, "notes": "" },
+          { "code": "PDP9205", "name": "Publikasi I Jurnal Nasional", "sks": 2, "notes": "" }
+        ],
+        "total_sks": 4
+      },
+      {
+        "semester": "IV",
+        "type": "Genap",
+        "courses": [
+          { "code": "PDP9202", "name": "Seminar Hasil Penelitian", "sks": 2, "notes": "" }
+        ],
+        "total_sks": 2
+      },
+      {
+        "semester": "V",
+        "type": "Gasal",
+        "courses": [
+          { "code": "PDP9301", "name": "Publikasi II Jurnal Internasional Bereputasi", "sks": 3, "notes": "" },
+          { "code": "PDP9303", "name": "Ujian Tertutup", "sks": 3, "notes": "" }
+        ],
+        "total_sks": 6
+      },
+      {
+        "semester": "VI",
+        "type": "Genap",
+        "courses": [
+          { "code": "PDP9302", "name": "Ujian Terbuka", "sks": 3, "notes": "" },
+          { "code": "PDP9304", "name": "Disertasi", "sks": 11, "notes": "" }
+        ],
+        "total_sks": 14
+      }
+    ],
+    "curriculum_summary": {
+      "sks_wajib": 42,
+      "sks_pilihan": 0,
+      "total_sks": 42
+    }
+  }
+]
 }
