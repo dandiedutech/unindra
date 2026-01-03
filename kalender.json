@@ -1,0 +1,351 @@
+{
+  "academic_year": "2025/2026",
+  "semesters": [
+    {
+      "name": "Gasal",
+      "events": [
+        {
+          "id": 1,
+          "title": "Pengisian KRS",
+          "start_date": "2025-08-28",
+          "end_date": "2025-09-01",
+          "duration": "8 Hari",
+          "category": "all"
+        },
+        {
+          "id": 2,
+          "title": "Dies Natalis Ke-21 UNINDRA",
+          "start_date": "2025-09-06",
+          "end_date": "2025-09-06",
+          "duration": "1 Hari",
+          "category": "all"
+        },
+        {
+          "id": 3,
+          "title": "Pelaksanaan Kuliah (Reguler)",
+          "start_date": "2025-09-08",
+          "end_date": "2025-10-24",
+          "duration": "7 Pekan",
+          "category": "reguler"
+        },
+        {
+          "id": 4,
+          "title": "Registrasi UTS",
+          "start_date": "2025-09-08",
+          "end_date": "2025-10-24",
+          "duration": "7 Pekan",
+          "category": "reguler"
+        },
+        {
+          "id": 101,
+          "title": "Pelaksanaan Kuliah Gasal I (Non-Reg)",
+          "start_date": "2025-09-12",
+          "end_date": "2025-11-22",
+          "duration": "11 Pekan",
+          "category": "non_reguler"
+        },
+        {
+          "id": 5,
+          "title": "Ujian Tengah Semester (UTS)",
+          "start_date": "2025-10-27",
+          "end_date": "2025-11-06",
+          "duration": "8 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 6,
+          "title": "Ujian Tengah Semester (UTS) Susulan",
+          "start_date": "2025-11-16",
+          "end_date": "2025-11-16",
+          "duration": "1 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 7,
+          "title": "Pelaksanaan Kuliah Lanjutan (Reguler)",
+          "start_date": "2025-11-10",
+          "end_date": "2026-01-02",
+          "duration": "7 Pekan",
+          "category": "reguler"
+        },
+        {
+          "id": 8,
+          "title": "Registrasi UAS dan UPM",
+          "start_date": "2025-11-10",
+          "end_date": "2026-01-02",
+          "duration": "7 Pekan",
+          "category": "reguler"
+        },
+        {
+          "id": 102,
+          "title": "Ujian Akhir Semester Gasal I (Non-Reg)",
+          "start_date": "2025-11-23",
+          "end_date": "2025-11-23",
+          "duration": "1 Hari",
+          "category": "non_reguler"
+        },
+        {
+          "id": 103,
+          "title": "Batas Akhir Input Nilai UAS Gasal I",
+          "start_date": "2025-11-28",
+          "end_date": "2025-11-28",
+          "duration": "Deadline",
+          "category": "non_reguler"
+        },
+        {
+          "id": 104,
+          "title": "Pelaksanaan Kuliah Gasal II (Non-Reg)",
+          "start_date": "2025-11-28",
+          "end_date": "2026-01-24",
+          "duration": "10 Pekan",
+          "category": "non_reguler"
+        },
+        {
+          "id": 9,
+          "title": "Libur Hari Natal dan Tahun Baru",
+          "start_date": "2025-12-26",
+          "end_date": "2026-01-01",
+          "duration": "5 Hari",
+          "category": "all"
+        },
+        {
+          "id": 10,
+          "title": "Ujian Akhir Semester (UAS)",
+          "start_date": "2026-01-05",
+          "end_date": "2026-01-09",
+          "duration": "4 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 12,
+          "title": "Ujian Pengendali Mutu (UPM)",
+          "start_date": "2026-01-12",
+          "end_date": "2026-01-23",
+          "duration": "9 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 11,
+          "title": "Ujian Akhir Semester (UAS) Susulan",
+          "start_date": "2026-01-18",
+          "end_date": "2026-01-18",
+          "duration": "1 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 105,
+          "title": "Ujian Akhir Semester Gasal II (Non-Reg)",
+          "start_date": "2026-01-25",
+          "end_date": "2026-01-25",
+          "duration": "1 Hari",
+          "category": "non_reguler"
+        },
+        {
+          "id": 106,
+          "title": "Batas Akhir Input Nilai UAS Gasal II",
+          "start_date": "2026-01-31",
+          "end_date": "2026-01-31",
+          "duration": "Deadline",
+          "category": "non_reguler"
+        },
+        {
+          "id": 13,
+          "title": "Ujian Pengendali Mutu (UPM) Susulan",
+          "start_date": "2026-02-08",
+          "end_date": "2026-02-08",
+          "duration": "1 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 14,
+          "title": "Pendaftaran dan Penilaian TA/Skripsi",
+          "start_date": "2026-01-01",
+          "end_date": "2026-02-28",
+          "duration": "Jan-Feb",
+          "category": "all"
+        },
+        {
+          "id": 15,
+          "title": "Proses Penyusunan Evaluasi Mutu Internal (EMI)",
+          "start_date": "2026-02-01",
+          "end_date": "2026-02-28",
+          "duration": "Februari",
+          "category": "all"
+        }
+      ]
+    },
+    {
+      "name": "Genap",
+      "events": [
+        {
+          "id": 16,
+          "title": "Pengisian KRS",
+          "start_date": "2026-02-18",
+          "end_date": "2026-02-23",
+          "duration": "8 Hari",
+          "category": "all"
+        },
+        {
+          "id": 17,
+          "title": "Pelaksanaan Kuliah (Reguler)",
+          "start_date": "2026-03-02",
+          "end_date": "2026-04-30",
+          "duration": "7 Pekan",
+          "category": "reguler"
+        },
+        {
+          "id": 18,
+          "title": "Registrasi UTS",
+          "start_date": "2026-03-02",
+          "end_date": "2026-04-30",
+          "duration": "7 Pekan",
+          "category": "reguler"
+        },
+        {
+          "id": 201,
+          "title": "Pelaksanaan Kuliah Genap I (Non-Reg)",
+          "start_date": "2026-03-07",
+          "end_date": "2026-05-16",
+          "duration": "11 Pekan",
+          "category": "non_reguler"
+        },
+        {
+          "id": 19,
+          "title": "Libur Idul Fitri 1447 H",
+          "start_date": "2026-03-16",
+          "end_date": "2026-03-26",
+          "duration": "9 Hari",
+          "category": "all"
+        },
+        {
+          "id": 20,
+          "title": "Ujian Tengah Semester (UTS)",
+          "start_date": "2026-05-04",
+          "end_date": "2026-05-15",
+          "duration": "8 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 202,
+          "title": "Ujian Akhir Semester Genap I (Non-Reg)",
+          "start_date": "2026-05-17",
+          "end_date": "2026-05-17",
+          "duration": "1 Hari",
+          "category": "non_reguler"
+        },
+        {
+          "id": 203,
+          "title": "Batas Akhir Input Nilai UAS Genap I",
+          "start_date": "2026-05-23",
+          "end_date": "2026-05-23",
+          "duration": "Deadline",
+          "category": "non_reguler"
+        },
+        {
+          "id": 204,
+          "title": "Pelaksanaan Kuliah Genap II (Non-Reg)",
+          "start_date": "2026-05-23",
+          "end_date": "2026-08-22",
+          "duration": "14 Pekan",
+          "category": "non_reguler"
+        },
+        {
+          "id": 21,
+          "title": "Ujian Tengah Semester (UTS) Susulan",
+          "start_date": "2026-05-31",
+          "end_date": "2026-05-31",
+          "duration": "1 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 22,
+          "title": "Pelaksanaan Kuliah Lanjutan (Reguler)",
+          "start_date": "2026-05-18",
+          "end_date": "2026-07-03",
+          "duration": "7 Pekan",
+          "category": "reguler"
+        },
+        {
+          "id": 23,
+          "title": "Registrasi UAS dan UPM",
+          "start_date": "2026-05-18",
+          "end_date": "2026-07-03",
+          "duration": "7 Pekan",
+          "category": "reguler"
+        },
+        {
+          "id": 24,
+          "title": "Ujian Akhir Semester (UAS)",
+          "start_date": "2026-07-06",
+          "end_date": "2026-07-10",
+          "duration": "4 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 26,
+          "title": "Ujian Pengendali Mutu (UPM)",
+          "start_date": "2026-07-13",
+          "end_date": "2026-07-24",
+          "duration": "8 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 25,
+          "title": "Ujian Akhir Semester (UAS) Susulan",
+          "start_date": "2026-07-19",
+          "end_date": "2026-07-19",
+          "duration": "1 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 27,
+          "title": "Ujian Pengendali Mutu (UPM) Susulan",
+          "start_date": "2026-08-02",
+          "end_date": "2026-08-02",
+          "duration": "1 Hari",
+          "category": "reguler"
+        },
+        {
+          "id": 205,
+          "title": "Ujian Akhir Semester Genap II (Non-Reg)",
+          "start_date": "2026-08-23",
+          "end_date": "2026-08-23",
+          "duration": "1 Hari",
+          "category": "non_reguler"
+        },
+        {
+          "id": 206,
+          "title": "Batas Akhir Input Nilai UAS Genap II",
+          "start_date": "2026-08-31",
+          "end_date": "2026-08-31",
+          "duration": "Deadline",
+          "category": "non_reguler"
+        },
+        {
+          "id": 28,
+          "title": "Pendaftaran dan Penilaian TA/Skripsi",
+          "start_date": "2026-07-01",
+          "end_date": "2026-08-31",
+          "duration": "Jul-Agu",
+          "category": "all"
+        },
+        {
+          "id": 29,
+          "title": "Proses Pelaporan Evaluasi Mutu Internal (EMI)",
+          "start_date": "2026-08-01",
+          "end_date": "2026-08-31",
+          "duration": "Agustus",
+          "category": "all"
+        },
+        {
+          "id": 30,
+          "title": "Proses Audit Mutu Internal (AMI)",
+          "start_date": "2026-09-01",
+          "end_date": "2026-09-30",
+          "duration": "September",
+          "category": "all"
+        }
+      ]
+    }
+  ]
+}
