@@ -1,0 +1,23 @@
+[
+  {
+    "isHeader": false,
+    "title": "Pemrograman Web Dasar *",
+    "detail": "19:43- 21:00 | R.Lab-1",
+    "date": "2026-01-05", 
+    "rawType": "uas"
+  },
+  {
+    "isHeader": false,
+    "title": "Struktur Data",
+    "detail": "08:00 - 10:00 | R.4.2",
+    "date": "2026-01-06",
+    "rawType": "kuliah"
+  },
+  {
+    "isHeader": false,
+    "title": "Ulang Tahun Anda",
+    "detail": "08:00 - Selesai | Rumah",
+    "date": "2026-01-07",
+    "rawType": "birthday"
+  }
+]
