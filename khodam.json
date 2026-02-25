@@ -1,0 +1,250 @@
+{
+  "wisuda": [
+    {
+      "artist": "Bondan Prakoso",
+      "title": "Kita Selamanya",
+      "vibeQ": "Akhirnya TMII, Bjir.",
+      "baseKhodam": "ALUMNI JALUR TMII",
+      "khodamDesc": "Akhirnya ngerasain pake toga di Sasono Utomo. Dadah isi KRS, dadah server SIKA down, dadah macetnya TB Simatupang!"
+    },
+    {
+      "artist": "Sheila On 7",
+      "title": "Sebuah Kisah Klasik",
+      "vibeQ": "Log out SIKA for good.",
+      "baseKhodam": "SARJANA LOGOUT",
+      "khodamDesc": "Login MySIKA terakhir cuma buat cek yudisium. Skill akademik mungkin standar, tapi skill bertahan hidup antri lift Kampus B lu udah setara pasukan khusus."
+    },
+    {
+      "artist": "Endank Soekamti",
+      "title": "Sampai Jumpa",
+      "vibeQ": "Dospem nyerah liat muka lu.",
+      "baseKhodam": "SUHU REVISI",
+      "khodamDesc": "Skripsi kelar bukan karena lu tiba-tiba jenius, tapi dosen udah capek liat muka lu nongkrong bawa revisian terus. Welcome to 'Beban Keluarga Season 2'."
+    },
+    {
+      "artist": "Tulus",
+      "title": "Tujuh Belas",
+      "vibeQ": "Sarjana Muda, bingung mau ngapain.",
+      "baseKhodam": "FRESH GRADUATE PANIK",
+      "khodamDesc": "Pas foto wisuda senyum lebar banget, dalem hati panik 'abis ini gue ngapain anjir'. Siap-siap nyebar CV sebar-bar lu ngirim chat minta acc dosen."
+    },
+    {
+      "artist": "JKT48",
+      "title": "River",
+      "vibeQ": "Menyeberangi lautan revisi.",
+      "baseKhodam": "VETERAN KAMPUS",
+      "khodamDesc": "Bertahun-tahun lu ngelewatin panasnya Pasar Rebo dan dramanya server SIKA. Sekarang lu bebas. Tolong jangan kangen sama parkiran kampus yang sumpeknya ngalahin konser ya!"
+    },
+    {
+      "artist": "Queen",
+      "title": "We Are The Champions",
+      "vibeQ": "Menangis di Sasono Utomo.",
+      "baseKhodam": "PEJUANG TOGA",
+      "khodamDesc": "Dari maba culun sampe jadi suhu skripsi, akhirnya lu pakai toga juga. Air mata di Sasono Utomo jadi saksi bisu betapa susahnya nembus dosen pembimbing lu."
+    }
+  ],
+  "beban_dikti": [
+    {
+      "artist": "Ndarboy Genk",
+      "title": "Mendung Tanpo Udan",
+      "vibeQ": "Kuliah kagak, bayar SPP doang.",
+      "baseKhodam": "DONATUR TETAP YAYASAN",
+      "khodamDesc": "Mulia banget hati lu. Bayar SPP lancar cuma buat nyumbang AC sama Wi-Fi kampus, tapi di kelas wujud lu ga pernah ada. Unindra butuh donatur ikhlas kayak lu."
+    },
+    {
+      "artist": "Mahalini",
+      "title": "Sial",
+      "vibeQ": "Sial dapet E? Emang jarang masuk.",
+      "baseKhodam": "PANGLIMA BOLOS",
+      "khodamDesc": "Ngisi kuesioner SIKA aja lu males, apalagi ngerjain tugas. Pas UAS dateng, dosen sampe nanya 'Mas mahasiswa sini ya?'. Lu lebih sering push rank daripada login MySIKA."
+    },
+    {
+      "artist": "Peterpan",
+      "title": "Menghapus Jejakmu",
+      "vibeQ": "Jejak di KHS ilang, di tongkrongan ada.",
+      "baseKhodam": "MAHASISWA GHOIB",
+      "khodamDesc": "Di KRS ada namanya, di grup kelas diam tak bersuara. Sekalinya nongol tiba-tiba ngechat 'Bro, gue sekelompok sama siapa ya?'. Beban peradaban!"
+    },
+    {
+      "artist": "Didi Kempot",
+      "title": "Ambyar",
+      "vibeQ": "KHS merah merona ngalahin gincu.",
+      "baseKhodam": "LEGENDA ABADI",
+      "khodamDesc": "Maba dateng silih berganti, lu tetep stay di kampus. Kating rasa fosil. Gak usah buru-buru, kura-kura emang jalannya pelan tapi pasti (pasti tuir)."
+    },
+    {
+      "artist": "Ungu",
+      "title": "Dirimu Dirinya",
+      "vibeQ": "Mendua antara kasur dan kelas.",
+      "baseKhodam": "REBAHAN SUPREME",
+      "khodamDesc": "Niatnya mau berangkat kuliah, tapi kasur lu gravitasi-nya setara black hole. SPP jalan terus, presensi kosong melompong. Lu niat kuliah apa langganan kosan doang?"
+    },
+    {
+      "artist": "Wali",
+      "title": "Cari Jodoh",
+      "vibeQ": "Kuliah nyari ijazah ❌ Kuliah nyari ayang ✅",
+      "baseKhodam": "BUAYA FAKULTAS",
+      "khodamDesc": "IPK nyungsep gak masalah, yang penting tiap ganti semester ganti gebetan. Pas UAS lu malah sibuk ngerayu maba. Sadar diri woy, KHS lu butuh kasih sayang juga!"
+    }
+  ],
+  "ambis": [
+    {
+      "artist": "LANY",
+      "title": "Malibu Nights",
+      "vibeQ": "Galau KHS B+.",
+      "baseKhodam": "SI PALING RUGI",
+      "khodamDesc": "KHS nyelip B+ sebiji doang lemesnya seharian. Temen lu ngulang makul aja masih bisa ketawa di kantin. Berisik lu."
+    },
+    {
+      "artist": "Jason Ranti",
+      "title": "Lagunya Begini Nadanya Begitu",
+      "vibeQ": "Pura-pura bego.",
+      "baseKhodam": "ILMU PADI",
+      "khodamDesc": "Tiap kelar UAS bilangnya 'Gue ngasal jawabnya sumpah', eh KHS keluar A semua. Basi bos, ganti template."
+    },
+    {
+      "artist": "Kangen Band",
+      "title": "Terbang Bersamaku",
+      "vibeQ": "Gak napak tanah.",
+      "baseKhodam": "WONG PUSAT",
+      "khodamDesc": "Di grup kelas diem aja, pas ditanya dosen senyum doang. Tiba-tiba KHS A bulet. Lu nyogok siapa sih?"
+    },
+    {
+      "artist": "Baale",
+      "title": "Cinta Sejati",
+      "vibeQ": "Santai tapi A.",
+      "baseKhodam": "JALUR ORDAL",
+      "khodamDesc": "Muka lu ga ada tampang mikirnya blas. Absen juga pas-pasan. Tapi nilai selalu aman. Punya ordal ya lu?"
+    },
+    {
+      "artist": "Wali",
+      "title": "Bocah Ngapa Yak",
+      "vibeQ": "Bingung kok A.",
+      "baseKhodam": "BINGUNG SENDIRI",
+      "khodamDesc": "Lu sendiri sebenernya kaget liat KHS dapet A. Padahal tugas sering telat. Hoki lu emang lagi jalan aja."
+    },
+    {
+      "artist": "The Panturas",
+      "title": "Sunshine",
+      "vibeQ": "Ngalir aja bos.",
+      "baseKhodam": "PENGIKUT ARUS",
+      "khodamDesc": "Nongkrong mulu, ga pernah keliatan megang tugas. Tiba-tiba IPK nyaris 4. Temen lu pada curiga lu pake joki."
+    },
+    {
+      "artist": "Fiersa Besari",
+      "title": "Waktu Yang Salah",
+      "vibeQ": "Baper karena IPK turun 0.01",
+      "baseKhodam": "PERFEKSIONIS MENANGIS",
+      "khodamDesc": "Dapet A- langsung merenung di pojokan kelas ngerasa dunia mau kiamat. Padahal temen sebelah lu dapet C aja udah sujud syukur keliling kampus. Kurang-kurangin dramanya!"
+    },
+    {
+      "artist": "JKT48",
+      "title": "Fortune Cookie in Love",
+      "vibeQ": "Otak Einstein, Jodoh Nol",
+      "baseKhodam": "JOMBLO AKADEMIS",
+      "khodamDesc": "IPK lu nyaris 4.0, tapi notif HP isinya dari grup kelas sama bot Telegram doang. Otak lu encer banget buat teori, tapi nge-blank total kalo disuruh pdkt. Balance dong idup lu!"
+    }
+  ],
+  "hoki": [
+    {
+      "artist": "Sheila On 7",
+      "title": "Melompat Lebih Tinggi",
+      "vibeQ": "Lulus aman, hidup tenang.",
+      "baseKhodam": "CALON MANTU IDAMAN",
+      "khodamDesc": "Nggak pinter-pinter amat, tapi KHS aman, lulus tepat waktu, kelakuan baik. Camer pasti suka yang model ginian, stabil, gak neko-neko, dan idupnya lurus aja."
+    },
+    {
+      "artist": "Habib Syech",
+      "title": "Sholawat Badar",
+      "vibeQ": "Belajar dikit, jalur langit dibanyakin.",
+      "baseKhodam": "AHLI JALUR LANGIT",
+      "khodamDesc": "Tugas sering mepet, belajar pas SKS (Sistem Kebut Semalam), tapi sholawatnya kenceng. Ajaibnya KHS lu aman sejahtera. Dosen mau ngasih D ga tega, takut kualat sama lu."
+    },
+    {
+      "artist": "Dewa 19",
+      "title": "Hadapi Dengan Senyuman",
+      "vibeQ": "Dapet C? Senyumin aja bos.",
+      "baseKhodam": "SURVIVOR KHS",
+      "khodamDesc": "Yang penting KHS gak ada E dan gak ngulang. Prinsip lu: 'B adalah anugerah, C adalah ujian kesabaran, D/E adalah musibah'. Lulus aman, mental terjaga."
+    },
+    {
+      "artist": "Project Pop",
+      "title": "Batal Kawin",
+      "vibeQ": "Nilai tinggi mencurigakan.",
+      "baseKhodam": "JAGOAN TOILET",
+      "khodamDesc": "Nilainya tinggi nih, tapi ngerjainnya di toilet apa di kelas? Izin ke WC pas ujian, balik-balik lembar jawaban penuh. Mencurigakan tapi GG."
+    },
+    {
+      "artist": "Fourtwnty",
+      "title": "Zona Nyaman",
+      "vibeQ": "Mepet deadline adalah jalan ninjaku.",
+      "baseKhodam": "SI TUKANG MEPET",
+      "khodamDesc": "Dateng mepet, absen mepet, upload tugas di LMS jam 23.58. Jantung lu sekuat beton flyover Pasar Rebo. IPK 3 koma dikit udah bikin lu merasa jadi pemenang kehidupan."
+    },
+    {
+      "artist": "Project Pop",
+      "title": "Tu Wa Ga Pat",
+      "vibeQ": "Solidaritas di atas segalanya.",
+      "baseKhodam": "PENJOKI BANGKU KELAS",
+      "khodamDesc": "Dateng pagi buta bukan ambis mau duduk depan, tapi buat naro tas doang demi ngamanin bangku belakang buat temen-temen tongkrongan lu. Setia kawan abis!"
+    },
+    {
+      "artist": "Payung Teduh",
+      "title": "Akad",
+      "vibeQ": "Target lulus, langsung sebar undangan.",
+      "baseKhodam": "PEJUANG KUA",
+      "khodamDesc": "Kuliah nyantai, IPK 3 koma 1 udah cukup, pikiran lu cuma satu: cepet lulus biar bisa dihalalin atau menghalalkan. Skripsi lu kelar karena didorong kekuatan bucin."
+    },
+    {
+      "artist": "Sal Priadi",
+      "title": "Dari planet lain",
+      "vibeQ": "Keajaiban H-1 Jam",
+      "baseKhodam": "MASTER OF SKS",
+      "khodamDesc": "Sistem Kebut Semalam adalah jalan ninjaku. Jam 2 pagi baru login LMS nyari soal. Ajaibnya, tugas lu selalu kelar walau isinya hasil 'inspirasi' dari kodingan temen atau AI. Hoki lu gede bener."
+    }
+  ],
+  "rawan": [
+    {
+      "artist": "Hindia",
+      "title": "Secukupnya",
+      "vibeQ": "Kuliah secukupnya, nongkrong selebihnya.",
+      "baseKhodam": "PENUNGGU DPR",
+      "khodamDesc": "Lu lebih sering ditemuin di DPR Kampus Gedong daripada di kelas. Rapat di situ, galau di situ, ngerokok di situ. Hati-hati lama-lama lu jadi penunggu pohonnya beneran."
+    },
+    {
+      "artist": "Juicy Luicy",
+      "title": "Lantas",
+      "vibeQ": "Lantas, mau jadi apa selain aktivis?",
+      "baseKhodam": "POLITIKUS KAMPUS",
+      "khodamDesc": "KHS lu nangis 2 koma, tapi omongan lu setinggi langit pas rapat ormawa. Foto profil IG gaya mikir sambil pake PDH. Kuliah nomer 2, proker nomer 1!"
+    },
+    {
+      "artist": "Kunto Aji",
+      "title": "Terlalu Lama Sendiri",
+      "vibeQ": "Sendiri nungguin dosen pembimbing.",
+      "baseKhodam": "KORBAN PHP DOSEN",
+      "khodamDesc": "Udah dateng jauh-jauh ngelewatin macet Jakarta, eh dosennya batalin kelas dadakan via komti pas lu udah di parkiran. Sabar, ini ujian mental sebelum terjun ke kerasnya ibukota."
+    },
+    {
+      "artist": "Danilla",
+      "title": "Senja di Ambang Pilu",
+      "vibeQ": "Anak indie kebanyakan ngopi.",
+      "baseKhodam": "SENJA DAN REVISI",
+      "khodamDesc": "Ngopi di warkop sok keras ngebahas konspirasi elit global, giliran ditanya progress skripsi langsung pura-pura amnesia. IPK lu tuh perhatiin, makin nyungsep kaya matahari terbenam."
+    },
+    {
+      "artist": "D'Masiv",
+      "title": "Jangan Menyerah",
+      "vibeQ": "Nilai 2.1 tapi jadi tempat curhat.",
+      "baseKhodam": "MOTIVATOR KOS-KOSAN",
+      "khodamDesc": "Nilai lu hancur lebur, tapi lu selalu jadi tempat curhat andalan tongkrongan. Nasihatin orang pinter banget dapet A, giliran disuruh perbaiki nilai sendiri alasan lu 'IPK cuma angka'. Hadeh, klasik."
+    },
+    {
+      "artist": "Feast",
+      "title": "Peradaban",
+      "vibeQ": "Suka demo, lupa tugas.",
+      "baseKhodam": "AKTIVIS KURANG TIDUR",
+      "khodamDesc": "Kritis banget kalo ngritik kebijakan rektorat, tapi lu sendiri lupa kapan terakhir ngerjain tugas individu. Hati-hati, suara lantang di lapangan gak bisa naikin IPK di KHS!"
+    }
+  ]
+}
