@@ -1,28 +1,36 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MySIKA Ultimate Deployment Dashboard</title>
+    <title>MySIKA Ops - Private Repo Deployment</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <!-- Chosen Palette: Modern Dark Tech (Slate, Cyan, Emerald, Indigo) -->
-    <!-- Application Structure Plan: Dashboard interaktif bergaya IDE/DevOps tools. Menggunakan layout split-screen: Sidebar untuk navigasi dan tracking progress, Area Utama untuk eksekusi instruksi. Setiap blok kode dilengkapi badge lokasi (VPS/GitHub/Lokal) agar user tidak bingung di mana harus mengeksekusi perintah. Progress divisualisasikan secara real-time. -->
-    <!-- Visualization & Content Choices: 
-         - Goal: Track Progress -> Viz: Doughnut Chart (Chart.js) -> Interaction: Update dinamis saat checkbox diklik -> Justification: Gamifikasi proses deployment yang panjang agar tidak membosankan -> Library: Chart.js Canvas.
-         - Goal: Organize Execution -> Viz: Tagging lokasi (Terminal, Web, Lokal) dengan badge warna -> Justification: Mencegah error fatal akibat salah tempat eksekusi -> Method: Tailwind CSS + Unicode Icons (NO SVG).
-         - Goal: Kecepatan & Akurasi -> Viz: One-click copy code blocks bergaya terminal -> Interaction: Tombol copy responsif -> Justification: Zero-typo deployment.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        slate: { 850: '#151f32', 950: '#0b1120' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
         .chart-container { position: relative; width: 100%; max-width: 150px; margin: 0 auto; height: 150px; }
         
         /* Terminal-like Scrollbar */
-        .terminal-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
-        .terminal-scroll::-webkit-scrollbar-track { background: #0f172a; border-radius: 4px; }
+        .terminal-scroll::-webkit-scrollbar { height: 8px; width: 8px; }
+        .terminal-scroll::-webkit-scrollbar-track { background: #0b1120; border-radius: 4px; }
         .terminal-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         .terminal-scroll::-webkit-scrollbar-thumb:hover { background: #475569; }
 
@@ -32,25 +40,35 @@
             to { transform: translateY(0); opacity: 1; }
         }
         .toast-animate { animation: slideInUp 0.3s ease-out forwards; }
+        
+        /* Custom glow effects */
+        .glow-cyan { box-shadow: 0 0 20px rgba(6, 182, 212, 0.15); }
+        .glow-emerald { box-shadow: 0 0 20px rgba(16, 185, 129, 0.15); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased h-screen flex flex-col overflow-hidden">
+<body class="bg-slate-950 text-slate-300 antialiased h-screen flex flex-col overflow-hidden selection:bg-cyan-500/30">
 
-    <!-- Top Navbar -->
-    <header class="bg-slate-900 border-b border-slate-800 shadow-md z-20 shrink-0">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="bg-cyan-500 text-slate-900 font-black text-xl w-10 h-10 flex items-center justify-center rounded-lg shadow-[0_0_15px_rgba(6,182,212,0.5)]">M</div>
+    <header class="bg-slate-900 border-b border-slate-800 z-20 shrink-0 shadow-lg">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="bg-gradient-to-br from-cyan-400 to-blue-600 text-slate-950 font-black text-xl w-10 h-10 flex items-center justify-center rounded-xl shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                    Ops
+                </div>
                 <div>
-                    <h1 class="text-xl font-bold text-slate-100 tracking-tight">MySIKA <span class="text-cyan-400 font-light">DeployOps</span></h1>
-                    <p class="text-[10px] text-slate-400 uppercase tracking-widest font-mono">dandienter/mysikea &rarr; mysika.my.id</p>
+                    <h1 class="text-xl font-bold text-slate-100 tracking-tight">MySIKA <span class="text-cyan-400 font-light">Deploy Pipeline</span></h1>
+                    <div class="flex items-center gap-2 mt-0.5">
+                        <span class="text-[10px] bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded text-slate-400 uppercase tracking-widest font-mono flex items-center gap-1">
+                            <span>&#128274;</span> Private Repo
+                        </span>
+                        <span class="text-[10px] text-slate-500 font-mono">dandienter/mysikea &rarr; VPS</span>
+                    </div>
                 </div>
             </div>
             
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-5 bg-slate-850 p-2 rounded-2xl border border-slate-800 pr-4">
                 <div class="hidden md:flex flex-col items-end">
-                    <span class="text-xs text-slate-400 font-mono">SYSTEM STATUS</span>
-                    <span id="statusText" class="text-sm font-bold text-amber-400">DEPLOYING...</span>
+                    <span class="text-[10px] text-slate-500 font-mono tracking-widest">PIPELINE STATUS</span>
+                    <span id="statusText" class="text-sm font-bold text-amber-400 animate-pulse">DEPLOYING...</span>
                 </div>
                 <div class="h-10 w-10 relative">
                     <canvas id="miniProgressChart"></canvas>
@@ -59,70 +77,61 @@
         </div>
     </header>
 
-    <!-- Main Workspace -->
-    <div class="flex-grow flex overflow-hidden">
+    <div class="flex-grow flex overflow-hidden max-w-[1600px] mx-auto w-full">
         
-        <!-- Sidebar Navigation -->
-        <aside class="w-80 bg-slate-100 border-r border-slate-200 flex flex-col shrink-0 overflow-y-auto">
-            <div class="p-6 pb-2">
-                <h2 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Deployment Pipeline</h2>
+        <aside class="w-80 bg-slate-900/50 border-r border-slate-800 flex flex-col shrink-0 overflow-y-auto backdrop-blur-sm">
+            <div class="p-6 pb-4 border-b border-slate-800/50">
+                <h2 class="text-xs font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                    <span>&#9881;</span> Deployment Stages
+                </h2>
             </div>
-            <nav class="flex-1 px-4 pb-6">
+            <nav class="flex-1 px-4 py-4 overflow-y-auto terminal-scroll">
                 <ul id="stepNavList" class="space-y-1.5">
-                    <!-- Nav items injected here -->
-                </ul>
+                    </ul>
             </nav>
-            <div class="p-6 bg-slate-200/50 border-t border-slate-200 mt-auto">
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm font-bold text-slate-700">Total Progress</span>
-                    <span id="progressPercentage" class="text-sm font-black text-cyan-600">0%</span>
+            <div class="p-6 bg-slate-900 border-t border-slate-800 mt-auto shrink-0">
+                <div class="flex justify-between items-center mb-3">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Overall Progress</span>
+                    <span id="progressPercentage" class="text-sm font-black text-cyan-400">0%</span>
                 </div>
-                <div class="w-full bg-slate-300 rounded-full h-2 overflow-hidden">
-                    <div id="progressBar" class="bg-cyan-500 h-2 rounded-full transition-all duration-500 w-0 shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+                <div class="w-full bg-slate-800 rounded-full h-2.5 overflow-hidden ring-1 ring-slate-700/50">
+                    <div id="progressBar" class="bg-gradient-to-r from-cyan-500 to-blue-500 h-full rounded-full transition-all duration-700 ease-out w-0 shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
                 </div>
             </div>
         </aside>
 
-        <!-- Main Content Area -->
-        <main class="flex-1 bg-white overflow-y-auto relative scroll-smooth" id="mainScrollArea">
-            <div class="max-w-4xl mx-auto p-8 pb-24">
+        <main class="flex-1 bg-slate-950 overflow-y-auto relative scroll-smooth terminal-scroll" id="mainScrollArea">
+            <div class="max-w-4xl mx-auto p-8 lg:p-12 pb-32">
                 
-                <!-- Dynamic Content Wrapper -->
                 <div class="transition-opacity duration-300" id="contentWrapper">
                     
-                    <div class="flex items-center gap-3 mb-6">
-                        <span id="stepNumberBadge" class="bg-slate-800 text-cyan-400 font-mono font-bold px-3 py-1 rounded text-sm shadow-sm">STEP 1</span>
-                        <h2 id="contentTitle" class="text-3xl font-extrabold text-slate-900 tracking-tight">Memuat...</h2>
+                    <div class="flex items-center gap-4 mb-6">
+                        <span id="stepNumberBadge" class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-mono font-bold px-3 py-1 rounded-lg text-sm shadow-sm">STEP 1</span>
+                        <h2 id="contentTitle" class="text-2xl sm:text-3xl font-extrabold text-slate-100 tracking-tight">Memuat...</h2>
                     </div>
 
-                    <!-- Environment Badge -->
                     <div id="envBadgeContainer" class="mb-8"></div>
 
-                    <!-- Description -->
-                    <div id="contentDescription" class="text-lg text-slate-600 leading-relaxed mb-8 border-l-4 border-slate-200 pl-4"></div>
+                    <div id="contentDescription" class="text-lg text-slate-400 leading-relaxed mb-10 border-l-4 border-slate-700 pl-5"></div>
 
-                    <!-- Blocks Container -->
-                    <div id="contentBlocks" class="space-y-6">
-                        <!-- Code and text blocks injected here -->
-                    </div>
-
-                    <!-- Action Bar -->
-                    <div class="mt-12 pt-6 border-t border-slate-100 flex items-center justify-between bg-slate-50 p-6 rounded-xl border">
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Verifikasi Tahap Ini</p>
-                            <p class="text-xs text-slate-500 mt-1">Tandai selesai untuk melanjutkan ke tahap berikutnya.</p>
+                    <div id="contentBlocks" class="space-y-8">
                         </div>
-                        <label class="flex items-center cursor-pointer relative">
+
+                    <div class="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between bg-slate-900/50 p-6 rounded-2xl border border-slate-800/80 glow-cyan">
+                        <div class="mb-4 sm:mb-0">
+                            <p class="text-base font-bold text-slate-200">Verifikasi Tahap Ini</p>
+                            <p class="text-sm text-slate-500 mt-1">Tandai sebagai selesai untuk melanjutkan ke instruksi berikutnya.</p>
+                        </div>
+                        <label class="flex items-center cursor-pointer relative group">
                             <input type="checkbox" id="stepCompleteCheckbox" class="peer sr-only">
-                            <div class="w-14 h-8 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-emerald-500 shadow-inner"></div>
-                            <span class="ml-3 text-sm font-bold text-slate-600 peer-checked:text-emerald-600 uppercase tracking-wider transition-colors" id="toggleLabelText">Tertunda</span>
+                            <div class="w-16 h-8 bg-slate-800 border border-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-slate-400 after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-emerald-500 peer-checked:border-emerald-500 after:shadow-sm"></div>
+                            <span class="ml-4 text-sm font-bold text-slate-500 peer-checked:text-emerald-400 uppercase tracking-widest transition-colors" id="toggleLabelText">Tertunda</span>
                         </label>
                     </div>
 
-                    <!-- Next Button -->
-                    <div class="mt-6 flex justify-end" id="nextBtnContainer">
-                        <button onclick="goToNextStep()" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-all flex items-center gap-2">
-                            Langkah Selanjutnya <span>&rarr;</span>
+                    <div class="mt-8 flex justify-end" id="nextBtnContainer">
+                        <button onclick="goToNextStep()" class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3.5 px-8 rounded-xl shadow-[0_0_15px_rgba(6,182,212,0.3)] hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all flex items-center gap-3">
+                            Langkah Selanjutnya <span class="text-xl leading-none">&rarr;</span>
                         </button>
                     </div>
 
@@ -136,10 +145,10 @@
         // Env types: VPS (Terminal), GITHUB (Web UI), LAPTOP (Local IDE/Code)
         
         const envConfig = {
-            'VPS': { label: '&#128421; Eksekusi di Terminal VPS', color: 'bg-indigo-100 text-indigo-800 border-indigo-200' },
-            'GITHUB': { label: '&#127760; Eksekusi di Web GitHub', color: 'bg-slate-800 text-slate-100 border-slate-700' },
-            'LAPTOP': { label: '&#128187; Eksekusi di Laptop / Lokal', color: 'bg-emerald-100 text-emerald-800 border-emerald-200' },
-            'MIXED': { label: '&#9881; Eksekusi Campuran (Ikuti Instruksi)', color: 'bg-amber-100 text-amber-800 border-amber-200' }
+            'VPS': { label: '&#128421; Eksekusi di Terminal VPS', color: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20' },
+            'GITHUB': { label: '&#127760; Eksekusi di Web GitHub', color: 'bg-slate-800 text-slate-300 border-slate-700' },
+            'LAPTOP': { label: '&#128187; Eksekusi di Laptop / Lokal', color: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' },
+            'MIXED': { label: '&#9881; Eksekusi Campuran', color: 'bg-amber-500/10 text-amber-400 border-amber-500/20' }
         };
 
         const deploymentSteps = [
@@ -147,81 +156,97 @@
                 id: 1,
                 title: "Optimasi VPS & Instalasi Runtime",
                 env: "VPS",
-                description: "Karena VPS hanya memiliki RAM 1GB, kita <strong>WAJIB</strong> membuat SWAP Memory agar VPS tidak <em>crash</em> saat proses kompilasi. Kita juga menginstal Node.js versi 20 dan Tesseract OCR.",
+                description: "Karena VPS memiliki spesifikasi terbatas (misal 1GB RAM), kita <strong>WAJIB</strong> membuat SWAP Memory agar VPS tidak <em>Crash/Out of Memory</em> saat proses kompilasi React. Kita juga menginstal Node.js versi 20 dan Tesseract OCR.",
                 blocks: [
-                    { type: 'text', content: "Jalankan skrip ini sekaligus di Terminal VPS Anda:" },
-                    { type: 'code', language: 'bash', content: "# 1. Update OS & Install Dependencies\nsudo apt-get update && sudo apt-get upgrade -y\nsudo apt-get install -y tesseract-ocr libtesseract-dev git python3-pip\n\n# 2. Buat SWAP 2GB (Sangat Penting!)\nsudo fallocate -l 2G /swapfile\nsudo chmod 600 /swapfile\nsudo mkswap /swapfile\nsudo swapon /swapfile\necho '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab\n\n# 3. Install NVM & Node.js 20\ncurl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash\nexport NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"\nnvm install 20\nnvm use 20\nnode -v # Pastikan outputnya v20.x.x" }
+                    { type: 'text', content: "Jalankan blok skrip ini sekaligus di Terminal VPS Anda:" },
+                    { type: 'code', language: 'bash', content: "# 1. Update OS & Install Dependencies\nsudo apt-get update && sudo apt-get upgrade -y\nsudo apt-get install -y tesseract-ocr libtesseract-dev git python3-pip\n\n# 2. Buat SWAP 2GB (Mencegah Crash saat Build)\nsudo fallocate -l 2G /swapfile\nsudo chmod 600 /swapfile\nsudo mkswap /swapfile\nsudo swapon /swapfile\necho '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab\n\n# 3. Install NVM & Node.js 20\ncurl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash\nexport NVM_DIR=\"$HOME/.nvm\"\n[ -s \"$NVM_DIR/nvm.sh\" ] && \\. \"$NVM_DIR/nvm.sh\"\nnvm install 20\nnvm use 20\nnode -v # Pastikan outputnya v20.x.x" }
                 ],
                 completed: false
             },
             {
                 id: 2,
-                title: "Otentikasi SSH GitHub",
+                title: "Autentikasi SSH untuk Private Repo",
                 env: "MIXED",
-                description: "Menghubungkan VPS dengan akun GitHub Anda agar proses tarik kode (<code>git pull</code>) dapat berjalan otomatis tanpa meminta password.",
+                description: "Karena repository <code>dandienter/mysikea</code> bersifat <strong>Private</strong>, VPS tidak bisa langsung melakukan git clone. Kita harus membuat <em>SSH Key</em> di VPS dan memasukkannya sebagai <em>Deploy Key</em> di GitHub.",
                 blocks: [
-                    { type: 'badge', text: 'Di Terminal VPS' },
-                    { type: 'text', content: "Buat kunci SSH baru (tekan Enter terus saat ditanya passhrase/password):" },
+                    { type: 'badge', text: 'Terminal VPS' },
+                    { type: 'text', content: "Buat kunci SSH baru di VPS. Tekan <strong>Enter</strong> terus menerus saat ditanya passphrase/password agar kunci tidak terenkripsi:" },
                     { type: 'code', language: 'bash', content: "ssh-keygen -t ed25519 -C \"vps-mysika\"\ncat ~/.ssh/id_ed25519.pub" },
-                    { type: 'text', content: "Salin seluruh teks <code>ssh-ed25519 ... vps-mysika</code> yang muncul di layar." },
-                    { type: 'badge', text: 'Di Web GitHub' },
-                    { type: 'text', content: "1. Buka repositori <strong>dandienter/mysikea</strong>.<br>2. Ke <strong>Settings</strong> > <strong>Deploy Keys</strong> > <strong>Add deploy key</strong>.<br>3. Paste kunci tadi, beri nama 'VPS-Prod', dan <strong>centang 'Allow write access'</strong>.<br>4. Klik Save." },
-                    { type: 'badge', text: 'Di Terminal VPS' },
-                    { type: 'text', content: "Verifikasi koneksi agar VPS mempercayai GitHub:" },
-                    { type: 'code', language: 'bash', content: "ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts\nssh -T git@github.com\n# Harus muncul: Hi dandienter! You've successfully authenticated..." }
+                    { type: 'text', content: "Salin <strong>seluruh output teks</strong> yang berawalan <code>ssh-ed25519 ... vps-mysika</code>." },
+                    { type: 'badge', text: 'Web GitHub' },
+                    { type: 'text', content: "1. Buka <a href='https://github.com/dandienter/mysikea/settings/keys' target='_blank' class='text-cyan-400 hover:underline'>Settings > Deploy Keys di Repo Anda</a>.<br>2. Klik tombol <strong>Add deploy key</strong>.<br>3. Beri Title: <code>VPS-Prod</code>.<br>4. Paste kunci SSH tadi ke kolom Key.<br>5. <strong>PENTING: Centang kotak 'Allow write access'</strong>.<br>6. Klik Add key." },
+                    { type: 'badge', text: 'Terminal VPS' },
+                    { type: 'text', content: "Verifikasi koneksi VPS ke GitHub agar dikenali sebagai host yang aman:" },
+                    { type: 'code', language: 'bash', content: "ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts\nssh -T git@github.com\n# Harus muncul pesan: Hi dandienter/mysikea! You've successfully authenticated..." }
                 ],
                 completed: false
             },
             {
                 id: 3,
-                title: "Setup Project & Environment",
+                title: "Kloning Repo & Setup Environment",
                 env: "VPS",
-                description: "Mengkloning repository dari GitHub dan menyetel URL Backend agar Frontend React terhubung ke domain yang benar (<code>mysika.my.id</code>).",
+                description: "Sekarang VPS sudah memiliki akses ke Private Repo. Mari kita kloning kodenya dan siapkan file konfigurasi (<code>.env</code>) agar Frontend terhubung ke domain yang benar.",
                 blocks: [
-                    { type: 'text', content: "Kloning repo dan buat file konfigurasi environment:" },
-                    { type: 'code', language: 'bash', content: "cd ~\ngit clone git@github.com:dandienter/mysikea.git\ncd mysikea/frontend\n\n# Membuat dan mengisi file .env\necho \"REACT_APP_BACKEND_URL=https://mysika.my.id\" > .env\n\n# Verifikasi isi file\ncat .env" }
+                    { type: 'text', content: "Kloning repo menggunakan protokol SSH (bukan HTTPS) dan buat file .env:" },
+                    { type: 'code', language: 'bash', content: "cd ~\n# Pastikan menggunakan format git@github.com untuk private repo\ngit clone git@github.com:dandienter/mysikea.git\ncd mysikea/frontend\n\n# Membuat file .env untuk Frontend React\ncat > .env << EOF\nREACT_APP_BACKEND_URL=https://mysika.my.id\nWDS_SOCKET_PORT=443\nREACT_APP_ENABLE_VISUAL_EDITS=false\nENABLE_HEALTH_CHECK=false\nDISABLE_ESLINT_PLUGIN=true\nEOF\n\n# Verifikasi isi file\ncat .env" }
                 ],
                 completed: false
             },
             {
                 id: 4,
-                title: "Deploy FastAPI Service",
+                title: "Deploy Backend Service (FastAPI)",
                 env: "VPS",
-                description: "Menjadikan backend FastAPI sebagai <em>Systemd Service</em> agar otomatis berjalan di <em>background</em> dan <em>auto-restart</em> jika VPS di-reboot.",
+                description: "Menjadikan backend FastAPI sebagai <em>Systemd Service</em>. Ini memastikan API selalu berjalan di <em>background</em> dan otomatis hidup kembali jika VPS mengalami <em>reboot</em>.",
                 blocks: [
-                    { type: 'text', content: "Salin dan jalankan seluruh blok perintah ini sekaligus. Ini akan membuat file service dan langsung menyalakannya:" },
-                    { type: 'code', language: 'bash', content: "sudo bash -c 'cat > /etc/systemd/system/fastapi.service << EOF\n[Unit]\nDescription=FastAPI MySIKA Production Service\nAfter=network.target\n\n[Service]\nUser=ubuntu\nGroup=ubuntu\nWorkingDirectory=/home/ubuntu/mysikea/backend\nExecStart=/usr/local/bin/uvicorn server:app --host 127.0.0.1 --port 8000 --proxy-headers --forwarded-allow-ips=\"*\"\nRestart=always\nRestartSec=3\n\n[Install]\nWantedBy=multi-user.target\nEOF'\n\n# Aktifkan service\nsudo systemctl daemon-reload\nsudo systemctl enable fastapi\nsudo systemctl start fastapi\nsudo systemctl status fastapi --no-pager" }
+                    { type: 'text', content: "Salin blok ini. Skrip ini akan membuat file konfigurasi service dan langsung menyalakannya:" },
+                    { type: 'code', language: 'bash', content: "sudo bash -c 'cat > /etc/systemd/system/fastapi.service << EOF\n[Unit]\nDescription=FastAPI MySIKA Production Service\nAfter=network.target\n\n[Service]\nUser=ubuntu\nGroup=ubuntu\nWorkingDirectory=/home/ubuntu/mysikea/backend\nExecStart=/usr/local/bin/uvicorn server:app --host 127.0.0.1 --port 8000 --proxy-headers --forwarded-allow-ips=\"*\"\nRestart=always\nRestartSec=3\n\n[Install]\nWantedBy=multi-user.target\nEOF'\n\n# Muat ulang systemd dan jalankan service\nsudo systemctl daemon-reload\nsudo systemctl enable fastapi\nsudo systemctl start fastapi\nsudo systemctl status fastapi --no-pager" }
                 ],
                 completed: false
             },
             {
                 id: 5,
-                title: "Konfigurasi Cloudflare Tunnel",
+                title: "Ekspos Port via Cloudflare Tunnel",
                 env: "VPS",
-                description: "Menghubungkan aplikasi yang berjalan di localhost:8000 langsung ke domain <code>mysika.my.id</code> secara aman tanpa membuka port firewall.",
+                description: "Menghubungkan aplikasi yang berjalan di localhost VPS langsung ke domain <code>mysika.my.id</code> secara aman tanpa perlu mengkonfigurasi Nginx atau membuka port di Firewall.",
                 blocks: [
-                    { type: 'text', content: "1. Install Cloudflared:" },
+                    { type: 'text', content: "1. Install dan Login Cloudflared:" },
                     { type: 'code', language: 'bash', content: "curl -L --output cloudflared.deb https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb\nsudo dpkg -i cloudflared.deb\ncloudflared tunnel login" },
-                    { type: 'text', content: "Buka link yang muncul di terminal pada browser Anda, lalu pilih domain mysika.my.id." },
-                    { type: 'text', content: "2. Buat tunnel dan routing (<strong>Ganti &lt;ID_TUNNEL_KAMU&gt; dengan ID asli yang muncul di langkah create</strong>):" },
-                    { type: 'code', language: 'bash', content: "cloudflared tunnel create mysika-prod\n# CATAT ID-NYA!\n\ncloudflared tunnel route dns mysika-prod mysika.my.id" },
+                    { type: 'text', content: "<em>(Buka link yang muncul di terminal pada browser, lalu otorisasi domain mysika.my.id)</em>" },
+                    { type: 'text', content: "2. Buat tunnel dan arahkan DNS (<strong>Ganti &lt;ID_TUNNEL_KAMU&gt; dengan ID asli yang muncul!</strong>):" },
+                    { type: 'code', language: 'bash', content: "cloudflared tunnel create mysika-prod\n# CATAT ID TUNNEL YANG MUNCUL DI LAYAR!\n\ncloudflared tunnel route dns mysika-prod mysika.my.id" },
                     { type: 'text', content: "3. Buat file konfigurasi ingress:" },
                     { type: 'code', language: 'bash', content: "mkdir -p ~/.cloudflared\ncat > ~/.cloudflared/config.yml << EOF\ntunnel: <ID_TUNNEL_KAMU>\ncredentials-file: /home/ubuntu/.cloudflared/<ID_TUNNEL_KAMU>.json\n\ningress:\n  - hostname: mysika.my.id\n    service: http://localhost:8000\n  - service: http_status:404\nEOF" },
-                    { type: 'text', content: "4. Install sebagai service:" },
+                    { type: 'text', content: "4. Install sebagai service background:" },
                     { type: 'code', language: 'bash', content: "sudo cloudflared service install\nsudo systemctl start cloudflared\nsudo systemctl enable cloudflared" }
                 ],
                 completed: false
             },
             {
                 id: 6,
-                title: "Integrasi Auto-Deploy (CI/CD)",
-                env: "LAPTOP",
-                description: "Skrip GitHub Actions yang sudah <strong>dioptimalkan</strong>. Skrip ini menggunakan <code>--no-audit --no-fund</code> agar npm install jauh lebih cepat di VPS.",
+                title: "Setup GitHub Actions Secrets",
+                env: "GITHUB",
+                description: "Agar GitHub Actions dapat me-remote VPS untuk melakukan Auto-Deploy, Anda harus menyimpan kredensial VPS dengan aman di pengaturan repository.",
                 blocks: [
-                    { type: 'text', content: "<strong>Di Web GitHub:</strong> Buka Repo > Settings > Secrets and variables > Actions. Tambahkan 3 secret:\n1. <code>VPS_HOST</code> (Isi IP VPS)\n2. <code>VPS_USERNAME</code> (Isi: ubuntu)\n3. <code>VPS_PASSWORD</code> (Isi password SSH)" },
-                    { type: 'text', content: "<strong>Di Laptop/Lokal (VS Code):</strong> Buat file di path <code>.github/workflows/deploy.yml</code> lalu masukkan kode berikut:" },
-                    { type: 'code', language: 'yaml', content: "name: Fast Deploy MySIKA\non:\n  push:\n    branches: [ main ]\njobs:\n  deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - name: SSH Deploy & Build\n        uses: appleboy/ssh-action@v1.0.3\n        with:\n          host: ${{ secrets.VPS_HOST }}\n          username: ${{ secrets.VPS_USERNAME }}\n          password: ${{ secrets.VPS_PASSWORD }}\n          script: |\n            # Load NVM Node 20\n            export NVM_DIR=\"$HOME/.nvm\"\n            source \"$NVM_DIR/nvm.sh\"\n            nvm use 20\n\n            cd ~/mysikea\n            echo \"🔄 Pulling changes...\"\n            git pull origin main\n\n            echo \"🐍 Fast Pip Install...\"\n            cd backend\n            pip install -r requirements.txt --disable-pip-version-check\n\n            echo \"📦 Fast NPM Install & Build...\"\n            cd ../frontend\n            npm install ajv@^8 ajv-keywords@^5 --legacy-peer-deps --no-audit --no-fund\n            npm install --legacy-peer-deps --no-audit --no-fund\n            CI=false npm run build\n\n            echo \"📂 Syncing Artifacts...\"\n            rm -rf ~/mysikea/backend/static\n            mv build ~/mysikea/backend/static\n\n            echo \"🚀 Restarting FastAPI...\"\n            sudo systemctl restart fastapi\n            echo \"✅ Deployment Complete!\"" },
-                    { type: 'text', content: "Lakukan commit dan push file tersebut ke GitHub. Web Anda akan otomatis terupdate dalam ~3 menit!" }
+                    { type: 'text', content: "Buka menu <strong>Settings</strong> di repository GitHub > <strong>Secrets and variables</strong> > <strong>Actions</strong>. " },
+                    { type: 'text', content: "Tambahkan 3 <em>New repository secret</em> berikut secara berurutan:" },
+                    { type: 'badge', text: 'Secret 1' },
+                    { type: 'text', content: "Name: <code>VPS_HOST</code><br>Secret: <em>(Masukkan IP Public VPS Anda)</em>" },
+                    { type: 'badge', text: 'Secret 2' },
+                    { type: 'text', content: "Name: <code>VPS_USERNAME</code><br>Secret: <code>ubuntu</code> <em>(Atau root jika menggunakan user root)</em>" },
+                    { type: 'badge', text: 'Secret 3' },
+                    { type: 'text', content: "Name: <code>VPS_PASSWORD</code><br>Secret: <em>(Masukkan password SSH VPS Anda)</em>" }
+                ],
+                completed: false
+            },
+            {
+                id: 7,
+                title: "Integrasi CI/CD Auto-Deploy",
+                env: "LAPTOP",
+                description: "Langkah terakhir! Memasukkan file alur kerja GitHub Actions. Script ini telah dioptimasi dengan <code>--no-audit --no-fund</code> dan penonaktifan ESLint agar VPS tidak kehabisan memori saat npm install.",
+                blocks: [
+                    { type: 'text', content: "Di VS Code/Local Laptop Anda, buat file dengan path <code>.github/workflows/deploy.yml</code> dan isi dengan kode ini:" },
+                    { type: 'code', language: 'yaml', content: "name: Fast Deploy MySIKA\non:\n  push:\n    branches: [ main ]\njobs:\n  deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - name: SSH Deploy & Build\n        uses: appleboy/ssh-action@v1.0.3\n        with:\n          host: ${{ secrets.VPS_HOST }}\n          username: ${{ secrets.VPS_USERNAME }}\n          password: ${{ secrets.VPS_PASSWORD }}\n          script: |\n            export NVM_DIR=\"$HOME/.nvm\"\n            source \"$NVM_DIR/nvm.sh\"\n            nvm use 20\n\n            cd ~/mysikea\n            echo \"🔄 Pulling changes...\"\n            git pull origin main\n\n            echo \"🐍 Update Backend...\"\n            cd backend\n            pip install -r requirements.txt --disable-pip-version-check\n\n            echo \"📦 Fast NPM Install & Build...\"\n            cd ../frontend\n            # Install dependensi vital tanpa membebani memori\n            npm install ajv@^8 ajv-keywords@^5 --legacy-peer-deps --no-audit --no-fund\n            npm install --legacy-peer-deps --no-audit --no-fund\n            \n            # Inject ENV vars directly during build\n            REACT_APP_BACKEND_URL=\"https://mysika.my.id\" WDS_SOCKET_PORT=443 REACT_APP_ENABLE_VISUAL_EDITS=false ENABLE_HEALTH_CHECK=false DISABLE_ESLINT_PLUGIN=true CI=false npm run build\n\n            echo \"📂 Syncing Artifacts...\"\n            rm -rf ~/mysikea/backend/static\n            mv build ~/mysikea/backend/static\n\n            echo \"🚀 Restarting FastAPI...\"\n            sudo systemctl restart fastapi\n            echo \"✅ Deployment Complete!\"" },
+                    { type: 'text', content: "Lakukan <code>git commit</code> dan <code>git push</code>. Buka tab <strong>Actions</strong> di GitHub untuk melihat proses deployment berjalan otomatis!" }
                 ],
                 completed: false
             }
@@ -247,6 +272,16 @@
                 
                 const label = document.getElementById('toggleLabelText');
                 label.innerText = step.completed ? 'Selesai' : 'Tertunda';
+                
+                // Add glow effect on completion
+                const actionContainer = document.getElementById('stepCompleteCheckbox').closest('.glow-cyan');
+                if(step.completed) {
+                    actionContainer.classList.remove('glow-cyan');
+                    actionContainer.classList.add('glow-emerald');
+                } else {
+                    actionContainer.classList.remove('glow-emerald');
+                    actionContainer.classList.add('glow-cyan');
+                }
             });
         }
 
@@ -255,20 +290,20 @@
             navList.innerHTML = '';
             
             deploymentSteps.forEach(step => {
-                const li = document.createElement('li');
                 const isCurrent = step.id === currentStepId;
                 
                 let statusDot = step.completed ? 
-                    '<div class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>' : 
-                    '<div class="w-2.5 h-2.5 rounded-full bg-slate-300"></div>';
+                    '<div class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)]"></div>' : 
+                    '<div class="w-2.5 h-2.5 rounded-full bg-slate-700"></div>';
                 
-                li.className = `group flex items-center p-3 rounded-lg cursor-pointer transition-all duration-200 border-l-[3px] ${isCurrent ? 'bg-white shadow-sm border-cyan-500 ml-1' : 'hover:bg-slate-200/50 border-transparent'}`;
+                const li = document.createElement('li');
+                li.className = `group flex items-center p-3 rounded-xl cursor-pointer transition-all duration-300 border-l-[3px] ${isCurrent ? 'bg-slate-800/80 shadow-md border-cyan-400 ml-1' : 'hover:bg-slate-800/40 border-transparent'}`;
                 li.innerHTML = `
                     <div class="mr-3 flex-shrink-0 flex items-center justify-center w-5">
                         ${statusDot}
                     </div>
                     <div class="flex-1 min-w-0">
-                        <span class="${isCurrent ? 'font-bold text-cyan-700' : 'font-medium text-slate-600 group-hover:text-slate-900'} text-sm block truncate transition-colors">
+                        <span class="${isCurrent ? 'font-bold text-cyan-400' : 'font-medium text-slate-400 group-hover:text-slate-200'} text-sm block truncate transition-colors">
                             ${step.id}. ${step.title}
                         </span>
                     </div>
@@ -290,7 +325,7 @@
             // Env Badge
             const envData = envConfig[step.env];
             document.getElementById('envBadgeContainer').innerHTML = `
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-semibold border ${envData.color}">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-sm font-semibold border ${envData.color} shadow-sm">
                     ${envData.label}
                 </span>
             `;
@@ -299,6 +334,15 @@
             const checkbox = document.getElementById('stepCompleteCheckbox');
             checkbox.checked = step.completed;
             document.getElementById('toggleLabelText').innerText = step.completed ? 'Selesai' : 'Tertunda';
+            
+            const actionContainer = checkbox.closest('.border-slate-800\\/80');
+            if(step.completed) {
+                actionContainer.classList.remove('glow-cyan');
+                actionContainer.classList.add('glow-emerald');
+            } else {
+                actionContainer.classList.remove('glow-emerald');
+                actionContainer.classList.add('glow-cyan');
+            }
 
             // Hide Next button if it's the last step
             const nextBtn = document.getElementById('nextBtnContainer');
@@ -308,25 +352,25 @@
             let htmlContent = '';
             step.blocks.forEach((block, index) => {
                 if (block.type === 'text') {
-                    htmlContent += `<p class="text-slate-700 font-medium">${block.content}</p>`;
+                    htmlContent += `<p class="text-slate-300 font-medium text-base">${block.content}</p>`;
                 } else if (block.type === 'badge') {
-                    htmlContent += `<div class="inline-block bg-slate-200 text-slate-700 text-xs font-bold px-2 py-1 rounded uppercase tracking-wider border border-slate-300">${block.text}</div>`;
+                    htmlContent += `<div class="inline-block bg-slate-800 text-cyan-400 text-xs font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-slate-700 shadow-sm mt-2">${block.text}</div>`;
                 } else if (block.type === 'code') {
                     const codeId = `code-block-${id}-${index}`;
                     htmlContent += `
-                        <div class="relative bg-[#0f172a] rounded-xl shadow-lg border border-slate-800 overflow-hidden my-2">
-                            <div class="flex items-center justify-between px-4 py-2 bg-[#1e293b] border-b border-slate-800">
+                        <div class="relative bg-[#090e17] rounded-xl shadow-2xl border border-slate-800/80 overflow-hidden my-4">
+                            <div class="flex items-center justify-between px-4 py-2.5 bg-[#111827] border-b border-slate-800">
                                 <div class="flex items-center gap-2">
-                                    <div class="w-3 h-3 rounded-full bg-rose-500"></div>
-                                    <div class="w-3 h-3 rounded-full bg-amber-500"></div>
-                                    <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
-                                    <span class="ml-2 text-xs font-mono text-slate-400 uppercase tracking-widest">${block.language}</span>
+                                    <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
+                                    <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
+                                    <span class="ml-3 text-xs font-mono text-slate-500 uppercase tracking-widest">${block.language}</span>
                                 </div>
-                                <button onclick="copyCode('${codeId}')" class="text-xs bg-slate-700 hover:bg-cyan-600 text-slate-200 hover:text-white px-3 py-1.5 rounded transition-all focus:outline-none flex items-center gap-1.5 shadow-sm font-semibold">
+                                <button onclick="copyCode('${codeId}')" class="text-xs bg-slate-800 hover:bg-cyan-600 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg transition-all focus:outline-none flex items-center gap-2 border border-slate-700 font-medium">
                                     <span>&#128203;</span> Salin Kode
                                 </button>
                             </div>
-                            <pre class="p-5 overflow-x-auto text-sm text-cyan-50 font-mono leading-relaxed terminal-scroll"><code id="${codeId}">${escapeHtml(block.content)}</code></pre>
+                            <pre class="p-5 overflow-x-auto text-[14px] text-cyan-100 font-mono leading-loose terminal-scroll"><code id="${codeId}">${escapeHtml(block.content)}</code></pre>
                         </div>
                     `;
                 }
@@ -363,8 +407,8 @@
 
         function showToast() {
             const toast = document.createElement('div');
-            toast.className = 'fixed bottom-6 right-6 bg-cyan-600 text-white px-6 py-3 rounded-lg shadow-xl z-50 flex items-center gap-3 font-semibold toast-animate border border-cyan-500';
-            toast.innerHTML = `<span class="text-xl">&#10004;</span> Kode berhasil disalin!`;
+            toast.className = 'fixed bottom-8 right-8 bg-slate-800 text-emerald-400 px-6 py-4 rounded-xl shadow-2xl z-50 flex items-center gap-3 font-bold toast-animate border border-slate-700 text-sm tracking-wide';
+            toast.innerHTML = `<span class="text-xl">&#10004;</span> KODE BERHASIL DISALIN`;
             document.body.appendChild(toast);
             setTimeout(() => {
                 toast.style.opacity = '0';
@@ -390,14 +434,14 @@
                     labels: ['Selesai', 'Sisa'],
                     datasets: [{
                         data: [0, 1],
-                        backgroundColor: ['#06b6d4', '#334155'], // Cyan 500, Slate 700
+                        backgroundColor: ['#22d3ee', '#1e293b'], // Cyan 400, Slate 800
                         borderWidth: 0,
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    cutout: '80%',
+                    cutout: '75%',
                     plugins: { legend: { display: false }, tooltip: { enabled: false } },
                     animation: { animateScale: true }
                 }
@@ -417,21 +461,23 @@
             const statusText = document.getElementById('statusText');
             if(percentage === 100) {
                 statusText.innerText = "ALL SYSTEMS GO";
-                statusText.className = "text-sm font-bold text-emerald-400";
-                document.getElementById('progressBar').classList.replace('bg-cyan-500', 'bg-emerald-500');
-                document.getElementById('progressBar').classList.replace('shadow-[0_0_10px_rgba(6,182,212,0.8)]', 'shadow-[0_0_10px_rgba(16,185,129,0.8)]');
+                statusText.className = "text-sm font-bold text-emerald-400 tracking-wider";
+                document.getElementById('progressBar').classList.replace('from-cyan-500', 'from-emerald-500');
+                document.getElementById('progressBar').classList.replace('to-blue-500', 'to-emerald-400');
+                document.getElementById('progressBar').classList.replace('shadow-[0_0_10px_rgba(6,182,212,0.5)]', 'shadow-[0_0_15px_rgba(16,185,129,0.6)]');
             } else {
                 statusText.innerText = "DEPLOYING...";
-                statusText.className = "text-sm font-bold text-amber-400";
-                document.getElementById('progressBar').classList.replace('bg-emerald-500', 'bg-cyan-500');
-                document.getElementById('progressBar').classList.replace('shadow-[0_0_10px_rgba(16,185,129,0.8)]', 'shadow-[0_0_10px_rgba(6,182,212,0.8)]');
+                statusText.className = "text-sm font-bold text-amber-400 tracking-wider animate-pulse";
+                document.getElementById('progressBar').classList.replace('from-emerald-500', 'from-cyan-500');
+                document.getElementById('progressBar').classList.replace('to-emerald-400', 'to-blue-500');
+                document.getElementById('progressBar').classList.replace('shadow-[0_0_15px_rgba(16,185,129,0.6)]', 'shadow-[0_0_10px_rgba(6,182,212,0.5)]');
             }
 
             // Update Chart Data
             if (progressChartInstance) {
                 progressChartInstance.data.datasets[0].data = [completedCount, pendingCount];
                 // Change chart color on 100%
-                progressChartInstance.data.datasets[0].backgroundColor[0] = percentage === 100 ? '#10b981' : '#06b6d4';
+                progressChartInstance.data.datasets[0].backgroundColor[0] = percentage === 100 ? '#10b981' : '#22d3ee';
                 progressChartInstance.update();
             }
         }
