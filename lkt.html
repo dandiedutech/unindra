@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKT - Analisis UI Tokopedia</title>
+    
+    <!-- Tailwind CSS untuk Styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tokopedia: '#00AA5B',
+                        'tokopedia-hover': '#008C4A'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Mermaid JS untuk Jaringan Semantik -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+
+    <style>
+        /* Styling khusus untuk scrollbar area mockup */
+        .mockup-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .mockup-container::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .mockup-container::-webkit-scrollbar-thumb {
+            background: #ccc; 
+            border-radius: 4px;
+        }
+        .mockup-container::-webkit-scrollbar-thumb:hover {
+            background: #aaa; 
+        }
+
+        /* Mencegah diagram Mermaid menyusut dan membuat teks terlalu kecil */
+        .mermaid svg {
+            min-width: 900px;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans p-4 md:p-8">
+
+    <!-- Header LKT -->
+    <div class="max-w-5xl mx-auto bg-white rounded-lg shadow-md p-6 mb-8 border-t-4 border-tokopedia">
+        <h1 class="text-2xl font-bold text-gray-900 border-b pb-2 mb-4">Lembar Kerja Tugas (LKT) - Analisis Antarmuka Web & Mobile</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div>
+                <p><span class="font-semibold w-24 inline-block">Mata Kuliah</span>: Interaksi Manusia & Komputer</p>
+                <p><span class="font-semibold w-24 inline-block">Nama</span>: Ahmad Dandi Subhani</p>
+                <p><span class="font-semibold w-24 inline-block">NIM</span>: 202343500126</p>
+            </div>
+            <div>
+                <p><span class="font-semibold w-24 inline-block">Objek Studi</span>: E-Commerce Tokopedia</p>
+                <p><span class="font-semibold w-24 inline-block">Fokus 1</span>: Layout Halaman Utama (Desktop)</p>
+                <p><span class="font-semibold w-24 inline-block">Fokus 2</span>: Jaringan Semantik / Alur (Mobile)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BAGIAN 1: MOCKUP DESKTOP -->
+    <div class="max-w-5xl mx-auto mb-10">
+        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+            <i class="fa-solid fa-desktop mr-2 text-tokopedia"></i> Bagian 1: Tampilan Halaman Utama (Versi Desktop)
+        </h2>
+        <p class="text-sm text-gray-600 mb-4">Simulasi struktur layout beranda Tokopedia yang diakses melalui browser komputer (desktop). Menampilkan area layar lebar, navigasi atas, dan grid produk.</p>
+        
+        <!-- Mockup Browser Window -->
+        <div class="bg-gray-200 rounded-t-lg flex items-center p-2 space-x-2 border border-gray-300">
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            <div class="bg-white text-xs px-3 py-1 rounded w-64 text-gray-500 ml-4 truncate">https://www.tokopedia.com</div>
+        </div>
+        
+        <!-- Mockup Content Area -->
+        <div class="mockup-container bg-white border-x border-b border-gray-300 h-[500px] overflow-y-auto">
+            
+            <!-- Tokopedia Top Navbar -->
+            <div class="bg-gray-100 text-gray-500 text-[11px] py-1.5 px-8 flex justify-between items-center border-b">
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-tokopedia"><i class="fa-solid fa-mobile-screen mr-1"></i>Download Tokopedia App</a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-tokopedia">Tentang Tokopedia</a>
+                    <a href="#" class="hover:text-tokopedia">Mitra Tokopedia</a>
+                    <a href="#" class="hover:text-tokopedia">Mulai Berjualan</a>
+                    <a href="#" class="hover:text-tokopedia">Promo</a>
+                    <a href="#" class="hover:text-tokopedia">Tokopedia Care</a>
+                </div>
+            </div>
+
+            <!-- Tokopedia Main Header -->
+            <div class="bg-white text-gray-800 py-4 px-8 flex items-center justify-between sticky top-0 z-10 shadow-sm border-b">
+                <!-- Logo -->
+                <div class="flex items-center text-3xl font-extrabold tracking-tighter text-tokopedia mr-6">
+                    <i class="fa-solid fa-bag-shopping mr-2"></i> tokopedia
+                </div>
+                
+                <!-- Kategori Dropdown Trigger -->
+                <div class="text-sm text-gray-600 hover:text-tokopedia hover:bg-gray-100 px-3 py-2 rounded-md cursor-pointer mr-2 transition-colors">
+                    Kategori
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex-grow max-w-3xl mx-2">
+                    <div class="border border-gray-300 rounded-lg p-1 flex items-center focus-within:border-tokopedia focus-within:ring-1 focus-within:ring-tokopedia transition-all">
+                        <i class="fa-solid fa-magnifying-glass text-gray-400 ml-2 mr-2"></i>
+                        <input type="text" placeholder="Cari di Tokopedia" class="w-full text-gray-800 px-2 py-1.5 outline-none text-sm bg-transparent">
+                    </div>
+                    <div class="text-xs mt-1.5 flex space-x-4 text-gray-500 font-medium">
+                        <a href="#" class="hover:text-tokopedia">Iphone 15</a>
+                        <a href="#" class="hover:text-tokopedia">Sepatu Pria</a>
+                        <a href="#" class="hover:text-tokopedia">Kipas Angin</a>
+                        <a href="#" class="hover:text-tokopedia">Lampu Tidur</a>
+                        <a href="#" class="hover:text-tokopedia">Laptop Asus</a>
+                    </div>
+                </div>
+
+                <!-- Icons & User Info -->
+                <div class="flex items-center space-x-6 ml-6 text-xl text-gray-600">
+                    <div class="cursor-pointer hover:text-tokopedia relative"><i class="fa-solid fa-cart-shopping"></i><span class="absolute -top-1 -right-2 bg-red-500 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold border-2 border-white">3</span></div>
+                    <div class="cursor-pointer hover:text-tokopedia relative"><i class="fa-regular fa-bell"></i></div>
+                    <div class="cursor-pointer hover:text-tokopedia relative"><i class="fa-regular fa-envelope"></i></div>
+                    <div class="h-6 w-[1px] bg-gray-300 mx-2"></div>
+                    <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-100 p-1.5 rounded-lg border border-transparent hover:border-gray-200 transition-colors">
+                        <img src="https://ui-avatars.com/api/?name=Ahmad+Dandi&background=00AA5B&color=fff" class="w-7 h-7 rounded-full">
+                        <span class="text-sm font-bold text-gray-700">Ahmad</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Container -->
+            <div class="max-w-6xl mx-auto p-6">
+                <!-- Banner & Menus -->
+                <div class="mb-8">
+                    <!-- Main Carousel Banner -->
+                    <div class="w-full bg-gradient-to-r from-tokopedia to-green-400 h-72 rounded-xl flex flex-col items-center justify-center relative shadow-md text-white mb-6">
+                        <h2 class="text-4xl font-extrabold mb-2">Waktu Indonesia Belanja!</h2>
+                        <span class="text-white/90 font-medium text-lg">Diskon hingga 90% + Bebas Ongkir</span>
+                        <div class="absolute bottom-4 flex space-x-2">
+                            <div class="w-6 h-2 rounded-full bg-white"></div>
+                            <div class="w-2 h-2 rounded-full bg-white/50"></div>
+                            <div class="w-2 h-2 rounded-full bg-white/50"></div>
+                            <div class="w-2 h-2 rounded-full bg-white/50"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Icon Menu Grid -->
+                <div class="bg-white p-2 mb-8 grid grid-cols-10 gap-4 text-center text-xs">
+                    <!-- Generate 10 mock icons -->
+                    <script>
+                        const menuNamesTk = ['Kategori', 'Top-Up & Tagihan', 'Kesehatan', 'Keuangan', 'Perawatan Hewan', 'Komputer & Laptop', 'Official Store', 'Tokopedia Seru', 'Travel & Hiburan', 'Promo'];
+                        for(let i=0; i<10; i++){
+                            document.write(`
+                                <div class="flex flex-col items-center cursor-pointer hover:-translate-y-1 transition-transform">
+                                    <div class="w-12 h-12 border border-gray-100 rounded-2xl mb-2 flex items-center justify-center text-tokopedia bg-green-50 shadow-sm text-xl">
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-[11px] leading-tight text-gray-700 font-medium">${menuNamesTk[i]}</span>
+                                </div>
+                            `);
+                        }
+                    </script>
+                </div>
+
+                <!-- Flash Sale Section (Kejar Diskon) -->
+                <div class="bg-white mb-10 border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <div class="flex justify-between items-center p-4 border-b bg-gradient-to-r from-green-50 to-white">
+                        <div class="flex items-center space-x-4">
+                            <h2 class="text-2xl font-black text-gray-800 tracking-tight">Kejar Diskon</h2>
+                            <span class="text-gray-500 text-sm">Berakhir dalam</span>
+                            <div class="bg-red-500 text-white font-bold px-2.5 py-1 rounded-md text-sm flex items-center space-x-1">
+                                <span>02</span><span>:</span><span>15</span><span>:</span><span>30</span>
+                            </div>
+                        </div>
+                        <a href="#" class="text-sm text-tokopedia font-bold hover:text-tokopedia-hover">Lihat Semua</a>
+                    </div>
+                    <div class="flex p-5 gap-4 overflow-hidden">
+                        <!-- Generate Mock Flashsale Items -->
+                        <script>
+                            for(let i=0; i<6; i++){
+                                document.write(`
+                                    <div class="w-1/6 cursor-pointer group">
+                                        <div class="bg-gray-100 h-40 mb-3 rounded-lg flex justify-center items-center text-gray-300 group-hover:bg-gray-200 transition-colors"><i class="fa-solid fa-image text-4xl"></i></div>
+                                        <div class="font-bold text-gray-800 text-lg">Rp10.000</div>
+                                        <div class="text-xs text-gray-400 line-through mb-1">Rp50.000</div>
+                                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2 relative overflow-hidden">
+                                            <div class="bg-red-500 h-full rounded-full" style="width: ${Math.random()*60 + 40}%"></div>
+                                        </div>
+                                        <div class="text-[10px] text-red-500 font-bold mt-1">Segera Habis</div>
+                                    </div>
+                                `);
+                            }
+                        </script>
+                    </div>
+                </div>
+
+                <!-- Rekomendasi -->
+                <div class="mb-10">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <h2 class="text-xl font-bold text-gray-800">Rekomendasi untukmu</h2>
+                    </div>
+                    <div class="grid grid-cols-6 gap-4 mt-2">
+                        <!-- Generate 12 products -->
+                        <script>
+                            for(let i=0; i<12; i++){
+                                document.write(`
+                                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col">
+                                        <div class="bg-gray-100 h-40 flex justify-center items-center text-gray-300"><i class="fa-solid fa-box text-4xl"></i></div>
+                                        <div class="p-3 flex-grow flex flex-col">
+                                            <div class="text-sm text-gray-800 line-clamp-2 mb-2">Nama Produk Contoh yang sangat panjang untuk testing layout grid di desktop</div>
+                                            <div class="font-bold text-gray-900 text-base mb-1">Rp ${Math.floor(Math.random() * 90) + 10}.000</div>
+                                            <div class="text-xs text-gray-500 flex items-center mt-auto pt-2">
+                                                <i class="fa-solid fa-star text-yellow-400 mr-1 text-[10px]"></i> 4.${Math.floor(Math.random() * 9) + 1} | Terjual ${Math.floor(Math.random() * 900) + 10}
+                                            </div>
+                                        </div>
+                                    </div>
+                                `);
+                            }
+                        </script>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BAGIAN 2: JARINGAN SEMANTIK (MOBILE) -->
+    <div class="max-w-5xl mx-auto mb-10">
+        <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+            <i class="fa-solid fa-mobile-screen mr-2 text-tokopedia"></i> Bagian 2: Jaringan Semantik Alur Navigasi (Versi Mobile)
+        </h2>
+        <p class="text-sm text-gray-600 mb-4 bg-white p-4 rounded border-l-4 border-tokopedia shadow-sm">
+            Diagram di bawah merepresentasikan <strong>Jaringan Semantik (Aksi-Reaksi)</strong> pada antarmuka aplikasi mobile Tokopedia. <br>
+            Jika elemen <strong>(Kotak Abu-abu / Node Asal)</strong> diberikan aksi <i>[Klik]</i>, maka sistem akan mengarahkan pengguna ke Halaman Tujuan <strong>(Kotak Hijau / Node Tujuan)</strong>.
+        </p>
+
+        <!-- Container Diagram Mermaid -->
+        <div class="bg-white p-6 rounded-lg shadow-md overflow-x-auto border border-gray-200">
+            <div class="mermaid text-center">
+                %%{init: {'theme': 'base', 'themeVariables': { 'fontSize': '16px', 'primaryColor': '#ffffff', 'primaryTextColor': '#333', 'primaryBorderColor': '#ccc', 'lineColor': '#00AA5B', 'tertiaryColor': '#e6f7ef', 'tertiaryBorderColor': '#00AA5B', 'fontFamily': 'sans-serif'}}}%%
+                graph TD
+                    Home(("Beranda Mobile Tokopedia<br/>(Node Utama)")) 
+                    
+                    subgraph AreaHeader [Area Header Utama]
+                        H1[Kolom Pencarian]
+                        H2[Ikon Pesan/Inbox]
+                        H3[Ikon Notifikasi]
+                        H4[Ikon Keranjang]
+                    end
+                    
+                    subgraph AreaKonten [Area Konten Tengah]
+                        C1[Banner Promo / WIB]
+                        C2[Widget GoPay / Saldo]
+                        C3[Ikon Kategori Menu]
+                        C4[Kejar Diskon Section]
+                        C5[Feed Rekomendasi]
+                    end
+                    
+                    subgraph AreaNavigasi [Bottom Navigation Bar]
+                        B1[Tab Home]
+                        B2[Tab Feed/Play]
+                        B3[Tab Official Store]
+                        B4[Tab Wishlist]
+                        B5[Tab Transaksi]
+                    end
+
+                    Home --- AreaHeader
+                    Home --- AreaKonten
+                    Home --- AreaNavigasi
+
+                    H1 -->|Klik: Mulai Mengetik| T1(Halaman Pencarian & Histori)
+                    H2 -->|Klik| T2(Halaman Daftar Chat)
+                    H3 -->|Klik| T3(Halaman Pusat Notifikasi)
+                    H4 -->|Klik| T4(Halaman Keranjang Belanja)
+
+                    C1 -->|Klik Banner| T5(Halaman Spesial Event/WIB)
+                    C2 -->|Klik Saldo| T6(Halaman GoPay & Keuangan)
+                    C3 -->|Klik Ikon Khusus| T7(Halaman Layanan Spesifik: Pulsa, dll)
+                    C4 -->|Klik Produk| T8(Halaman Detail Produk Flash Sale)
+                    C4 -->|Klik Lihat Semua| T9(Halaman Utama Kejar Diskon)
+                    C5 -->|Klik Kartu Produk| T10(Halaman Detail Produk)
+
+                    B1 -->|Klik| Home
+                    B2 -->|Klik| T11(Halaman Tokopedia Play/Feed)
+                    B3 -->|Klik| T12(Halaman Tokopedia Mall)
+                    B4 -->|Klik| T13(Halaman Barang Disimpan)
+                    B5 -->|Klik| T14(Halaman Daftar Pesanan)
+
+                    classDef target fill:#e6f7ef,stroke:#00AA5B,stroke-width:2px,color:#006a39,font-weight:bold;
+                    classDef default fill:#f9fafb,stroke:#d1d5db,stroke-width:1px;
+                    classDef root fill:#b3ebce,stroke:#008C4A,stroke-width:2px,color:#000000,font-weight:bold;
+
+                    class T1,T2,T3,T4,T5,T6,T7,T8,T9,T10,T11,T12,T13,T14 target;
+                    class Home root;
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
