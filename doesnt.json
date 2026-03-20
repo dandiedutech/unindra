@@ -16085,5 +16085,20 @@
             "detail_url": "https://simpeg.unindra.ac.id/pegawai/detail/K0885"
         }
     ],
-    "Sains Data": []
+    "Sains Data": [],
+    "Pendidikan MIPA": [
+        {
+            "nama": "Prof. Dr. Ahmad Dandi Subhani, S.Kom, M.Kom, LC.",
+            "nidn": null,
+            "ponsel": "628563000126",
+            "status_wa": "Aktif",
+            "kepakaran": null,
+            "jabatan_fungsional": null,
+            "status_ikatan_kerja": "DOSEN TETAP",
+            "jenis_kelamin": null,
+            "pendidikan_terakhir": null,
+            "detail_url": null,
+            "foto_url": null
+        }
+    ]
 }
