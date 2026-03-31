@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Kelompok R6B</title>
+    <title>Sistem Informasi Kelompok R6B</title>
     <!-- Font Space Grotesk & DM Mono untuk nuansa Neobrutalism Minimalis -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
@@ -39,12 +39,25 @@
         
         /* Hilangkan highlight biru bawaan browser saat klik */
         input:focus, select:focus { outline: none; }
+
+        /* Kelas untuk animasi buka-tutup yg smooth */
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .accordion-content.open {
+            grid-template-rows: 1fr;
+        }
+        .accordion-inner {
+            overflow: hidden;
+        }
     </style>
 </head>
 <body class="bg-[#f0f0ed] min-h-screen text-black antialiased flex flex-col">
 
     <!-- Navbar Neobrutalism -->
-    <nav class="bg-[#ff90e8] border-b-4 border-black px-4 py-3 sticky top-0 z-20">
+    <nav class="bg-[#ff90e8] border-b-4 border-black px-4 py-3 sticky top-0 z-20 shadow-sm">
         <div class="max-w-7xl mx-auto flex items-center gap-2">
             <h1 class="text-lg font-bold uppercase tracking-tight">Data Kelompok R6B</h1>
         </div>
@@ -90,11 +103,18 @@
         </div>
 
         <!-- Wadah Hasil -->
-        <div id="resultContainer" class="flex flex-col gap-10 w-full">
+        <div id="resultContainer" class="flex flex-col gap-10 w-full mb-10">
             <!-- Konten di-generate oleh JS -->
         </div>
 
     </main>
+
+    <!-- Footer SDR -->
+    <footer class="bg-white border-t-4 border-black py-4 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="font-bold text-sm uppercase tracking-wider text-black">Managed by SDR</p>
+        </div>
+    </footer>
 
     <script>
         const API_URL = "https://script.google.com/macros/s/AKfycbwhRUUgL39OcJ3USiL6LXpvx50G9T52E6d353Vfb83dVsLUibT887XhUKgXd6P0hPxKpA/exec";
@@ -111,16 +131,17 @@
         // Palet warna Neobrutalism
         const neoColors = ['#ffde59', '#00ffa5', '#00e5ff', '#b28dff', '#ff90e8'];
 
-        // Fungsi Global untuk Toggle Accordion Anggota
+        // Fungsi Global untuk Toggle Accordion Anggota (Smooth)
         window.toggleDetail = function(id) {
             const el = document.getElementById(id);
             const icon = document.getElementById('icon_' + id);
-            if (el.classList.contains('hidden')) {
-                el.classList.remove('hidden');
-                icon.innerText = '⬆️';
+            
+            if (el.classList.contains('open')) {
+                el.classList.remove('open');
+                icon.style.transform = "rotate(0deg)";
             } else {
-                el.classList.add('hidden');
-                icon.innerText = '⬇️';
+                el.classList.add('open');
+                icon.style.transform = "rotate(180deg)";
             }
         };
 
@@ -225,12 +246,12 @@
                             const npm = m.NPM || "-";
 
                             return `
-                                <li class="flex items-center justify-between py-1.5 border-b-2 border-black last:border-0 text-[13px] md:text-sm">
-                                    <div class="flex-1 pr-2 leading-tight">
+                                <li class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b-2 border-black last:border-0 text-[13px] md:text-sm gap-1 sm:gap-2">
+                                    <div class="flex-1 leading-tight pr-2">
                                         <span class="text-gray-500 font-mono text-xs mr-1">${i + 1}.</span>
-                                        <span class="font-medium break-words">${nama}</span>
+                                        <span class="font-medium break-words inline-block">${nama}</span>
                                     </div>
-                                    <div class="shrink-0 ml-2 border-2 border-black px-1.5 py-0.5 font-mono text-xs font-semibold bg-white">
+                                    <div class="shrink-0 self-start sm:self-auto border-2 border-black px-1.5 py-0.5 font-mono text-xs font-semibold bg-white w-max mt-1 sm:mt-0 ml-4 sm:ml-0">
                                         ${npm}
                                     </div>
                                 </li>
@@ -326,12 +347,12 @@
                                 const highlightNpm = isMe ? 'bg-[#ffde59]' : 'bg-white';
                                 
                                 return `
-                                    <li class="flex items-center justify-between py-1.5 border-b-2 border-black last:border-0 text-[13px] md:text-sm">
-                                        <div class="flex-1 pr-2 leading-tight">
+                                    <li class="flex flex-col sm:flex-row sm:items-center justify-between py-2 border-b-2 border-black last:border-0 text-[13px] md:text-sm gap-1 sm:gap-2">
+                                        <div class="flex-1 leading-tight pr-2">
                                             <span class="text-gray-500 font-mono text-xs mr-1">${i + 1}.</span>
-                                            <span class="${highlightNama} break-words">${m.Nama}</span>
+                                            <span class="${highlightNama} break-words inline-block">${m.Nama}</span>
                                         </div>
-                                        <div class="shrink-0 ml-2 border-2 border-black px-1.5 py-0.5 font-mono text-xs font-semibold ${highlightNpm}">
+                                        <div class="shrink-0 self-start sm:self-auto border-2 border-black px-1.5 py-0.5 font-mono text-xs font-semibold ${highlightNpm} w-max mt-1 sm:mt-0 ml-4 sm:ml-0">
                                             ${m.NPM}
                                         </div>
                                     </li>
@@ -340,21 +361,23 @@
 
                             matkulsHtml += `
                                 <div class="border-4 border-black bg-white shadow-neo flex flex-col mb-4 last:mb-0">
-                                    <div class="p-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 border-b-4 border-black" style="background-color: #f8f8f8;">
+                                    <div class="p-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-3" style="background-color: #f8f8f8;">
                                         <div>
                                             <span class="text-[11px] font-bold uppercase text-gray-500 block leading-none mb-1">Mata Kuliah</span>
                                             <span class="font-bold text-base leading-tight uppercase tracking-tight">${matkul}</span>
                                         </div>
                                         <div class="flex items-center gap-2 w-full md:w-auto justify-between md:justify-end mt-1 md:mt-0">
-                                            <span class="border-2 border-black bg-[#ff90e8] px-2 py-1 font-bold text-xs uppercase tracking-wider shadow-neo-sm">${kel}</span>
-                                            <button onclick="toggleDetail('${detailId}')" class="border-2 border-black bg-white hover:bg-[#00ffa5] px-3 py-1 font-bold text-xs transition-colors shadow-neo-hover active:translate-x-[2px] active:translate-y-[2px] active:shadow-none flex items-center gap-1">
-                                                Lihat Anggota <span id="icon_${detailId}">⬇️</span>
+                                            <span class="border-2 border-black bg-[#ff90e8] px-2 py-1 font-bold text-xs uppercase tracking-wider shadow-neo-sm whitespace-nowrap">${kel}</span>
+                                            <button onclick="toggleDetail('${detailId}')" class="border-2 border-black bg-white hover:bg-[#00ffa5] px-3 py-1 font-bold text-xs transition-colors shadow-neo-hover active:translate-x-[2px] active:translate-y-[2px] active:shadow-none flex items-center gap-1 shrink-0">
+                                                Lihat Anggota <span id="icon_${detailId}" class="inline-block transition-transform duration-300 text-[10px]">▼</span>
                                             </button>
                                         </div>
                                     </div>
-                                    <!-- Bagian Detail yang Bisa Di-Toggle -->
-                                    <div id="${detailId}" class="hidden p-3 bg-white">
-                                        <ul>${membersHtml}</ul>
+                                    <!-- Bagian Detail yang Bisa Di-Toggle (Animated) -->
+                                    <div id="${detailId}" class="accordion-content border-black">
+                                        <div class="accordion-inner bg-white">
+                                            <ul class="p-3 border-t-4 border-black">${membersHtml}</ul>
+                                        </div>
                                     </div>
                                 </div>
                             `;
