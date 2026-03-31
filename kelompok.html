@@ -132,6 +132,11 @@
         const neoColors = ['#ffde59', '#00ffa5', '#00e5ff', '#b28dff', '#ff90e8'];
         const neoGroupColors = ['#ff9f43', '#00ffa5', '#ff90e8', '#00e5ff', '#ffde59', '#b28dff'];
 
+        // Pengaturan Cache
+        const CACHE_KEY = 'sistem_kelompok_r6b_data';
+        const CACHE_TIME_KEY = 'sistem_kelompok_r6b_time';
+        const CACHE_DURATION = 5 * 60 * 1000; // 5 Menit dalam milidetik
+
         // Fungsi Menentukan Warna Kelompok (Berdasarkan Spreadsheet Asli)
         function getGroupColor(kelName, index) {
             const lower = kelName.toLowerCase();
@@ -173,6 +178,10 @@
                 statusContainer.style.backgroundColor = '#00ffa5';
                 statusContainer.innerHTML = `✓ ${message}`;
                 setTimeout(() => { statusContainer.style.display = 'none'; }, 2000);
+            } else if (type === 'warning') {
+                statusContainer.style.backgroundColor = '#ffde59';
+                statusContainer.innerHTML = `⚠ ${message}`;
+                setTimeout(() => { statusContainer.style.display = 'none'; }, 3000);
             } else if (type === 'error') {
                 statusContainer.style.backgroundColor = '#ff5757';
                 statusContainer.innerHTML = `✗ ${message}`;
@@ -180,37 +189,78 @@
             if (type === 'loading') statusMessage.innerText = message;
         }
 
+        // Fungsi Setup UI setelah data didapat (entah dari Cache atau API)
+        function setupUI() {
+            // Bersihkan dropdown agar tidak duplikat jika dipanggil ulang
+            categorySelect.innerHTML = '<option value="all">SEMUA MATKUL</option>';
+            
+            // Populate Filter Matkul secara dinamis
+            const uniqueMatkuls = [...new Set(allData.map(item => item['Mata Kuliah']))].filter(Boolean).sort();
+            uniqueMatkuls.forEach(matkul => {
+                const opt = document.createElement('option');
+                opt.value = matkul;
+                opt.innerText = matkul.toUpperCase();
+                categorySelect.appendChild(opt);
+            });
+
+            // Enable Inputs
+            searchInput.disabled = false;
+            categorySelect.disabled = false;
+            
+            // Tampilkan semua saat pertama
+            renderData(); 
+        }
+
         async function fetchInitialData() {
+            updateStatus('loading', 'Menyiapkan data...');
+            
+            const now = new Date().getTime();
+            const cachedData = localStorage.getItem(CACHE_KEY);
+            const cachedTime = localStorage.getItem(CACHE_TIME_KEY);
+
+            // Cek apakah ada cache dan umurnya belum melebihi durasi
+            if (cachedData && cachedTime && (now - parseInt(cachedTime) < CACHE_DURATION)) {
+                try {
+                    allData = JSON.parse(cachedData);
+                    setupUI();
+                    searchInput.focus();
+                    updateStatus('success', 'Data dimuat instan!');
+                    return; // Selesai! Tidak perlu fetch ke API
+                } catch (e) {
+                    console.log("Cache error, fetch ulang data.");
+                    // Lanjut fetch jika gagal parse
+                }
+            }
+
+            // Jika cache tidak ada / sudah kedaluwarsa, ambil dari API Google Sheets
             updateStatus('loading', 'Mengambil data sheets...');
             try {
-                const response = await fetch(`${API_URL}?t=${new Date().getTime()}`);
+                const response = await fetch(`${API_URL}?t=${now}`); // bypass browser cache
                 if (!response.ok) throw new Error('Network error');
                 
                 const result = await response.json();
                 if (result.status === "success" && result.data) {
                     allData = result.data;
                     
-                    // Populate Filter Matkul secara dinamis
-                    const uniqueMatkuls = [...new Set(allData.map(item => item['Mata Kuliah']))].filter(Boolean).sort();
-                    uniqueMatkuls.forEach(matkul => {
-                        const opt = document.createElement('option');
-                        opt.value = matkul;
-                        opt.innerText = matkul.toUpperCase();
-                        categorySelect.appendChild(opt);
-                    });
-
-                    // Enable Inputs
-                    searchInput.disabled = false;
-                    categorySelect.disabled = false;
-                    searchInput.focus();
+                    // Simpan data baru ke Local Storage (Cache)
+                    localStorage.setItem(CACHE_KEY, JSON.stringify(allData));
+                    localStorage.setItem(CACHE_TIME_KEY, now.toString());
                     
-                    updateStatus('success', 'Data Siap!');
-                    renderData(); // Tampilkan semua saat pertama
+                    setupUI();
+                    searchInput.focus();
+                    updateStatus('success', 'Data terbaru siap!');
                 } else {
                     throw new Error("Format data tidak valid.");
                 }
             } catch (error) {
-                updateStatus('error', 'Gagal memuat data.');
+                // FALLBACK: Jika fetch gagal (mungkin internet mati), tapi ada cache lama
+                if (cachedData) {
+                    allData = JSON.parse(cachedData);
+                    setupUI();
+                    updateStatus('warning', 'Offline. Menggunakan data terakhir.');
+                } else {
+                    updateStatus('error', 'Gagal memuat data.');
+                }
             }
         }
 
