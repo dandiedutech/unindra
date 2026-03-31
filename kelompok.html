@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Kelompok R6B</title>
+    <!-- Font Space Grotesk & DM Mono untuk nuansa Neobrutalism Minimalis -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        mono: ['DM Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neo': '4px 4px 0px 0px rgba(0,0,0,1)',
+                        'neo-sm': '2px 2px 0px 0px rgba(0,0,0,1)',
+                        'neo-hover': '1px 1px 0px 0px rgba(0,0,0,1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .loader {
+            border: 3px solid #000;
+            border-top: 3px solid #ffde59;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* Hilangkan highlight biru bawaan browser saat klik */
+        input:focus, select:focus { outline: none; }
+    </style>
+</head>
+<body class="bg-[#f0f0ed] min-h-screen text-black antialiased flex flex-col">
+
+    <!-- Navbar Neobrutalism -->
+    <nav class="bg-[#ff90e8] border-b-4 border-black px-4 py-3 sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto flex items-center gap-2">
+            <h1 class="text-lg font-bold uppercase tracking-tight">Data Kelompok R6B</h1>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6">
+        
+        <!-- Area Pencarian & Filter Minimalis -->
+        <div class="mb-8">
+            <div class="flex flex-col md:flex-row gap-4 max-w-3xl">
+                <!-- Input Cari -->
+                <div class="relative flex-grow">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Cari nama atau NPM di sini..." 
+                        class="block w-full px-4 py-3 text-base border-4 border-black bg-white placeholder-gray-500 shadow-neo transition-all focus:translate-x-[2px] focus:translate-y-[2px] focus:shadow-neo-hover disabled:bg-gray-200 disabled:cursor-not-allowed font-medium"
+                        disabled
+                        autocomplete="off"
+                    >
+                </div>
+                
+                <!-- Dropdown Filter Matkul -->
+                <div class="relative w-full md:w-1/3 shrink-0">
+                    <select 
+                        id="categorySelect" 
+                        class="block w-full h-full px-4 py-3 pr-10 text-base border-4 border-black bg-[#00ffa5] shadow-neo transition-all focus:translate-x-[2px] focus:translate-y-[2px] focus:shadow-neo-hover disabled:bg-gray-200 disabled:cursor-not-allowed font-bold appearance-none cursor-pointer truncate"
+                        disabled
+                    >
+                        <option value="all">SEMUA MATKUL</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-black font-bold">
+                        ▼
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Status Loader -->
+            <div id="statusContainer" class="mt-4 flex items-center gap-2 text-sm font-bold w-max px-3 py-1 border-2 border-black bg-white shadow-neo-sm">
+                <span class="loader" id="spinner"></span>
+                <span id="statusMessage">Syncing...</span>
+            </div>
+        </div>
+
+        <!-- Wadah Hasil -->
+        <div id="resultContainer" class="flex flex-col gap-10 w-full">
+            <!-- Konten di-generate oleh JS -->
+        </div>
+
+    </main>
+
+    <script>
+        const API_URL = "https://script.google.com/macros/s/AKfycbwhRUUgL39OcJ3USiL6LXpvx50G9T52E6d353Vfb83dVsLUibT887XhUKgXd6P0hPxKpA/exec";
+        
+        let allData = []; 
+
+        const searchInput = document.getElementById('searchInput');
+        const categorySelect = document.getElementById('categorySelect');
+        const resultContainer = document.getElementById('resultContainer');
+        const statusContainer = document.getElementById('statusContainer');
+        const statusMessage = document.getElementById('statusMessage');
+        const spinner = document.getElementById('spinner');
+
+        // Palet warna Neobrutalism
+        const neoColors = ['#ffde59', '#00ffa5', '#00e5ff', '#b28dff', '#ff90e8'];
+
+        // Fungsi Global untuk Toggle Accordion Anggota
+        window.toggleDetail = function(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById('icon_' + id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+                icon.innerText = '⬆️';
+            } else {
+                el.classList.add('hidden');
+                icon.innerText = '⬇️';
+            }
+        };
+
+        function updateStatus(type, message) {
+            spinner.style.display = 'none';
+            if (type === 'loading') {
+                statusContainer.style.backgroundColor = '#fff';
+                spinner.style.display = 'inline-block';
+            } else if (type === 'success') {
+                statusContainer.style.backgroundColor = '#00ffa5';
+                statusContainer.innerHTML = `✓ ${message}`;
+                setTimeout(() => { statusContainer.style.display = 'none'; }, 2000);
+            } else if (type === 'error') {
+                statusContainer.style.backgroundColor = '#ff5757';
+                statusContainer.innerHTML = `✗ ${message}`;
+            }
+            if (type === 'loading') statusMessage.innerText = message;
+        }
+
+        async function fetchInitialData() {
+            updateStatus('loading', 'Mengambil data sheets...');
+            try {
+                const response = await fetch(`${API_URL}?t=${new Date().getTime()}`);
+                if (!response.ok) throw new Error('Network error');
+                
+                const result = await response.json();
+                if (result.status === "success" && result.data) {
+                    allData = result.data;
+                    
+                    // Populate Filter Matkul secara dinamis
+                    const uniqueMatkuls = [...new Set(allData.map(item => item['Mata Kuliah']))].filter(Boolean).sort();
+                    uniqueMatkuls.forEach(matkul => {
+                        const opt = document.createElement('option');
+                        opt.value = matkul;
+                        opt.innerText = matkul.toUpperCase();
+                        categorySelect.appendChild(opt);
+                    });
+
+                    // Enable Inputs
+                    searchInput.disabled = false;
+                    categorySelect.disabled = false;
+                    searchInput.focus();
+                    
+                    updateStatus('success', 'Data Siap!');
+                    renderData(); // Tampilkan semua saat pertama
+                } else {
+                    throw new Error("Format data tidak valid.");
+                }
+            } catch (error) {
+                updateStatus('error', 'Gagal memuat data.');
+            }
+        }
+
+        // Fungsi Membangun Pohon Data untuk tampilan Full (Matkul -> Kelompok -> Anggota)
+        function buildTree(data) {
+            const tree = {};
+            data.forEach(item => {
+                const matkul = item['Mata Kuliah'] || "Lainnya";
+                const kelompok = item['Kelompok'] || "Tanpa Kelompok";
+                const catatan = item['Keterangan Mata Kuliah'] || "";
+                
+                if (!tree[matkul]) tree[matkul] = { catatan, groups: {} };
+                if (!tree[matkul].groups[kelompok]) tree[matkul].groups[kelompok] = [];
+                
+                tree[matkul].groups[kelompok].push(item);
+            });
+            return tree;
+        }
+
+        // Render Data dipicu oleh input search maupun perubahan select
+        function renderData() {
+            resultContainer.innerHTML = "";
+            const keyword = searchInput.value;
+            const cleanKeyword = keyword.toLowerCase().trim();
+            const selectedMatkul = categorySelect.value;
+            
+            const tree = buildTree(allData);
+            let hasResult = false;
+            
+            if (!cleanKeyword) {
+                // ==========================================
+                // TAMPILAN DEFAULT (TANPA PENCARIAN): TAMPIL SEMUA GAMBLANG
+                // ==========================================
+                
+                // Filter matkul berdasarkan pilihan Dropdown
+                let matkulKeys = Object.keys(tree).sort();
+                if (selectedMatkul !== 'all') {
+                    matkulKeys = matkulKeys.filter(m => m === selectedMatkul);
+                }
+
+                matkulKeys.forEach((matkul, mIndex) => {
+                    const matkulData = tree[matkul];
+                    let groupsHtml = '';
+
+                    const groupKeys = Object.keys(matkulData.groups).sort((a, b) => a.localeCompare(b, undefined, {numeric: true}));
+                    
+                    groupKeys.forEach((kel, kIndex) => {
+                        const members = matkulData.groups[kel];
+                        
+                        let membersHtml = members.map((m, i) => {
+                            const nama = m.Nama || "-";
+                            const npm = m.NPM || "-";
+
+                            return `
+                                <li class="flex items-center justify-between py-1.5 border-b-2 border-black last:border-0 text-[13px] md:text-sm">
+                                    <div class="flex-1 pr-2 leading-tight">
+                                        <span class="text-gray-500 font-mono text-xs mr-1">${i + 1}.</span>
+                                        <span class="font-medium break-words">${nama}</span>
+                                    </div>
+                                    <div class="shrink-0 ml-2 border-2 border-black px-1.5 py-0.5 font-mono text-xs font-semibold bg-white">
+                                        ${npm}
+                                    </div>
+                                </li>
+                            `;
+                        }).join('');
+
+                        // Warna box kelompok berselang-seling minimalis
+                        const headerColor = ['#e5e7eb', '#d1d5db'][kIndex % 2];
+
+                        groupsHtml += `
+                            <div class="border-4 border-black bg-white shadow-neo flex flex-col h-full">
+                                <div class="border-b-4 border-black px-3 py-2 flex items-center justify-between" style="background-color: ${headerColor};">
+                                    <h3 class="font-bold uppercase tracking-tight text-sm">${kel}</h3>
+                                </div>
+                                <div class="px-3 py-1 flex-grow">
+                                    <ul>${membersHtml}</ul>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    hasResult = true;
+                    const section = document.createElement('div');
+                    
+                    const color = neoColors[mIndex % neoColors.length];
+                    const cat = matkulData.catatan;
+                    
+                    let catatanHtml = "";
+                    if (cat && cat !== '-' && cat.trim() !== '') {
+                        catatanHtml = `
+                            <div class="border-2 border-black bg-white shadow-neo-sm px-3 py-1.5 inline-flex items-center gap-2 mb-4 text-sm font-medium">
+                                <span>📌</span> <span>${cat}</span>
+                            </div>
+                        `;
+                    }
+
+                    section.innerHTML = `
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <h2 class="text-lg md:text-xl font-bold border-4 border-black px-3 py-1 uppercase shadow-neo" style="background-color: ${color};">
+                                    ${matkul}
+                                </h2>
+                            </div>
+                            ${catatanHtml}
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                                ${groupsHtml}
+                            </div>
+                        </div>
+                    `;
+                    resultContainer.appendChild(section);
+                });
+
+            } else {
+                // ==========================================
+                // TAMPILAN PENCARIAN (RINGKASAN PER MAHASISWA)
+                // ==========================================
+                
+                // Filter pencarian teks DAN pilihan kategori dropdown
+                const searchMatches = allData.filter(item => {
+                    const textMatch = (item.Nama || "").toLowerCase().includes(cleanKeyword) || (item.NPM || "").toLowerCase().includes(cleanKeyword);
+                    const categoryMatch = selectedMatkul === 'all' || item['Mata Kuliah'] === selectedMatkul;
+                    return textMatch && categoryMatch;
+                });
+
+                if (searchMatches.length > 0) {
+                    hasResult = true;
+                    
+                    // Kelompokkan data yang cocok berdasarkan NPM mahasiswa
+                    const studentsMap = {};
+                    searchMatches.forEach(item => {
+                        if (!studentsMap[item.NPM]) {
+                            studentsMap[item.NPM] = { nama: item.Nama, npm: item.NPM, records: [] };
+                        }
+                        studentsMap[item.NPM].records.push(item);
+                    });
+
+                    // Render Ringkasan untuk setiap mahasiswa yang ditemukan
+                    Object.values(studentsMap).forEach((student, sIndex) => {
+                        const color = neoColors[sIndex % neoColors.length];
+                        
+                        let matkulsHtml = '';
+                        student.records.forEach((rec, rIndex) => {
+                            const matkul = rec['Mata Kuliah'] || "Lainnya";
+                            const kel = rec['Kelompok'] || "Tanpa Kelompok";
+                            const detailId = `detail_${student.npm}_${rIndex}`;
+                            
+                            // Ambil anggota kelompok aslinya dari Tree full data
+                            const members = tree[matkul]?.groups[kel] || [];
+                            let membersHtml = members.map((m, i) => {
+                                // Highlight jika itu adalah orang yang sedang dicari
+                                const isMe = m.NPM === student.npm;
+                                const highlightNama = isMe ? 'bg-[#ffde59] border border-black px-1 font-bold shadow-neo-sm' : 'font-medium';
+                                const highlightNpm = isMe ? 'bg-[#ffde59]' : 'bg-white';
+                                
+                                return `
+                                    <li class="flex items-center justify-between py-1.5 border-b-2 border-black last:border-0 text-[13px] md:text-sm">
+                                        <div class="flex-1 pr-2 leading-tight">
+                                            <span class="text-gray-500 font-mono text-xs mr-1">${i + 1}.</span>
+                                            <span class="${highlightNama} break-words">${m.Nama}</span>
+                                        </div>
+                                        <div class="shrink-0 ml-2 border-2 border-black px-1.5 py-0.5 font-mono text-xs font-semibold ${highlightNpm}">
+                                            ${m.NPM}
+                                        </div>
+                                    </li>
+                                `;
+                            }).join('');
+
+                            matkulsHtml += `
+                                <div class="border-4 border-black bg-white shadow-neo flex flex-col mb-4 last:mb-0">
+                                    <div class="p-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 border-b-4 border-black" style="background-color: #f8f8f8;">
+                                        <div>
+                                            <span class="text-[11px] font-bold uppercase text-gray-500 block leading-none mb-1">Mata Kuliah</span>
+                                            <span class="font-bold text-base leading-tight uppercase tracking-tight">${matkul}</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 w-full md:w-auto justify-between md:justify-end mt-1 md:mt-0">
+                                            <span class="border-2 border-black bg-[#ff90e8] px-2 py-1 font-bold text-xs uppercase tracking-wider shadow-neo-sm">${kel}</span>
+                                            <button onclick="toggleDetail('${detailId}')" class="border-2 border-black bg-white hover:bg-[#00ffa5] px-3 py-1 font-bold text-xs transition-colors shadow-neo-hover active:translate-x-[2px] active:translate-y-[2px] active:shadow-none flex items-center gap-1">
+                                                Lihat Anggota <span id="icon_${detailId}">⬇️</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Bagian Detail yang Bisa Di-Toggle -->
+                                    <div id="${detailId}" class="hidden p-3 bg-white">
+                                        <ul>${membersHtml}</ul>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        const cardHtml = `
+                            <div class="border-4 border-black bg-white shadow-neo mb-6">
+                                <div class="border-b-4 border-black px-4 py-3 flex flex-col sm:flex-row justify-between sm:items-center gap-2" style="background-color: ${color};">
+                                    <h2 class="font-bold text-lg md:text-xl uppercase truncate pr-2">${student.nama}</h2>
+                                    <span class="border-2 border-black bg-white px-2 py-1 font-mono text-xs md:text-sm font-bold shadow-neo-sm shrink-0 w-max">${student.npm}</span>
+                                </div>
+                                <div class="p-4 bg-[#f0f0ed]">
+                                    ${matkulsHtml}
+                                </div>
+                            </div>
+                        `;
+                        
+                        const wrapper = document.createElement('div');
+                        wrapper.innerHTML = cardHtml;
+                        resultContainer.appendChild(wrapper.firstElementChild);
+                    });
+                }
+            }
+
+            if (!hasResult) {
+                resultContainer.innerHTML = `
+                    <div class="border-4 border-black bg-white shadow-neo p-8 text-center max-w-lg">
+                        <h3 class="text-xl font-bold mb-2 uppercase">Nihil 🕵️</h3>
+                        <p class="text-gray-600 font-medium">Tidak ada data untuk pencarian <strong>${keyword ? `"${keyword}"` : ''}</strong> pada kategori ini.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Listener untuk Input Teks
+        searchInput.addEventListener('input', () => renderData());
+        
+        // Listener untuk Dropdown Matkul
+        categorySelect.addEventListener('change', () => renderData());
+
+        document.addEventListener('DOMContentLoaded', fetchInitialData);
+
+    </script>
+</body>
+</html>
