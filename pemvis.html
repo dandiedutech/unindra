@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Project: SIP-Ruang & Barang</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Mermaid.js untuk Diagram Database -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    
+    <!-- Panzoom.js untuk Zoom/Pan Diagram -->
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.0/dist/panzoom.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --background: #f8fafc;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--background);
+            color: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(220,100%,70%,0.08) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, hsla(280,100%,70%,0.08) 0, transparent 50%),
+                radial-gradient(at 50% 100%, hsla(180,100%,70%,0.08) 0, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.02); }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 20px; border: 3px solid transparent; background-clip: content-box; }
+        ::-webkit-scrollbar-thumb:hover { background-color: #64748b; }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .code-container {
+            background: #0f172a;
+            color: #e2e8f0;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            overflow-x: auto;
+            font-size: 0.875rem;
+            line-height: 1.7;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+            border: 1px solid #1e293b;
+        }
+
+        .grab-cursor { cursor: grab; }
+        .grab-cursor:active { cursor: grabbing; }
+
+        /* Java Swing Mockup Styles */
+        .window-mockup {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 1px solid #cbd5e1;
+            background: #f1f5f9;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .window-titlebar {
+            background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #cbd5e1;
+            user-select: none;
+        }
+        .window-controls { display: flex; gap: 6px; }
+        .window-btn { width: 12px; height: 12px; border-radius: 50%; cursor: pointer; }
+        .btn-close { background: #ef4444; }
+        .btn-min { background: #eab308; }
+        .btn-max { background: #22c55e; }
+        
+        .fade-in { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-blur {
+            backdrop-filter: blur(4px);
+            background-color: rgba(15, 23, 42, 0.6);
+        }
+
+        @media print {
+            body { background: #ffffff !important; color: #000 !important; }
+            .no-print, nav, footer, .zoom-controls, .simulator-tabs, #toast-container { display: none !important; }
+            .print-break { page-break-before: always; }
+            main { margin: 0 !important; padding: 0 !important; max-width: 100% !important; border: none !important; box-shadow: none !important; }
+            .mermaid svg { width: 100% !important; height: auto !important; transform: none !important; }
+            .window-mockup { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="antialiased leading-relaxed selection:bg-blue-600 selection:text-white" onload="initSimulasi()">
+
+    <!-- Custom Toast Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Sticky Navbar -->
+    <nav class="glass-nav sticky top-0 z-50 no-print shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap justify-between items-center gap-4">
+            <div class="font-extrabold text-xl md:text-2xl flex items-center gap-3 tracking-tight text-slate-800">
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-600 p-2.5 rounded-xl text-white shadow-lg shadow-blue-500/30">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                Master Blueprint
+            </div>
+            <button onclick="window.print()" class="bg-slate-900 hover:bg-blue-600 text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 transition-all duration-300 text-sm md:text-base shadow-xl shadow-slate-900/20 w-full md:w-auto justify-center active:scale-95">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                Simpan / Cetak PDF
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto p-5 md:p-10 lg:p-14 my-6 md:my-10 bg-white/90 backdrop-blur-xl shadow-2xl shadow-slate-200/50 rounded-[2rem] border border-white relative overflow-hidden">
+        
+        <!-- Header Section -->
+        <header class="text-center pb-12 mb-14 border-b-2 border-slate-100 relative">
+            <div class="inline-flex mb-6 px-5 py-2 rounded-full bg-blue-50 text-blue-700 font-black tracking-[0.2em] text-xs uppercase border border-blue-200 shadow-sm">
+                Dokumen Project Akhir (Java Netbeans)
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-tight">SIP-Ruang & Sarpras</h1>
+            <p class="text-lg md:text-xl text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed">
+                Platform Desktop berbasis <strong>Client-Server (Offline)</strong> untuk digitalisasi peminjaman fasilitas kelas dan sarana prasarana kampus.
+            </p>
+            
+            <div class="mt-8 bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-4 inline-flex items-center gap-4 shadow-sm max-w-2xl mx-auto text-left">
+                <div class="bg-emerald-500 text-white p-3 rounded-xl"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
+                <div>
+                    <h4 class="font-bold text-emerald-900 text-lg">100% Sesuai Syarat Project</h4>
+                    <p class="text-sm text-emerald-700">Telah memenuhi syarat minimum Dosen: Terdapat <strong class="text-emerald-900">Login, Menu, 6 Form (Master/Transaksi), dan 4 Report.</strong></p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Glosarium Terlengkap -->
+        <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl mb-10 no-print">
+            <h4 class="font-bold text-blue-900 mb-4 flex items-center gap-2 border-b border-blue-200 pb-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Glosarium & Istilah Teknis Project
+            </h4>
+            <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-6 text-sm text-slate-700">
+                <li><strong class="text-slate-900">TU:</strong> Tata Usaha (Admin Pengelola Server)</li>
+                <li><strong class="text-slate-900">Mhs:</strong> Mahasiswa (Client / Pengguna Kiosk)</li>
+                <li><strong class="text-slate-900">Kiosk:</strong> Aplikasi terminal mandiri untuk mahasiswa</li>
+                <li><strong class="text-slate-900">CRUD:</strong> Create, Read, Update, Delete</li>
+                <li><strong class="text-slate-900">ACC:</strong> Accepted (Pengajuan disetujui Admin)</li>
+                <li><strong class="text-slate-900">Pending:</strong> Status menunggu keputusan/tinjauan</li>
+                <li><strong class="text-slate-900">Qty:</strong> Quantity (Jumlah barang dipinjam)</li>
+                <li><strong class="text-slate-900">PK (Primary Key):</strong> Kunci unik data di tabel</li>
+                <li><strong class="text-slate-900">FK (Foreign Key):</strong> Kunci relasi antar tabel</li>
+                <li><strong class="text-slate-900">JasperReports:</strong> Library Java untuk cetak PDF</li>
+            </ul>
+        </div>
+
+        <!-- ================= 1. SIMULASI UI MOCKUP ================= -->
+        <section class="mb-16 print-break">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 border-b-2 border-slate-100 pb-4 gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="bg-slate-900 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-lg text-xl font-black">1</div>
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Simulasi UI (Mockup Nyata)</h2>
+                        <p class="text-slate-500 font-medium">Logika CRUD Lengkap! Anda bisa Edit/Hapus data dengan mengklik baris pada tabel.</p>
+                    </div>
+                </div>
+                
+                <!-- Toggle Tab Simulator -->
+                <div class="simulator-tabs bg-slate-100 p-1.5 rounded-xl border border-slate-200 flex gap-1 shadow-sm w-full md:w-auto overflow-x-auto">
+                    <button id="tab-tu" onclick="showSimulator('tu')" class="px-4 py-2 rounded-lg font-bold text-sm bg-blue-600 text-white transition-all shadow-sm whitespace-nowrap">🖥️ Server (TU)</button>
+                    <button id="tab-mhs" onclick="showSimulator('mhs')" class="px-4 py-2 rounded-lg font-bold text-sm bg-transparent text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">📱 Client (Mhs)</button>
+                </div>
+            </div>
+
+            <!-- SIMULATOR TU (SERVER) -->
+            <div id="sim-tu" class="fade-in max-w-5xl mx-auto">
+                
+                <!-- TU: Layar Login -->
+                <div id="tu-login-screen" class="window-mockup max-w-sm mx-auto bg-slate-100">
+                    <div class="window-titlebar">
+                        <span class="text-xs font-bold text-slate-500">Login Administrator (TU)</span>
+                        <div class="window-controls"><div class="window-btn btn-min"></div><div class="window-btn btn-max"></div><div class="window-btn btn-close"></div></div>
+                    </div>
+                    <div class="p-8 text-center bg-white">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-slate-800 mb-6">SIP-Ruang Server</h3>
+                        <div class="space-y-4 text-left">
+                            <div>
+                                <label class="text-xs font-bold text-slate-500">Username</label>
+                                <input type="text" id="login-tu-user" value="admin" class="w-full bg-white border border-slate-300 focus:border-blue-500 p-2.5 rounded-lg text-sm text-slate-800 mt-1 outline-none font-bold">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-slate-500">Password</label>
+                                <input type="password" id="login-tu-pwd" value="akuatmin" class="w-full bg-white border border-slate-300 focus:border-blue-500 p-2.5 rounded-lg text-sm text-slate-800 mt-1 outline-none font-bold">
+                            </div>
+                            <button onclick="doLoginTU()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg mt-4 shadow-md transition-colors active:scale-95">LOGIN ADMIN</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TU: Layar Dashboard -->
+                <div id="tu-dash-screen" class="hidden window-mockup bg-white flex flex-col h-[580px]">
+                    <div class="window-titlebar">
+                        <span class="text-xs font-bold text-slate-500">Dashboard Tata Usaha - Admin Logged In</span>
+                        <div class="window-controls"><div class="window-btn btn-min"></div><div class="window-btn btn-max"></div><div class="window-btn btn-close" onclick="doLogoutTU()"></div></div>
+                    </div>
+                    <div class="flex flex-1 overflow-hidden relative">
+                        <!-- Sidebar -->
+                        <div class="w-1/4 min-w-[200px] bg-slate-800 p-4 text-slate-300 text-sm space-y-2 flex flex-col z-10 overflow-y-auto">
+                            <div class="font-bold text-white mb-4 border-b border-slate-600 pb-2">Menu Utama (6 Form)</div>
+                            <div onclick="switchMenuTU('ruang')" id="btn-tu-ruang" class="bg-blue-600 text-white p-2.5 rounded cursor-pointer shadow transition-colors font-medium">1. Master Ruangan</div>
+                            <div onclick="switchMenuTU('barang')" id="btn-tu-barang" class="hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors">2. Master Inventaris</div>
+                            <div onclick="switchMenuTU('mhs')" id="btn-tu-mhs" class="hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors">3. Data Mahasiswa</div>
+                            <div onclick="switchMenuTU('apprv')" id="btn-tu-apprv" class="hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors flex items-center justify-between">
+                                4. Approval Transaksi <span id="badge-menu-apprv" class="text-xs bg-amber-500 text-white px-1.5 rounded hidden">0</span>
+                            </div>
+                            <div class="font-bold text-white mb-2 mt-4 border-b border-slate-600 pb-2">Laporan</div>
+                            <div onclick="switchMenuTU('report')" id="btn-tu-report" class="hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors flex items-center justify-between">Cetak Laporan PDF</div>
+                            
+                            <div class="mt-auto"></div>
+                            <div onclick="doLogoutTU()" class="hover:bg-red-600 bg-red-600/20 p-2.5 rounded cursor-pointer text-red-300 font-bold transition-colors text-center mt-8 border border-red-500/30 shrink-0">Logout Server</div>
+                        </div>
+                        
+                        <!-- Content Area -->
+                        <div class="w-3/4 p-6 bg-slate-50 flex flex-col overflow-y-auto" id="tu-content-area">
+                            
+                            <!-- View 1: Master Ruang -->
+                            <div id="view-tu-ruang" class="fade-in">
+                                <div class="font-black text-xl text-slate-800 mb-2 border-b border-slate-200 pb-2">Form Master Ruangan</div>
+                                <div class="text-xs text-slate-500 mb-4 italic">Klik baris data pada tabel di bawah untuk melakukan Edit atau Hapus data.</div>
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mb-4">
+                                    <div class="grid grid-cols-2 gap-3 text-sm mb-4">
+                                        <input type="text" id="in-ruang-id" placeholder="ID Ruang (mis: R-003)" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
+                                        <input type="number" id="in-ruang-kap" placeholder="Kapasitas Orang" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
+                                        <input type="text" id="in-ruang-nama" placeholder="Nama Ruang (mis: Ruang Seminar)" class="p-2 border border-slate-300 rounded col-span-2 focus:border-blue-500 outline-none">
+                                    </div>
+                                    <div class="flex gap-2 text-sm font-bold">
+                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors" onclick="actSimpanRuang()">Simpan Baru</button>
+                                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actEditRuang()">Edit Data</button>
+                                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actHapusRuang()">Hapus</button>
+                                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded shadow transition-colors" onclick="clearFormRuang()">Clear</button>
+                                    </div>
+                                </div>
+                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm">
+                                    <table class="w-full text-left text-sm">
+                                        <thead class="bg-slate-100 text-slate-600">
+                                            <tr><th class="p-3 border-b">ID</th><th class="p-3 border-b">Nama Ruang</th><th class="p-3 border-b">Kapasitas</th></tr>
+                                        </thead>
+                                        <tbody id="tbody-ruang">
+                                            <!-- Disuntik lewat JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- View 2: Master Barang -->
+                            <div id="view-tu-barang" class="hidden fade-in">
+                                <div class="font-black text-xl text-slate-800 mb-2 border-b border-slate-200 pb-2">Form Master Inventaris / Alat</div>
+                                <div class="text-xs text-slate-500 mb-4 italic">Klik baris data pada tabel di bawah untuk melakukan Edit atau Hapus data.</div>
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mb-4">
+                                    <div class="grid grid-cols-2 gap-3 text-sm mb-4">
+                                        <input type="text" id="in-brg-id" placeholder="ID Barang (mis: B-003)" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
+                                        <input type="number" id="in-brg-stok" placeholder="Stok Total (Semua Unit)" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
+                                        <input type="text" id="in-brg-nama" placeholder="Nama Alat / Barang" class="p-2 border border-slate-300 rounded col-span-2 focus:border-blue-500 outline-none">
+                                    </div>
+                                    <div class="flex gap-2 text-sm font-bold">
+                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors" onclick="actSimpanBarang()">Simpan Baru</button>
+                                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actEditBarang()">Edit Data</button>
+                                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actHapusBarang()">Hapus</button>
+                                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded shadow transition-colors" onclick="clearFormBarang()">Clear</button>
+                                    </div>
+                                </div>
+                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm">
+                                    <table class="w-full text-left text-sm">
+                                        <thead class="bg-slate-100 text-slate-600">
+                                            <tr><th class="p-3 border-b">ID Item</th><th class="p-3 border-b">Nama Barang</th><th class="p-3 border-b">Total Stok Fisik</th></tr>
+                                        </thead>
+                                        <tbody id="tbody-barang">
+                                            <!-- Disuntik lewat JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- View 3: Data Mahasiswa -->
+                            <div id="view-tu-mhs" class="hidden fade-in">
+                                <div class="font-black text-xl text-slate-800 mb-2 border-b border-slate-200 pb-2">Form Data Mahasiswa (Akses Client)</div>
+                                <div class="bg-blue-50 border border-blue-200 text-blue-800 p-3 rounded-lg text-xs mb-4">
+                                    <strong>Info:</strong> Daftarkan NPM di sini agar Mahasiswa bisa login. Klik data pada tabel untuk Edit/Hapus.
+                                </div>
+                                <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mb-4">
+                                    <div class="grid grid-cols-2 gap-3 text-sm mb-4">
+                                        <input type="text" id="in-mhs-npm" placeholder="NPM Mahasiswa" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
+                                        <input type="text" id="in-mhs-prodi" placeholder="Program Studi" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
+                                        <input type="text" id="in-mhs-nama" placeholder="Nama Lengkap Mahasiswa" class="p-2 border border-slate-300 rounded col-span-2 focus:border-blue-500 outline-none">
+                                        <input type="text" id="in-mhs-telp" placeholder="No. Telepon / WA" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
+                                    </div>
+                                    <div class="flex gap-2 text-sm font-bold flex-wrap">
+                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors" onclick="actDaftarMhs()">Daftar Baru</button>
+                                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actEditMhs()">Edit Data</button>
+                                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actHapusMhs()">Hapus</button>
+                                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded shadow transition-colors" onclick="clearFormMhs()">Clear</button>
+                                    </div>
+                                </div>
+                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm">
+                                    <table class="w-full text-left text-sm">
+                                        <thead class="bg-slate-100 text-slate-600">
+                                            <tr><th class="p-3 border-b">NPM</th><th class="p-3 border-b">Nama Lengkap</th><th class="p-3 border-b">Prodi</th><th class="p-3 border-b">No. Telp</th></tr>
+                                        </thead>
+                                        <tbody id="tbody-mhs">
+                                            <!-- Disuntik lewat JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- View 4: Approval -->
+                            <div id="view-tu-apprv" class="hidden fade-in">
+                                <div class="font-black text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Form Approval Transaksi Masuk</div>
+                                <div class="bg-amber-50 border border-amber-200 text-amber-800 p-3 rounded-lg text-sm mb-4 flex items-center justify-between">
+                                    <span>Ada <strong id="lbl-apprv-count">0</strong> pengajuan baru yang menunggu persetujuan Anda!</span>
+                                    <span id="anim-apprv-pulse" class="animate-pulse flex h-3 w-3 hidden"><span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-amber-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span></span>
+                                </div>
+                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm">
+                                    <table class="w-full text-left text-sm">
+                                        <thead class="bg-slate-100 text-slate-600">
+                                            <tr><th class="p-3 border-b">Peminjam</th><th class="p-3 border-b">Item/Ruang</th><th class="p-3 border-b">Tgl Pakai</th><th class="p-3 border-b text-center w-32">Aksi TU</th></tr>
+                                        </thead>
+                                        <tbody id="tbody-approval">
+                                            <!-- Disuntik lewat JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- View 5: Report -->
+                            <div id="view-tu-report" class="hidden fade-in">
+                                <div class="font-black text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Menu Cetak Laporan (JasperReports)</div>
+                                <p class="text-sm text-slate-600 mb-6">Pilih jenis laporan yang ingin di-generate menjadi format PDF. Laporan mengambil data real-time dari database.</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="border border-slate-200 bg-white p-5 rounded-xl hover:shadow-md transition-all group">
+                                        <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-3">📄</div>
+                                        <h4 class="font-bold text-slate-800">1. Bukti Izin Peminjaman</h4>
+                                        <p class="text-xs text-slate-500 mt-1 mb-3">Format struk/surat izin resmi <strong class="text-slate-700">untuk 1 Transaksi/Peminjam terakhir</strong> yang disetujui (diberikan kepada Satpam/Pengelola).</p>
+                                        <button onclick="openFakePDF('Bukti Izin Terbit (Struk Satpam)')" class="w-full bg-slate-100 group-hover:bg-red-50 group-hover:text-red-700 text-slate-700 font-bold text-xs py-2 rounded border border-slate-200 transition-colors">Generate PDF (Struk)</button>
+                                    </div>
+                                    <div class="border border-slate-200 bg-white p-5 rounded-xl hover:shadow-md transition-all group">
+                                        <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-3">📅</div>
+                                        <h4 class="font-bold text-slate-800">2. Rekap Jadwal Pemakaian</h4>
+                                        <p class="text-xs text-slate-500 mt-1 mb-3">Laporan berbentuk tabel yang merekap <strong class="text-slate-700">Seluruh Transaksi</strong> yang terpakai untuk periode bulanan.</p>
+                                        <button onclick="openFakePDF('Laporan Rekap Jadwal Pemakaian Bulanan')" class="w-full bg-slate-100 group-hover:bg-blue-50 group-hover:text-blue-700 text-slate-700 font-bold text-xs py-2 rounded border border-slate-200 transition-colors">Generate PDF (Tabel)</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Fake PDF Viewer Modal (Overlay inside Dashboard) -->
+                            <div id="pdf-modal" class="absolute inset-0 z-50 hidden modal-blur flex items-center justify-center p-4">
+                                <div class="bg-slate-200 w-full h-full max-w-2xl rounded-xl shadow-2xl border border-slate-400 flex flex-col overflow-hidden relative fade-in">
+                                    <!-- PDF Header -->
+                                    <div class="bg-slate-800 text-white p-3 flex justify-between items-center text-sm shadow-md z-10">
+                                        <div class="flex items-center gap-2">
+                                            <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 110-2H7z" clip-rule="evenodd"></path></svg>
+                                            JasperViewer Mockup
+                                        </div>
+                                        <div class="flex gap-3">
+                                            <button onclick="downloadFakePDF()" class="text-xs bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded font-bold transition-colors pointer-events-auto">📥 Download .pdf</button>
+                                            <button onclick="closeFakePDF()" class="text-xs bg-red-600 hover:bg-red-500 px-3 py-1 rounded font-bold transition-colors pointer-events-auto">Tutup</button>
+                                        </div>
+                                    </div>
+                                    <!-- PDF Body (Paper simulation) -->
+                                    <div class="flex-1 bg-slate-300 p-4 md:p-8 overflow-y-auto flex justify-center">
+                                        <div class="bg-white w-full max-w-[21cm] min-h-[29.7cm] shadow-lg p-10 flex flex-col items-center text-center relative">
+                                            <h1 class="font-black text-2xl uppercase border-b-2 border-black pb-2 mb-6 w-full" id="pdf-title">JUDUL LAPORAN</h1>
+                                            <p class="text-sm text-gray-600 mb-8 w-full text-left border-b border-dashed border-slate-300 pb-4">Dicetak pada: <span id="pdf-date"></span><br>Oleh: Administrator TU</p>
+                                            
+                                            <!-- Container for Dynamic PDF Layout (Receipt OR Table) -->
+                                            <div id="pdf-content-body" class="w-full text-sm">
+                                                <!-- Disuntik lewat JS sesuai jenis Report -->
+                                            </div>
+                                            
+                                            <div class="mt-auto w-full flex justify-end pt-10">
+                                                <div class="text-center">
+                                                    <p class="mb-12 text-sm">Kepala Tata Usaha</p>
+                                                    <p class="font-bold text-sm underline">Drs. Simulasi, M.Kom</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIMULATOR MAHASISWA (CLIENT) -->
+            <div id="sim-mhs" class="hidden fade-in max-w-5xl mx-auto">
+                
+                <!-- Mhs: Layar Login -->
+                <div id="mhs-login-screen" class="window-mockup max-w-sm mx-auto bg-slate-100">
+                    <div class="window-titlebar">
+                        <span class="text-xs font-bold text-slate-500">Login Kiosk (Mahasiswa)</span>
+                        <div class="window-controls"><div class="window-btn btn-min"></div><div class="window-btn btn-max"></div><div class="window-btn btn-close"></div></div>
+                    </div>
+                    <div class="p-8 text-center bg-emerald-700">
+                        <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600 shadow-lg">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-6">Portal Peminjaman</h3>
+                        <div class="space-y-4 text-left">
+                            <div>
+                                <label class="text-xs font-bold text-emerald-200">NPM (Nomor Pokok Mahasiswa)</label>
+                                <input type="text" id="login-mhs-npm" placeholder="Contoh: 202343500126" class="w-full bg-white border border-emerald-500 focus:ring-2 focus:ring-emerald-400 text-slate-800 p-2.5 rounded-lg text-sm mt-1 outline-none font-bold placeholder:font-normal placeholder:text-slate-400">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-emerald-200">Password</label>
+                                <input type="password" id="login-mhs-pwd" placeholder="Masukkan sandi..." class="w-full bg-white border border-emerald-500 focus:ring-2 focus:ring-emerald-400 text-slate-800 p-2.5 rounded-lg text-sm mt-1 outline-none font-bold placeholder:font-normal placeholder:text-slate-400">
+                            </div>
+                            <button onclick="doLoginMhs()" class="w-full bg-emerald-900 hover:bg-slate-900 text-white font-bold py-2.5 rounded-lg mt-4 shadow-md transition-colors active:scale-95 border border-emerald-500/50">MASUK SISTEM</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mhs: Layar Dashboard -->
+                <div id="mhs-dash-screen" class="hidden window-mockup bg-white flex flex-col h-[550px]">
+                    <div class="window-titlebar">
+                        <span class="text-xs font-bold text-slate-500">Dashboard Mhs - Portal Peminjaman</span>
+                        <div class="window-controls"><div class="window-btn btn-min"></div><div class="window-btn btn-max"></div><div class="window-btn btn-close" onclick="doLogoutMhs()"></div></div>
+                    </div>
+                    
+                    <!-- Top Navbar Mhs -->
+                    <div class="bg-emerald-700 text-white p-4 flex flex-col md:flex-row justify-between items-center shadow-md z-10 gap-4">
+                        <div class="font-black text-lg flex items-center gap-2">
+                            <svg class="w-6 h-6 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                            SIP-Ruang Kiosk
+                        </div>
+                        <div class="flex gap-4 md:gap-6 text-sm font-bold overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
+                            <span class="cursor-pointer border-b-2 border-white pb-1 whitespace-nowrap" id="nav-mhs-dash" onclick="switchMenuMhs('dash')">Jadwal Hari Ini</span>
+                            <span class="cursor-pointer text-emerald-200 hover:text-white whitespace-nowrap" id="nav-mhs-book" onclick="switchMenuMhs('book')">Form Pengajuan (5)</span>
+                            <span class="cursor-pointer text-emerald-200 hover:text-white whitespace-nowrap" id="nav-mhs-pwd" onclick="switchMenuMhs('pwd')">Ganti Sandi (6)</span>
+                            <span class="cursor-pointer text-red-300 hover:text-red-100 whitespace-nowrap md:ml-4" onclick="doLogoutMhs()">Keluar</span>
+                        </div>
+                    </div>
+
+                    <!-- Content Mhs -->
+                    <div class="p-6 bg-slate-50 flex-1 overflow-y-auto">
+                        <!-- View: Dashboard Info -->
+                        <div id="view-mhs-dash" class="fade-in">
+                            <h3 class="font-bold text-xl text-slate-800 mb-2">Halo, <span id="lbl-active-mhs">Mhs</span> 👋</h3>
+                            <p class="text-sm text-slate-500 mb-6 border-b border-slate-200 pb-4">Berikut adalah status seluruh pengajuan di database saat ini (Termasuk milik Anda).</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="mhs-schedule-cards">
+                                <!-- Disuntik JS dari Approval yang di-ACC -->
+                            </div>
+                        </div>
+
+                        <!-- View: Booking Form -->
+                        <div id="view-mhs-book" class="hidden fade-in">
+                            <h3 class="font-bold text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Form Pengajuan Peminjaman</h3>
+                            <div class="bg-white p-5 md:p-8 rounded-xl border border-slate-200 shadow-sm max-w-2xl mx-auto">
+                                <div class="space-y-5 text-sm">
+                                    
+                                    <!-- Auto-fill Section -->
+                                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-4">
+                                        <label class="block font-bold text-slate-700 mb-2 border-b border-slate-200 pb-1">Identitas Peminjam (Auto-fill)</label>
+                                        <div class="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <div class="text-xs text-slate-500 font-bold mb-1">NPM Terdaftar</div>
+                                                <input type="text" id="book-autofill-npm" class="w-full border border-slate-200 p-2 rounded bg-slate-200 text-slate-600 font-bold cursor-not-allowed" readonly>
+                                            </div>
+                                            <div>
+                                                <div class="text-xs text-slate-500 font-bold mb-1">Nama Lengkap</div>
+                                                <input type="text" id="book-autofill-nama" class="w-full border border-slate-200 p-2 rounded bg-slate-200 text-slate-600 font-bold cursor-not-allowed" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block font-bold text-slate-700 mb-1">Tipe Peminjaman <span class="text-red-500">*</span></label>
+                                        <select id="select-tipe" onchange="renderBookingOptions()" class="w-full border border-slate-300 p-2.5 rounded focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none bg-white cursor-pointer font-medium">
+                                            <option value="ruang">🏢 Pinjam Ruangan Kelas/Aula</option>
+                                            <option value="barang">📦 Pinjam Barang / Inventaris</option>
+                                        </select>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="col-span-2 md:col-span-1">
+                                            <label class="block font-bold text-slate-700 mb-1">Tanggal Pakai <span class="text-red-500">*</span></label>
+                                            <input type="date" id="input-tgl" class="w-full border border-slate-300 p-2.5 rounded outline-none focus:border-emerald-500" value="2026-10-25" onchange="renderBookingOptions()">
+                                        </div>
+                                        <div class="col-span-2 md:col-span-1">
+                                            <label class="block font-bold text-slate-700 mb-1">Qty (Jumlah) <span class="text-red-500">*</span></label>
+                                            <input type="number" id="input-qty" class="w-full border border-slate-300 p-2.5 rounded outline-none bg-slate-100" value="1" readonly>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block font-bold text-slate-700 mb-1" id="label-item">Pilih Item Tersedia dari Database <span class="text-red-500">*</span></label>
+                                        <select id="select-item" onchange="updateMaxQty()" class="w-full border border-slate-300 p-2.5 rounded focus:border-emerald-500 outline-none font-medium text-blue-700">
+                                            <!-- Disuntik JS dari DB Server dengan limitasi stok -->
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block font-bold text-slate-700 mb-1">Keterangan / Keperluan <span class="text-red-500">*</span></label>
+                                        <input type="text" id="input-ket" class="w-full border border-slate-300 p-2.5 rounded outline-none focus:border-emerald-500" placeholder="Contoh: Acara Seminar Himakom, dari jam 10.00 - 13.00">
+                                    </div>
+                                    <button onclick="actSubmitBooking()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3 rounded-lg shadow-md transition-all active:scale-95 mt-4">
+                                        KIRIM PENGAJUAN SEKARANG
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- View: Ganti Sandi Form -->
+                        <div id="view-mhs-pwd" class="hidden fade-in">
+                            <h3 class="font-bold text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Form Pengaturan (Ganti Sandi)</h3>
+                            <div class="bg-white p-5 md:p-8 rounded-xl border border-slate-200 shadow-sm max-w-md mx-auto mt-8">
+                                <div class="bg-blue-50 text-blue-800 p-3 rounded text-xs mb-6 border border-blue-200">
+                                    Ubah sandi untuk keamanan akun.
+                                </div>
+                                <div class="space-y-4 text-sm">
+                                    <div>
+                                        <label class="block font-bold text-slate-700 mb-1">Password Baru</label>
+                                        <input type="password" id="input-new-pwd" class="w-full border border-slate-300 p-2.5 rounded focus:border-emerald-500 outline-none" placeholder="Minimal 6 karakter">
+                                    </div>
+                                    <button onclick="actGantiSandi()" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 rounded-lg shadow-md transition-all active:scale-95 mt-2">
+                                        SIMPAN PERUBAHAN
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JAVASCRIPT GLOBAL LOGIC TERPADU -->
+            <script>
+                // 1. STATE MANAGEMENT (Simulasi Database Terpadu)
+                let db = {
+                    ruang: [
+                        { id: 'R-001', nama: 'Lab Komputer A', kap: 40 },
+                        { id: 'R-002', nama: 'Aula Utama Gd. B', kap: 250 }
+                    ],
+                    barang: [
+                        { id: 'B-001', nama: 'Proyektor EPSON', stok: 5 },
+                        { id: 'B-002', nama: 'Microphone Wireless', stok: 10 }
+                    ],
+                    mhs: [
+                        { npm: '202343500126', nama: 'Ahmad Dandi Subhani', prodi: 'Teknik Informatika', telp: '081234567890', password: '123456' }
+                    ],
+                    approval: [
+                        { idTrx: 'TRX-101', npm: '202343500126', nama: 'Ahmad Dandi Subhani', tipe: 'ruang', item: 'Aula Utama Gd. B', tgl: '2026-10-25', qty: 1, ket: 'Acara Himpunan Mahasiswa', status: 'acc', alasan: '' }
+                    ]
+                };
+
+                let currentUserMhs = null;
+                let trxCounter = 102;
+
+                // 2. TOAST NOTIFICATION SYSTEM
+                function showToast(message, type='success') {
+                    const container = document.getElementById('toast-container');
+                    const toast = document.createElement('div');
+                    const bg = type === 'success' ? 'bg-emerald-600' : 'bg-red-500';
+                    const icon = type === 'success' 
+                        ? `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`
+                        : `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+                    
+                    toast.className = `${bg} text-white px-5 py-3 rounded-xl shadow-xl transform transition-all duration-300 translate-x-20 opacity-0 flex items-center gap-3 font-bold text-sm pointer-events-auto border border-white/20`;
+                    toast.innerHTML = `${icon} ${message}`;
+                    container.appendChild(toast);
+                    
+                    setTimeout(() => toast.classList.remove('translate-x-20', 'opacity-0'), 10);
+                    setTimeout(() => {
+                        toast.classList.add('translate-x-20', 'opacity-0');
+                        setTimeout(() => toast.remove(), 300);
+                    }, 3000);
+                }
+
+                // 3. INITIALIZATION
+                function initSimulasi() {
+                    renderSemua();
+                }
+
+                function renderSemua() {
+                    renderRuang();
+                    renderBarang();
+                    renderMhs();
+                    renderApproval();
+                    renderBookingOptions();
+                    renderMhsSchedule();
+                }
+
+                // ================= RENDER FUNCTIONS (TU) =================
+
+                function renderRuang() {
+                    const tbody = document.getElementById('tbody-ruang');
+                    tbody.innerHTML = '';
+                    db.ruang.forEach(r => {
+                        tbody.innerHTML += `<tr class="hover:bg-blue-50 cursor-pointer" onclick="selectRuang('${r.id}')"><td class="p-3 border-b">${r.id}</td><td class="p-3 border-b font-bold text-slate-700">${r.nama}</td><td class="p-3 border-b">${r.kap} Org</td></tr>`;
+                    });
+                }
+
+                function renderBarang() {
+                    const tbody = document.getElementById('tbody-barang');
+                    tbody.innerHTML = '';
+                    db.barang.forEach(b => {
+                        tbody.innerHTML += `<tr class="hover:bg-blue-50 cursor-pointer" onclick="selectBarang('${b.id}')"><td class="p-3 border-b">${b.id}</td><td class="p-3 border-b font-bold text-slate-700">${b.nama}</td><td class="p-3 border-b font-bold text-green-600">${b.stok} Unit</td></tr>`;
+                    });
+                }
+
+                function renderMhs() {
+                    const tbody = document.getElementById('tbody-mhs');
+                    tbody.innerHTML = '';
+                    db.mhs.forEach(m => {
+                        tbody.innerHTML += `<tr class="hover:bg-blue-50 cursor-pointer" onclick="selectMhs('${m.npm}')"><td class="p-3 border-b font-bold">${m.npm}</td><td class="p-3 border-b">${m.nama}</td><td class="p-3 border-b">${m.prodi}</td><td class="p-3 border-b">${m.telp}</td></tr>`;
+                    });
+                }
+
+                function renderApproval() {
+                    const tbody = document.getElementById('tbody-approval');
+                    tbody.innerHTML = '';
+                    let pendingCount = 0;
+                    
+                    // reverse to show newest first
+                    [...db.approval].reverse().forEach(trx => {
+                        let badgeTipe = trx.tipe === 'ruang' 
+                            ? `<span class="bg-indigo-100 text-indigo-700 text-[10px] px-1 rounded font-bold uppercase mr-1">Ruang</span>`
+                            : `<span class="bg-orange-100 text-orange-700 text-[10px] px-1 rounded font-bold uppercase mr-1">Barang</span>`;
+                        
+                        let actionHtml = '';
+                        if(trx.status === 'pending') {
+                            pendingCount++;
+                            actionHtml = `
+                                <div class="flex gap-1 justify-center">
+                                    <button onclick="actAcc('${trx.idTrx}')" class="bg-green-500 hover:bg-green-600 text-white font-bold text-xs px-2 py-1.5 rounded shadow-sm">ACC</button>
+                                    <button onclick="actTolak('${trx.idTrx}')" class="bg-red-500 hover:bg-red-600 text-white font-bold text-xs px-2 py-1.5 rounded shadow-sm">TOLAK</button>
+                                </div>
+                            `;
+                        } else if (trx.status === 'acc') {
+                            actionHtml = `
+                                <div class="flex flex-col gap-1 items-center justify-center h-full">
+                                    <div class="bg-green-100 text-green-700 border border-green-300 px-2 py-0.5 rounded font-bold text-[10px] flex items-center gap-1 w-full justify-center"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Disetujui</div>
+                                    <button onclick="actPending('${trx.idTrx}')" class="text-[10px] w-full border border-slate-300 bg-white text-slate-600 px-2 py-0.5 rounded font-bold hover:bg-slate-100 transition-colors">Ubah Batal</button>
+                                </div>
+                            `;
+                        } else {
+                            actionHtml = `
+                                <div class="flex flex-col gap-1 items-center justify-center h-full">
+                                    <div class="bg-red-100 text-red-700 border border-red-300 px-2 py-0.5 rounded font-bold text-[10px] flex items-center gap-1 w-full justify-center" title="${trx.alasan}"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Ditolak</div>
+                                    <button onclick="actPending('${trx.idTrx}')" class="text-[10px] w-full border border-slate-300 bg-white text-slate-600 px-2 py-0.5 rounded font-bold hover:bg-slate-100 transition-colors">Ubah Batal</button>
+                                </div>
+                            `;
+                        }
+
+                        let rowClass = trx.status === 'acc' ? 'bg-green-50/50' : (trx.status === 'tolak' ? 'bg-red-50/50' : 'bg-white');
+
+                        tbody.innerHTML += `
+                            <tr class="${rowClass}">
+                                <td class="p-3 border-b font-medium text-slate-800 leading-tight"><div class="text-[10px] text-slate-400">${trx.npm}</div>${trx.nama}</td>
+                                <td class="p-3 border-b leading-tight"><div class="mb-1">${badgeTipe}</div><div class="font-bold text-slate-700 text-xs">${trx.item} <span class="font-normal text-slate-500">(x${trx.qty})</span></div></td>
+                                <td class="p-3 border-b text-xs font-bold text-slate-600">${trx.tgl}</td>
+                                <td class="p-2 border-b text-center align-middle">${actionHtml}</td>
+                            </tr>
+                        `;
+                    });
+
+                    // Update badges
+                    document.getElementById('lbl-apprv-count').innerText = pendingCount;
+                    const badgeMenu = document.getElementById('badge-menu-apprv');
+                    const pulse = document.getElementById('anim-apprv-pulse');
+                    if(pendingCount > 0) {
+                        badgeMenu.classList.remove('hidden');
+                        badgeMenu.innerText = pendingCount;
+                        pulse.classList.remove('hidden');
+                    } else {
+                        badgeMenu.classList.add('hidden');
+                        pulse.classList.add('hidden');
+                    }
+                }
+
+                // ================= ACTION CRUD TU (SIMPAN, EDIT, HAPUS) =================
+
+                // ---- RUANGAN ----
+                function selectRuang(id) {
+                    const r = db.ruang.find(x => x.id === id);
+                    if(r) {
+                        document.getElementById('in-ruang-id').value = r.id;
+                        document.getElementById('in-ruang-id').readOnly = true; // Kunci PK
+                        document.getElementById('in-ruang-id').classList.add('bg-slate-100', 'cursor-not-allowed');
+                        document.getElementById('in-ruang-kap').value = r.kap;
+                        document.getElementById('in-ruang-nama').value = r.nama;
+                    }
+                }
+                function clearFormRuang() {
+                    document.getElementById('in-ruang-id').value = '';
+                    document.getElementById('in-ruang-id').readOnly = false;
+                    document.getElementById('in-ruang-id').classList.remove('bg-slate-100', 'cursor-not-allowed');
+                    document.getElementById('in-ruang-kap').value = '';
+                    document.getElementById('in-ruang-nama').value = '';
+                }
+                function actSimpanRuang() {
+                    const id = document.getElementById('in-ruang-id').value;
+                    const kap = document.getElementById('in-ruang-kap').value;
+                    const nama = document.getElementById('in-ruang-nama').value;
+                    if(!id || !nama || !kap) return showToast("Isi ID, Nama, dan Kapasitas!", "error");
+                    if(db.ruang.find(x => x.id === id)) return showToast("ID Ruang sudah ada! Gunakan tombol Edit.", "error");
+                    
+                    db.ruang.push({id, nama, kap});
+                    clearFormRuang();
+                    renderRuang(); renderBookingOptions();
+                    showToast("Ruangan berhasil disimpan ke Database!");
+                }
+                function actEditRuang() {
+                    const id = document.getElementById('in-ruang-id').value;
+                    const kap = document.getElementById('in-ruang-kap').value;
+                    const nama = document.getElementById('in-ruang-nama').value;
+                    if(!id) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
+                    
+                    const r = db.ruang.find(x => x.id === id);
+                    if(r) {
+                        r.kap = kap; r.nama = nama;
+                        clearFormRuang();
+                        renderRuang(); renderBookingOptions();
+                        showToast("Data Ruangan berhasil diupdate!");
+                    }
+                }
+                function actHapusRuang() {
+                    const id = document.getElementById('in-ruang-id').value;
+                    if(!id) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
+                    
+                    db.ruang = db.ruang.filter(x => x.id !== id);
+                    clearFormRuang();
+                    renderRuang(); renderBookingOptions();
+                    showToast("Data Ruangan berhasil dihapus!");
+                }
+
+                // ---- BARANG ----
+                function selectBarang(id) {
+                    const b = db.barang.find(x => x.id === id);
+                    if(b) {
+                        document.getElementById('in-brg-id').value = b.id;
+                        document.getElementById('in-brg-id').readOnly = true; // Kunci PK
+                        document.getElementById('in-brg-id').classList.add('bg-slate-100', 'cursor-not-allowed');
+                        document.getElementById('in-brg-stok').value = b.stok;
+                        document.getElementById('in-brg-nama').value = b.nama;
+                    }
+                }
+                function clearFormBarang() {
+                    document.getElementById('in-brg-id').value = '';
+                    document.getElementById('in-brg-id').readOnly = false;
+                    document.getElementById('in-brg-id').classList.remove('bg-slate-100', 'cursor-not-allowed');
+                    document.getElementById('in-brg-stok').value = '';
+                    document.getElementById('in-brg-nama').value = '';
+                }
+                function actSimpanBarang() {
+                    const id = document.getElementById('in-brg-id').value;
+                    const stok = document.getElementById('in-brg-stok').value;
+                    const nama = document.getElementById('in-brg-nama').value;
+                    if(!id || !nama || !stok) return showToast("Isi ID, Nama, dan Stok!", "error");
+                    if(db.barang.find(x => x.id === id)) return showToast("ID Barang sudah ada! Gunakan tombol Edit.", "error");
+                    
+                    db.barang.push({id, nama, stok: parseInt(stok)});
+                    clearFormBarang();
+                    renderBarang(); renderBookingOptions();
+                    showToast("Barang/Inventaris berhasil disimpan!");
+                }
+                function actEditBarang() {
+                    const id = document.getElementById('in-brg-id').value;
+                    const stok = document.getElementById('in-brg-stok').value;
+                    const nama = document.getElementById('in-brg-nama').value;
+                    if(!id) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
+                    
+                    const b = db.barang.find(x => x.id === id);
+                    if(b) {
+                        b.stok = parseInt(stok); b.nama = nama;
+                        clearFormBarang();
+                        renderBarang(); renderBookingOptions();
+                        showToast("Data Barang berhasil diupdate!");
+                    }
+                }
+                function actHapusBarang() {
+                    const id = document.getElementById('in-brg-id').value;
+                    if(!id) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
+                    
+                    db.barang = db.barang.filter(x => x.id !== id);
+                    clearFormBarang();
+                    renderBarang(); renderBookingOptions();
+                    showToast("Data Barang berhasil dihapus!");
+                }
+
+                // ---- MAHASISWA ----
+                function selectMhs(npm) {
+                    const m = db.mhs.find(x => x.npm === npm);
+                    if(m) {
+                        document.getElementById('in-mhs-npm').value = m.npm;
+                        document.getElementById('in-mhs-npm').readOnly = true; // Kunci PK
+                        document.getElementById('in-mhs-npm').classList.add('bg-slate-100', 'cursor-not-allowed');
+                        document.getElementById('in-mhs-prodi').value = m.prodi;
+                        document.getElementById('in-mhs-nama').value = m.nama;
+                        document.getElementById('in-mhs-telp').value = m.telp;
+                    }
+                }
+                function clearFormMhs() {
+                    document.getElementById('in-mhs-npm').value = '';
+                    document.getElementById('in-mhs-npm').readOnly = false;
+                    document.getElementById('in-mhs-npm').classList.remove('bg-slate-100', 'cursor-not-allowed');
+                    document.getElementById('in-mhs-prodi').value = '';
+                    document.getElementById('in-mhs-nama').value = '';
+                    document.getElementById('in-mhs-telp').value = '';
+                }
+                function actDaftarMhs() {
+                    const npm = document.getElementById('in-mhs-npm').value;
+                    const prodi = document.getElementById('in-mhs-prodi').value;
+                    const nama = document.getElementById('in-mhs-nama').value;
+                    const telp = document.getElementById('in-mhs-telp').value;
+                    if(!npm || !nama || !telp) return showToast("Isi NPM, Nama, dan No. Telp!", "error");
+                    if(db.mhs.find(m => m.npm === npm)) return showToast("NPM sudah terdaftar! Gunakan tombol Edit.", "error");
+
+                    db.mhs.push({npm, nama, prodi, telp, password: '123456'}); 
+                    clearFormMhs();
+                    renderMhs();
+                    showToast(`Akun Mahasiswa sukses didaftarkan! (Sandi Default: 123456)`);
+                }
+                function actEditMhs() {
+                    const npm = document.getElementById('in-mhs-npm').value;
+                    const prodi = document.getElementById('in-mhs-prodi').value;
+                    const nama = document.getElementById('in-mhs-nama').value;
+                    const telp = document.getElementById('in-mhs-telp').value;
+                    if(!npm) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
+                    
+                    const m = db.mhs.find(x => x.npm === npm);
+                    if(m) {
+                        m.prodi = prodi; m.nama = nama; m.telp = telp;
+                        clearFormMhs();
+                        renderMhs();
+                        showToast("Data Mahasiswa berhasil diupdate!");
+                    }
+                }
+                function actHapusMhs() {
+                    const npm = document.getElementById('in-mhs-npm').value;
+                    if(!npm) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
+                    
+                    db.mhs = db.mhs.filter(x => x.npm !== npm);
+                    clearFormMhs();
+                    renderMhs();
+                    showToast("Data Mahasiswa berhasil dihapus!");
+                }
+
+                // ---- APPROVAL ACTIONS ----
+                function actAcc(idTrx) {
+                    const trx = db.approval.find(t => t.idTrx === idTrx);
+                    if(trx) trx.status = 'acc';
+                    renderApproval(); renderMhsSchedule(); renderBookingOptions();
+                    showToast("Pengajuan disetujui!");
+                }
+                function actTolak(idTrx) {
+                    const trx = db.approval.find(t => t.idTrx === idTrx);
+                    if(trx) { trx.status = 'tolak'; trx.alasan = 'Ditolak Admin (Jadwal Bentrok / Stok Kosong)'; }
+                    renderApproval(); renderMhsSchedule(); renderBookingOptions();
+                    showToast("Pengajuan ditolak!", "error");
+                }
+                function actPending(idTrx) {
+                    const trx = db.approval.find(t => t.idTrx === idTrx);
+                    if(trx) { trx.status = 'pending'; trx.alasan = ''; }
+                    renderApproval(); renderMhsSchedule(); renderBookingOptions();
+                    showToast("Status dikembalikan menjadi Pending.");
+                }
+
+
+                // ================= LOGIC CLIENT (MAHASISWA) & KETERSEDIAAN =================
+
+                function renderBookingOptions() {
+                    const tipe = document.getElementById('select-tipe').value;
+                    const selectItem = document.getElementById('select-item');
+                    const labelItem = document.getElementById('label-item');
+                    const inputQty = document.getElementById('input-qty');
+                    const inputTgl = document.getElementById('input-tgl').value;
+                    
+                    if(!selectItem) return;
+
+                    selectItem.innerHTML = '';
+                    if (tipe === 'ruang') {
+                        labelItem.innerHTML = 'Pilih Ruang yang Tersedia <span class="text-red-500">*</span>';
+                        db.ruang.forEach(r => {
+                            // Cek apakah ruangan ini sudah di-ACC pada tanggal yang dipilih
+                            const isBooked = db.approval.some(trx => trx.tipe === 'ruang' && trx.item.includes(r.nama) && trx.tgl === inputTgl && trx.status === 'acc');
+                            
+                            if(isBooked) {
+                                selectItem.innerHTML += `<option value="${r.nama}" disabled class="bg-slate-200 text-red-500">❌ ${r.id} | ${r.nama} (Penuh pada tgl ini)</option>`;
+                            } else {
+                                selectItem.innerHTML += `<option value="${r.nama}">${r.id} | ${r.nama} (Kap: ${r.kap} Org)</option>`;
+                            }
+                        });
+                        inputQty.value = 1;
+                        inputQty.readOnly = true;
+                        inputQty.classList.add('bg-slate-100');
+                        inputQty.max = 1;
+                    } else {
+                        labelItem.innerHTML = 'Pilih Inventaris / Barang <span class="text-red-500">*</span>';
+                        db.barang.forEach(b => {
+                            // Hitung stok yang sedang keluar
+                            const usedQty = db.approval
+                                .filter(trx => trx.tipe === 'barang' && trx.item.includes(b.nama) && (trx.status === 'acc' || trx.status === 'pending'))
+                                .reduce((sum, trx) => sum + parseInt(trx.qty), 0);
+                            
+                            const sisa = b.stok - usedQty;
+                            
+                            if(sisa > 0) {
+                                selectItem.innerHTML += `<option value="${b.nama}" data-max="${sisa}">${b.id} | ${b.nama} (Sisa Stok Tersedia: ${sisa})</option>`;
+                            } else {
+                                selectItem.innerHTML += `<option value="${b.nama}" disabled class="bg-slate-200 text-red-500">❌ ${b.id} | ${b.nama} (Stok Habis!)</option>`;
+                            }
+                        });
+                        inputQty.value = 1;
+                        inputQty.readOnly = false;
+                        inputQty.classList.remove('bg-slate-100');
+                    }
+                    updateMaxQty();
+                }
+
+                function updateMaxQty() {
+                    const tipe = document.getElementById('select-tipe').value;
+                    const inputQty = document.getElementById('input-qty');
+                    const selectItem = document.getElementById('select-item');
+                    
+                    if(tipe === 'barang' && selectItem.options[selectItem.selectedIndex]) {
+                        const max = selectItem.options[selectItem.selectedIndex].getAttribute('data-max');
+                        if (max) {
+                            inputQty.max = max;
+                            inputQty.oninput = function() {
+                                if(parseInt(this.value) > parseInt(max)) {
+                                    this.value = max;
+                                    showToast(`Sisa stok saat ini hanya ${max} unit!`, 'error');
+                                } else if (parseInt(this.value) < 1 || this.value === '') {
+                                    this.value = 1;
+                                }
+                            };
+                        }
+                    } else {
+                        inputQty.oninput = null; // lepas binding
+                    }
+                }
+
+                function actSubmitBooking() {
+                    if(!currentUserMhs) return;
+                    const tipe = document.getElementById('select-tipe').value;
+                    const selectItem = document.getElementById('select-item');
+                    const item = selectItem.value;
+                    const tgl = document.getElementById('input-tgl').value;
+                    const qty = document.getElementById('input-qty').value;
+                    const ket = document.getElementById('input-ket').value;
+
+                    if(selectItem.options[selectItem.selectedIndex] && selectItem.options[selectItem.selectedIndex].disabled) {
+                         return showToast("Pilihan tidak tersedia. Silakan pilih item atau tanggal lain!", "error");
+                    }
+                    if(!item || !ket || !tgl) return showToast("Harap lengkapi semua field dan tanggal pemakaian!", "error");
+
+                    db.approval.push({
+                        idTrx: 'TRX-' + trxCounter++,
+                        npm: currentUserMhs.npm,
+                        nama: currentUserMhs.nama,
+                        tipe: tipe,
+                        item: item,
+                        qty: parseInt(qty),
+                        tgl: tgl,
+                        ket: ket,
+                        status: 'pending'
+                    });
+
+                    document.getElementById('input-ket').value = '';
+                    
+                    renderApproval(); 
+                    renderMhsSchedule();
+                    renderBookingOptions(); 
+                    switchMenuMhs('dash');
+                    
+                    showToast("Sukses! Data dikirim ke Server TU.");
+                }
+
+                function renderMhsSchedule() {
+                    const container = document.getElementById('mhs-schedule-cards');
+                    container.innerHTML = '';
+                    let hasData = false;
+                    [...db.approval].reverse().forEach(trx => {
+                        if(trx.status === 'tolak') return;
+                        hasData = true;
+                        let badgeColor = trx.status === 'acc' ? 'bg-green-100 text-green-700 border-green-200' : 'bg-amber-100 text-amber-700 border-amber-200';
+                        let badgeText = trx.status === 'acc' ? 'Telah Disetujui (Dibooking)' : 'Menunggu Approval TU';
+                        let borderLeft = trx.status === 'acc' ? 'border-l-emerald-500' : 'border-l-amber-500';
+
+                        container.innerHTML += `
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 border-l-4 ${borderLeft} relative overflow-hidden">
+                                <div class="font-bold text-slate-800 text-lg">${trx.item} <span class="text-xs font-normal text-slate-400 border border-slate-200 px-1 rounded ml-1 bg-slate-50">x${trx.qty}</span></div>
+                                <div class="text-xs text-slate-500 mt-1">${trx.tgl} (Oleh: ${trx.nama})</div>
+                                <div class="mt-3 text-xs font-bold ${badgeColor} px-2 py-1 rounded inline-block border">${badgeText}</div>
+                            </div>
+                        `;
+                    });
+
+                    if(!hasData) {
+                        container.innerHTML = `<div class="col-span-2 text-center text-slate-400 p-4 border-2 border-dashed border-slate-200 rounded-xl">Belum ada pengajuan terdaftar di sistem.</div>`;
+                    }
+                }
+
+                function actGantiSandi() {
+                    const pwd = document.getElementById('input-new-pwd').value;
+                    if(pwd.length < 6) return showToast("Sandi minimal 6 karakter!", "error");
+                    if(currentUserMhs) { currentUserMhs.password = pwd; }
+                    document.getElementById('input-new-pwd').value = '';
+                    showToast("Sandi Anda berhasil diperbarui di Database Server!");
+                }
+
+                // ================= NAVIGATION UTILS =================
+
+                // MHS Auth
+                function doLoginMhs() {
+                    const npm = document.getElementById('login-mhs-npm').value;
+                    const pwd = document.getElementById('login-mhs-pwd').value;
+                    
+                    if(!npm || !pwd) return showToast("Harap isi NPM dan Password!", "error");
+
+                    currentUserMhs = db.mhs.find(m => m.npm === npm);
+                    
+                    if(!currentUserMhs) return showToast("NPM tidak terdaftar! Hubungi TU.", "error");
+                    if(currentUserMhs.password !== pwd) return showToast("Password salah!", "error");
+                    
+                    // Setup UI for the logged in user
+                    document.getElementById('lbl-active-mhs').innerText = currentUserMhs.nama;
+                    
+                    // Auto-fill forms
+                    document.getElementById('book-autofill-npm').value = currentUserMhs.npm;
+                    document.getElementById('book-autofill-nama').value = currentUserMhs.nama;
+
+                    document.getElementById('mhs-login-screen').classList.add('hidden');
+                    document.getElementById('mhs-dash-screen').classList.remove('hidden');
+                    
+                    document.getElementById('login-mhs-npm').value = '';
+                    document.getElementById('login-mhs-pwd').value = '';
+
+                    renderBookingOptions(); 
+                    renderMhsSchedule();
+                    showToast(`Berhasil masuk, selamat datang ${currentUserMhs.nama}!`);
+                }
+
+                function doLogoutMhs() {
+                    currentUserMhs = null;
+                    document.getElementById('mhs-dash-screen').classList.add('hidden');
+                    document.getElementById('mhs-login-screen').classList.remove('hidden');
+                }
+
+                // Fake PDF
+                function openFakePDF(title) {
+                    document.getElementById('pdf-title').innerText = title;
+                    const dateStr = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+                    document.getElementById('pdf-date').innerText = dateStr;
+                    
+                    const contentBody = document.getElementById('pdf-content-body');
+                    contentBody.innerHTML = '';
+                    
+                    if(title.includes('Bukti')) {
+                        const trxAcc = db.approval.filter(t => t.status === 'acc').reverse()[0];
+                        
+                        if(trxAcc) {
+                            contentBody.innerHTML = `
+                                <div class="w-full text-left p-6 border-2 border-slate-800 bg-slate-50">
+                                    <h2 class="font-bold text-lg border-b border-slate-300 pb-2 mb-4 text-center tracking-widest">SURAT BUKTI PEMINJAMAN</h2>
+                                    <div class="grid grid-cols-3 gap-2 mb-2">
+                                        <div class="text-slate-500 font-bold">No. Referensi</div><div class="col-span-2">: ${trxAcc.idTrx}</div>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 mb-2">
+                                        <div class="text-slate-500 font-bold">Nama Lengkap</div><div class="col-span-2 font-bold text-blue-800">: ${trxAcc.nama}</div>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 mb-2">
+                                        <div class="text-slate-500 font-bold">Nomor Pokok (NPM)</div><div class="col-span-2 font-mono">: ${trxAcc.npm}</div>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 mb-2 mt-4">
+                                        <div class="text-slate-500 font-bold">Jenis Fasilitas</div><div class="col-span-2">: ${trxAcc.tipe.toUpperCase()}</div>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 mb-2">
+                                        <div class="text-slate-500 font-bold">Item Diberikan</div><div class="col-span-2">: ${trxAcc.item}</div>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 mb-2">
+                                        <div class="text-slate-500 font-bold">Jumlah (Qty)</div><div class="col-span-2">: ${trxAcc.qty}</div>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 mb-2">
+                                        <div class="text-slate-500 font-bold">Tanggal Pemakaian</div><div class="col-span-2 font-bold text-red-600">: ${trxAcc.tgl}</div>
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 mb-6">
+                                        <div class="text-slate-500 font-bold">Keperluan</div><div class="col-span-2 italic">: "${trxAcc.ket}"</div>
+                                    </div>
+                                    <div class="w-full p-2 bg-green-100 text-green-800 border-2 border-green-500 text-center font-black tracking-widest uppercase">
+                                        STATUS: VALID & DISETUJUI ADMIN
+                                    </div>
+                                    <p class="text-[10px] text-center text-slate-400 mt-4">*Harap tunjukkan surat ini kepada Satpam / Petugas saat mengambil item atau menggunakan ruangan.</p>
+                                </div>
+                            `;
+                        } else {
+                            contentBody.innerHTML = `<div class="p-10 text-center text-slate-500 font-bold border-2 border-dashed border-slate-300">Belum ada satupun transaksi yang disetujui untuk dicetak.</div>`;
+                        }
+                    } else {
+                        let tableHTML = `
+                            <div class="w-full border-2 border-slate-800">
+                                <div class="bg-slate-200 border-b-2 border-slate-800 font-bold p-2 grid grid-cols-4 text-sm text-left">
+                                    <div>ID Trx</div><div>Peminjam</div><div>Item Disetujui</div><div>Tgl Pakai</div>
+                                </div>
+                                <div class="flex flex-col">
+                        `;
+                        
+                        const accList = db.approval.filter(t => t.status === 'acc');
+                        if(accList.length > 0) {
+                            accList.forEach(trx => {
+                                tableHTML += `
+                                    <div class="border-b border-slate-300 p-2 grid grid-cols-4 text-sm text-left items-center">
+                                        <div class="font-mono text-xs">${trx.idTrx}</div>
+                                        <div><span class="font-bold text-blue-800">${trx.nama}</span> <br><span class="text-[10px] text-slate-500 font-mono">${trx.npm}</span></div>
+                                        <div>${trx.item} <br><span class="text-[10px] text-slate-500">Qty: ${trx.qty}</span></div>
+                                        <div class="font-bold">${trx.tgl}</div>
+                                    </div>
+                                `;
+                            });
+                        } else {
+                            tableHTML += `<div class="p-6 text-center text-slate-400 font-bold">Data kosong.</div>`;
+                        }
+                        
+                        tableHTML += `</div></div>`;
+                        contentBody.innerHTML = tableHTML;
+                    }
+
+                    document.getElementById('pdf-modal').classList.remove('hidden');
+                }
+
+                function closeFakePDF() { document.getElementById('pdf-modal').classList.add('hidden'); }
+                function downloadFakePDF() { showToast("File PDF Laporan berhasil diunduh (Simulasi)!"); closeFakePDF(); }
+
+                // TU UI Nav Handling 
+                function showSimulator(type) {
+                    const tabTu = document.getElementById('tab-tu');
+                    const tabMhs = document.getElementById('tab-mhs');
+                    const simTu = document.getElementById('sim-tu');
+                    const simMhs = document.getElementById('sim-mhs');
+                    if(type === 'tu') {
+                        simTu.classList.remove('hidden'); simMhs.classList.add('hidden');
+                        tabTu.className = "px-4 py-2 rounded-lg font-bold text-sm bg-blue-600 text-white transition-all shadow-sm whitespace-nowrap";
+                        tabMhs.className = "px-4 py-2 rounded-lg font-bold text-sm bg-transparent text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap";
+                    } else {
+                        simMhs.classList.remove('hidden'); simTu.classList.add('hidden');
+                        tabMhs.className = "px-4 py-2 rounded-lg font-bold text-sm bg-emerald-600 text-white transition-all shadow-sm whitespace-nowrap";
+                        tabTu.className = "px-4 py-2 rounded-lg font-bold text-sm bg-transparent text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap";
+                    }
+                }
+
+                function doLoginTU() { 
+                    const user = document.getElementById('login-tu-user').value;
+                    const pwd = document.getElementById('login-tu-pwd').value;
+                    if(user === 'admin' && pwd === 'akuatmin') {
+                        document.getElementById('tu-login-screen').classList.add('hidden'); 
+                        document.getElementById('tu-dash-screen').classList.remove('hidden'); 
+                        showToast("Login TU Berhasil!");
+                    } else {
+                        showToast("Username atau Password Admin salah!", "error");
+                    }
+                }
+                function doLogoutTU() { document.getElementById('tu-dash-screen').classList.add('hidden'); document.getElementById('tu-login-screen').classList.remove('hidden'); }
+
+                function switchMenuTU(selected) {
+                    const tuMenus = ['ruang', 'barang', 'mhs', 'apprv', 'report'];
+                    tuMenus.forEach(menu => {
+                        const btn = document.getElementById('btn-tu-' + menu);
+                        const view = document.getElementById('view-tu-' + menu);
+                        if(!btn || !view) return;
+
+                        if (menu === selected) {
+                            view.classList.remove('hidden');
+                            btn.className = menu === 'report' || menu === 'apprv' ? "bg-blue-600 text-white p-2.5 rounded cursor-pointer shadow transition-colors font-medium flex items-center justify-between" : "bg-blue-600 text-white p-2.5 rounded cursor-pointer shadow transition-colors font-medium";
+                        } else {
+                            view.classList.add('hidden');
+                            btn.className = menu === 'report' || menu === 'apprv' ? "hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors text-slate-300 flex items-center justify-between" : "hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors text-slate-300";
+                        }
+                    });
+                }
+
+                function switchMenuMhs(selected) {
+                    const mhsMenus = ['dash', 'book', 'pwd'];
+                    mhsMenus.forEach(menu => {
+                        const nav = document.getElementById('nav-mhs-' + menu);
+                        const view = document.getElementById('view-mhs-' + menu);
+                        if(!nav || !view) return;
+
+                        if (menu === selected) {
+                            view.classList.remove('hidden');
+                            nav.className = "cursor-pointer border-b-2 border-white pb-1 text-white whitespace-nowrap";
+                        } else {
+                            view.classList.add('hidden');
+                            nav.className = "cursor-pointer text-emerald-200 hover:text-white whitespace-nowrap";
+                        }
+                    });
+                }
+            </script>
+        </section>
+
+    </main>
+
+    <!-- Footer Simple -->
+    <footer class="text-center py-10 mt-10 border-t border-slate-200 bg-white no-print">
+        <p class="font-bold text-sm text-slate-400 tracking-[0.1em] uppercase mb-2">Dokumen Resmi Project Pemrograman Visual</p>
+        <p class="font-black text-3xl tracking-[0.2em] text-slate-900 drop-shadow-sm">MADE BY DANDI</p>
+    </footer>
+
+</body>
+</html>
