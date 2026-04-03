@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Project: SIP-Ruang & Barang</title>
+    <title>Blueprint Project: SIP-Ruang & Sarpras</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Mermaid.js untuk Diagram Database -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     
-    <!-- Panzoom.js untuk Zoom/Pan Diagram -->
     <script src="https://unpkg.com/@panzoom/panzoom@4.5.0/dist/panzoom.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        flatdark: { bg: '#1e1e1e', panel: '#252526', text: '#cccccc', border: '#3e3e42', accent: '#0e639c' }
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
         
-        :root {
-            --background: #f8fafc;
-        }
-
+        :root { --background: #f8fafc; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--background);
@@ -32,9 +41,9 @@
             background-attachment: fixed;
         }
 
-        ::-webkit-scrollbar { width: 10px; height: 10px; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: rgba(0,0,0,0.02); }
-        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 20px; border: 3px solid transparent; background-clip: content-box; }
+        ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 20px; border: 2px solid transparent; background-clip: content-box; }
         ::-webkit-scrollbar-thumb:hover { background-color: #64748b; }
         
         .glass-nav {
@@ -45,60 +54,50 @@
         }
 
         .code-container {
-            background: #0f172a;
-            color: #e2e8f0;
-            font-family: 'Courier New', Courier, monospace;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            overflow-x: auto;
-            font-size: 0.875rem;
-            line-height: 1.7;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
-            border: 1px solid #1e293b;
+            background: #0f172a; color: #e2e8f0; font-family: 'Courier New', Courier, monospace;
+            padding: 1.5rem; border-radius: 1rem; overflow-x: auto; font-size: 0.875rem; line-height: 1.7;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2); border: 1px solid #1e293b;
         }
 
-        .grab-cursor { cursor: grab; }
-        .grab-cursor:active { cursor: grabbing; }
+        .grab-cursor { cursor: grab; } .grab-cursor:active { cursor: grabbing; }
 
         /* Java Swing Mockup Styles */
         .window-mockup {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            border: 1px solid #cbd5e1;
-            background: #f1f5f9;
-            transition: all 0.3s ease;
-            position: relative;
+            border-radius: 8px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 1px solid #cbd5e1; background: #f1f5f9; transition: all 0.3s ease; position: relative;
         }
         .window-titlebar {
-            background: linear-gradient(to bottom, #f8fafc, #e2e8f0);
-            padding: 8px 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #cbd5e1;
-            user-select: none;
+            background: linear-gradient(to bottom, #f8fafc, #e2e8f0); padding: 8px 12px;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #cbd5e1; user-select: none;
         }
         .window-controls { display: flex; gap: 6px; }
         .window-btn { width: 12px; height: 12px; border-radius: 50%; cursor: pointer; }
-        .btn-close { background: #ef4444; }
-        .btn-min { background: #eab308; }
-        .btn-max { background: #22c55e; }
+        .btn-close { background: #ef4444; } .btn-min { background: #eab308; } .btn-max { background: #22c55e; }
         
-        .fade-in { animation: fadeIn 0.3s ease-out forwards; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Tema FlatLaf Dark Mode Simulation */
+        .dark-theme-active.window-mockup { border-color: #3e3e42; }
+        .dark-theme-active .window-titlebar { background: #323233; border-bottom: 1px solid #1e1e1e; color: #cccccc; }
+        .dark-theme-active .bg-white, .dark-theme-active .bg-slate-50, .dark-theme-active .bg-slate-100 { background-color: #252526 !important; color: #cccccc !important; }
+        .dark-theme-active .text-slate-800, .dark-theme-active .text-slate-700 { color: #ffffff !important; }
+        .dark-theme-active .text-slate-500, .dark-theme-active .text-slate-600 { color: #a0a0a0 !important; }
+        .dark-theme-active .border-slate-200, .dark-theme-active .border-slate-300 { border-color: #3e3e42 !important; }
+        .dark-theme-active input, .dark-theme-active select { background-color: #3c3c3c !important; color: #fff !important; border-color: #555 !important; }
+        .dark-theme-active th, .dark-theme-active td { border-color: #3e3e42 !important; }
+        .dark-theme-active thead { background-color: #1e1e1e !important; }
 
-        .modal-blur {
-            backdrop-filter: blur(4px);
-            background-color: rgba(15, 23, 42, 0.6);
-        }
+        .fade-in { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .modal-blur { backdrop-filter: blur(4px); background-color: rgba(15, 23, 42, 0.6); }
+
+        /* Splash Screen Anim & Utilities */
+        .progress-bar-fill { width: 0%; transition: width 0.1s linear; }
+        .blink-anim { animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
         @media print {
             body { background: #ffffff !important; color: #000 !important; }
-            .no-print, nav, footer, .zoom-controls, .simulator-tabs, #toast-container { display: none !important; }
+            .no-print, nav, footer, .zoom-controls, .simulator-tabs, #toast-container, #splash-screen { display: none !important; }
             .print-break { page-break-before: always; }
             main { margin: 0 !important; padding: 0 !important; max-width: 100% !important; border: none !important; box-shadow: none !important; }
             .mermaid svg { width: 100% !important; height: auto !important; transform: none !important; }
@@ -108,10 +107,8 @@
 </head>
 <body class="antialiased leading-relaxed selection:bg-blue-600 selection:text-white" onload="initSimulasi()">
 
-    <!-- Custom Toast Container -->
-    <div id="toast-container" class="fixed top-5 right-5 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+    <div id="toast-container" class="fixed top-5 right-5 left-5 md:left-auto md:w-auto z-[100] flex flex-col gap-2 pointer-events-none"></div>
 
-    <!-- Sticky Navbar -->
     <nav class="glass-nav sticky top-0 z-50 no-print shadow-sm">
         <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap justify-between items-center gap-4">
             <div class="font-extrabold text-xl md:text-2xl flex items-center gap-3 tracking-tight text-slate-800">
@@ -127,29 +124,18 @@
         </div>
     </nav>
 
-    <!-- Main Container -->
-    <main class="max-w-7xl mx-auto p-5 md:p-10 lg:p-14 my-6 md:my-10 bg-white/90 backdrop-blur-xl shadow-2xl shadow-slate-200/50 rounded-[2rem] border border-white relative overflow-hidden">
+    <main class="max-w-7xl mx-auto p-4 md:p-10 lg:p-14 my-6 md:my-10 bg-white/90 backdrop-blur-xl shadow-2xl shadow-slate-200/50 rounded-[2rem] border border-white relative overflow-hidden">
         
-        <!-- Header Section -->
         <header class="text-center pb-12 mb-14 border-b-2 border-slate-100 relative">
-            <div class="inline-flex mb-6 px-5 py-2 rounded-full bg-blue-50 text-blue-700 font-black tracking-[0.2em] text-xs uppercase border border-blue-200 shadow-sm">
+            <div class="inline-flex mb-6 px-5 py-2 rounded-full bg-blue-50 text-blue-700 font-black tracking-[0.2em] text-xs uppercase border border-blue-200 shadow-sm text-center">
                 Dokumen Project Akhir (Java Netbeans)
             </div>
             <h1 class="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight leading-tight">SIP-Ruang & Sarpras</h1>
-            <p class="text-lg md:text-xl text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed">
+            <p class="text-lg md:text-xl text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed px-2">
                 Platform Desktop berbasis <strong>Client-Server (Offline)</strong> untuk digitalisasi peminjaman fasilitas kelas dan sarana prasarana kampus.
             </p>
-            
-            <div class="mt-8 bg-emerald-50 border-2 border-emerald-500 rounded-2xl p-4 inline-flex items-center gap-4 shadow-sm max-w-2xl mx-auto text-left">
-                <div class="bg-emerald-500 text-white p-3 rounded-xl"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
-                <div>
-                    <h4 class="font-bold text-emerald-900 text-lg">100% Sesuai Syarat Project</h4>
-                    <p class="text-sm text-emerald-700">Telah memenuhi syarat minimum Dosen: Terdapat <strong class="text-emerald-900">Login, Menu, 6 Form (Master/Transaksi), dan 4 Report.</strong></p>
-                </div>
-            </div>
         </header>
 
-        <!-- Glosarium Terlengkap -->
         <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl mb-10 no-print">
             <h4 class="font-bold text-blue-900 mb-4 flex items-center gap-2 border-b border-blue-200 pb-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -158,39 +144,124 @@
             <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-3 gap-x-6 text-sm text-slate-700">
                 <li><strong class="text-slate-900">TU:</strong> Tata Usaha (Admin Pengelola Server)</li>
                 <li><strong class="text-slate-900">Mhs:</strong> Mahasiswa (Client / Pengguna Kiosk)</li>
-                <li><strong class="text-slate-900">Kiosk:</strong> Aplikasi terminal mandiri untuk mahasiswa</li>
+                <li><strong class="text-slate-900">Kiosk:</strong> Terminal/Aplikasi mandiri untuk mahasiswa</li>
                 <li><strong class="text-slate-900">CRUD:</strong> Create, Read, Update, Delete</li>
                 <li><strong class="text-slate-900">ACC:</strong> Accepted (Pengajuan disetujui Admin)</li>
-                <li><strong class="text-slate-900">Pending:</strong> Status menunggu keputusan/tinjauan</li>
-                <li><strong class="text-slate-900">Qty:</strong> Quantity (Jumlah barang dipinjam)</li>
-                <li><strong class="text-slate-900">PK (Primary Key):</strong> Kunci unik data di tabel</li>
+                <li><strong class="text-slate-900">Pending:</strong> Status menunggu keputusan TU</li>
+                <li><strong class="text-slate-900">Qty:</strong> Quantity (Jumlah unit barang)</li>
+                <li><strong class="text-slate-900">PK (Primary Key):</strong> Kunci identitas unik di tabel</li>
                 <li><strong class="text-slate-900">FK (Foreign Key):</strong> Kunci relasi antar tabel</li>
-                <li><strong class="text-slate-900">JasperReports:</strong> Library Java untuk cetak PDF</li>
+                <li><strong class="text-slate-900">JasperReports:</strong> Library Java untuk men-generate PDF</li>
             </ul>
         </div>
 
-        <!-- ================= 1. SIMULASI UI MOCKUP ================= -->
         <section class="mb-16 print-break">
-            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 border-b-2 border-slate-100 pb-4 gap-4">
-                <div class="flex items-center gap-4">
-                    <div class="bg-slate-900 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-lg text-xl font-black">1</div>
-                    <div>
-                        <h2 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Simulasi UI (Mockup Nyata)</h2>
-                        <p class="text-slate-500 font-medium">Logika CRUD Lengkap! Anda bisa Edit/Hapus data dengan mengklik baris pada tabel.</p>
-                    </div>
+            <div class="flex items-center gap-4 mb-8 border-b-2 border-slate-100 pb-6">
+                <div class="bg-slate-900 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-md text-xl font-black shrink-0">1</div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Pemenuhan Syarat Project (GUI)</h2>
+                    <p class="text-slate-500 font-medium text-sm md:text-base">Sistem memenuhi ketentuan minimal (Login, Menu, 6 Form, 4 Report).</p>
                 </div>
-                
-                <!-- Toggle Tab Simulator -->
-                <div class="simulator-tabs bg-slate-100 p-1.5 rounded-xl border border-slate-200 flex gap-1 shadow-sm w-full md:w-auto overflow-x-auto">
-                    <button id="tab-tu" onclick="showSimulator('tu')" class="px-4 py-2 rounded-lg font-bold text-sm bg-blue-600 text-white transition-all shadow-sm whitespace-nowrap">🖥️ Server (TU)</button>
-                    <button id="tab-mhs" onclick="showSimulator('mhs')" class="px-4 py-2 rounded-lg font-bold text-sm bg-transparent text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap">📱 Client (Mhs)</button>
+            </div>
+            
+            <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white mb-6">
+                <table class="w-full text-left border-collapse min-w-[600px]">
+                    <thead class="bg-slate-50 text-slate-500 text-sm border-b border-slate-200">
+                        <tr>
+                            <th class="p-4 font-bold uppercase tracking-wider text-center w-20">Kategori</th>
+                            <th class="p-4 font-bold uppercase tracking-wider">Nama Kelas / Fitur GUI (Form)</th>
+                            <th class="p-4 font-bold uppercase tracking-wider">Letak Aplikasi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 bg-white text-sm">
+                        <tr class="bg-slate-50"><td class="p-4 font-black text-slate-800 text-center" rowspan="2">LOGIN</td><td class="p-4 font-bold text-blue-700">FrmLoginTU.java <span class="font-normal text-slate-500 text-xs block">Login khusus pegawai Tata Usaha</span></td><td class="p-4 font-medium text-slate-600">Server</td></tr>
+                        <tr class="bg-slate-50"><td class="p-4 font-bold text-emerald-700">FrmLoginMhs.java <span class="font-normal text-slate-500 text-xs block">Login menggunakan NPM Mahasiswa</span></td><td class="p-4 font-medium text-slate-600">Client</td></tr>
+                        
+                        <tr><td class="p-4 font-black text-slate-800 text-center border-t border-slate-200" rowspan="2">MENU</td><td class="p-4 font-bold text-slate-800 border-t border-slate-200">MenuUtamaTU.java <span class="font-normal text-slate-500 text-xs block">Dashboard admin dengan sidebar navigasi lengkap</span></td><td class="p-4 font-medium text-slate-600 border-t border-slate-200">Server</td></tr>
+                        <tr><td class="p-4 font-bold text-slate-800">MenuUtamaMhs.java <span class="font-normal text-slate-500 text-xs block">Layar Kiosk untuk mahasiswa melihat tabel jadwal</span></td><td class="p-4 font-medium text-slate-600">Client</td></tr>
+                        
+                        <tr class="bg-blue-50/50"><td class="p-4 font-black text-blue-900 text-center border-t border-slate-200" rowspan="6">6 FORM</td><td class="p-4 font-bold text-slate-800 border-t border-slate-200">1. Form Master Ruangan (CRUD)</td><td class="p-4 font-medium text-slate-600 border-t border-slate-200">Server</td></tr>
+                        <tr class="bg-blue-50/50"><td class="p-4 font-bold text-slate-800">2. Form Master Inventaris/Barang (CRUD)</td><td class="p-4 font-medium text-slate-600">Server</td></tr>
+                        <tr class="bg-blue-50/50"><td class="p-4 font-bold text-slate-800">3. Form Data Mahasiswa (CRUD)</td><td class="p-4 font-medium text-slate-600">Server</td></tr>
+                        <tr class="bg-orange-50/50"><td class="p-4 font-bold text-slate-800">4. Form Approval Transaksi (Update ACC/Tolak)</td><td class="p-4 font-medium text-slate-600">Server</td></tr>
+                        <tr class="bg-orange-50/50"><td class="p-4 font-bold text-slate-800">5. Form Pengajuan Layanan Booking (Create)</td><td class="p-4 font-medium text-slate-600">Client</td></tr>
+                        <tr class="bg-slate-50"><td class="p-4 font-bold text-slate-800">6. Form Pengaturan/Ganti Kata Sandi (Update)</td><td class="p-4 font-medium text-slate-600">Client</td></tr>
+
+                        <tr><td class="p-4 font-black text-purple-900 text-center border-t border-slate-200" rowspan="4">4 REPORT</td><td class="p-4 font-bold text-slate-800 border-t border-slate-200">1. Cetak Bukti Izin Terbit (Format Struk PDF)</td><td class="p-4 font-medium text-emerald-600 font-bold border-t border-slate-200">Client</td></tr>
+                        <tr><td class="p-4 font-bold text-slate-800">2. Laporan Rekap Jadwal Pemakaian Bulanan</td><td class="p-4 font-medium text-slate-600">Server</td></tr>
+                        <tr><td class="p-4 font-bold text-slate-800">3. Laporan Status Barang Outstanding (Belum Kembali)</td><td class="p-4 font-medium text-slate-600">Server</td></tr>
+                        <tr><td class="p-4 font-bold text-slate-800">4. Laporan Analitik Peminjam Teraktif</td><td class="p-4 font-medium text-slate-600">Server</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-16 print-break">
+            <div class="flex items-center gap-4 mb-8 border-b-2 border-slate-100 pb-4">
+                <div class="bg-blue-600 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-lg text-xl font-black shrink-0">2</div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Skenario Demo Online (7 Orang)</h2>
+                    <p class="text-slate-500 font-medium text-sm md:text-base">Pembagian jobdesc step-by-step saat demo via Zoom/Gmeet.</p>
                 </div>
             </div>
 
-            <!-- SIMULATOR TU (SERVER) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm relative">
+                    <div class="absolute top-4 right-4 bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">Orang 1</div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-2 text-blue-600">Moderator & Pembuka</h4>
+                    <p class="text-sm text-slate-600">Membuka presentasi, mengenalkan anggota kelompok, dan menjelaskan <strong>Latar Belakang (Masalah manualnya peminjaman)</strong> dan <strong>Solusi (Aplikasi SIP-Ruang Client-Server)</strong>.</p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm relative">
+                    <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 border border-blue-200 text-xs font-bold px-2 py-1 rounded">Orang 2</div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">Demo Admin: Master Data</h4>
+                    <p class="text-sm text-slate-600">Melakukan <strong class="text-blue-600">Login Admin (TU)</strong>. Mendemokan cara <strong>Tambah, Edit, Hapus (CRUD)</strong> pada Form Ruangan dan Form Inventaris Barang.</p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm relative">
+                    <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 border border-blue-200 text-xs font-bold px-2 py-1 rounded">Orang 3</div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">Demo Admin: Data Mahasiswa</h4>
+                    <p class="text-sm text-slate-600">Mendemokan Form Mahasiswa. Menjelaskan bahwa TU mendaftarkan NPM mahasiswa agar mereka bisa masuk ke aplikasi Kiosk dengan password default.</p>
+                </div>
+                <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 shadow-sm relative">
+                    <div class="absolute top-4 right-4 bg-emerald-200 text-emerald-800 border border-emerald-300 text-xs font-bold px-2 py-1 rounded">Orang 4</div>
+                    <h4 class="font-bold text-emerald-900 text-lg mb-2">Demo Client: Transaksi Booking</h4>
+                    <p class="text-sm text-emerald-700">Berperan sebagai Mahasiswa. Melakukan <strong class="text-emerald-700">Login Mhs</strong>. Mendemokan <strong>Form Pengajuan</strong> (Memilih tanggal & jam). Menjelaskan fitur anti-bentrok jadwal.</p>
+                </div>
+                <div class="bg-orange-50 border border-orange-200 rounded-2xl p-5 shadow-sm relative">
+                    <div class="absolute top-4 right-4 bg-orange-200 text-orange-800 border border-orange-300 text-xs font-bold px-2 py-1 rounded">Orang 5</div>
+                    <h4 class="font-bold text-orange-900 text-lg mb-2">Demo Admin: Approval TU</h4>
+                    <p class="text-sm text-orange-800">Layar kembali ke Admin TU. Mendemokan tabel notifikasi yang masuk dari mahasiswa tadi. Lalu mendemokan tombol <strong>ACC (Terima)</strong> atau <strong>Tolak</strong>.</p>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm relative">
+                    <div class="absolute top-4 right-4 bg-slate-200 text-slate-800 border border-slate-300 text-xs font-bold px-2 py-1 rounded">Orang 6</div>
+                    <h4 class="font-bold text-slate-800 text-lg mb-2">Demo Client: Cetak Bukti Izin</h4>
+                    <p class="text-sm text-slate-600">Layar ke Client. Mahasiswa melihat statusnya "Disetujui". Lalu mendemokan klik <strong>Cetak Bukti (PDF)</strong> untuk dibawa ke Satpam/Pengelola.</p>
+                </div>
+                <div class="bg-purple-50 border border-purple-200 rounded-2xl p-5 shadow-sm relative md:col-span-2">
+                    <div class="absolute top-4 right-4 bg-purple-200 text-purple-800 border border-purple-300 text-xs font-bold px-2 py-1 rounded">Orang 7</div>
+                    <h4 class="font-bold text-purple-900 text-lg mb-2">Demo Report TU & Penutup</h4>
+                    <p class="text-sm text-purple-800">Mendemokan 3 laporan sisa di sisi Server (Rekap Bulanan, Barang Keluar, Analitik). Memberikan Kesimpulan penutup dan mempersilakan dosen untuk sesi tanya jawab.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 print-break">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-8 border-b-2 border-slate-100 pb-4 gap-4">
+                <div class="flex items-center gap-4">
+                    <div class="bg-slate-900 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-lg text-xl font-black shrink-0">3</div>
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Simulasi UI (Versi Advanced)</h2>
+                        <p class="text-slate-500 font-medium text-sm md:text-base">Lengkap dengan Logika Waktu, Chart.js, FlatLaf Dark Mode, dan Auto-Sync Trigger DB.</p>
+                    </div>
+                </div>
+                
+                <div class="simulator-tabs bg-slate-100 p-1.5 rounded-xl border border-slate-200 flex gap-1 shadow-sm w-full lg:w-auto overflow-x-auto">
+                    <button id="tab-tu" onclick="showSimulator('tu')" class="px-4 py-2 rounded-lg font-bold text-sm bg-blue-600 text-white transition-all shadow-sm whitespace-nowrap flex-1 lg:flex-none">🖥️ Server (TU)</button>
+                    <button id="tab-mhs" onclick="showSimulator('mhs')" class="px-4 py-2 rounded-lg font-bold text-sm bg-transparent text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap flex-1 lg:flex-none">📱 Client (Mhs)</button>
+                </div>
+            </div>
+
             <div id="sim-tu" class="fade-in max-w-5xl mx-auto">
                 
-                <!-- TU: Layar Login -->
                 <div id="tu-login-screen" class="window-mockup max-w-sm mx-auto bg-slate-100">
                     <div class="window-titlebar">
                         <span class="text-xs font-bold text-slate-500">Login Administrator (TU)</span>
@@ -215,194 +286,190 @@
                     </div>
                 </div>
 
-                <!-- TU: Layar Dashboard -->
-                <div id="tu-dash-screen" class="hidden window-mockup bg-white flex flex-col h-[580px]">
+                <div id="tu-dash-screen" class="hidden window-mockup bg-white flex flex-col h-[700px] md:h-[580px]">
                     <div class="window-titlebar">
-                        <span class="text-xs font-bold text-slate-500">Dashboard Tata Usaha - Admin Logged In</span>
-                        <div class="window-controls"><div class="window-btn btn-min"></div><div class="window-btn btn-max"></div><div class="window-btn btn-close" onclick="doLogoutTU()"></div></div>
+                        <span class="text-xs font-bold text-slate-500">Dashboard TU - Admin</span>
+                        <div class="flex items-center gap-4">
+                            <button onclick="toggleFlatLaf()" class="text-[10px] bg-slate-200 hover:bg-slate-300 text-slate-700 px-2 py-1 rounded font-bold border border-slate-300 flex items-center gap-1 transition-colors">
+                                🌙 Toggle FlatLaf Dark
+                            </button>
+                            <div class="window-controls"><div class="window-btn btn-min"></div><div class="window-btn btn-max"></div><div class="window-btn btn-close" onclick="doLogoutTU()"></div></div>
+                        </div>
                     </div>
-                    <div class="flex flex-1 overflow-hidden relative">
-                        <!-- Sidebar -->
-                        <div class="w-1/4 min-w-[200px] bg-slate-800 p-4 text-slate-300 text-sm space-y-2 flex flex-col z-10 overflow-y-auto">
-                            <div class="font-bold text-white mb-4 border-b border-slate-600 pb-2">Menu Utama (6 Form)</div>
-                            <div onclick="switchMenuTU('ruang')" id="btn-tu-ruang" class="bg-blue-600 text-white p-2.5 rounded cursor-pointer shadow transition-colors font-medium">1. Master Ruangan</div>
-                            <div onclick="switchMenuTU('barang')" id="btn-tu-barang" class="hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors">2. Master Inventaris</div>
-                            <div onclick="switchMenuTU('mhs')" id="btn-tu-mhs" class="hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors">3. Data Mahasiswa</div>
-                            <div onclick="switchMenuTU('apprv')" id="btn-tu-apprv" class="hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors flex items-center justify-between">
-                                4. Approval Transaksi <span id="badge-menu-apprv" class="text-xs bg-amber-500 text-white px-1.5 rounded hidden">0</span>
+                    <div class="flex flex-col md:flex-row flex-1 overflow-hidden relative">
+                        <div class="w-full md:w-1/4 md:min-w-[200px] bg-slate-800 p-4 text-slate-300 text-sm space-y-2 flex flex-row md:flex-col z-10 overflow-x-auto md:overflow-y-auto">
+                            <div class="hidden md:flex bg-slate-900 border border-slate-700 p-2 rounded mb-4 items-center gap-2 justify-center shadow-inner" title="Menggunakan javax.swing.Timer">
+                                <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span></span>
+                                <span class="text-[10px] font-mono text-green-400 font-bold">Timer: Live Sync On</span>
                             </div>
-                            <div class="font-bold text-white mb-2 mt-4 border-b border-slate-600 pb-2">Laporan</div>
-                            <div onclick="switchMenuTU('report')" id="btn-tu-report" class="hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors flex items-center justify-between">Cetak Laporan PDF</div>
+
+                            <div class="hidden md:block font-bold text-white mb-2 border-b border-slate-600 pb-2">Menu Utama</div>
+                            <div onclick="switchMenuTU('dash')" id="btn-tu-dash" class="whitespace-nowrap bg-blue-600 text-white p-2.5 rounded cursor-pointer shadow transition-colors font-medium">0. Dashboard Chart</div>
+                            <div onclick="switchMenuTU('ruang')" id="btn-tu-ruang" class="whitespace-nowrap hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors">1. Master Ruangan</div>
+                            <div onclick="switchMenuTU('barang')" id="btn-tu-barang" class="whitespace-nowrap hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors flex justify-between gap-2">2. Master Inventaris <span class="hidden md:inline text-[10px] bg-slate-600 px-1 rounded text-white font-mono">SoftDel</span></div>
+                            <div onclick="switchMenuTU('mhs')" id="btn-tu-mhs" class="whitespace-nowrap hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors">3. Data Mahasiswa</div>
+                            <div onclick="switchMenuTU('apprv')" id="btn-tu-apprv" class="whitespace-nowrap hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors flex items-center justify-between gap-2">
+                                4. Approval Masuk <span id="badge-menu-apprv" class="text-xs bg-amber-500 text-white px-1.5 rounded hidden">0</span>
+                            </div>
+                            <div class="hidden md:block font-bold text-white mb-2 mt-4 border-b border-slate-600 pb-2">Laporan</div>
+                            <div onclick="switchMenuTU('report')" id="btn-tu-report" class="whitespace-nowrap hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors flex items-center justify-between">Cetak Laporan PDF</div>
                             
-                            <div class="mt-auto"></div>
-                            <div onclick="doLogoutTU()" class="hover:bg-red-600 bg-red-600/20 p-2.5 rounded cursor-pointer text-red-300 font-bold transition-colors text-center mt-8 border border-red-500/30 shrink-0">Logout Server</div>
+                            <div class="mt-auto hidden md:block"></div>
+                            <div onclick="doLogoutTU()" class="whitespace-nowrap md:whitespace-normal hover:bg-red-600 bg-red-600/20 p-2.5 rounded cursor-pointer text-red-300 font-bold transition-colors text-center md:mt-8 border border-red-500/30 shrink-0">Logout Server</div>
                         </div>
                         
-                        <!-- Content Area -->
-                        <div class="w-3/4 p-6 bg-slate-50 flex flex-col overflow-y-auto" id="tu-content-area">
+                        <div class="w-full md:w-3/4 p-4 md:p-6 bg-slate-50 flex flex-col overflow-y-auto" id="tu-content-area">
                             
-                            <!-- View 1: Master Ruang -->
-                            <div id="view-tu-ruang" class="fade-in">
+                            <div id="view-tu-dash" class="fade-in">
+                                <h2 class="text-xl font-black mb-1 border-b pb-2 text-slate-800">Dashboard Statistik Server</h2>
+                                <p class="text-xs text-slate-500 mb-6 italic">*Simulasi menggunakan komponen <strong>JFreeChart</strong> pada Java Swing (Lengkap di Level 2).</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                    <div class="bg-white p-4 border border-slate-200 rounded-xl shadow-sm">
+                                        <h3 class="text-sm font-bold text-slate-700 mb-2 text-center">Proporsi Stok Barang Fisik</h3>
+                                        <div class="h-40"><canvas id="chartPie"></canvas></div>
+                                    </div>
+                                    <div class="bg-white p-4 border border-slate-200 rounded-xl shadow-sm">
+                                        <h3 class="text-sm font-bold text-slate-700 mb-2 text-center">Aktivitas Booking Minggu Ini</h3>
+                                        <div class="h-40"><canvas id="chartBar"></canvas></div>
+                                    </div>
+                                </div>
+                                <div class="bg-blue-50 border-l-4 border-blue-500 p-3 text-xs text-blue-800 shadow-sm rounded-r">
+                                    <strong>Tips Demo Dosen:</strong> Tunjukkan grafik ini berubah otomatis saat admin meng-ACC data (Berkat penerapan Event Handling dan fungsi Update Data).
+                                </div>
+                            </div>
+
+                            <div id="view-tu-ruang" class="hidden fade-in">
                                 <div class="font-black text-xl text-slate-800 mb-2 border-b border-slate-200 pb-2">Form Master Ruangan</div>
                                 <div class="text-xs text-slate-500 mb-4 italic">Klik baris data pada tabel di bawah untuk melakukan Edit atau Hapus data.</div>
                                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mb-4">
-                                    <div class="grid grid-cols-2 gap-3 text-sm mb-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm mb-4">
                                         <input type="text" id="in-ruang-id" placeholder="ID Ruang (mis: R-003)" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
                                         <input type="number" id="in-ruang-kap" placeholder="Kapasitas Orang" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
-                                        <input type="text" id="in-ruang-nama" placeholder="Nama Ruang (mis: Ruang Seminar)" class="p-2 border border-slate-300 rounded col-span-2 focus:border-blue-500 outline-none">
+                                        <input type="text" id="in-ruang-nama" placeholder="Nama Ruang (mis: Ruang Seminar)" class="p-2 border border-slate-300 rounded md:col-span-2 focus:border-blue-500 outline-none">
                                     </div>
-                                    <div class="flex gap-2 text-sm font-bold">
-                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors" onclick="actSimpanRuang()">Simpan Baru</button>
-                                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actEditRuang()">Edit Data</button>
-                                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actHapusRuang()">Hapus</button>
-                                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded shadow transition-colors" onclick="clearFormRuang()">Clear</button>
+                                    <div class="flex gap-2 text-sm font-bold flex-wrap">
+                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="actSimpanRuang()">Simpan Baru</button>
+                                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="actEditRuang()">Edit Data</button>
+                                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="actHapusRuang()">Hapus Permanen</button>
+                                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="clearFormRuang()">Clear</button>
                                     </div>
                                 </div>
-                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm">
-                                    <table class="w-full text-left text-sm">
+                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm overflow-x-auto">
+                                    <table class="w-full text-left text-sm min-w-[400px]">
                                         <thead class="bg-slate-100 text-slate-600">
                                             <tr><th class="p-3 border-b">ID</th><th class="p-3 border-b">Nama Ruang</th><th class="p-3 border-b">Kapasitas</th></tr>
                                         </thead>
-                                        <tbody id="tbody-ruang">
-                                            <!-- Disuntik lewat JS -->
-                                        </tbody>
+                                        <tbody id="tbody-ruang"></tbody>
                                     </table>
                                 </div>
                             </div>
 
-                            <!-- View 2: Master Barang -->
                             <div id="view-tu-barang" class="hidden fade-in">
-                                <div class="font-black text-xl text-slate-800 mb-2 border-b border-slate-200 pb-2">Form Master Inventaris / Alat</div>
-                                <div class="text-xs text-slate-500 mb-4 italic">Klik baris data pada tabel di bawah untuk melakukan Edit atau Hapus data.</div>
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-center border-b border-slate-200 pb-2 mb-2 gap-2">
+                                    <div class="font-black text-xl text-slate-800">Form Master Inventaris / Alat</div>
+                                    <label class="flex items-center gap-2 text-xs font-bold text-slate-600 cursor-pointer bg-slate-200 px-2 py-1 rounded w-max">
+                                        <input type="checkbox" id="chk-soft-delete" onchange="renderBarang()" class="w-3 h-3 accent-amber-500">
+                                        Lihat Terhapus (is_active=0)
+                                    </label>
+                                </div>
+                                <div class="bg-amber-50 border-l-4 border-amber-500 text-amber-800 p-2 text-xs mb-4 shadow-sm rounded-r">
+                                    Penerapan Bonus DB: <strong>Konsep Soft-Delete</strong>. Data tidak dihapus permanen (`DELETE FROM`), melainkan di-set `is_active = 0` agar riwayat transaksi masa lalu tidak error (Referential Integrity).
+                                </div>
                                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mb-4">
-                                    <div class="grid grid-cols-2 gap-3 text-sm mb-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm mb-4">
                                         <input type="text" id="in-brg-id" placeholder="ID Barang (mis: B-003)" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
-                                        <input type="number" id="in-brg-stok" placeholder="Stok Total (Semua Unit)" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
-                                        <input type="text" id="in-brg-nama" placeholder="Nama Alat / Barang" class="p-2 border border-slate-300 rounded col-span-2 focus:border-blue-500 outline-none">
+                                        <input type="number" id="in-brg-stok" placeholder="Stok Total Fisik" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
+                                        <input type="text" id="in-brg-nama" placeholder="Nama Alat / Barang" class="p-2 border border-slate-300 rounded md:col-span-2 focus:border-blue-500 outline-none">
                                     </div>
-                                    <div class="flex gap-2 text-sm font-bold">
-                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors" onclick="actSimpanBarang()">Simpan Baru</button>
-                                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actEditBarang()">Edit Data</button>
-                                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actHapusBarang()">Hapus</button>
-                                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded shadow transition-colors" onclick="clearFormBarang()">Clear</button>
+                                    <div class="flex gap-2 text-sm font-bold flex-wrap">
+                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="actSimpanBarang()">Simpan</button>
+                                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="actEditBarang()">Edit</button>
+                                        <button class="bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded shadow transition-colors flex items-center justify-center gap-1 flex-1 md:flex-none" onclick="actHapusSoftBarang()" title="Ubah is_active = 0">
+                                            Soft Delete
+                                        </button>
+                                        <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded shadow transition-colors flex items-center justify-center gap-1 flex-1 md:flex-none" onclick="actRestoreBarang()" title="Ubah is_active = 1">
+                                            Aktifkan Lagi
+                                        </button>
+                                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="clearFormBarang()">Clear</button>
                                     </div>
                                 </div>
-                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm">
-                                    <table class="w-full text-left text-sm">
+                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm overflow-x-auto">
+                                    <table class="w-full text-left text-sm min-w-[500px]">
                                         <thead class="bg-slate-100 text-slate-600">
-                                            <tr><th class="p-3 border-b">ID Item</th><th class="p-3 border-b">Nama Barang</th><th class="p-3 border-b">Total Stok Fisik</th></tr>
+                                            <tr><th class="p-3 border-b">ID Item</th><th class="p-3 border-b">Nama Barang</th><th class="p-3 border-b">Stok</th><th class="p-3 border-b text-center">Status DB</th></tr>
                                         </thead>
-                                        <tbody id="tbody-barang">
-                                            <!-- Disuntik lewat JS -->
-                                        </tbody>
+                                        <tbody id="tbody-barang"></tbody>
                                     </table>
                                 </div>
                             </div>
 
-                            <!-- View 3: Data Mahasiswa -->
                             <div id="view-tu-mhs" class="hidden fade-in">
                                 <div class="font-black text-xl text-slate-800 mb-2 border-b border-slate-200 pb-2">Form Data Mahasiswa (Akses Client)</div>
                                 <div class="bg-blue-50 border border-blue-200 text-blue-800 p-3 rounded-lg text-xs mb-4">
-                                    <strong>Info:</strong> Daftarkan NPM di sini agar Mahasiswa bisa login. Klik data pada tabel untuk Edit/Hapus.
+                                    <strong>Info:</strong> Daftarkan NPM di sini agar Mahasiswa bisa login Kiosk.
                                 </div>
                                 <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm mb-4">
-                                    <div class="grid grid-cols-2 gap-3 text-sm mb-4">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm mb-4">
                                         <input type="text" id="in-mhs-npm" placeholder="NPM Mahasiswa" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
                                         <input type="text" id="in-mhs-prodi" placeholder="Program Studi" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
-                                        <input type="text" id="in-mhs-nama" placeholder="Nama Lengkap Mahasiswa" class="p-2 border border-slate-300 rounded col-span-2 focus:border-blue-500 outline-none">
+                                        <input type="text" id="in-mhs-nama" placeholder="Nama Lengkap Mahasiswa" class="p-2 border border-slate-300 rounded md:col-span-2 focus:border-blue-500 outline-none">
                                         <input type="text" id="in-mhs-telp" placeholder="No. Telepon / WA" class="p-2 border border-slate-300 rounded focus:border-blue-500 outline-none">
                                     </div>
                                     <div class="flex gap-2 text-sm font-bold flex-wrap">
-                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors" onclick="actDaftarMhs()">Daftar Baru</button>
-                                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actEditMhs()">Edit Data</button>
-                                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow transition-colors" onclick="actHapusMhs()">Hapus</button>
-                                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded shadow transition-colors" onclick="clearFormMhs()">Clear</button>
+                                        <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="actDaftarMhs()">Daftar Baru</button>
+                                        <button class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="actEditMhs()">Edit Data</button>
+                                        <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="actHapusMhs()">Hapus</button>
+                                        <button class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded shadow transition-colors flex-1 md:flex-none" onclick="clearFormMhs()">Clear</button>
                                     </div>
                                 </div>
-                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm">
-                                    <table class="w-full text-left text-sm">
+                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm overflow-x-auto">
+                                    <table class="w-full text-left text-sm min-w-[500px]">
                                         <thead class="bg-slate-100 text-slate-600">
                                             <tr><th class="p-3 border-b">NPM</th><th class="p-3 border-b">Nama Lengkap</th><th class="p-3 border-b">Prodi</th><th class="p-3 border-b">No. Telp</th></tr>
                                         </thead>
-                                        <tbody id="tbody-mhs">
-                                            <!-- Disuntik lewat JS -->
-                                        </tbody>
+                                        <tbody id="tbody-mhs"></tbody>
                                     </table>
                                 </div>
                             </div>
 
-                            <!-- View 4: Approval -->
                             <div id="view-tu-apprv" class="hidden fade-in">
-                                <div class="font-black text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Form Approval Transaksi Masuk</div>
-                                <div class="bg-amber-50 border border-amber-200 text-amber-800 p-3 rounded-lg text-sm mb-4 flex items-center justify-between">
-                                    <span>Ada <strong id="lbl-apprv-count">0</strong> pengajuan baru yang menunggu persetujuan Anda!</span>
-                                    <span id="anim-apprv-pulse" class="animate-pulse flex h-3 w-3 hidden"><span class="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-amber-400 opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span></span>
+                                <div class="font-black text-xl text-slate-800 mb-2 border-b border-slate-200 pb-2">Approval & Simulasi Trigger DB</div>
+                                <div class="bg-emerald-50 border border-emerald-200 text-emerald-800 p-3 rounded-lg text-xs mb-4">
+                                    Bonus Fitur: Saat Anda klik <strong>ACC</strong> pada peminjaman Barang, sistem akan mensimulasikan <code>TRIGGER MySQL</code> yang berjalan di latar belakang untuk memotong nilai <code>stok_total</code> di tabel Barang secara otomatis!
                                 </div>
-                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm">
-                                    <table class="w-full text-left text-sm">
+                                <div class="border border-slate-200 bg-white rounded-xl overflow-hidden shadow-sm overflow-x-auto">
+                                    <table class="w-full text-left text-sm min-w-[600px]">
                                         <thead class="bg-slate-100 text-slate-600">
-                                            <tr><th class="p-3 border-b">Peminjam</th><th class="p-3 border-b">Item/Ruang</th><th class="p-3 border-b">Tgl Pakai</th><th class="p-3 border-b text-center w-32">Aksi TU</th></tr>
+                                            <tr><th class="p-3 border-b">Peminjam</th><th class="p-3 border-b">Item/Ruang</th><th class="p-3 border-b">Waktu Pakai</th><th class="p-3 border-b text-center w-32">Aksi TU</th></tr>
                                         </thead>
-                                        <tbody id="tbody-approval">
-                                            <!-- Disuntik lewat JS -->
-                                        </tbody>
+                                        <tbody id="tbody-approval"></tbody>
                                     </table>
                                 </div>
                             </div>
 
-                            <!-- View 5: Report -->
                             <div id="view-tu-report" class="hidden fade-in">
-                                <div class="font-black text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Menu Cetak Laporan (JasperReports)</div>
-                                <p class="text-sm text-slate-600 mb-6">Pilih jenis laporan yang ingin di-generate menjadi format PDF. Laporan mengambil data real-time dari database.</p>
+                                <div class="font-black text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Menu Laporan & Analitik (Admin TU)</div>
+                                <p class="text-sm text-slate-600 mb-6">Penerapan Bonus DB: Menggunakan <code>CREATE VIEW v_rekap_peminjaman</code> di MySQL untuk mempermudah Java JasperReports menampilkan data dari proses JOIN banyak tabel.</p>
                                 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div class="border border-slate-200 bg-white p-5 rounded-xl hover:shadow-md transition-all group">
-                                        <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-3">📄</div>
-                                        <h4 class="font-bold text-slate-800">1. Bukti Izin Peminjaman</h4>
-                                        <p class="text-xs text-slate-500 mt-1 mb-3">Format struk/surat izin resmi <strong class="text-slate-700">untuk 1 Transaksi/Peminjam terakhir</strong> yang disetujui (diberikan kepada Satpam/Pengelola).</p>
-                                        <button onclick="openFakePDF('Bukti Izin Terbit (Struk Satpam)')" class="w-full bg-slate-100 group-hover:bg-red-50 group-hover:text-red-700 text-slate-700 font-bold text-xs py-2 rounded border border-slate-200 transition-colors">Generate PDF (Struk)</button>
+                                        <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-3">📅</div>
+                                        <h4 class="font-bold text-slate-800">1. Rekap Jadwal Pemakaian</h4>
+                                        <p class="text-xs text-slate-500 mt-1 mb-3">Laporan rekap seluruh transaksi yang disetujui (ACC).</p>
+                                        <button onclick="openFakePDF('Laporan Rekap Jadwal Pemakaian Bulanan', 'rekap')" class="w-full bg-slate-100 group-hover:bg-blue-50 group-hover:text-blue-700 text-slate-700 font-bold text-xs py-2 rounded border border-slate-200 transition-colors">Generate Rekap (Tabel)</button>
                                     </div>
                                     <div class="border border-slate-200 bg-white p-5 rounded-xl hover:shadow-md transition-all group">
-                                        <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-3">📅</div>
-                                        <h4 class="font-bold text-slate-800">2. Rekap Jadwal Pemakaian</h4>
-                                        <p class="text-xs text-slate-500 mt-1 mb-3">Laporan berbentuk tabel yang merekap <strong class="text-slate-700">Seluruh Transaksi</strong> yang terpakai untuk periode bulanan.</p>
-                                        <button onclick="openFakePDF('Laporan Rekap Jadwal Pemakaian Bulanan')" class="w-full bg-slate-100 group-hover:bg-blue-50 group-hover:text-blue-700 text-slate-700 font-bold text-xs py-2 rounded border border-slate-200 transition-colors">Generate PDF (Tabel)</button>
+                                        <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center mb-3">📦</div>
+                                        <h4 class="font-bold text-slate-800">2. Barang Belum Kembali</h4>
+                                        <p class="text-xs text-slate-500 mt-1 mb-3">Daftar inventaris (barang) yang masih dipinjam mahasiswa.</p>
+                                        <button onclick="showToast('Simulasi: Laporan PDF Barang Keluar berhasil dibuat.')" class="w-full bg-slate-100 group-hover:bg-orange-50 group-hover:text-orange-700 text-slate-700 font-bold text-xs py-2 rounded border border-slate-200 transition-colors">Generate Laporan Barang</button>
                                     </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Fake PDF Viewer Modal (Overlay inside Dashboard) -->
-                            <div id="pdf-modal" class="absolute inset-0 z-50 hidden modal-blur flex items-center justify-center p-4">
-                                <div class="bg-slate-200 w-full h-full max-w-2xl rounded-xl shadow-2xl border border-slate-400 flex flex-col overflow-hidden relative fade-in">
-                                    <!-- PDF Header -->
-                                    <div class="bg-slate-800 text-white p-3 flex justify-between items-center text-sm shadow-md z-10">
-                                        <div class="flex items-center gap-2">
-                                            <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 110-2H7z" clip-rule="evenodd"></path></svg>
-                                            JasperViewer Mockup
-                                        </div>
-                                        <div class="flex gap-3">
-                                            <button onclick="downloadFakePDF()" class="text-xs bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded font-bold transition-colors pointer-events-auto">📥 Download .pdf</button>
-                                            <button onclick="closeFakePDF()" class="text-xs bg-red-600 hover:bg-red-500 px-3 py-1 rounded font-bold transition-colors pointer-events-auto">Tutup</button>
-                                        </div>
-                                    </div>
-                                    <!-- PDF Body (Paper simulation) -->
-                                    <div class="flex-1 bg-slate-300 p-4 md:p-8 overflow-y-auto flex justify-center">
-                                        <div class="bg-white w-full max-w-[21cm] min-h-[29.7cm] shadow-lg p-10 flex flex-col items-center text-center relative">
-                                            <h1 class="font-black text-2xl uppercase border-b-2 border-black pb-2 mb-6 w-full" id="pdf-title">JUDUL LAPORAN</h1>
-                                            <p class="text-sm text-gray-600 mb-8 w-full text-left border-b border-dashed border-slate-300 pb-4">Dicetak pada: <span id="pdf-date"></span><br>Oleh: Administrator TU</p>
-                                            
-                                            <!-- Container for Dynamic PDF Layout (Receipt OR Table) -->
-                                            <div id="pdf-content-body" class="w-full text-sm">
-                                                <!-- Disuntik lewat JS sesuai jenis Report -->
-                                            </div>
-                                            
-                                            <div class="mt-auto w-full flex justify-end pt-10">
-                                                <div class="text-center">
-                                                    <p class="mb-12 text-sm">Kepala Tata Usaha</p>
-                                                    <p class="font-bold text-sm underline">Drs. Simulasi, M.Kom</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="border border-slate-200 bg-white p-5 rounded-xl hover:shadow-md transition-all group md:col-span-2">
+                                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-3">📊</div>
+                                        <h4 class="font-bold text-slate-800">3. Analitik Peminjam Teraktif</h4>
+                                        <p class="text-xs text-slate-500 mt-1 mb-3">Grafik/Tabel rekap mahasiswa yang paling sering melakukan peminjaman.</p>
+                                        <button onclick="showToast('Simulasi: Laporan Analitik PDF berhasil dibuat.')" class="w-full bg-slate-100 group-hover:bg-purple-50 group-hover:text-purple-700 text-slate-700 font-bold text-xs py-2 rounded border border-slate-200 transition-colors">Generate Analitik</button>
                                     </div>
                                 </div>
                             </div>
@@ -412,10 +479,8 @@
                 </div>
             </div>
 
-            <!-- SIMULATOR MAHASISWA (CLIENT) -->
             <div id="sim-mhs" class="hidden fade-in max-w-5xl mx-auto">
                 
-                <!-- Mhs: Layar Login -->
                 <div id="mhs-login-screen" class="window-mockup max-w-sm mx-auto bg-slate-100">
                     <div class="window-titlebar">
                         <span class="text-xs font-bold text-slate-500">Login Kiosk (Mahasiswa)</span>
@@ -440,49 +505,46 @@
                     </div>
                 </div>
 
-                <!-- Mhs: Layar Dashboard -->
-                <div id="mhs-dash-screen" class="hidden window-mockup bg-white flex flex-col h-[550px]">
+                <div id="mhs-dash-screen" class="hidden window-mockup bg-white flex flex-col h-[650px] md:h-[600px]">
                     <div class="window-titlebar">
                         <span class="text-xs font-bold text-slate-500">Dashboard Mhs - Portal Peminjaman</span>
                         <div class="window-controls"><div class="window-btn btn-min"></div><div class="window-btn btn-max"></div><div class="window-btn btn-close" onclick="doLogoutMhs()"></div></div>
                     </div>
                     
-                    <!-- Top Navbar Mhs -->
                     <div class="bg-emerald-700 text-white p-4 flex flex-col md:flex-row justify-between items-center shadow-md z-10 gap-4">
                         <div class="font-black text-lg flex items-center gap-2">
-                            <svg class="w-6 h-6 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                            <svg class="w-6 h-6 text-emerald-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
                             SIP-Ruang Kiosk
                         </div>
-                        <div class="flex gap-4 md:gap-6 text-sm font-bold overflow-x-auto w-full md:w-auto pb-1 md:pb-0">
-                            <span class="cursor-pointer border-b-2 border-white pb-1 whitespace-nowrap" id="nav-mhs-dash" onclick="switchMenuMhs('dash')">Jadwal Hari Ini</span>
-                            <span class="cursor-pointer text-emerald-200 hover:text-white whitespace-nowrap" id="nav-mhs-book" onclick="switchMenuMhs('book')">Form Pengajuan (5)</span>
-                            <span class="cursor-pointer text-emerald-200 hover:text-white whitespace-nowrap" id="nav-mhs-pwd" onclick="switchMenuMhs('pwd')">Ganti Sandi (6)</span>
+                        <div class="flex gap-4 md:gap-6 text-sm font-bold overflow-x-auto w-full md:w-auto pb-1 md:pb-0 hide-scrollbar">
+                            <span class="cursor-pointer border-b-2 border-white pb-1 whitespace-nowrap" id="nav-mhs-dash" onclick="switchMenuMhs('dash')">Jadwal & Status</span>
+                            <span class="cursor-pointer text-emerald-200 hover:text-white whitespace-nowrap" id="nav-mhs-book" onclick="switchMenuMhs('book')">Form Pengajuan</span>
+                            <span class="cursor-pointer text-emerald-200 hover:text-white whitespace-nowrap" id="nav-mhs-pwd" onclick="switchMenuMhs('pwd')">Pengaturan Akun</span>
                             <span class="cursor-pointer text-red-300 hover:text-red-100 whitespace-nowrap md:ml-4" onclick="doLogoutMhs()">Keluar</span>
                         </div>
                     </div>
 
-                    <!-- Content Mhs -->
-                    <div class="p-6 bg-slate-50 flex-1 overflow-y-auto">
-                        <!-- View: Dashboard Info -->
+                    <div class="p-4 md:p-6 bg-slate-50 flex-1 overflow-y-auto">
                         <div id="view-mhs-dash" class="fade-in">
                             <h3 class="font-bold text-xl text-slate-800 mb-2">Halo, <span id="lbl-active-mhs">Mhs</span> 👋</h3>
-                            <p class="text-sm text-slate-500 mb-6 border-b border-slate-200 pb-4">Berikut adalah status seluruh pengajuan di database saat ini (Termasuk milik Anda).</p>
+                            <p class="text-sm text-slate-500 mb-6 border-b border-slate-200 pb-4">Status pengajuan di database. <strong>Jika disetujui (ACC), Anda dapat mencetak Bukti Izin (PDF & QR) mandiri.</strong></p>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="mhs-schedule-cards">
-                                <!-- Disuntik JS dari Approval yang di-ACC -->
-                            </div>
+                                </div>
                         </div>
 
-                        <!-- View: Booking Form -->
                         <div id="view-mhs-book" class="hidden fade-in">
                             <h3 class="font-bold text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Form Pengajuan Peminjaman</h3>
-                            <div class="bg-white p-5 md:p-8 rounded-xl border border-slate-200 shadow-sm max-w-2xl mx-auto">
-                                <div class="space-y-5 text-sm">
-                                    
-                                    <!-- Auto-fill Section -->
-                                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-4">
+                            <div class="bg-white p-4 md:p-8 rounded-xl border border-slate-200 shadow-sm max-w-2xl mx-auto relative overflow-hidden">
+                                
+                                <div class="hidden md:block absolute top-0 right-0 bg-blue-100 text-blue-700 text-[10px] font-bold px-3 py-1 rounded-bl-lg border-b border-l border-blue-200">
+                                    Level 3: Validasi Real-Time (Event KeyReleased)
+                                </div>
+
+                                <div class="space-y-4 text-sm mt-4 md:mt-0">
+                                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 mb-2">
                                         <label class="block font-bold text-slate-700 mb-2 border-b border-slate-200 pb-1">Identitas Peminjam (Auto-fill)</label>
-                                        <div class="grid grid-cols-2 gap-4">
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             <div>
                                                 <div class="text-xs text-slate-500 font-bold mb-1">NPM Terdaftar</div>
                                                 <input type="text" id="book-autofill-npm" class="w-full border border-slate-200 p-2 rounded bg-slate-200 text-slate-600 font-bold cursor-not-allowed" readonly>
@@ -501,34 +563,48 @@
                                             <option value="barang">📦 Pinjam Barang / Inventaris</option>
                                         </select>
                                     </div>
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <div class="col-span-2 md:col-span-1">
-                                            <label class="block font-bold text-slate-700 mb-1">Tanggal Pakai <span class="text-red-500">*</span></label>
-                                            <input type="date" id="input-tgl" class="w-full border border-slate-300 p-2.5 rounded outline-none focus:border-emerald-500" value="2026-10-25" onchange="renderBookingOptions()">
+
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 bg-slate-50 p-3 rounded border border-slate-200">
+                                        <div class="col-span-1">
+                                            <label class="block font-bold text-slate-700 mb-1">Tgl Pakai <span class="text-red-500">*</span></label>
+                                            <input type="date" id="input-tgl" class="w-full border border-slate-300 p-2.5 rounded outline-none focus:border-emerald-500 bg-white" value="2026-10-25">
                                         </div>
-                                        <div class="col-span-2 md:col-span-1">
+                                        <div class="col-span-1">
+                                            <label class="block font-bold text-slate-700 mb-1">Jam Mulai <span class="text-red-500">*</span></label>
+                                            <input type="time" id="input-jam-mulai" class="w-full border border-slate-300 p-2.5 rounded outline-none focus:border-emerald-500 bg-white" value="08:00" oninput="validateTimeLive()">
+                                        </div>
+                                        <div class="col-span-1">
+                                            <label class="block font-bold text-slate-700 mb-1">Jam Selesai <span class="text-red-500">*</span></label>
+                                            <input type="time" id="input-jam-selesai" class="w-full border border-slate-300 p-2.5 rounded outline-none focus:border-emerald-500 transition-colors bg-white" value="10:00" oninput="validateTimeLive()">
+                                        </div>
+                                        <div id="time-warning" class="col-span-1 md:col-span-3 text-[10px] text-red-600 font-bold hidden blink-anim">
+                                            ⚠️ Peringatan: Jam selesai tidak boleh lebih kecil dari jam mulai! (Simulasi Validasi Interaktif tanpa perlu klik tombol submit)
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <div class="col-span-1 md:col-span-2">
+                                            <label class="block font-bold text-slate-700 mb-1" id="label-item">Pilih Item dari DB <span class="text-red-500">*</span></label>
+                                            <select id="select-item" onchange="updateMaxQty()" class="w-full border border-slate-300 p-2.5 rounded focus:border-emerald-500 outline-none font-medium text-blue-700">
+                                                </select>
+                                        </div>
+                                        <div class="col-span-1">
                                             <label class="block font-bold text-slate-700 mb-1">Qty (Jumlah) <span class="text-red-500">*</span></label>
                                             <input type="number" id="input-qty" class="w-full border border-slate-300 p-2.5 rounded outline-none bg-slate-100" value="1" readonly>
                                         </div>
                                     </div>
-                                    <div>
-                                        <label class="block font-bold text-slate-700 mb-1" id="label-item">Pilih Item Tersedia dari Database <span class="text-red-500">*</span></label>
-                                        <select id="select-item" onchange="updateMaxQty()" class="w-full border border-slate-300 p-2.5 rounded focus:border-emerald-500 outline-none font-medium text-blue-700">
-                                            <!-- Disuntik JS dari DB Server dengan limitasi stok -->
-                                        </select>
-                                    </div>
+                                    
                                     <div>
                                         <label class="block font-bold text-slate-700 mb-1">Keterangan / Keperluan <span class="text-red-500">*</span></label>
-                                        <input type="text" id="input-ket" class="w-full border border-slate-300 p-2.5 rounded outline-none focus:border-emerald-500" placeholder="Contoh: Acara Seminar Himakom, dari jam 10.00 - 13.00">
+                                        <input type="text" id="input-ket" class="w-full border border-slate-300 p-2.5 rounded outline-none focus:border-emerald-500" placeholder="Contoh: Rapat Himpunan">
                                     </div>
-                                    <button onclick="actSubmitBooking()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3 rounded-lg shadow-md transition-all active:scale-95 mt-4">
+                                    <button onclick="actSubmitBooking()" id="btn-submit-booking" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3 rounded-lg shadow-md transition-all active:scale-95 mt-2 flex items-center justify-center gap-2">
                                         KIRIM PENGAJUAN SEKARANG
                                     </button>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- View: Ganti Sandi Form -->
                         <div id="view-mhs-pwd" class="hidden fade-in">
                             <h3 class="font-bold text-xl text-slate-800 mb-4 border-b border-slate-200 pb-2">Form Pengaturan (Ganti Sandi)</h3>
                             <div class="bg-white p-5 md:p-8 rounded-xl border border-slate-200 shadow-sm max-w-md mx-auto mt-8">
@@ -550,30 +626,97 @@
                 </div>
             </div>
 
-            <!-- JAVASCRIPT GLOBAL LOGIC TERPADU -->
+            <div id="pdf-modal" class="absolute inset-0 z-50 hidden modal-blur flex items-center justify-center p-2 md:p-4 print:hidden">
+                <div class="bg-slate-200 w-full h-full max-w-2xl rounded-xl shadow-2xl border border-slate-400 flex flex-col overflow-hidden relative fade-in">
+                    <div class="bg-slate-800 text-white p-3 flex justify-between items-center text-sm shadow-md z-10">
+                        <div class="flex items-center gap-2 text-xs md:text-sm whitespace-nowrap overflow-hidden text-ellipsis">
+                            <svg class="w-4 h-4 text-red-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
+                            JasperViewer Mockup
+                        </div>
+                        <div class="flex gap-2 md:gap-3 shrink-0">
+                            <button onclick="downloadFakePDF()" class="text-[10px] md:text-xs bg-blue-600 hover:bg-blue-500 px-2 md:px-3 py-1 rounded font-bold transition-colors pointer-events-auto">📥 Simpan .pdf</button>
+                            <button onclick="closeFakePDF()" class="text-[10px] md:text-xs bg-red-600 hover:bg-red-500 px-2 md:px-3 py-1 rounded font-bold transition-colors pointer-events-auto">Tutup</button>
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-slate-300 p-2 md:p-8 overflow-y-auto flex justify-center">
+                        <div class="bg-white w-full max-w-[21cm] min-h-[29.7cm] shadow-lg p-6 md:p-10 flex flex-col items-center text-center relative">
+                            <h1 class="font-black text-xl md:text-2xl uppercase border-b-2 border-black pb-2 mb-6 w-full" id="pdf-title">JUDUL LAPORAN</h1>
+                            <p class="text-xs md:text-sm text-gray-600 mb-8 w-full text-left border-b border-dashed border-slate-300 pb-4">Dicetak pada: <span id="pdf-date"></span></p>
+                            
+                            <div id="pdf-content-body" class="w-full text-xs md:text-sm">
+                                </div>
+                            
+                            <div class="mt-auto w-full flex justify-end pt-10">
+                                <div class="text-center" id="pdf-signature">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <script>
-                // 1. STATE MANAGEMENT (Simulasi Database Terpadu)
+                // 1. Splash Screen & Chart Init
+                function initSimulasi() {
+                    let pct = 0; const bar = document.getElementById('splash-bar'); const text = document.getElementById('splash-pct');
+                    const interval = setInterval(() => {
+                        pct += 10; bar.style.width = pct + '%'; text.innerText = pct + '%';
+                        if(pct >= 100) {
+                            clearInterval(interval);
+                            setTimeout(() => {
+                                document.getElementById('splash-screen').style.opacity = '0';
+                                setTimeout(() => document.getElementById('splash-screen').style.display = 'none', 500);
+                            }, 300);
+                        }
+                    }, 80);
+
+                    renderSemua();
+                    initCharts();
+
+                    // Simulasi Auto-Refresh (Timer Polling)
+                    setInterval(() => {
+                        if(!document.getElementById('tu-dash-screen').classList.contains('hidden')) {
+                            renderApproval();
+                        }
+                    }, 3000);
+                }
+
+                // FlatLaf Dark Mode Simulation
+                let isDark = false;
+                function toggleFlatLaf() {
+                    isDark = !isDark;
+                    const mockups = document.querySelectorAll('.window-mockup');
+                    mockups.forEach(m => {
+                        if(isDark) m.classList.add('dark-theme-active');
+                        else m.classList.remove('dark-theme-active');
+                    });
+                    showToast(isDark ? "Tema FlatLaf Dark (Macula) Diaktifkan!" : "Tema FlatLaf Light Diaktifkan!");
+                }
+
+                // 2. STATE MANAGEMENT (Simulasi Database)
                 let db = {
                     ruang: [
                         { id: 'R-001', nama: 'Lab Komputer A', kap: 40 },
                         { id: 'R-002', nama: 'Aula Utama Gd. B', kap: 250 }
                     ],
                     barang: [
-                        { id: 'B-001', nama: 'Proyektor EPSON', stok: 5 },
-                        { id: 'B-002', nama: 'Microphone Wireless', stok: 10 }
+                        { id: 'B-001', nama: 'Proyektor EPSON', stok: 5, isActive: 1 },
+                        { id: 'B-002', nama: 'Microphone Wireless', stok: 10, isActive: 1 },
+                        { id: 'B-003', nama: 'Kabel VGA Rusak (Soft Del)', stok: 2, isActive: 0 }
                     ],
                     mhs: [
-                        { npm: '202343500126', nama: 'Ahmad Dandi Subhani', prodi: 'Teknik Informatika', telp: '081234567890', password: '123456' }
+                        { npm: '202343500126', nama: 'Ahmad Dandi Subhani', prodi: 'Teknik Informatika', telp: '081234567890', password: '123' }
                     ],
                     approval: [
-                        { idTrx: 'TRX-101', npm: '202343500126', nama: 'Ahmad Dandi Subhani', tipe: 'ruang', item: 'Aula Utama Gd. B', tgl: '2026-10-25', qty: 1, ket: 'Acara Himpunan Mahasiswa', status: 'acc', alasan: '' }
+                        { idTrx: 'TRX-101', npm: '202343500126', nama: 'Ahmad Dandi Subhani', tipe: 'ruang', item: 'Aula Utama Gd. B', tgl: '2026-10-25', jamMulai: '08:00', jamSelesai: '12:00', qty: 1, ket: 'Acara Himpunan Mahasiswa', status: 'acc', alasan: '' }
                     ]
                 };
 
                 let currentUserMhs = null;
                 let trxCounter = 102;
+                let myChartPie, myChartBar;
 
-                // 2. TOAST NOTIFICATION SYSTEM
+                // 3. TOAST NOTIFICATION SYSTEM
                 function showToast(message, type='success') {
                     const container = document.getElementById('toast-container');
                     const toast = document.createElement('div');
@@ -582,91 +725,63 @@
                         ? `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`
                         : `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
                     
-                    toast.className = `${bg} text-white px-5 py-3 rounded-xl shadow-xl transform transition-all duration-300 translate-x-20 opacity-0 flex items-center gap-3 font-bold text-sm pointer-events-auto border border-white/20`;
+                    toast.className = `${bg} text-white px-5 py-3 rounded-xl shadow-xl transform transition-all duration-300 translate-x-full md:translate-x-20 opacity-0 flex items-center gap-3 font-bold text-sm pointer-events-auto border border-white/20`;
                     toast.innerHTML = `${icon} ${message}`;
                     container.appendChild(toast);
                     
-                    setTimeout(() => toast.classList.remove('translate-x-20', 'opacity-0'), 10);
+                    setTimeout(() => toast.classList.remove('translate-x-full', 'md:translate-x-20', 'opacity-0'), 10);
                     setTimeout(() => {
-                        toast.classList.add('translate-x-20', 'opacity-0');
+                        toast.classList.add('translate-x-full', 'md:translate-x-20', 'opacity-0');
                         setTimeout(() => toast.remove(), 300);
-                    }, 3000);
+                    }, 4000);
                 }
 
-                // 3. INITIALIZATION
-                function initSimulasi() {
-                    renderSemua();
-                }
-
+                // ================= RENDER FUNCTIONS =================
                 function renderSemua() {
-                    renderRuang();
-                    renderBarang();
-                    renderMhs();
-                    renderApproval();
-                    renderBookingOptions();
-                    renderMhsSchedule();
+                    renderRuang(); renderBarang(); renderMhs(); renderApproval();
+                    renderBookingOptions(); renderMhsSchedule(); updateCharts();
                 }
-
-                // ================= RENDER FUNCTIONS (TU) =================
 
                 function renderRuang() {
-                    const tbody = document.getElementById('tbody-ruang');
-                    tbody.innerHTML = '';
+                    const tbody = document.getElementById('tbody-ruang'); tbody.innerHTML = '';
                     db.ruang.forEach(r => {
                         tbody.innerHTML += `<tr class="hover:bg-blue-50 cursor-pointer" onclick="selectRuang('${r.id}')"><td class="p-3 border-b">${r.id}</td><td class="p-3 border-b font-bold text-slate-700">${r.nama}</td><td class="p-3 border-b">${r.kap} Org</td></tr>`;
                     });
                 }
-
+                
                 function renderBarang() {
-                    const tbody = document.getElementById('tbody-barang');
-                    tbody.innerHTML = '';
+                    const tbody = document.getElementById('tbody-barang'); tbody.innerHTML = '';
+                    const showDeleted = document.getElementById('chk-soft-delete').checked;
                     db.barang.forEach(b => {
-                        tbody.innerHTML += `<tr class="hover:bg-blue-50 cursor-pointer" onclick="selectBarang('${b.id}')"><td class="p-3 border-b">${b.id}</td><td class="p-3 border-b font-bold text-slate-700">${b.nama}</td><td class="p-3 border-b font-bold text-green-600">${b.stok} Unit</td></tr>`;
+                        if (b.isActive === 1 || showDeleted) {
+                            const badge = b.isActive === 1 ? `<span class="bg-green-100 text-green-700 px-2 py-0.5 text-[10px] rounded border border-green-300 font-bold">Aktif</span>` : `<span class="bg-red-100 text-red-700 px-2 py-0.5 text-[10px] rounded border border-red-300 font-bold">Terhapus</span>`;
+                            const rowClass = b.isActive === 0 ? "opacity-60 line-through bg-slate-50" : "hover:bg-blue-50 cursor-pointer";
+                            tbody.innerHTML += `<tr class="${rowClass}" onclick="selectBarang('${b.id}')"><td class="p-3 border-b">${b.id}</td><td class="p-3 border-b font-bold text-slate-700">${b.nama}</td><td class="p-3 border-b font-bold text-blue-600">${b.stok} Unit</td><td class="p-3 border-b text-center">${badge}</td></tr>`;
+                        }
                     });
                 }
-
+                
                 function renderMhs() {
-                    const tbody = document.getElementById('tbody-mhs');
-                    tbody.innerHTML = '';
+                    const tbody = document.getElementById('tbody-mhs'); tbody.innerHTML = '';
                     db.mhs.forEach(m => {
                         tbody.innerHTML += `<tr class="hover:bg-blue-50 cursor-pointer" onclick="selectMhs('${m.npm}')"><td class="p-3 border-b font-bold">${m.npm}</td><td class="p-3 border-b">${m.nama}</td><td class="p-3 border-b">${m.prodi}</td><td class="p-3 border-b">${m.telp}</td></tr>`;
                     });
                 }
-
+                
                 function renderApproval() {
-                    const tbody = document.getElementById('tbody-approval');
-                    tbody.innerHTML = '';
+                    const tbody = document.getElementById('tbody-approval'); tbody.innerHTML = '';
                     let pendingCount = 0;
                     
-                    // reverse to show newest first
                     [...db.approval].reverse().forEach(trx => {
-                        let badgeTipe = trx.tipe === 'ruang' 
-                            ? `<span class="bg-indigo-100 text-indigo-700 text-[10px] px-1 rounded font-bold uppercase mr-1">Ruang</span>`
-                            : `<span class="bg-orange-100 text-orange-700 text-[10px] px-1 rounded font-bold uppercase mr-1">Barang</span>`;
-                        
+                        let badgeTipe = trx.tipe === 'ruang' ? `<span class="bg-indigo-100 text-indigo-700 text-[10px] px-1 rounded font-bold uppercase mr-1">Ruang</span>` : `<span class="bg-orange-100 text-orange-700 text-[10px] px-1 rounded font-bold uppercase mr-1">Barang</span>`;
                         let actionHtml = '';
                         if(trx.status === 'pending') {
                             pendingCount++;
-                            actionHtml = `
-                                <div class="flex gap-1 justify-center">
-                                    <button onclick="actAcc('${trx.idTrx}')" class="bg-green-500 hover:bg-green-600 text-white font-bold text-xs px-2 py-1.5 rounded shadow-sm">ACC</button>
-                                    <button onclick="actTolak('${trx.idTrx}')" class="bg-red-500 hover:bg-red-600 text-white font-bold text-xs px-2 py-1.5 rounded shadow-sm">TOLAK</button>
-                                </div>
-                            `;
+                            actionHtml = `<div class="flex gap-1 justify-center"><button onclick="actAcc('${trx.idTrx}')" class="bg-green-500 hover:bg-green-600 text-white font-bold text-xs px-2 py-1.5 rounded shadow-sm">ACC</button><button onclick="actTolak('${trx.idTrx}')" class="bg-red-500 hover:bg-red-600 text-white font-bold text-xs px-2 py-1.5 rounded shadow-sm">TOLAK</button></div>`;
                         } else if (trx.status === 'acc') {
-                            actionHtml = `
-                                <div class="flex flex-col gap-1 items-center justify-center h-full">
-                                    <div class="bg-green-100 text-green-700 border border-green-300 px-2 py-0.5 rounded font-bold text-[10px] flex items-center gap-1 w-full justify-center"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Disetujui</div>
-                                    <button onclick="actPending('${trx.idTrx}')" class="text-[10px] w-full border border-slate-300 bg-white text-slate-600 px-2 py-0.5 rounded font-bold hover:bg-slate-100 transition-colors">Ubah Batal</button>
-                                </div>
-                            `;
+                            actionHtml = `<div class="flex flex-col gap-1 items-center justify-center h-full"><div class="bg-green-100 text-green-700 border border-green-300 px-2 py-0.5 rounded font-bold text-[10px] flex items-center gap-1 w-full justify-center">Disetujui</div><button onclick="actPending('${trx.idTrx}')" class="text-[10px] w-full border border-slate-300 bg-white text-slate-600 px-2 py-0.5 rounded font-bold hover:bg-slate-100 transition-colors">Batal (Pending)</button></div>`;
                         } else {
-                            actionHtml = `
-                                <div class="flex flex-col gap-1 items-center justify-center h-full">
-                                    <div class="bg-red-100 text-red-700 border border-red-300 px-2 py-0.5 rounded font-bold text-[10px] flex items-center gap-1 w-full justify-center" title="${trx.alasan}"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg> Ditolak</div>
-                                    <button onclick="actPending('${trx.idTrx}')" class="text-[10px] w-full border border-slate-300 bg-white text-slate-600 px-2 py-0.5 rounded font-bold hover:bg-slate-100 transition-colors">Ubah Batal</button>
-                                </div>
-                            `;
+                            actionHtml = `<div class="flex flex-col gap-1 items-center justify-center h-full"><div class="bg-red-100 text-red-700 border border-red-300 px-2 py-0.5 rounded font-bold text-[10px] flex items-center gap-1 w-full justify-center" title="${trx.alasan}">Ditolak</div><button onclick="actPending('${trx.idTrx}')" class="text-[10px] w-full border border-slate-300 bg-white text-slate-600 px-2 py-0.5 rounded font-bold hover:bg-slate-100 transition-colors">Batal (Pending)</button></div>`;
                         }
 
                         let rowClass = trx.status === 'acc' ? 'bg-green-50/50' : (trx.status === 'tolak' ? 'bg-red-50/50' : 'bg-white');
@@ -675,151 +790,65 @@
                             <tr class="${rowClass}">
                                 <td class="p-3 border-b font-medium text-slate-800 leading-tight"><div class="text-[10px] text-slate-400">${trx.npm}</div>${trx.nama}</td>
                                 <td class="p-3 border-b leading-tight"><div class="mb-1">${badgeTipe}</div><div class="font-bold text-slate-700 text-xs">${trx.item} <span class="font-normal text-slate-500">(x${trx.qty})</span></div></td>
-                                <td class="p-3 border-b text-xs font-bold text-slate-600">${trx.tgl}</td>
+                                <td class="p-3 border-b text-xs font-bold text-slate-600">${trx.tgl} <div class="text-[10px] font-normal text-slate-500">Jam: ${trx.jamMulai} - ${trx.jamSelesai}</div></td>
                                 <td class="p-2 border-b text-center align-middle">${actionHtml}</td>
                             </tr>
                         `;
                     });
 
-                    // Update badges
-                    document.getElementById('lbl-apprv-count').innerText = pendingCount;
-                    const badgeMenu = document.getElementById('badge-menu-apprv');
-                    const pulse = document.getElementById('anim-apprv-pulse');
-                    if(pendingCount > 0) {
-                        badgeMenu.classList.remove('hidden');
-                        badgeMenu.innerText = pendingCount;
-                        pulse.classList.remove('hidden');
-                    } else {
-                        badgeMenu.classList.add('hidden');
-                        pulse.classList.add('hidden');
-                    }
+                    const badgeMenu = document.getElementById('badge-menu-apprv'); 
+                    if(pendingCount > 0) { badgeMenu.classList.remove('hidden'); badgeMenu.innerText = pendingCount; } 
+                    else { badgeMenu.classList.add('hidden'); }
                 }
 
-                // ================= ACTION CRUD TU (SIMPAN, EDIT, HAPUS) =================
+                // ================= ACTION CRUD RUANGAN =================
+                function selectRuang(id) { const r = db.ruang.find(x => x.id === id); if(r) { document.getElementById('in-ruang-id').value = r.id; document.getElementById('in-ruang-id').readOnly = true; document.getElementById('in-ruang-kap').value = r.kap; document.getElementById('in-ruang-nama').value = r.nama; } }
+                function clearFormRuang() { document.getElementById('in-ruang-id').value = ''; document.getElementById('in-ruang-id').readOnly = false; document.getElementById('in-ruang-kap').value = ''; document.getElementById('in-ruang-nama').value = ''; }
+                function actSimpanRuang() { const id = document.getElementById('in-ruang-id').value; const kap = document.getElementById('in-ruang-kap').value; const nama = document.getElementById('in-ruang-nama').value; if(!id || !nama || !kap) return showToast("Isi semua field!", "error"); if(db.ruang.find(x => x.id === id)) return showToast("ID sudah ada!", "error"); db.ruang.push({id, nama, kap}); clearFormRuang(); renderSemua(); showToast("Ruangan disimpan!"); }
+                function actEditRuang() { const id = document.getElementById('in-ruang-id').value; const kap = document.getElementById('in-ruang-kap').value; const nama = document.getElementById('in-ruang-nama').value; const r = db.ruang.find(x => x.id === id); if(r) { r.kap = kap; r.nama = nama; clearFormRuang(); renderSemua(); showToast("Diupdate!"); } }
+                function actHapusRuang() { const id = document.getElementById('in-ruang-id').value; db.ruang = db.ruang.filter(x => x.id !== id); clearFormRuang(); renderSemua(); showToast("Dihapus permanen (DELETE FROM).", "error"); }
 
-                // ---- RUANGAN ----
-                function selectRuang(id) {
-                    const r = db.ruang.find(x => x.id === id);
-                    if(r) {
-                        document.getElementById('in-ruang-id').value = r.id;
-                        document.getElementById('in-ruang-id').readOnly = true; // Kunci PK
-                        document.getElementById('in-ruang-id').classList.add('bg-slate-100', 'cursor-not-allowed');
-                        document.getElementById('in-ruang-kap').value = r.kap;
-                        document.getElementById('in-ruang-nama').value = r.nama;
-                    }
-                }
-                function clearFormRuang() {
-                    document.getElementById('in-ruang-id').value = '';
-                    document.getElementById('in-ruang-id').readOnly = false;
-                    document.getElementById('in-ruang-id').classList.remove('bg-slate-100', 'cursor-not-allowed');
-                    document.getElementById('in-ruang-kap').value = '';
-                    document.getElementById('in-ruang-nama').value = '';
-                }
-                function actSimpanRuang() {
-                    const id = document.getElementById('in-ruang-id').value;
-                    const kap = document.getElementById('in-ruang-kap').value;
-                    const nama = document.getElementById('in-ruang-nama').value;
-                    if(!id || !nama || !kap) return showToast("Isi ID, Nama, dan Kapasitas!", "error");
-                    if(db.ruang.find(x => x.id === id)) return showToast("ID Ruang sudah ada! Gunakan tombol Edit.", "error");
-                    
-                    db.ruang.push({id, nama, kap});
-                    clearFormRuang();
-                    renderRuang(); renderBookingOptions();
-                    showToast("Ruangan berhasil disimpan ke Database!");
-                }
-                function actEditRuang() {
-                    const id = document.getElementById('in-ruang-id').value;
-                    const kap = document.getElementById('in-ruang-kap').value;
-                    const nama = document.getElementById('in-ruang-nama').value;
-                    if(!id) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
-                    
-                    const r = db.ruang.find(x => x.id === id);
-                    if(r) {
-                        r.kap = kap; r.nama = nama;
-                        clearFormRuang();
-                        renderRuang(); renderBookingOptions();
-                        showToast("Data Ruangan berhasil diupdate!");
-                    }
-                }
-                function actHapusRuang() {
-                    const id = document.getElementById('in-ruang-id').value;
-                    if(!id) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
-                    
-                    db.ruang = db.ruang.filter(x => x.id !== id);
-                    clearFormRuang();
-                    renderRuang(); renderBookingOptions();
-                    showToast("Data Ruangan berhasil dihapus!");
-                }
-
-                // ---- BARANG ----
-                function selectBarang(id) {
+                // ================= ACTION CRUD BARANG =================
+                function selectBarang(id) { const b = db.barang.find(x => x.id === id); if(b) { document.getElementById('in-brg-id').value = b.id; document.getElementById('in-brg-id').readOnly = true; document.getElementById('in-brg-stok').value = b.stok; document.getElementById('in-brg-nama').value = b.nama; } }
+                function clearFormBarang() { document.getElementById('in-brg-id').value = ''; document.getElementById('in-brg-id').readOnly = false; document.getElementById('in-brg-stok').value = ''; document.getElementById('in-brg-nama').value = ''; }
+                function actSimpanBarang() { const id = document.getElementById('in-brg-id').value; const stok = document.getElementById('in-brg-stok').value; const nama = document.getElementById('in-brg-nama').value; if(!id || !nama || !stok) return showToast("Isi semua field!", "error"); db.barang.push({id, nama, stok: parseInt(stok), isActive: 1}); clearFormBarang(); renderSemua(); showToast("Barang disimpan!"); }
+                function actEditBarang() { const id = document.getElementById('in-brg-id').value; const stok = document.getElementById('in-brg-stok').value; const nama = document.getElementById('in-brg-nama').value; const b = db.barang.find(x => x.id === id); if(b) { b.stok = parseInt(stok); b.nama = nama; clearFormBarang(); renderSemua(); showToast("Diupdate!"); } }
+                function actHapusSoftBarang() { 
+                    const id = document.getElementById('in-brg-id').value; 
                     const b = db.barang.find(x => x.id === id);
                     if(b) {
-                        document.getElementById('in-brg-id').value = b.id;
-                        document.getElementById('in-brg-id').readOnly = true; // Kunci PK
-                        document.getElementById('in-brg-id').classList.add('bg-slate-100', 'cursor-not-allowed');
-                        document.getElementById('in-brg-stok').value = b.stok;
-                        document.getElementById('in-brg-nama').value = b.nama;
-                    }
+                        if(b.isActive === 0) return showToast("Data sudah berstatus terhapus!", "error");
+                        b.isActive = 0;
+                        clearFormBarang(); renderSemua();
+                        showToast(`Simulasi DB: UPDATE tb_barang SET is_active = 0 WHERE id = '${id}'`);
+                    } else { showToast("Pilih data dulu!", "error"); }
                 }
-                function clearFormBarang() {
-                    document.getElementById('in-brg-id').value = '';
-                    document.getElementById('in-brg-id').readOnly = false;
-                    document.getElementById('in-brg-id').classList.remove('bg-slate-100', 'cursor-not-allowed');
-                    document.getElementById('in-brg-stok').value = '';
-                    document.getElementById('in-brg-nama').value = '';
-                }
-                function actSimpanBarang() {
-                    const id = document.getElementById('in-brg-id').value;
-                    const stok = document.getElementById('in-brg-stok').value;
-                    const nama = document.getElementById('in-brg-nama').value;
-                    if(!id || !nama || !stok) return showToast("Isi ID, Nama, dan Stok!", "error");
-                    if(db.barang.find(x => x.id === id)) return showToast("ID Barang sudah ada! Gunakan tombol Edit.", "error");
-                    
-                    db.barang.push({id, nama, stok: parseInt(stok)});
-                    clearFormBarang();
-                    renderBarang(); renderBookingOptions();
-                    showToast("Barang/Inventaris berhasil disimpan!");
-                }
-                function actEditBarang() {
-                    const id = document.getElementById('in-brg-id').value;
-                    const stok = document.getElementById('in-brg-stok').value;
-                    const nama = document.getElementById('in-brg-nama').value;
-                    if(!id) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
-                    
+                function actRestoreBarang() {
+                    const id = document.getElementById('in-brg-id').value; 
                     const b = db.barang.find(x => x.id === id);
                     if(b) {
-                        b.stok = parseInt(stok); b.nama = nama;
-                        clearFormBarang();
-                        renderBarang(); renderBookingOptions();
-                        showToast("Data Barang berhasil diupdate!");
-                    }
-                }
-                function actHapusBarang() {
-                    const id = document.getElementById('in-brg-id').value;
-                    if(!id) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
-                    
-                    db.barang = db.barang.filter(x => x.id !== id);
-                    clearFormBarang();
-                    renderBarang(); renderBookingOptions();
-                    showToast("Data Barang berhasil dihapus!");
+                        if(b.isActive === 1) return showToast("Data masih berstatus aktif!", "error");
+                        b.isActive = 1;
+                        clearFormBarang(); renderSemua();
+                        showToast(`Simulasi DB: UPDATE tb_barang SET is_active = 1 WHERE id = '${id}'`);
+                    } else { showToast("Pilih data terhapus dari tabel dulu!", "error"); }
                 }
 
-                // ---- MAHASISWA ----
-                function selectMhs(npm) {
-                    const m = db.mhs.find(x => x.npm === npm);
-                    if(m) {
-                        document.getElementById('in-mhs-npm').value = m.npm;
-                        document.getElementById('in-mhs-npm').readOnly = true; // Kunci PK
+                // ================= ACTION CRUD MAHASISWA =================
+                function selectMhs(npm) { 
+                    const m = db.mhs.find(x => x.npm === npm); 
+                    if(m) { 
+                        document.getElementById('in-mhs-npm').value = m.npm; 
+                        document.getElementById('in-mhs-npm').readOnly = true; 
                         document.getElementById('in-mhs-npm').classList.add('bg-slate-100', 'cursor-not-allowed');
                         document.getElementById('in-mhs-prodi').value = m.prodi;
                         document.getElementById('in-mhs-nama').value = m.nama;
                         document.getElementById('in-mhs-telp').value = m.telp;
-                    }
+                    } 
                 }
                 function clearFormMhs() {
-                    document.getElementById('in-mhs-npm').value = '';
-                    document.getElementById('in-mhs-npm').readOnly = false;
+                    document.getElementById('in-mhs-npm').value = ''; 
+                    document.getElementById('in-mhs-npm').readOnly = false; 
                     document.getElementById('in-mhs-npm').classList.remove('bg-slate-100', 'cursor-not-allowed');
                     document.getElementById('in-mhs-prodi').value = '';
                     document.getElementById('in-mhs-nama').value = '';
@@ -830,131 +859,152 @@
                     const prodi = document.getElementById('in-mhs-prodi').value;
                     const nama = document.getElementById('in-mhs-nama').value;
                     const telp = document.getElementById('in-mhs-telp').value;
-                    if(!npm || !nama || !telp) return showToast("Isi NPM, Nama, dan No. Telp!", "error");
-                    if(db.mhs.find(m => m.npm === npm)) return showToast("NPM sudah terdaftar! Gunakan tombol Edit.", "error");
-
-                    db.mhs.push({npm, nama, prodi, telp, password: '123456'}); 
-                    clearFormMhs();
-                    renderMhs();
-                    showToast(`Akun Mahasiswa sukses didaftarkan! (Sandi Default: 123456)`);
+                    if(!npm || !nama) return showToast("NPM dan Nama wajib diisi!", "error");
+                    if(db.mhs.find(x => x.npm === npm)) return showToast("NPM sudah terdaftar!", "error");
+                    db.mhs.push({npm, nama, prodi, telp, password: '123'});
+                    clearFormMhs(); renderSemua(); showToast("Mahasiswa berhasil didaftarkan!");
                 }
                 function actEditMhs() {
                     const npm = document.getElementById('in-mhs-npm').value;
-                    const prodi = document.getElementById('in-mhs-prodi').value;
-                    const nama = document.getElementById('in-mhs-nama').value;
-                    const telp = document.getElementById('in-mhs-telp').value;
-                    if(!npm) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
-                    
                     const m = db.mhs.find(x => x.npm === npm);
                     if(m) {
-                        m.prodi = prodi; m.nama = nama; m.telp = telp;
-                        clearFormMhs();
-                        renderMhs();
-                        showToast("Data Mahasiswa berhasil diupdate!");
+                        m.prodi = document.getElementById('in-mhs-prodi').value;
+                        m.nama = document.getElementById('in-mhs-nama').value;
+                        m.telp = document.getElementById('in-mhs-telp').value;
+                        clearFormMhs(); renderSemua(); showToast("Data Mahasiswa diupdate!");
                     }
                 }
                 function actHapusMhs() {
                     const npm = document.getElementById('in-mhs-npm').value;
-                    if(!npm) return showToast("Pilih data dari tabel terlebih dahulu!", "error");
-                    
                     db.mhs = db.mhs.filter(x => x.npm !== npm);
-                    clearFormMhs();
-                    renderMhs();
-                    showToast("Data Mahasiswa berhasil dihapus!");
+                    clearFormMhs(); renderSemua(); showToast("Data Mahasiswa dihapus!", "error");
                 }
 
-                // ---- APPROVAL ACTIONS ----
+                // ================= ACTION APPROVAL TRANSAKSI =================
                 function actAcc(idTrx) {
                     const trx = db.approval.find(t => t.idTrx === idTrx);
-                    if(trx) trx.status = 'acc';
-                    renderApproval(); renderMhsSchedule(); renderBookingOptions();
-                    showToast("Pengajuan disetujui!");
+                    if(trx) {
+                        trx.status = 'acc';
+                        trx.alasan = '';
+                        if(trx.tipe === 'barang') {
+                            const b = db.barang.find(x => x.nama === trx.item);
+                            if(b) {
+                                b.stok -= trx.qty;
+                                setTimeout(() => {
+                                    showToast(`⚙️ TRIGGER DB JALAN: Stok '${b.nama}' otomatis dipotong ${trx.qty} di Master!`);
+                                    renderSemua();
+                                }, 500);
+                            }
+                        } else {
+                            showToast("Pengajuan Ruangan disetujui!");
+                        }
+                        renderSemua();
+                    }
                 }
-                function actTolak(idTrx) {
-                    const trx = db.approval.find(t => t.idTrx === idTrx);
-                    if(trx) { trx.status = 'tolak'; trx.alasan = 'Ditolak Admin (Jadwal Bentrok / Stok Kosong)'; }
-                    renderApproval(); renderMhsSchedule(); renderBookingOptions();
-                    showToast("Pengajuan ditolak!", "error");
+                function actTolak(idTrx) { 
+                    const trx = db.approval.find(t => t.idTrx === idTrx); 
+                    if(trx) { 
+                        trx.status = 'tolak'; 
+                        trx.alasan = 'Ditolak Admin'; 
+                        renderSemua(); 
+                        showToast("Ditolak!", "error"); 
+                    } 
                 }
-                function actPending(idTrx) {
-                    const trx = db.approval.find(t => t.idTrx === idTrx);
-                    if(trx) { trx.status = 'pending'; trx.alasan = ''; }
-                    renderApproval(); renderMhsSchedule(); renderBookingOptions();
-                    showToast("Status dikembalikan menjadi Pending.");
+                function actPending(idTrx) { 
+                    const trx = db.approval.find(t => t.idTrx === idTrx); 
+                    if(trx) { 
+                        if(trx.status === 'acc' && trx.tipe === 'barang') {
+                            const b = db.barang.find(x => x.nama === trx.item);
+                            if(b) b.stok += trx.qty;
+                        }
+                        trx.status = 'pending'; trx.alasan = ''; 
+                        renderSemua(); showToast("Dikembalikan ke Pending."); 
+                    } 
                 }
 
+                // ================= CHART.JS SIMULATION =================
+                function initCharts() {
+                    const ctxPie = document.getElementById('chartPie').getContext('2d');
+                    const ctxBar = document.getElementById('chartBar').getContext('2d');
+                    
+                    myChartPie = new Chart(ctxPie, {
+                        type: 'doughnut', data: { labels: [], datasets: [{ data: [], backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444'] }] },
+                        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels:{boxWidth:10, font:{size:10}} } } }
+                    });
+                    myChartBar = new Chart(ctxBar, {
+                        type: 'bar', data: { labels: ['Sen', 'Sel', 'Rab', 'Kam', 'Jum'], datasets: [{ label: 'Total Booking', data: [0,0,0,0,0], backgroundColor: '#6366f1', borderRadius: 4 }] },
+                        options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, ticks:{stepSize:1} } }, plugins: { legend: {display: false} } }
+                    });
+                }
+                function updateCharts() {
+                    if(myChartPie) {
+                        const bData = db.barang.filter(b=>b.isActive===1);
+                        myChartPie.data.labels = bData.map(b=>b.nama);
+                        myChartPie.data.datasets[0].data = bData.map(b=>b.stok);
+                        myChartPie.update();
+                    }
+                    if(myChartBar) {
+                        let totalTrx = db.approval.length;
+                        myChartBar.data.datasets[0].data = [1, 2, totalTrx, 0, 1];
+                        myChartBar.update();
+                    }
+                }
 
-                // ================= LOGIC CLIENT (MAHASISWA) & KETERSEDIAAN =================
+                // ================= LOGIC CLIENT (MAHASISWA) & VALIDASI =================
 
                 function renderBookingOptions() {
                     const tipe = document.getElementById('select-tipe').value;
                     const selectItem = document.getElementById('select-item');
-                    const labelItem = document.getElementById('label-item');
                     const inputQty = document.getElementById('input-qty');
-                    const inputTgl = document.getElementById('input-tgl').value;
                     
                     if(!selectItem) return;
-
                     selectItem.innerHTML = '';
+                    
                     if (tipe === 'ruang') {
-                        labelItem.innerHTML = 'Pilih Ruang yang Tersedia <span class="text-red-500">*</span>';
-                        db.ruang.forEach(r => {
-                            // Cek apakah ruangan ini sudah di-ACC pada tanggal yang dipilih
-                            const isBooked = db.approval.some(trx => trx.tipe === 'ruang' && trx.item.includes(r.nama) && trx.tgl === inputTgl && trx.status === 'acc');
-                            
-                            if(isBooked) {
-                                selectItem.innerHTML += `<option value="${r.nama}" disabled class="bg-slate-200 text-red-500">❌ ${r.id} | ${r.nama} (Penuh pada tgl ini)</option>`;
-                            } else {
-                                selectItem.innerHTML += `<option value="${r.nama}">${r.id} | ${r.nama} (Kap: ${r.kap} Org)</option>`;
-                            }
-                        });
-                        inputQty.value = 1;
-                        inputQty.readOnly = true;
-                        inputQty.classList.add('bg-slate-100');
-                        inputQty.max = 1;
+                        db.ruang.forEach(r => { selectItem.innerHTML += `<option value="${r.nama}">${r.id} | ${r.nama}</option>`; });
+                        inputQty.value = 1; inputQty.readOnly = true; inputQty.classList.add('bg-slate-100');
                     } else {
-                        labelItem.innerHTML = 'Pilih Inventaris / Barang <span class="text-red-500">*</span>';
-                        db.barang.forEach(b => {
-                            // Hitung stok yang sedang keluar
-                            const usedQty = db.approval
-                                .filter(trx => trx.tipe === 'barang' && trx.item.includes(b.nama) && (trx.status === 'acc' || trx.status === 'pending'))
-                                .reduce((sum, trx) => sum + parseInt(trx.qty), 0);
-                            
-                            const sisa = b.stok - usedQty;
-                            
-                            if(sisa > 0) {
-                                selectItem.innerHTML += `<option value="${b.nama}" data-max="${sisa}">${b.id} | ${b.nama} (Sisa Stok Tersedia: ${sisa})</option>`;
-                            } else {
-                                selectItem.innerHTML += `<option value="${b.nama}" disabled class="bg-slate-200 text-red-500">❌ ${b.id} | ${b.nama} (Stok Habis!)</option>`;
-                            }
+                        db.barang.filter(b => b.isActive === 1).forEach(b => {
+                            const usedQty = db.approval.filter(trx => trx.tipe === 'barang' && trx.item.includes(b.nama) && (trx.status === 'acc' || trx.status === 'pending')).reduce((sum, trx) => sum + parseInt(trx.qty), 0);
+                            const sisa = b.stok - usedQty; 
+                            if(sisa > 0 || b.stok > 0) { selectItem.innerHTML += `<option value="${b.nama}" data-max="${b.stok}">${b.id} | ${b.nama} (Stok Tersedia)</option>`; } 
+                            else { selectItem.innerHTML += `<option value="${b.nama}" disabled class="bg-slate-200 text-red-500">❌ ${b.id} | ${b.nama} (Stok Habis!)</option>`; }
                         });
-                        inputQty.value = 1;
-                        inputQty.readOnly = false;
-                        inputQty.classList.remove('bg-slate-100');
+                        inputQty.value = 1; inputQty.readOnly = false; inputQty.classList.remove('bg-slate-100');
                     }
-                    updateMaxQty();
                 }
 
                 function updateMaxQty() {
                     const tipe = document.getElementById('select-tipe').value;
                     const inputQty = document.getElementById('input-qty');
                     const selectItem = document.getElementById('select-item');
-                    
                     if(tipe === 'barang' && selectItem.options[selectItem.selectedIndex]) {
                         const max = selectItem.options[selectItem.selectedIndex].getAttribute('data-max');
                         if (max) {
                             inputQty.max = max;
                             inputQty.oninput = function() {
-                                if(parseInt(this.value) > parseInt(max)) {
-                                    this.value = max;
-                                    showToast(`Sisa stok saat ini hanya ${max} unit!`, 'error');
-                                } else if (parseInt(this.value) < 1 || this.value === '') {
-                                    this.value = 1;
-                                }
+                                if(parseInt(this.value) > parseInt(max)) { this.value = max; showToast(`Sisa stok master hanya ${max} unit!`, 'error'); } 
+                                else if (parseInt(this.value) < 1 || this.value === '') { this.value = 1; }
                             };
                         }
+                    } else { inputQty.oninput = null; }
+                }
+
+                // VALIDASI REAL-TIME (Simulasi Event KeyReleased)
+                function validateTimeLive() {
+                    const start = document.getElementById('input-jam-mulai');
+                    const end = document.getElementById('input-jam-selesai');
+                    const warn = document.getElementById('time-warning');
+                    const btn = document.getElementById('btn-submit-booking');
+                    
+                    if(start.value && end.value && end.value <= start.value) {
+                        end.classList.add('border-red-500', 'bg-red-50', 'text-red-700');
+                        warn.classList.remove('hidden');
+                        btn.disabled = true; btn.classList.add('opacity-50', 'cursor-not-allowed', 'bg-slate-400');
                     } else {
-                        inputQty.oninput = null; // lepas binding
+                        end.classList.remove('border-red-500', 'bg-red-50', 'text-red-700');
+                        warn.classList.add('hidden');
+                        btn.disabled = false; btn.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-slate-400');
                     }
                 }
 
@@ -964,59 +1014,65 @@
                     const selectItem = document.getElementById('select-item');
                     const item = selectItem.value;
                     const tgl = document.getElementById('input-tgl').value;
+                    const jamMulai = document.getElementById('input-jam-mulai').value;
+                    const jamSelesai = document.getElementById('input-jam-selesai').value;
                     const qty = document.getElementById('input-qty').value;
                     const ket = document.getElementById('input-ket').value;
 
-                    if(selectItem.options[selectItem.selectedIndex] && selectItem.options[selectItem.selectedIndex].disabled) {
-                         return showToast("Pilihan tidak tersedia. Silakan pilih item atau tanggal lain!", "error");
+                    if(selectItem.options[selectItem.selectedIndex] && selectItem.options[selectItem.selectedIndex].disabled) { return showToast("Pilihan tidak tersedia!", "error"); }
+                    if(!item || !ket || !tgl || !jamMulai || !jamSelesai) return showToast("Lengkapi semua field (Tgl & Jam)!", "error");
+                    if(jamMulai >= jamSelesai) return showToast("Jam Mulai harus lebih kecil dari Jam Selesai!", "error");
+
+                    // Cek Anti-Bentrok Ruangan
+                    if(tipe === 'ruang') {
+                        const isOverlap = db.approval.some(trx => 
+                            (trx.status === 'acc' || trx.status === 'pending') && trx.tipe === 'ruang' && trx.item === item && trx.tgl === tgl &&
+                            ((jamMulai >= trx.jamMulai && jamMulai < trx.jamSelesai) || 
+                             (jamSelesai > trx.jamMulai && jamSelesai <= trx.jamSelesai) || 
+                             (jamMulai <= trx.jamMulai && jamSelesai >= trx.jamSelesai))
+                        );
+                        if(isOverlap) return showToast(`Bentrok! ${item} sudah dibooking pada jam tersebut. Silakan ganti jam.`, "error");
                     }
-                    if(!item || !ket || !tgl) return showToast("Harap lengkapi semua field dan tanggal pemakaian!", "error");
 
                     db.approval.push({
-                        idTrx: 'TRX-' + trxCounter++,
-                        npm: currentUserMhs.npm,
-                        nama: currentUserMhs.nama,
-                        tipe: tipe,
-                        item: item,
-                        qty: parseInt(qty),
-                        tgl: tgl,
-                        ket: ket,
-                        status: 'pending'
+                        idTrx: 'TRX-' + trxCounter++, npm: currentUserMhs.npm, nama: currentUserMhs.nama,
+                        tipe: tipe, item: item, qty: parseInt(qty), tgl: tgl, jamMulai: jamMulai, jamSelesai: jamSelesai, ket: ket, status: 'pending', alasan: ''
                     });
 
                     document.getElementById('input-ket').value = '';
-                    
-                    renderApproval(); 
-                    renderMhsSchedule();
-                    renderBookingOptions(); 
-                    switchMenuMhs('dash');
-                    
-                    showToast("Sukses! Data dikirim ke Server TU.");
+                    renderSemua(); switchMenuMhs('dash');
+                    showToast("Sukses dikirim via Socket! (Cek layar TU pasti update otomatis berkat Timer)");
                 }
 
                 function renderMhsSchedule() {
-                    const container = document.getElementById('mhs-schedule-cards');
-                    container.innerHTML = '';
+                    if(!currentUserMhs) return;
+                    const container = document.getElementById('mhs-schedule-cards'); container.innerHTML = '';
                     let hasData = false;
                     [...db.approval].reverse().forEach(trx => {
-                        if(trx.status === 'tolak') return;
+                        if(trx.npm !== currentUserMhs.npm) return;
                         hasData = true;
-                        let badgeColor = trx.status === 'acc' ? 'bg-green-100 text-green-700 border-green-200' : 'bg-amber-100 text-amber-700 border-amber-200';
-                        let badgeText = trx.status === 'acc' ? 'Telah Disetujui (Dibooking)' : 'Menunggu Approval TU';
-                        let borderLeft = trx.status === 'acc' ? 'border-l-emerald-500' : 'border-l-amber-500';
+                        let badgeColor = trx.status === 'acc' ? 'bg-green-100 text-green-700 border-green-200' : (trx.status === 'pending' ? 'bg-amber-100 text-amber-700 border-amber-200' : 'bg-red-100 text-red-700 border-red-200');
+                        let badgeText = trx.status === 'acc' ? 'Disetujui (ACC)' : (trx.status === 'pending' ? 'Menunggu Approval' : 'Ditolak');
+                        let borderLeft = trx.status === 'acc' ? 'border-l-emerald-500' : (trx.status === 'pending' ? 'border-l-amber-500' : 'border-l-red-500');
+                        
+                        let cetakBtn = '';
+                        if(trx.status === 'acc') {
+                            cetakBtn = `<button onclick="openFakePDF('Bukti Izin Terbit (Struk Mhs)', '${trx.idTrx}')" class="mt-3 w-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs py-1.5 rounded transition-colors flex items-center justify-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg> CETAK BUKTI IZIN</button>`;
+                        }
 
                         container.innerHTML += `
-                            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 border-l-4 ${borderLeft} relative overflow-hidden">
-                                <div class="font-bold text-slate-800 text-lg">${trx.item} <span class="text-xs font-normal text-slate-400 border border-slate-200 px-1 rounded ml-1 bg-slate-50">x${trx.qty}</span></div>
-                                <div class="text-xs text-slate-500 mt-1">${trx.tgl} (Oleh: ${trx.nama})</div>
-                                <div class="mt-3 text-xs font-bold ${badgeColor} px-2 py-1 rounded inline-block border">${badgeText}</div>
+                            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 border-l-4 ${borderLeft} flex flex-col">
+                                <div class="flex justify-between items-start mb-1">
+                                    <div class="font-bold text-slate-800 text-lg leading-tight">${trx.item} <span class="text-[10px] font-normal text-slate-400 border px-1 rounded ml-1 bg-slate-50 align-top">x${trx.qty}</span></div>
+                                    <div class="text-[10px] font-bold ${badgeColor} px-1.5 py-0.5 rounded border text-center leading-tight whitespace-nowrap">${badgeText}</div>
+                                </div>
+                                <div class="text-xs text-slate-500 font-bold text-blue-600 mb-1">${trx.tgl} (Jam: ${trx.jamMulai} - ${trx.jamSelesai})</div>
+                                <div class="mt-auto">${cetakBtn}</div>
                             </div>
                         `;
                     });
 
-                    if(!hasData) {
-                        container.innerHTML = `<div class="col-span-2 text-center text-slate-400 p-4 border-2 border-dashed border-slate-200 rounded-xl">Belum ada pengajuan terdaftar di sistem.</div>`;
-                    }
+                    if(!hasData) container.innerHTML = `<div class="col-span-1 md:col-span-2 text-center text-slate-400 p-4 border-2 border-dashed border-slate-200 rounded-xl">Belum ada jadwal terdaftar.</div>`;
                 }
 
                 function actGantiSandi() {
@@ -1024,203 +1080,569 @@
                     if(pwd.length < 6) return showToast("Sandi minimal 6 karakter!", "error");
                     if(currentUserMhs) { currentUserMhs.password = pwd; }
                     document.getElementById('input-new-pwd').value = '';
-                    showToast("Sandi Anda berhasil diperbarui di Database Server!");
+                    showToast("Sandi Anda berhasil diperbarui!");
                 }
 
-                // ================= NAVIGATION UTILS =================
-
-                // MHS Auth
+                // ================= NAVIGATION & LOGIN =================
                 function doLoginMhs() {
-                    const npm = document.getElementById('login-mhs-npm').value;
-                    const pwd = document.getElementById('login-mhs-pwd').value;
-                    
+                    const npm = document.getElementById('login-mhs-npm').value; const pwd = document.getElementById('login-mhs-pwd').value;
                     if(!npm || !pwd) return showToast("Harap isi NPM dan Password!", "error");
-
                     currentUserMhs = db.mhs.find(m => m.npm === npm);
-                    
                     if(!currentUserMhs) return showToast("NPM tidak terdaftar! Hubungi TU.", "error");
                     if(currentUserMhs.password !== pwd) return showToast("Password salah!", "error");
                     
-                    // Setup UI for the logged in user
                     document.getElementById('lbl-active-mhs').innerText = currentUserMhs.nama;
-                    
-                    // Auto-fill forms
-                    document.getElementById('book-autofill-npm').value = currentUserMhs.npm;
-                    document.getElementById('book-autofill-nama').value = currentUserMhs.nama;
+                    document.getElementById('book-autofill-npm').value = currentUserMhs.npm; document.getElementById('book-autofill-nama').value = currentUserMhs.nama;
+                    document.getElementById('mhs-login-screen').classList.add('hidden'); document.getElementById('mhs-dash-screen').classList.remove('hidden');
+                    document.getElementById('login-mhs-npm').value = ''; document.getElementById('login-mhs-pwd').value = '';
 
-                    document.getElementById('mhs-login-screen').classList.add('hidden');
-                    document.getElementById('mhs-dash-screen').classList.remove('hidden');
-                    
-                    document.getElementById('login-mhs-npm').value = '';
-                    document.getElementById('login-mhs-pwd').value = '';
-
-                    renderBookingOptions(); 
-                    renderMhsSchedule();
-                    showToast(`Berhasil masuk, selamat datang ${currentUserMhs.nama}!`);
+                    renderSemua(); showToast(`Selamat datang ${currentUserMhs.nama}!`);
                 }
-
-                function doLogoutMhs() {
-                    currentUserMhs = null;
-                    document.getElementById('mhs-dash-screen').classList.add('hidden');
-                    document.getElementById('mhs-login-screen').classList.remove('hidden');
-                }
-
-                // Fake PDF
-                function openFakePDF(title) {
-                    document.getElementById('pdf-title').innerText = title;
-                    const dateStr = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-                    document.getElementById('pdf-date').innerText = dateStr;
-                    
-                    const contentBody = document.getElementById('pdf-content-body');
-                    contentBody.innerHTML = '';
-                    
-                    if(title.includes('Bukti')) {
-                        const trxAcc = db.approval.filter(t => t.status === 'acc').reverse()[0];
-                        
-                        if(trxAcc) {
-                            contentBody.innerHTML = `
-                                <div class="w-full text-left p-6 border-2 border-slate-800 bg-slate-50">
-                                    <h2 class="font-bold text-lg border-b border-slate-300 pb-2 mb-4 text-center tracking-widest">SURAT BUKTI PEMINJAMAN</h2>
-                                    <div class="grid grid-cols-3 gap-2 mb-2">
-                                        <div class="text-slate-500 font-bold">No. Referensi</div><div class="col-span-2">: ${trxAcc.idTrx}</div>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-2 mb-2">
-                                        <div class="text-slate-500 font-bold">Nama Lengkap</div><div class="col-span-2 font-bold text-blue-800">: ${trxAcc.nama}</div>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-2 mb-2">
-                                        <div class="text-slate-500 font-bold">Nomor Pokok (NPM)</div><div class="col-span-2 font-mono">: ${trxAcc.npm}</div>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-2 mb-2 mt-4">
-                                        <div class="text-slate-500 font-bold">Jenis Fasilitas</div><div class="col-span-2">: ${trxAcc.tipe.toUpperCase()}</div>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-2 mb-2">
-                                        <div class="text-slate-500 font-bold">Item Diberikan</div><div class="col-span-2">: ${trxAcc.item}</div>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-2 mb-2">
-                                        <div class="text-slate-500 font-bold">Jumlah (Qty)</div><div class="col-span-2">: ${trxAcc.qty}</div>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-2 mb-2">
-                                        <div class="text-slate-500 font-bold">Tanggal Pemakaian</div><div class="col-span-2 font-bold text-red-600">: ${trxAcc.tgl}</div>
-                                    </div>
-                                    <div class="grid grid-cols-3 gap-2 mb-6">
-                                        <div class="text-slate-500 font-bold">Keperluan</div><div class="col-span-2 italic">: "${trxAcc.ket}"</div>
-                                    </div>
-                                    <div class="w-full p-2 bg-green-100 text-green-800 border-2 border-green-500 text-center font-black tracking-widest uppercase">
-                                        STATUS: VALID & DISETUJUI ADMIN
-                                    </div>
-                                    <p class="text-[10px] text-center text-slate-400 mt-4">*Harap tunjukkan surat ini kepada Satpam / Petugas saat mengambil item atau menggunakan ruangan.</p>
-                                </div>
-                            `;
-                        } else {
-                            contentBody.innerHTML = `<div class="p-10 text-center text-slate-500 font-bold border-2 border-dashed border-slate-300">Belum ada satupun transaksi yang disetujui untuk dicetak.</div>`;
-                        }
-                    } else {
-                        let tableHTML = `
-                            <div class="w-full border-2 border-slate-800">
-                                <div class="bg-slate-200 border-b-2 border-slate-800 font-bold p-2 grid grid-cols-4 text-sm text-left">
-                                    <div>ID Trx</div><div>Peminjam</div><div>Item Disetujui</div><div>Tgl Pakai</div>
-                                </div>
-                                <div class="flex flex-col">
-                        `;
-                        
-                        const accList = db.approval.filter(t => t.status === 'acc');
-                        if(accList.length > 0) {
-                            accList.forEach(trx => {
-                                tableHTML += `
-                                    <div class="border-b border-slate-300 p-2 grid grid-cols-4 text-sm text-left items-center">
-                                        <div class="font-mono text-xs">${trx.idTrx}</div>
-                                        <div><span class="font-bold text-blue-800">${trx.nama}</span> <br><span class="text-[10px] text-slate-500 font-mono">${trx.npm}</span></div>
-                                        <div>${trx.item} <br><span class="text-[10px] text-slate-500">Qty: ${trx.qty}</span></div>
-                                        <div class="font-bold">${trx.tgl}</div>
-                                    </div>
-                                `;
-                            });
-                        } else {
-                            tableHTML += `<div class="p-6 text-center text-slate-400 font-bold">Data kosong.</div>`;
-                        }
-                        
-                        tableHTML += `</div></div>`;
-                        contentBody.innerHTML = tableHTML;
-                    }
-
-                    document.getElementById('pdf-modal').classList.remove('hidden');
-                }
-
-                function closeFakePDF() { document.getElementById('pdf-modal').classList.add('hidden'); }
-                function downloadFakePDF() { showToast("File PDF Laporan berhasil diunduh (Simulasi)!"); closeFakePDF(); }
-
-                // TU UI Nav Handling 
-                function showSimulator(type) {
-                    const tabTu = document.getElementById('tab-tu');
-                    const tabMhs = document.getElementById('tab-mhs');
-                    const simTu = document.getElementById('sim-tu');
-                    const simMhs = document.getElementById('sim-mhs');
-                    if(type === 'tu') {
-                        simTu.classList.remove('hidden'); simMhs.classList.add('hidden');
-                        tabTu.className = "px-4 py-2 rounded-lg font-bold text-sm bg-blue-600 text-white transition-all shadow-sm whitespace-nowrap";
-                        tabMhs.className = "px-4 py-2 rounded-lg font-bold text-sm bg-transparent text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap";
-                    } else {
-                        simMhs.classList.remove('hidden'); simTu.classList.add('hidden');
-                        tabMhs.className = "px-4 py-2 rounded-lg font-bold text-sm bg-emerald-600 text-white transition-all shadow-sm whitespace-nowrap";
-                        tabTu.className = "px-4 py-2 rounded-lg font-bold text-sm bg-transparent text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap";
-                    }
-                }
-
+                function doLogoutMhs() { currentUserMhs = null; document.getElementById('mhs-dash-screen').classList.add('hidden'); document.getElementById('mhs-login-screen').classList.remove('hidden'); }
+                
                 function doLoginTU() { 
-                    const user = document.getElementById('login-tu-user').value;
-                    const pwd = document.getElementById('login-tu-pwd').value;
+                    const user = document.getElementById('login-tu-user').value; const pwd = document.getElementById('login-tu-pwd').value;
                     if(user === 'admin' && pwd === 'akuatmin') {
-                        document.getElementById('tu-login-screen').classList.add('hidden'); 
-                        document.getElementById('tu-dash-screen').classList.remove('hidden'); 
-                        showToast("Login TU Berhasil!");
-                    } else {
-                        showToast("Username atau Password Admin salah!", "error");
-                    }
+                        document.getElementById('tu-login-screen').classList.add('hidden'); document.getElementById('tu-dash-screen').classList.remove('hidden'); showToast("Login TU Berhasil!");
+                    } else { showToast("Username/Password Admin salah!", "error"); }
                 }
                 function doLogoutTU() { document.getElementById('tu-dash-screen').classList.add('hidden'); document.getElementById('tu-login-screen').classList.remove('hidden'); }
 
                 function switchMenuTU(selected) {
-                    const tuMenus = ['ruang', 'barang', 'mhs', 'apprv', 'report'];
-                    tuMenus.forEach(menu => {
-                        const btn = document.getElementById('btn-tu-' + menu);
-                        const view = document.getElementById('view-tu-' + menu);
+                    ['dash', 'ruang', 'barang', 'mhs', 'apprv', 'report'].forEach(menu => {
+                        const btn = document.getElementById('btn-tu-' + menu); const view = document.getElementById('view-tu-' + menu);
                         if(!btn || !view) return;
-
-                        if (menu === selected) {
-                            view.classList.remove('hidden');
-                            btn.className = menu === 'report' || menu === 'apprv' ? "bg-blue-600 text-white p-2.5 rounded cursor-pointer shadow transition-colors font-medium flex items-center justify-between" : "bg-blue-600 text-white p-2.5 rounded cursor-pointer shadow transition-colors font-medium";
-                        } else {
-                            view.classList.add('hidden');
-                            btn.className = menu === 'report' || menu === 'apprv' ? "hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors text-slate-300 flex items-center justify-between" : "hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors text-slate-300";
-                        }
+                        if (menu === selected) { view.classList.remove('hidden'); btn.className = menu === 'report' || menu === 'apprv' || menu === 'barang' ? "whitespace-nowrap bg-blue-600 text-white p-2.5 rounded cursor-pointer shadow transition-colors font-medium flex items-center justify-between gap-2" : "whitespace-nowrap bg-blue-600 text-white p-2.5 rounded cursor-pointer shadow transition-colors font-medium"; } 
+                        else { view.classList.add('hidden'); btn.className = menu === 'report' || menu === 'apprv' || menu === 'barang' ? "whitespace-nowrap hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors text-slate-300 flex items-center justify-between gap-2" : "whitespace-nowrap hover:bg-slate-700 p-2.5 rounded cursor-pointer transition-colors text-slate-300"; }
                     });
                 }
-
                 function switchMenuMhs(selected) {
-                    const mhsMenus = ['dash', 'book', 'pwd'];
-                    mhsMenus.forEach(menu => {
-                        const nav = document.getElementById('nav-mhs-' + menu);
-                        const view = document.getElementById('view-mhs-' + menu);
+                    ['dash', 'book', 'pwd'].forEach(menu => {
+                        const nav = document.getElementById('nav-mhs-' + menu); const view = document.getElementById('view-mhs-' + menu);
                         if(!nav || !view) return;
-
-                        if (menu === selected) {
-                            view.classList.remove('hidden');
-                            nav.className = "cursor-pointer border-b-2 border-white pb-1 text-white whitespace-nowrap";
-                        } else {
-                            view.classList.add('hidden');
-                            nav.className = "cursor-pointer text-emerald-200 hover:text-white whitespace-nowrap";
-                        }
+                        if (menu === selected) { view.classList.remove('hidden'); nav.className = "cursor-pointer border-b-2 border-white pb-1 text-white whitespace-nowrap"; } 
+                        else { view.classList.add('hidden'); nav.className = "cursor-pointer text-emerald-200 hover:text-white whitespace-nowrap"; }
                     });
                 }
+
+                function showSimulator(type) {
+                    const tabTu = document.getElementById('tab-tu'); const tabMhs = document.getElementById('tab-mhs');
+                    const simTu = document.getElementById('sim-tu'); const simMhs = document.getElementById('sim-mhs');
+                    if(type === 'tu') {
+                        simTu.classList.remove('hidden'); simMhs.classList.add('hidden');
+                        tabTu.className = "px-4 py-2 rounded-lg font-bold text-sm bg-blue-600 text-white transition-all shadow-sm whitespace-nowrap flex-1 lg:flex-none"; tabMhs.className = "px-4 py-2 rounded-lg font-bold text-sm bg-transparent text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap flex-1 lg:flex-none";
+                    } else {
+                        simMhs.classList.remove('hidden'); simTu.classList.add('hidden');
+                        tabMhs.className = "px-4 py-2 rounded-lg font-bold text-sm bg-emerald-600 text-white transition-all shadow-sm whitespace-nowrap flex-1 lg:flex-none"; tabTu.className = "px-4 py-2 rounded-lg font-bold text-sm bg-transparent text-slate-600 hover:bg-slate-200 transition-all whitespace-nowrap flex-1 lg:flex-none";
+                    }
+                }
+
+                // ================= FAKE PDF GENERATION (WITH QR) =================
+                function openFakePDF(title, specificTrxId = null) {
+                    document.getElementById('pdf-title').innerText = title;
+                    document.getElementById('pdf-date').innerText = new Date().toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+                    const contentBody = document.getElementById('pdf-content-body'); const sigBody = document.getElementById('pdf-signature');
+                    contentBody.innerHTML = '';
+                    
+                    if(title.includes('Bukti')) {
+                        // PDF STRUK MHS
+                        const trxAcc = specificTrxId ? db.approval.find(t => t.idTrx === specificTrxId) : db.approval.filter(t => t.status === 'acc').reverse()[0];
+                        if(trxAcc) {
+                            contentBody.innerHTML = `
+                                <div class="w-full text-left p-4 md:p-6 border-2 border-slate-800 bg-slate-50 mb-8 relative">
+                                    <div class="hidden md:flex absolute top-4 right-4 border border-dashed border-slate-400 p-1 flex-col items-center bg-white">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=${trxAcc.idTrx}" class="w-16 h-16 opacity-80 mix-blend-multiply mb-1" alt="QR">
+                                        <span class="text-[7px] text-slate-400 font-mono text-center">Scan for Verify<br>(ZXing Lib)</span>
+                                    </div>
+                                    <h2 class="font-bold text-base md:text-lg border-b border-slate-300 pb-2 mb-4 text-center tracking-widest md:mr-20">SURAT BUKTI PEMINJAMAN</h2>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 mb-2 border-b border-slate-200 pb-2">
+                                        <div class="text-slate-500 font-bold col-span-1">No. Referensi</div><div class="md:col-span-3 font-mono font-bold text-xs md:text-sm">: ${trxAcc.idTrx}</div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 mb-1 mt-4">
+                                        <div class="text-slate-500 font-bold col-span-1">Nama Lengkap</div><div class="md:col-span-3 font-bold text-slate-800 uppercase text-xs md:text-sm">: ${trxAcc.nama}</div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 mb-4 border-b border-slate-200 pb-4">
+                                        <div class="text-slate-500 font-bold col-span-1">Nomor Pokok</div><div class="md:col-span-3 font-mono text-xs md:text-sm">: ${trxAcc.npm}</div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 mb-1">
+                                        <div class="text-slate-500 font-bold col-span-1">Tipe Fasilitas</div><div class="md:col-span-3 font-bold text-xs md:text-sm">: ${trxAcc.tipe.toUpperCase()}</div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 mb-1">
+                                        <div class="text-slate-500 font-bold col-span-1">Item Diberikan</div><div class="md:col-span-3 font-bold text-xs md:text-sm">: ${trxAcc.item}</div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 mb-1">
+                                        <div class="text-slate-500 font-bold col-span-1">Jumlah (Qty)</div><div class="md:col-span-3 text-xs md:text-sm">: ${trxAcc.qty} Unit</div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 mb-1">
+                                        <div class="text-slate-500 font-bold col-span-1">Tgl Pemakaian</div><div class="md:col-span-3 font-bold text-red-600 text-xs md:text-sm">: ${trxAcc.tgl}</div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 mb-4 border-b border-slate-200 pb-4">
+                                        <div class="text-slate-500 font-bold col-span-1">Jam Pemakaian</div><div class="md:col-span-3 font-bold text-red-600 text-xs md:text-sm">: Pkl ${trxAcc.jamMulai} s/d ${trxAcc.jamSelesai}</div>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-1 md:gap-2 mb-6">
+                                        <div class="text-slate-500 font-bold col-span-1">Keperluan</div><div class="md:col-span-3 italic text-xs md:text-sm">: "${trxAcc.ket}"</div>
+                                    </div>
+                                    <div class="w-full p-2 bg-green-100 text-green-800 border-2 border-green-500 text-center font-black tracking-widest uppercase text-[10px] md:text-xs">
+                                        STATUS: VALID & DISETUJUI ADMIN TU
+                                    </div>
+                                    <p class="text-[8px] md:text-[10px] text-center text-slate-500 mt-3">*Dokumen ini sah dicetak dari SIP-Ruang Kiosk. Harap tunjukkan surat ini kepada Satpam / Petugas Pengelola.</p>
+                                </div>
+                            `;
+                            sigBody.innerHTML = `<p class="mb-12 md:mb-16 text-xs md:text-sm">Mahasiswa Bersangkutan,</p><p class="font-bold text-xs md:text-sm underline">${trxAcc.nama}</p>`;
+                        } else {
+                            contentBody.innerHTML = `<div class="p-10 text-center text-slate-500 font-bold border-2 border-dashed border-slate-300">Data Transaksi tidak ditemukan.</div>`; sigBody.innerHTML = '';
+                        }
+                    } else {
+                        // PDF REKAP TU
+                        let tableHTML = `<div class="w-full border-2 border-slate-800"><div class="bg-slate-200 border-b-2 border-slate-800 font-bold p-2 grid grid-cols-4 text-[10px] md:text-xs text-left"><div>ID Trx & Waktu</div><div>Identitas Peminjam</div><div>Item Diberikan</div><div>Keterangan</div></div><div class="flex flex-col">`;
+                        const accList = db.approval.filter(t => t.status === 'acc');
+                        if(accList.length > 0) {
+                            accList.forEach(trx => {
+                                tableHTML += `
+                                    <div class="border-b border-slate-300 p-2 grid grid-cols-4 text-[8px] md:text-[10px] text-left">
+                                        <div><span class="font-mono font-bold">${trx.idTrx}</span><br><span class="text-red-600 font-bold">${trx.tgl}</span><br><span class="text-slate-500">${trx.jamMulai} - ${trx.jamSelesai}</span></div>
+                                        <div><span class="font-bold text-blue-800">${trx.nama}</span><br><span class="font-mono text-slate-500">${trx.npm}</span></div>
+                                        <div class="pr-2"><span class="font-bold">${trx.item}</span><br><span class="bg-slate-100 border px-1 rounded">Qty: ${trx.qty}</span></div>
+                                        <div class="italic text-slate-600 leading-tight">${trx.ket}</div>
+                                    </div>
+                                `;
+                            });
+                        } else { tableHTML += `<div class="p-6 text-center text-slate-400 font-bold">Data kosong.</div>`; }
+                        tableHTML += `</div></div>`;
+                        contentBody.innerHTML = tableHTML;
+                        sigBody.innerHTML = `<p class="mb-12 md:mb-16 text-xs md:text-sm">Kepala Tata Usaha,</p><p class="font-bold text-xs md:text-sm underline">Drs. Simulasi, M.Kom</p><p class="text-[10px] md:text-xs">NIP. 197001012000031001</p>`;
+                    }
+                    document.getElementById('pdf-modal').classList.remove('hidden');
+                }
+                function closeFakePDF() { document.getElementById('pdf-modal').classList.add('hidden'); }
+                function downloadFakePDF() { showToast("File Laporan/Struk berhasil disimpan ke perangkat (Simulasi)!"); closeFakePDF(); }
             </script>
+        </section>
+
+        <section class="mb-16 print-break">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 border-b-2 border-slate-100 pb-4">
+                <div class="flex items-center gap-4">
+                    <div class="bg-slate-900 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-md text-xl font-black shrink-0">4</div>
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Kamus Data & Database MySQL</h2>
+                        <p class="text-slate-500 font-medium mt-1 text-sm md:text-base">Diagram ERD terupdate (sudah disesuaikan dengan Waktu/Jam).</p>
+                    </div>
+                </div>
+                <div class="zoom-controls bg-white p-2 rounded-xl shadow-sm border border-slate-200 flex items-center gap-2 self-start md:self-auto">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-widest px-2 hidden sm:block">Zoom Panel</span>
+                    <button id="zoomOutBtn" class="w-10 h-10 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7"></path></svg></button>
+                    <button id="zoomResetBtn" class="w-10 h-10 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg></button>
+                    <button id="zoomInBtn" class="w-10 h-10 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg></button>
+                </div>
+            </div>
+
+            <div class="bg-white border border-slate-200 rounded-3xl shadow-sm mb-10 overflow-hidden relative h-[350px] md:h-[500px]">
+                <h3 class="font-bold text-slate-800 text-sm md:text-lg absolute top-4 left-4 md:top-6 md:left-6 z-20 bg-white/80 backdrop-blur px-3 py-2 rounded-xl border border-slate-200 shadow-sm">
+                    A. Entity-Relationship Diagram (ERD)
+                </h3>
+                <div class="absolute inset-0 z-10 flex items-center justify-center overflow-hidden grab-cursor bg-slate-50" id="panzoom-container">
+                    <div class="mermaid text-xs md:text-sm w-full flex justify-center" id="mermaid-graph">
+                        erDiagram
+                            tb_admin_tu {
+                                INT id_admin PK
+                                VARCHAR username
+                                VARCHAR password
+                                VARCHAR nama_staff
+                            }
+                            tb_mahasiswa {
+                                VARCHAR npm PK
+                                VARCHAR nama_mhs
+                                VARCHAR password
+                                VARCHAR prodi
+                                VARCHAR no_telp
+                            }
+                            tb_ruangan {
+                                VARCHAR id_ruang PK
+                                VARCHAR nama_ruang
+                                INT kapasitas
+                                VARCHAR fasilitas
+                            }
+                            tb_barang {
+                                VARCHAR id_barang PK
+                                VARCHAR nama_barang
+                                INT stok_total
+                            }
+                            tb_transaksi {
+                                INT id_trx PK
+                                VARCHAR npm FK
+                                ENUM tipe_pinjam
+                                VARCHAR id_item FK
+                                INT qty
+                                DATE tgl_pinjam
+                                TIME jam_mulai
+                                TIME jam_selesai
+                                TEXT keterangan
+                                VARCHAR status_acc
+                            }
+
+                            tb_mahasiswa ||--o{ tb_transaksi : "Melakukan"
+                            tb_ruangan ||--o{ tb_transaksi : "Dipinjam (relasi logikal)"
+                            tb_barang ||--o{ tb_transaksi : "Dipinjam (relasi logikal)"
+                    </div>
+                </div>
+                <div class="absolute bottom-4 left-4 z-20 bg-white/90 backdrop-blur px-3 py-2 rounded-xl text-[10px] md:text-xs font-bold text-slate-500 border border-slate-200 shadow-sm flex items-center gap-2">
+                    <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                    Scroll mouse untuk Zoom. Drag untuk menggeser.
+                </div>
+            </div>
+
+            <script>
+                mermaid.initialize({ startOnLoad: true, securityLevel: 'loose', theme: 'default' });
+                setTimeout(() => {
+                    const elem = document.querySelector('#mermaid-graph svg');
+                    if(elem) {
+                        elem.style.maxWidth = '100%'; elem.style.height = 'auto';
+                        const panzoom = Panzoom(elem, { maxScale: 4, minScale: 0.5, step: 0.2, cursor: 'grab' });
+                        document.getElementById('zoomInBtn').addEventListener('click', panzoom.zoomIn); document.getElementById('zoomOutBtn').addEventListener('click', panzoom.zoomOut); document.getElementById('zoomResetBtn').addEventListener('click', panzoom.reset);
+                        document.getElementById('panzoom-container').addEventListener('wheel', function(e) { if (!e.shiftKey) { panzoom.zoomWithWheel(e); e.preventDefault(); } });
+                    }
+                }, 1000);
+            </script>
+
+            <div class="bg-white border border-slate-200 p-4 md:p-6 rounded-3xl shadow-sm mb-10">
+                <h3 class="font-bold text-slate-800 text-base md:text-lg mb-4 flex items-center gap-2 border-b border-slate-100 pb-3">B. Penjelasan Kamus Data</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-blue-900 mb-2">1. Tabel Admin & Mhs</h4>
+                        <ul class="text-sm text-slate-600 space-y-1 font-mono">
+                            <li><span class="text-red-600 font-bold">PK (TU):</span> id_admin</li>
+                            <li><span class="text-red-600 font-bold">PK (Mhs):</span> npm</li>
+                            <li class="text-xs text-slate-400 italic mt-2">Data Master Pengguna sistem.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-blue-900 mb-2">2. Tabel Master Item</h4>
+                        <ul class="text-sm text-slate-600 space-y-1 font-mono">
+                            <li>tb_ruangan -> <span class="text-red-600 font-bold">PK:</span> id_ruang</li>
+                            <li>tb_barang -> <span class="text-red-600 font-bold">PK:</span> id_barang</li>
+                            <li class="text-xs text-slate-400 italic mt-2">Data Inventaris Kampus.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <h4 class="font-bold text-blue-900 mb-2">3. Tabel Transaksi Terpadu</h4>
+                        <ul class="text-sm text-slate-600 space-y-1 font-mono">
+                            <li><span class="text-red-600 font-bold">PK:</span> id_trx</li>
+                            <li><span class="text-green-600 font-bold">FK:</span> npm (Tamu dari tb_mhs)</li>
+                            <li class="text-xs text-slate-400 italic mt-2">Menyimpan waktu (tgl, jam mulai, jam selesai).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="flex flex-wrap items-center justify-between mb-4 gap-4">
+                    <h3 class="font-bold text-slate-800 text-lg flex items-center gap-2">C. Script SQL MySQL (Copy-Paste)</h3>
+                </div>
+                <div class="code-container relative group">
+                    <span class="absolute top-4 right-4 bg-slate-800 text-slate-400 px-2 py-1 text-[10px] md:text-xs rounded uppercase border border-slate-600">SQL</span>
+<pre><span class="text-slate-400 italic">-- Pembuatan Entitas Dasar Database</span>
+<span class="text-pink-400">CREATE DATABASE</span> db_sarpras_kampus;
+<span class="text-pink-400">USE</span> db_sarpras_kampus;
+
+<span class="text-slate-400 italic">-- Tabel [1/5]: Administrator (Server) - PK: id_admin</span>
+<span class="text-pink-400">CREATE TABLE</span> tb_admin_tu (
+    id_admin <span class="text-blue-300">INT AUTO_INCREMENT PRIMARY KEY</span>,
+    username <span class="text-blue-300">VARCHAR(50) NOT NULL</span>,
+    password <span class="text-blue-300">VARCHAR(50) NOT NULL</span>,
+    nama_staff <span class="text-blue-300">VARCHAR(100)</span>
+);
+
+<span class="text-slate-400 italic">-- Tabel [2/5]: Mahasiswa (Client) - PK: npm</span>
+<span class="text-pink-400">CREATE TABLE</span> tb_mahasiswa (
+    npm <span class="text-blue-300">VARCHAR(20) PRIMARY KEY</span>,
+    nama_mhs <span class="text-blue-300">VARCHAR(100) NOT NULL</span>,
+    password <span class="text-blue-300">VARCHAR(50) NOT NULL</span>,
+    prodi <span class="text-blue-300">VARCHAR(50)</span>,
+    no_telp <span class="text-blue-300">VARCHAR(15)</span>
+);
+
+<span class="text-slate-400 italic">-- Tabel [3/5]: Fasilitas Ruangan - PK: id_ruang</span>
+<span class="text-pink-400">CREATE TABLE</span> tb_ruangan (
+    id_ruang <span class="text-blue-300">VARCHAR(10) PRIMARY KEY</span>,
+    nama_ruang <span class="text-blue-300">VARCHAR(100) NOT NULL</span>,
+    kapasitas <span class="text-blue-300">INT</span>,
+    fasilitas <span class="text-blue-300">VARCHAR(100)</span>
+);
+
+<span class="text-slate-400 italic">-- Tabel [4/5]: Fasilitas Inventaris - PK: id_barang</span>
+<span class="text-pink-400">CREATE TABLE</span> tb_barang (
+    id_barang <span class="text-blue-300">VARCHAR(10) PRIMARY KEY</span>,
+    nama_barang <span class="text-blue-300">VARCHAR(100) NOT NULL</span>,
+    stok_total <span class="text-blue-300">INT</span>
+);
+
+<span class="text-slate-400 italic">-- Tabel [5/5]: Transaksi Multi-Item - PK: id_trx | FK: npm</span>
+<span class="text-pink-400">CREATE TABLE</span> tb_transaksi (
+    id_trx <span class="text-blue-300">INT AUTO_INCREMENT PRIMARY KEY</span>,
+    npm <span class="text-blue-300">VARCHAR(20)</span>,
+    tipe_pinjam <span class="text-blue-300">ENUM('RUANG', 'BARANG')</span>,
+    id_item <span class="text-blue-300">VARCHAR(10)</span>,
+    qty <span class="text-blue-300">INT DEFAULT 1</span>,
+    tgl_pinjam <span class="text-blue-300">DATE</span>,
+    jam_mulai <span class="text-blue-300">TIME</span>,
+    jam_selesai <span class="text-blue-300">TIME</span>,
+    keterangan <span class="text-blue-300">TEXT</span>,
+    status_acc <span class="text-blue-300">VARCHAR(20) DEFAULT 'Pending'</span>,
+    <span class="text-pink-400">FOREIGN KEY</span> (npm) <span class="text-pink-400">REFERENCES</span> tb_mahasiswa(npm) <span class="text-pink-400">ON DELETE CASCADE</span>
+);
+
+<span class="text-slate-400 italic">-- ========================================================</span>
+<span class="text-slate-400 italic">-- Bonus Level 3: TRIGGER MYSQL OTOMATISASI STOK BARANG</span>
+<span class="text-slate-400 italic">-- ========================================================</span>
+<span class="text-pink-400">DELIMITER</span> $$
+
+<span class="text-pink-400">CREATE TRIGGER</span> trg_update_stok_barang
+<span class="text-pink-400">AFTER UPDATE ON</span> tb_transaksi
+<span class="text-pink-400">FOR EACH ROW</span>
+<span class="text-pink-400">BEGIN</span>
+    <span class="text-slate-400 italic">-- Pastikan trigger HANYA berjalan jika tipe pinjamnya adalah 'BARANG'</span>
+    <span class="text-pink-400">IF</span> NEW.tipe_pinjam = <span class="text-green-300">'BARANG'</span> <span class="text-pink-400">THEN</span>
+        
+        <span class="text-slate-400 italic">-- KONDISI 1: Admin mengubah status dari 'Pending' menjadi 'acc' (Barang keluar / dipinjam)</span>
+        <span class="text-pink-400">IF</span> OLD.status_acc = <span class="text-green-300">'Pending'</span> <span class="text-pink-400">AND</span> NEW.status_acc = <span class="text-green-300">'acc'</span> <span class="text-pink-400">THEN</span>
+            <span class="text-pink-400">UPDATE</span> tb_barang 
+            <span class="text-pink-400">SET</span> stok_total = stok_total - NEW.qty 
+            <span class="text-pink-400">WHERE</span> id_barang = NEW.id_item;
+        <span class="text-pink-400">END IF</span>;
+
+        <span class="text-slate-400 italic">-- KONDISI 2: Admin membatalkan status dari 'acc' kembali ke 'Pending' (Barang batal dipinjam / dikembalikan)</span>
+        <span class="text-pink-400">IF</span> OLD.status_acc = <span class="text-green-300">'acc'</span> <span class="text-pink-400">AND</span> NEW.status_acc = <span class="text-green-300">'Pending'</span> <span class="text-pink-400">THEN</span>
+            <span class="text-pink-400">UPDATE</span> tb_barang 
+            <span class="text-pink-400">SET</span> stok_total = stok_total + NEW.qty 
+            <span class="text-pink-400">WHERE</span> id_barang = NEW.id_item;
+        <span class="text-pink-400">END IF</span>;
+
+    <span class="text-pink-400">END IF</span>;
+<span class="text-pink-400">END</span>$$
+
+<span class="text-pink-400">DELIMITER</span> ;</pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-10 print-break">
+            <div class="flex items-center gap-4 mb-8 border-b-2 border-slate-100 pb-4">
+                <div class="bg-slate-900 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-md text-xl font-black shrink-0">5</div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Struktur Folder & Koneksi DB</h2>
+                    <p class="text-slate-500 font-medium mt-1 text-sm md:text-base">Hierarki Package Netbeans & Script JDBC.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 shadow-sm overflow-x-auto">
+                    <h4 class="font-bold text-slate-800 text-sm mb-3 uppercase tracking-wide border-b border-slate-200 pb-2">Struktur Package Netbeans</h4>
+                    <div class="font-mono text-[10px] md:text-xs text-slate-700 leading-relaxed whitespace-pre">📁 SIP-Ruang-Project
+├── 📁 src
+│   ├── 📁 koneksi
+│   │   └── 📄 KoneksiDB.java
+│   ├── 📁 main_server
+│   │   ├── 📄 FrmLoginTU.java
+│   │   ├── 📄 MenuUtamaTU.java
+│   │   ├── 📄 FrmMasterRuang.java
+│   │   ├── 📄 FrmMasterBarang.java
+│   │   ├── 📄 FrmDataMhs.java
+│   │   └── 📄 FrmApproval.java
+│   ├── 📁 main_client
+│   │   ├── 📄 FrmLoginMhs.java
+│   │   ├── 📄 MenuUtamaMhs.java
+│   │   ├── 📄 FrmBooking.java
+│   │   └── 📄 FrmUbahSandi.java
+│   └── 📁 report
+│       ├── 📄 RptIzin.jrxml
+│       └── 📄 RptJadwal.jrxml
+└── 📁 lib (mysql-connector.jar)</div>
+                </div>
+
+                <div class="lg:col-span-2">
+                    <div class="code-container relative group h-full">
+                        <span class="absolute top-4 right-4 bg-slate-800 text-slate-400 px-2 py-1 text-[10px] md:text-xs rounded uppercase border border-slate-600">Java - KoneksiDB.java</span>
+<pre><span class="text-pink-400">package</span> koneksi;
+<span class="text-pink-400">import</span> java.sql.Connection;
+<span class="text-pink-400">import</span> java.sql.DriverManager;
+
+<span class="text-pink-400">public class</span> <span class="text-yellow-300">KoneksiDB</span> {
+    <span class="text-pink-400">private static</span> Connection koneksi;
+    
+    <span class="text-pink-400">public static</span> Connection <span class="text-blue-300">getKoneksi</span>() {
+        <span class="text-pink-400">if</span> (koneksi == null) {
+            <span class="text-pink-400">try</span> {
+                String url = <span class="text-green-300">"jdbc:mysql://localhost:3306/db_sarpras_kampus"</span>;
+                String user = <span class="text-green-300">"root"</span>; 
+                String pass = <span class="text-green-300">""</span>;     
+                
+                DriverManager.registerDriver(<span class="text-pink-400">new</span> com.mysql.cj.jdbc.Driver());
+                koneksi = DriverManager.getConnection(url, user, pass);
+                System.out.println(<span class="text-green-300">"Sukses: Database Terhubung!"</span>);
+            } <span class="text-pink-400">catch</span> (Exception e) {
+                System.out.println(<span class="text-red-400">"Gagal: "</span> + e.getMessage());
+            }
+        }
+        <span class="text-pink-400">return</span> koneksi;
+    }
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mb-10 print-break no-print">
+            <div class="flex items-center gap-4 mb-8 border-b-2 border-slate-100 pb-4">
+                <div class="bg-indigo-600 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-md text-xl font-black shrink-0">6</div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Kebutuhan Tools & Link Download</h2>
+                    <p class="text-slate-500 font-medium mt-1 text-sm md:text-base">Daftar perangkat lunak dan library yang perlu diinstal di laptop/PC.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a href="https://adoptium.net/temurin/releases/?version=11" target="_blank" class="bg-white border border-slate-200 hover:border-indigo-400 p-4 rounded-xl shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
+                    <div class="bg-slate-100 p-3 rounded-lg group-hover:bg-indigo-50 transition-colors">☕</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">Java JDK 8/11</h4>
+                        <p class="text-xs text-slate-500 mt-1">Environment Java.</p>
+                    </div>
+                </a>
+                
+                <a href="https://netbeans.apache.org/front/main/download/" target="_blank" class="bg-white border border-slate-200 hover:border-indigo-400 p-4 rounded-xl shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
+                    <div class="bg-slate-100 p-3 rounded-lg group-hover:bg-indigo-50 transition-colors">💻</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">Apache NetBeans</h4>
+                        <p class="text-xs text-slate-500 mt-1">IDE Desain GUI.</p>
+                    </div>
+                </a>
+
+                <a href="https://laragon.org/download/" target="_blank" class="bg-white border border-slate-200 hover:border-indigo-400 p-4 rounded-xl shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
+                    <div class="bg-slate-100 p-3 rounded-lg group-hover:bg-indigo-50 transition-colors">🐘</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">Laragon/XAMPP</h4>
+                        <p class="text-xs text-slate-500 mt-1">Database MySQL.</p>
+                    </div>
+                </a>
+
+                <a href="https://community.jaspersoft.com/" target="_blank" class="bg-white border border-slate-200 hover:border-indigo-400 p-4 rounded-xl shadow-sm hover:shadow-md transition-all flex items-start gap-4 group">
+                    <div class="bg-slate-100 p-3 rounded-lg group-hover:bg-indigo-50 transition-colors">📄</div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">JasperReports</h4>
+                        <p class="text-xs text-slate-500 mt-1">Library PDF Print.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="mb-10 print-break">
+            <div class="flex items-center gap-4 mb-8 border-b-2 border-slate-100 pb-4">
+                <div class="bg-rose-500 text-white w-12 h-12 flex items-center justify-center rounded-2xl shadow-md text-xl font-black shrink-0">7</div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-slate-800 tracking-tight">Saran Pengembangan Project (Bonus)</h2>
+                    <p class="text-slate-500 font-medium mt-1 text-sm md:text-base">Tips khusus aplikasi Offline & Visual untuk memukau Dosen Penguji.</p>
+                </div>
+            </div>
+
+            <div class="bg-rose-50 border border-rose-200 p-5 rounded-2xl mb-8">
+                <p class="text-slate-700 text-sm leading-relaxed">
+                    Karena ini adalah project mata kuliah Pemrograman Visual dengan sifat <strong>Offline</strong>, fokus utama untuk mendapatkan nilai "A" atau pujian dari dosen adalah dengan memaksimalkan Eksplorasi Komponen GUI (Swing), Interaktivitas, dan Manipulasi Visual. Namun, memperkuat sisi Database akan menyempurnakan project ini dari segi performa dan keamanan data. Berikut adalah fitur "Wah" yang 100% offline dan sangat relevan untuk project ini:
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+                    <h3 class="text-base md:text-lg font-black text-slate-800 mb-4 flex items-center gap-2"><span class="text-xl md:text-2xl">🌟</span> Level 1: "Eye-Candy" & Manipulasi UI Dasar (Wajib Dicoba)</h3>
+                    <p class="text-sm text-slate-600 mb-4">Fokus pada hal-hal yang langsung terlihat saat aplikasi baru dijalankan.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-blue-700 text-sm mb-1">Gunakan Tema FlatLaf (Flat Look and Feel)</h4>
+                            <p class="text-xs text-slate-600"><strong>Mengapa:</strong> Desain bawaan Java (Nimbus/Metal) terlihat sangat jadul. FlatLaf membuat aplikasi Anda terlihat seperti aplikasi Windows 11 modern.<br><strong>Nilai Plus Visual:</strong> Anda bisa menambahkan tombol "Mode Gelap" (Dark Mode) di pojok aplikasi yang mengubah seluruh warna form hanya dengan 1 baris kode.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-blue-700 text-sm mb-1">Splash Screen dengan JProgressBar</h4>
+                            <p class="text-xs text-slate-600">Sebelum masuk ke Form Login, buat satu Form Splash Screen kecil tanpa border (Undecorated). Beri gambar logo kampus/project, lalu jalankan JProgressBar (loading dari 0% ke 100%) menggunakan Timer. Setelah 100%, baru form Login muncul. Ini sangat klasik tapi selalu berhasil memberi kesan profesional.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 md:col-span-2">
+                            <h4 class="font-bold text-blue-700 text-sm mb-1">Kustomisasi Tabel (JTable dengan Tombol)</h4>
+                            <p class="text-xs text-slate-600">Alih-alih membuat form terpisah atau klik baris lalu klik tombol di luar, buat Tombol Aksi (ACC/Tolak) berada di DALAM sel tabel. Ini membutuhkan manipulasi <code>TableCellRenderer</code> dan <code>TableCellEditor</code> di Java Swing, yang menunjukkan pemahaman tingkat lanjut Anda tentang komponen Visual.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+                    <h3 class="text-base md:text-lg font-black text-slate-800 mb-4 flex items-center gap-2"><span class="text-xl md:text-2xl">🚀</span> Level 2: Eksplorasi Komponen Visual Lanjutan</h3>
+                    <p class="text-sm text-slate-600 mb-4">Menunjukkan kepada dosen bahwa Anda tidak hanya memakai komponen dasar (Tombol, Label, Textfield).</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-indigo-700 text-sm mb-1">Dashboard Statistik dengan Grafik (JFreeChart)</h4>
+                            <p class="text-xs text-slate-600">Di menu utama TU, jangan biarkan kosong. Gunakan library JFreeChart (bekerja 100% offline) untuk menggambar Grafik Batang (Bar Chart) atau Grafik Lingkaran (Pie Chart).<br>Contoh: Grafik jumlah peminjaman minggu ini, atau porsi perbandingan barang yang tersedia vs dipinjam. Dosen visual sangat menyukai representasi data dalam bentuk grafik.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-indigo-700 text-sm mb-1">QR Code Offline di dalam Laporan (ZXing + JasperReports)</h4>
+                            <p class="text-xs text-slate-600">Anda sudah pakai JasperReports untuk cetak struk PDF. Tambahkan elemen Barcode/QR Code di sudut struk yang berisi "ID Transaksi".<br>Ini tidak butuh internet sama sekali, library ZXing akan generate gambar QR secara lokal. Saat demo, Anda bisa pura-pura men-scan QR tersebut pakai HP atau barcode scanner USB.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+                    <h3 class="text-base md:text-lg font-black text-slate-800 mb-4 flex items-center gap-2"><span class="text-xl md:text-2xl">🔥</span> Level 3: Interaksi Real-Time & Event Handling (Nilai Plus)</h3>
+                    <p class="text-sm text-slate-600 mb-4">Meskipun offline (berjalan di localhost / 1 jaringan WiFi yang sama), Anda tetap bisa membuat interaksi yang dinamis.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-orange-700 text-sm mb-1">Auto-Refresh Tabel Tanpa Klik (javax.swing.Timer)</h4>
+                            <p class="text-xs text-slate-600">Biasanya di Java, kalau ada mahasiswa kirim pengajuan, TU harus klik tombol "Refresh Data" agar tabelnya terupdate.<br><strong>Cara "Wah":</strong> Pasang Timer di background form TU yang mengeksekusi fungsi tampilData() setiap 5 detik secara diam-diam. Saat demo, letakkan window Mhs dan window TU berdampingan. Saat Mhs klik "Kirim", tabel di window TU langsung terupdate otomatis sepersekian detik kemudian tanpa diklik!</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-orange-700 text-sm mb-1">Validasi Input Real-time (Event KeyReleased)</h4>
+                            <p class="text-xs text-slate-600">Tunjukkan bahwa aplikasi Anda "cerdas" secara visual. Saat mahasiswa mengetik "Jam Mulai" dan "Jam Selesai", beri event KeyReleased. Jika jam selesai lebih kecil dari jam mulai, textfield otomatis berubah warna jadi merah dan muncul tulisan peringatan secara langsung tanpa harus menunggu tombol "Simpan" ditekan.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-slate-200 p-6 rounded-2xl shadow-sm">
+                    <h3 class="text-base md:text-lg font-black text-slate-800 mb-4 flex items-center gap-2"><span class="text-xl md:text-2xl">💾</span> Bonus: Peningkatan Sisi Database (MySQL) & Logika Backend</h3>
+                    <p class="text-sm text-slate-600 mb-4">Untuk mendapatkan apresiasi ekstra dari dosen (terutama jika ada penguji yang paham database), tambahkan teknik-teknik manipulasi database tingkat lanjut ini:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-emerald-700 text-sm mb-1">Otomatisasi Stok dengan TRIGGER MySQL</h4>
+                            <p class="text-xs text-slate-600"><strong>Masalah:</strong> Mengurangi/menambah stok barang saat peminjaman menggunakan kode Java berisiko rentan error (misal aplikasi ditutup tiba-tiba).<br><strong>Solusi "Wah":</strong> Buat Trigger di MySQL. Ketika Admin mengubah status pengajuan menjadi ACC, biarkan database yang otomatis memotong jumlah stok_total di tabel barang. Begitu juga saat statusnya "Dikembalikan", stok otomatis bertambah. Ini menunjukkan pemahaman Database Management System (DBMS) yang sangat solid.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-emerald-700 text-sm mb-1">Penyederhanaan Query dengan VIEW</h4>
+                            <p class="text-xs text-slate-600"><strong>Masalah:</strong> Untuk membuat laporan (Report Jasper), Anda biasanya harus membuat query SELECT dengan banyak JOIN (antara tb_transaksi, tb_mahasiswa, tb_barang). Kodenya menjadi panjang dan sulit di-debug di Java.<br><strong>Solusi "Wah":</strong> Buat sebuah Virtual Table atau VIEW di MySQL (contoh: v_rekap_peminjaman). Di dalam Java dan JasperReports, Anda cukup memanggil SELECT * FROM v_rekap_peminjaman.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-emerald-700 text-sm mb-1">Konsep Soft-Delete (Anti Data Hilang)</h4>
+                            <p class="text-xs text-slate-600"><strong>Masalah:</strong> Jika Admin menghapus data Mahasiswa atau Barang menggunakan DELETE FROM, maka data historis transaksi mahasiswa/barang tersebut akan ikut hilang atau mengalami error karena aturan Foreign Key.<br><strong>Solusi "Wah":</strong> Jangan gunakan fungsi Delete permanen. Tambahkan kolom is_active (tipe BOOLEAN / INT) di tabel Master. Saat Admin klik "Hapus", sebenarnya Java hanya melakukan UPDATE tb_barang SET is_active = 0. Di tabel GUI, tampilkan hanya data dengan is_active = 1. Cara ini mempertahankan riwayat pelaporan.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 class="font-bold text-emerald-700 text-sm mb-1">Penerapan Transaction Control (Commit & Rollback) di Java</h4>
+                            <p class="text-xs text-slate-600">Saat melakukan proses rumit (contoh: Insert data ke tb_transaksi sekaligus Update status di tb_ruangan), gunakan konsep ACID (Atomicity). Di koneksi Java Anda, gunakan <code>conn.setAutoCommit(false)</code>. Jika semua eksekusi query berhasil, jalankan <code>conn.commit()</code>. Jika ada satu saja yang gagal/error di tengah jalan, tangkap di catch dan jalankan <code>conn.rollback()</code>. Dosen akan terkesima karena ini adalah praktik standar industri untuk mencegah kebocoran data.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 text-white p-6 rounded-2xl shadow-lg relative overflow-hidden mt-6">
+                    <div class="relative z-10">
+                        <h3 class="text-base md:text-lg font-black text-yellow-400 mb-2 flex items-center gap-2"><span class="text-xl md:text-2xl">🛠️</span> Rekomendasi Prioritas untuk Demo</h3>
+                        <p class="text-sm text-slate-300 mb-4">Jika waktu mepet, cukup implementasikan 3 hal utama ini untuk memastikan presentasi Anda memukau baik dari segi depan (Visual) maupun belakang (Database):</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span><b>FlatLaf (Visual):</b> Ubah tema UI menjadi modern / dark mode. Sangat terasa perubahannya.</span></li>
+                            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span><b>Timer Auto-Refresh (Interaktif):</b> Demo-kan window Mhs yang submit data, dan window TU yang tiba-tiba ter-update datanya tanpa disentuh.</span></li>
+                            <li class="flex items-start gap-2"><svg class="w-5 h-5 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <span><b>Trigger Stok (Database):</b> Tunjukkan bahwa saat di-ACC, stok barang otomatis berkurang oleh Trigger MySQL, bukan oleh query UPDATE Java biasa. Ini akan jadi "kartu as" saat sesi tanya jawab logika database.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
 
-    <!-- Footer Simple -->
     <footer class="text-center py-10 mt-10 border-t border-slate-200 bg-white no-print">
         <p class="font-bold text-sm text-slate-400 tracking-[0.1em] uppercase mb-2">Dokumen Resmi Project Pemrograman Visual</p>
-        <p class="font-black text-3xl tracking-[0.2em] text-slate-900 drop-shadow-sm">MADE BY DANDI</p>
+        <p class="font-black text-2xl md:text-3xl tracking-[0.2em] text-slate-900 drop-shadow-sm">MADE BY DANDI</p>
     </footer>
 
 </body>
