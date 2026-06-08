@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Panduan Lengkap GrowTrack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            500: '#14b8a6',
+                            600: '#0f9d94',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .nav-link.active { color: #0f9d94; font-weight: 700; border-left: 4px solid #0f9d94; background-color: #f0fdfa; }
+        .nav-link { border-left: 4px solid transparent; transition: all 0.2s ease-in-out; }
+        .nav-link:hover { background-color: #f8fafc; border-left: 4px solid #ccfbf1; }
+        
+        @media print {
+            .no-print { display: none !important; }
+            body { background-color: white !important; }
+            .print-break { page-break-before: always; }
+            .shadow-sm, .shadow-md, .shadow-lg { box-shadow: none !important; border: 1px solid #e2e8f0; }
+            main { margin-left: 0 !important; width: 100% !important; padding: 0 !important; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Mobile Header -->
+    <header class="bg-brand-600 text-white shadow-md fixed w-full z-50 top-0 no-print md:hidden">
+        <div class="flex items-center justify-between px-4 h-16">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-baby text-xl"></i>
+                <span class="font-bold tracking-wide">GrowTrack Docs</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button onclick="window.print()" class="bg-white/20 hover:bg-white/30 p-2 rounded-lg text-sm transition">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+                <button id="btnToggleSidebar" class="p-2 bg-brand-700 hover:bg-brand-900 rounded-lg transition">
+                    <i class="fa-solid fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Desktop Navbar -->
+    <nav class="bg-brand-600 text-white shadow-md fixed w-full z-50 top-0 no-print hidden md:block">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-baby text-2xl"></i>
+                    <span class="font-bold text-xl tracking-wide">GrowTrack Docs</span>
+                    <span class="bg-brand-700 text-xs px-2.5 py-1 rounded-full font-semibold uppercase tracking-wider">v1.2 (Terbaru)</span>
+                </div>
+                <div class="flex items-center">
+                    <button onclick="window.print()" class="bg-white text-brand-600 hover:bg-brand-50 px-4 py-2 rounded-lg font-semibold text-sm transition shadow-sm flex items-center gap-2">
+                        <i class="fa-solid fa-print"></i> Cetak / Ekspor PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Backdrop for Mobile -->
+    <div id="sidebarBackdrop" class="fixed inset-0 bg-black/50 z-40 hidden no-print transition-opacity duration-300"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 pb-12 flex flex-col md:flex-row gap-8">
+        
+        <!-- Sidebar Navigation -->
+        <aside id="sidebar" class="w-72 flex-shrink-0 no-print fixed md:sticky top-0 md:top-24 h-full md:h-[calc(100vh-8rem)] z-50 md:z-30 left-0 bg-white md:bg-transparent shadow-xl md:shadow-none transition-all duration-300 transform -translate-x-full md:translate-x-0 overflow-y-auto p-6 md:p-0 border-r md:border-r-0 border-slate-200">
+            <div class="flex items-center justify-between mb-6 md:hidden">
+                <div class="flex items-center space-x-2 text-brand-600">
+                    <i class="fa-solid fa-baby text-2xl"></i>
+                    <span class="font-bold text-lg">GrowTrack Menu</span>
+                </div>
+                <button id="btnCloseSidebar" class="text-slate-400 hover:text-slate-600 p-2">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="bg-white rounded-xl md:shadow-sm md:border md:border-slate-100 p-4 space-y-6">
+                <div>
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 px-3">Daftar Isi</h3>
+                    <nav class="space-y-1 text-sm">
+                        <a href="#pengenalan" class="nav-link block px-3 py-2.5 rounded-lg text-slate-600">1. Pengenalan & Hak Akses</a>
+                        <a href="#alur" class="nav-link block px-3 py-2.5 rounded-lg text-slate-600">2. Alur Kerja (Workflow)</a>
+                        <a href="#login-dash" class="nav-link block px-3 py-2.5 rounded-lg text-slate-600">3. Login & Dashboard</a>
+                        <a href="#master-data" class="nav-link block px-3 py-2.5 rounded-lg text-slate-600">4. Manajemen Master Data</a>
+                        <a href="#pemeriksaan" class="nav-link block px-3 py-2.5 rounded-lg text-slate-600">5. Pemeriksaan Tumbuh Kembang</a>
+                        <a href="#lingkar-kepala" class="nav-link block px-3 py-2.5 rounded-lg text-slate-600">6. Khusus: Lingkar Kepala</a>
+                        <a href="#imunisasi" class="nav-link block px-3 py-2.5 rounded-lg text-slate-600">7. Jadwal & Vaksinasi</a>
+                        <a href="#konsumsi" class="nav-link block px-3 py-2.5 rounded-lg text-slate-600">8. Konsumsi PMT Operasional</a>
+                        <a href="#laporan-setting" class="nav-link block px-3 py-2.5 rounded-lg text-slate-600">9. Laporan PDF & Pengaturan</a>
+                    </nav>
+                </div>
+                <div class="border-t border-slate-100 pt-4 px-3">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Alat Bantu</h4>
+                    <a href="#simulator" class="inline-flex items-center w-full px-3 py-2 bg-brand-50 text-brand-600 hover:bg-brand-100 rounded-lg text-xs font-bold transition">
+                        <i class="fa-solid fa-calculator mr-2"></i> Simulator Gizi & LK
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 space-y-12">
+
+            <!-- Title Header -->
+            <div class="bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-slate-200 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-brand-500"></div>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-slate-800 mb-4 tracking-tight">Panduan Pengoperasian GrowTrack</h1>
+                <p class="text-base md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
+                    Panduan teknis bagi Admin, Bidan, dan Petugas Posyandu untuk optimalisasi pencatatan rekam medis digital balita berdasarkan regulasi Permenkes No.2/2020.
+                </p>
+            </div>
+
+            <!-- SECTION 1 -->
+            <section id="pengenalan" class="scroll-mt-24 print-break">
+                <h2 class="text-2xl font-bold text-brand-600 border-b-2 border-brand-100 pb-2 mb-6 flex items-center">
+                    <i class="fa-solid fa-users-gear mr-3"></i> 1. Pengenalan & Hak Akses
+                </h2>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                    Sistem GrowTrack dirancang untuk membagi tanggung jawab kerja di lingkungan Posyandu secara jelas. Otorisasi peran (Role) menentukan fitur apa saja yang dapat dilihat dan dimodifikasi untuk menjamin akurasi dan kerahasiaan data balita.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-user-shield"></i></div>
+                        <h3 class="font-bold text-lg mb-2 text-slate-800">Admin</h3>
+                        <p class="text-sm text-slate-600 mb-4">Memiliki akses menyeluruh, termasuk manajemen database dasar dan pembuatan akun bagi personil lainnya.</p>
+                        <span class="bg-red-50 text-red-600 text-xs px-2.5 py-1 rounded-full font-bold">Otorisasi Penuh</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-user-nurse"></i></div>
+                        <h3 class="font-bold text-lg mb-2 text-slate-800">Petugas / Bidan</h3>
+                        <p class="text-sm text-slate-600 mb-4">Melakukan pendaftaran balita, imunisasi, dan pencatatan pemeriksaan. Menu konfigurasi sistem disembunyikan otomatis.</p>
+                        <span class="bg-brand-50 text-brand-600 text-xs px-2.5 py-1 rounded-full font-bold">Operasional Medis</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-cash-register"></i></div>
+                        <h3 class="font-bold text-lg mb-2 text-slate-800">Kasir</h3>
+                        <p class="text-sm text-slate-600 mb-4">Mendata operasional keluar masuknya biaya Pemberian Makanan Tambahan (PMT) serta administrasi non-medis.</p>
+                        <span class="bg-amber-50 text-amber-600 text-xs px-2.5 py-1 rounded-full font-bold">Administrasi Keuangan</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <section id="alur" class="scroll-mt-24 print-break">
+                <h2 class="text-2xl font-bold text-brand-600 border-b-2 border-brand-100 pb-2 mb-6 flex items-center">
+                    <i class="fa-solid fa-arrows-spin mr-3"></i> 2. Alur Kerja (Workflow)
+                </h2>
+                <div class="bg-white rounded-xl p-6 md:p-8 border border-slate-200 shadow-sm">
+                    <p class="text-slate-600 text-sm mb-6">Agar pengoperasian database tetap terjaga integritasnya (mencegah data yatim/invalid), pengisian formulir harus dijalankan secara berurutan:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-center relative">
+                            <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs">1</span>
+                            <h4 class="font-bold text-sm text-slate-800 mt-2 mb-1">Registrasi Orang Tua</h4>
+                            <p class="text-xs text-slate-500">Input data identitas Ayah, Ibu, Pekerjaan, dan Alamat di Form Orang Tua.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-center relative">
+                            <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs">2</span>
+                            <h4 class="font-bold text-sm text-slate-800 mt-2 mb-1">Pendaftaran Balita</h4>
+                            <p class="text-xs text-slate-500">Mendaftarkan anak dan menghubungkannya dengan ID Orang Tua yang sudah dibuat.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-center relative">
+                            <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs">3</span>
+                            <h4 class="font-bold text-sm text-slate-800 mt-2 mb-1">Pelayanan Medis</h4>
+                            <p class="text-xs text-slate-500">Pengukuran BB, TB, LK, serta pemberian Imunisasi / Vaksin berkala di posyandu.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-lg border border-slate-200 text-center relative">
+                            <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand-600 text-white w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs">4</span>
+                            <h4 class="font-bold text-sm text-slate-800 mt-2 mb-1">Evaluasi & Laporan</h4>
+                            <p class="text-xs text-slate-500">Menghasilkan laporan PDF untuk diserahkan kepada pihak Kelurahan/Puskesmas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <section id="login-dash" class="scroll-mt-24 print-break">
+                <h2 class="text-2xl font-bold text-brand-600 border-b-2 border-brand-100 pb-2 mb-6 flex items-center">
+                    <i class="fa-solid fa-right-to-bracket mr-3"></i> 3. Login & Dashboard Utama
+                </h2>
+                
+                <div class="space-y-6">
+                    <!-- Login Form Details -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h3 class="font-bold text-lg mb-4 text-slate-800">A. Form Login</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left border-collapse">
+                                <thead class="bg-slate-50 text-slate-700">
+                                    <tr>
+                                        <th class="border p-3 w-1/3">Kolom Input & Aksi</th>
+                                        <th class="border p-3">Aturan Validasi & Perilaku</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-600">
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">Username</td>
+                                        <td class="border p-3">Ketikkan nama pengguna. Sistem memicu perpindahan kursor ke kolom password saat tombol <kbd class="bg-slate-100 border px-1 rounded">Enter</kbd> ditekan.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">Password</td>
+                                        <td class="border p-3">Terproteksi dengan tampilan sandi tersembunyi. Dilengkapi tombol *Reveal Button* (ikon mata) untuk melihat input. Menekan <kbd class="bg-slate-100 border px-1 rounded">Enter</kbd> akan langsung mengeksekusi proses login.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">Masuk Sebagai (Role)</td>
+                                        <td class="border p-3">Pilihan dropdown antara <b>Admin</b>, <b>Petugas / Bidan</b>, atau <b>Kasir</b>. Sistem akan menyamakan pilihan ini dengan status role di database, jika berbeda maka login dibatalkan.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Details -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <h3 class="font-bold text-lg mb-4 text-slate-800">B. Dashboard Ringkasan</h3>
+                        <p class="text-sm text-slate-600 mb-4">
+                            Setiap data yang disimpan pada form transaksi mana saja akan direkapitulasi secara otomatis di halaman utama Dashboard tanpa perlu memulai ulang aplikasi (Real-time).
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                            <div class="border p-4 rounded-xl bg-blue-50/50 border-blue-100">
+                                <span class="text-xs text-slate-400 font-bold uppercase block">Total Balita</span>
+                                <span class="text-2xl font-bold text-blue-600">45 Anak</span>
+                                <span class="text-[10px] text-slate-500 block mt-1">Terdaftar aktif</span>
+                            </div>
+                            <div class="border p-4 rounded-xl bg-amber-50/50 border-amber-100">
+                                <span class="text-xs text-slate-400 font-bold uppercase block">Bulan Ini</span>
+                                <span class="text-2xl font-bold text-amber-600">12 Periksa</span>
+                                <span class="text-[10px] text-slate-500 block mt-1">Pelayanan berjalan</span>
+                            </div>
+                            <div class="border p-4 rounded-xl bg-red-50/50 border-red-100">
+                                <span class="text-xs text-slate-400 font-bold uppercase block">Vaksin Mendatang</span>
+                                <span class="text-2xl font-bold text-red-600">8 Jadwal</span>
+                                <span class="text-[10px] text-slate-500 block mt-1">Belum disuntik</span>
+                            </div>
+                            <div class="border p-4 rounded-xl bg-green-50/50 border-green-100">
+                                <span class="text-xs text-slate-400 font-bold uppercase block">Dana PMT Keluar</span>
+                                <span class="text-2xl font-bold text-green-600">Rp 450.000</span>
+                                <span class="text-[10px] text-slate-500 block mt-1">Pengeluaran bulan ini</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4 -->
+            <section id="master-data" class="scroll-mt-24 print-break">
+                <h2 class="text-2xl font-bold text-brand-600 border-b-2 border-brand-100 pb-2 mb-6 flex items-center">
+                    <i class="fa-solid fa-folder-tree mr-3"></i> 4. Manajemen Master Data
+                </h2>
+                
+                <div class="space-y-6">
+                    <!-- Form Ortu -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex items-center mb-4 text-blue-500">
+                            <i class="fa-solid fa-people-roof text-2xl mr-3"></i>
+                            <h3 class="font-bold text-lg text-slate-800">A. Form Orang Tua (Ortu)</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4">Formulir pendaftaran induk wali dari bayi/balita. Kolom input terdiri dari:</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left border-collapse">
+                                <thead class="bg-slate-50 text-slate-700">
+                                    <tr>
+                                        <th class="border p-3 w-1/3">Kolom Input</th>
+                                        <th class="border p-3 w-1/4">Tipe Data</th>
+                                        <th class="border p-3">Keterangan & Batasan</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-600">
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">ID Orang Tua</td>
+                                        <td class="border p-3 font-mono text-xs">Varchar (10)</td>
+                                        <td class="border p-3">Dihasilkan otomatis oleh sistem dengan pola <span class="font-mono text-xs">ORT-xxx</span> (Read-Only).</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">Nama Ibu</td>
+                                        <td class="border p-3 font-mono text-xs">Varchar (100)</td>
+                                        <td class="border p-3"><span class="text-red-600 font-bold text-xs">WAJIB DIISI</span>. Identitas penanggung jawab tumbuh kembang anak.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">Nama Ayah</td>
+                                        <td class="border p-3 font-mono text-xs">Varchar (100)</td>
+                                        <td class="border p-3">Bersifat opsional/tambahan.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">No. HP</td>
+                                        <td class="border p-3 font-mono text-xs">Varchar (15)</td>
+                                        <td class="border p-3">Wajib berupa angka. Sistem akan mendeteksi kesalahan jika diketik huruf.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">Alamat</td>
+                                        <td class="border p-3 font-mono text-xs">Text</td>
+                                        <td class="border p-3">Domisili tempat tinggal sekarang untuk keperluan monitoring dinas.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Form Balita -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex items-center mb-4 text-green-500">
+                            <i class="fa-solid fa-child text-2xl mr-3"></i>
+                            <h3 class="font-bold text-lg text-slate-800">B. Form Balita</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 mb-4">Setiap balita harus dihubungkan secara relasional dengan data orang tuanya yang telah terdaftar.</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left border-collapse">
+                                <thead class="bg-slate-50 text-slate-700">
+                                    <tr>
+                                        <th class="border p-3 w-1/3">Kolom Input</th>
+                                        <th class="border p-3 w-1/4">Tipe Data</th>
+                                        <th class="border p-3">Keterangan & Aturan</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-slate-600">
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">Pilih Orang Tua</td>
+                                        <td class="border p-3 font-mono text-xs">Dropdown Autocomplete</td>
+                                        <td class="border p-3">Ketik nama orang tua, lalu pilih daftar pencarian yang muncul (misal: ORT-001 - Siti Aminah).</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">Jenis Kelamin</td>
+                                        <td class="border p-3 font-mono text-xs">Enum (L, P)</td>
+                                        <td class="border p-3"><span class="text-red-600 font-bold text-xs">MUTLAK</span>. Menentukan kurva acuan normalitas gizi (Laki-laki atau Perempuan).</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="border p-3 font-semibold text-slate-800">Tanggal Lahir</td>
+                                        <td class="border p-3 font-mono text-xs">Date</td>
+                                        <td class="border p-3">Dipilih via kalender. Digunakan oleh sistem untuk melacak konversi usia bulan pada saat penimbangan.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: PEMERIKSAAN (THE CORE) -->
+            <section id="pemeriksaan" class="scroll-mt-24 print-break">
+                <h2 class="text-2xl font-bold text-brand-600 border-b-2 border-brand-100 pb-2 mb-6 flex items-center">
+                    <i class="fa-solid fa-stethoscope mr-3"></i> 5. Pemeriksaan Tumbuh Kembang (Modul Inti)
+                </h2>
+                
+                <div class="bg-brand-50 border border-brand-200 rounded-xl p-5 mb-6 shadow-sm">
+                    <h3 class="font-bold text-brand-800 mb-2 flex items-center"><i class="fa-solid fa-circle-info mr-2"></i> Petunjuk Pengoperasian Input Real-Time</h3>
+                    <p class="text-sm text-brand-900 leading-relaxed">
+                        Saat bidan melakukan input pada kolom <b>Berat Badan (BB)</b> dan <b>Tinggi Badan (TB)</b>, harap tekan tombol <kbd class="bg-white border px-1.5 py-0.5 rounded text-xs shadow-sm font-semibold">Enter</kbd> atau <kbd class="bg-white border px-1.5 py-0.5 rounded text-xs shadow-sm font-semibold">Tab</kbd> untuk memicu rekalkulasi otomatis status gizi dan catatan bidan secara seketika.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm mb-6">
+                    <h3 class="font-bold text-lg mb-4 text-slate-800">Rincian Kolom Formulir Pemeriksaan</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left border-collapse">
+                            <thead class="bg-slate-50 text-slate-700">
+                                <tr>
+                                    <th class="border p-3 w-1/4">Nama Input</th>
+                                    <th class="border p-3 w-1/4">Format Input</th>
+                                    <th class="border p-3">Cara Mengisi & Responsivitas</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-600">
+                                <tr>
+                                    <td class="border p-3 font-semibold text-slate-800">ID Periksa</td>
+                                    <td class="border p-3 font-mono text-xs">Varchar (15)</td>
+                                    <td class="border p-3">Otomatis diisi oleh sistem (pola: PRX-001) untuk meminimalkan salah ketik nomor antrean.</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-3 font-semibold text-slate-800">Pilih Pasien Balita</td>
+                                    <td class="border p-3 font-mono text-xs">Autocomplete Text</td>
+                                    <td class="border p-3">Ketik minimal 3 huruf nama anak, kotak pilihan akan mengerucut dan tampil di layar.</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-3 font-semibold text-slate-800">Berat Badan (BB)</td>
+                                    <td class="border p-3 font-mono text-xs">Double (Decimal)</td>
+                                    <td class="border p-3">Ketik dengan desimal menggunakan pemisah titik (cth: 9.8). Menentukan rasio BB/U dan BB/TB.</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-3 font-semibold text-slate-800">Tinggi Badan (TB)</td>
+                                    <td class="border p-3 font-mono text-xs">Double (Decimal)</td>
+                                    <td class="border p-3">Ketik tinggi anak (cth: 76.5). Mempengaruhi nilai TB/U dan perhitungan stunting.</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-3 font-semibold text-slate-800">Lingkar Kepala (LK)</td>
+                                    <td class="border p-3 font-mono text-xs">Double (Decimal)</td>
+                                    <td class="border p-3">Ketikkan nilai ukuran lingkar kepala balita. Sistem akan mengalkulasi status lingkar kepala. <span class="bg-blue-100 text-blue-800 text-[10px] px-2 py-0.5 rounded font-bold uppercase">Terbaru</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: LINGKAR KEPALA -->
+            <section id="lingkar-kepala" class="scroll-mt-24 print-break">
+                <h2 class="text-2xl font-bold text-brand-600 border-b-2 border-brand-100 pb-2 mb-6 flex items-center">
+                    <i class="fa-solid fa-head-side-virus mr-3"></i> 6. Khusus: Panduan Lingkar Kepala (LK)
+                </h2>
+                <p class="text-slate-600 mb-6 leading-relaxed">
+                    Pengukuran Lingkar Kepala (LK) merupakan bagian sangat penting dari pemantauan tumbuh kembang anak usia 0-5 tahun (60 bulan) guna mendeteksi gangguan ukuran otak sejak dini. Standar WHO mengklasifikasikan lingkar kepala anak menjadi 3 kategori:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="border border-red-200 bg-red-50 p-5 rounded-xl">
+                        <h4 class="font-bold text-red-800 mb-1">1. Mikrosefali (Terlalu Kecil)</h4>
+                        <p class="text-xs text-red-900">Nilai LK berada dibawah <span class="font-bold">-2 Standar Deviasi (-2 SD)</span> kurva pertumbuhan. Indikasi perkembangan otak terhambat.</p>
+                    </div>
+                    <div class="border border-green-200 bg-green-50 p-5 rounded-xl">
+                        <h4 class="font-bold text-green-800 mb-1">2. Normal</h4>
+                        <p class="text-xs text-green-900">Nilai LK di antara <span class="font-bold">-2 SD sampai +2 SD</span>. Struktur kepala tumbuh dengan proporsi yang sempurna.</p>
+                    </div>
+                    <div class="border border-red-200 bg-red-50 p-5 rounded-xl">
+                        <h4 class="font-bold text-red-800 mb-1">3. Makrosefali (Terlalu Besar)</h4>
+                        <p class="text-xs text-red-900">Nilai LK berada diatas <span class="font-bold">+2 Standar Deviasi (+2 SD)</span>. Risiko hidrosefalus atau penumpukan cairan.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-base mb-4 text-slate-800">Tabel Rujukan Ringkas Lingkar Kepala Normal (WHO)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left border-collapse">
+                            <thead class="bg-slate-100 text-slate-700">
+                                <tr>
+                                    <th class="border p-3" rowspan="2">Usia (Bulan)</th>
+                                    <th class="border p-3 text-center col-span-2" colspan="2">Laki-Laki (Rentang Normal)</th>
+                                    <th class="border p-3 text-center col-span-2" colspan="2">Perempuan (Rentang Normal)</th>
+                                </tr>
+                                <tr>
+                                    <th class="border p-2 text-center text-slate-500">Min (-2 SD)</th>
+                                    <th class="border p-2 text-center text-slate-500">Max (+2 SD)</th>
+                                    <th class="border p-2 text-center text-slate-500">Min (-2 SD)</th>
+                                    <th class="border p-2 text-center text-slate-500">Max (+2 SD)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-600 font-mono">
+                                <tr>
+                                    <td class="border p-2 font-sans font-semibold">0 Bulan (Lahir)</td>
+                                    <td class="border p-2 text-center">31.9 cm</td>
+                                    <td class="border p-2 text-center">37.0 cm</td>
+                                    <td class="border p-2 text-center">31.5 cm</td>
+                                    <td class="border p-2 text-center">36.2 cm</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2 font-sans font-semibold">6 Bulan</td>
+                                    <td class="border p-2 text-center">41.5 cm</td>
+                                    <td class="border p-2 text-center">46.0 cm</td>
+                                    <td class="border p-2 text-center">40.0 cm</td>
+                                    <td class="border p-2 text-center">45.0 cm</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2 font-sans font-semibold">12 Bulan (1 Tahun)</td>
+                                    <td class="border p-2 text-center">43.5 cm</td>
+                                    <td class="border p-2 text-center">48.5 cm</td>
+                                    <td class="border p-2 text-center">42.5 cm</td>
+                                    <td class="border p-2 text-center">47.3 cm</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2 font-sans font-semibold">24 Bulan (2 Tahun)</td>
+                                    <td class="border p-2 text-center">45.5 cm</td>
+                                    <td class="border p-2 text-center">50.5 cm</td>
+                                    <td class="border p-2 text-center">44.5 cm</td>
+                                    <td class="border p-2 text-center">49.5 cm</td>
+                                </tr>
+                                <tr>
+                                    <td class="border p-2 font-sans font-semibold">36 Bulan (3 Tahun)</td>
+                                    <td class="border p-2 text-center">46.8 cm</td>
+                                    <td class="border p-2 text-center">52.0 cm</td>
+                                    <td class="border p-2 text-center">45.8 cm</td>
+                                    <td class="border p-2 text-center">51.0 cm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7 & 8 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 print-break">
+                <section id="imunisasi" class="scroll-mt-24">
+                    <h2 class="text-xl font-bold text-brand-600 border-b-2 border-brand-100 pb-2 mb-4 flex items-center">
+                        <i class="fa-solid fa-calendar-check mr-2"></i> 7. Jadwal & Vaksinasi
+                    </h2>
+                    <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm h-full">
+                        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                            Membantu melacak jadwal imunisasi mendatang agar bayi tidak melewatkan vaksin wajib nasional.
+                        </p>
+                        <ul class="text-sm text-slate-600 space-y-3">
+                            <li><span class="font-semibold text-slate-800">Input ID Balita:</span> Pilih balita yang akan dijadwalkan menerima suntikan.</li>
+                            <li><span class="font-semibold text-slate-800">Tanggal Imunisasi Berikutnya:</span> Diatur agar sistem secara cerdas menampilkan pengingat di layar beranda.</li>
+                            <li><span class="font-semibold text-slate-800">Status Bayar/Layanan:</span> Membagi pendaftaran berdasarkan rujukan BPJS atau berbayar umum.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="konsumsi" class="scroll-mt-24">
+                    <h2 class="text-xl font-bold text-brand-600 border-b-2 border-brand-100 pb-2 mb-4 flex items-center">
+                        <i class="fa-solid fa-bowl-food mr-2"></i> 8. Konsumsi PMT Operasional
+                    </h2>
+                    <div class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm h-full">
+                        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                            Melacak penggunaan anggaran belanja dapur dalam penyediaan Pemberian Makanan Tambahan (PMT) Posyandu.
+                        </p>
+                        <ul class="text-sm text-slate-600 space-y-3">
+                            <li><span class="font-semibold text-slate-800">Nama Menu:</span> Tulis makanan bergizi yang dibagikan (misal: Sup Telur Puyuh).</li>
+                            <li><span class="font-semibold text-slate-800">Biaya Pengeluaran:</span> Masukkan angka nominal bersih.</li>
+                            <li><span class="font-semibold text-slate-800">Penerima Manfaat:</span> Total porsi piring yang terdistribusi kepada balita hadir.</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <!-- INTERACTIVE SIMULATOR (HIGH VALUE SECTION) -->
+            <section id="simulator" class="scroll-mt-24 print-break bg-gradient-to-br from-teal-50 to-emerald-50 border border-teal-200/50 rounded-2xl p-6 md:p-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-brand-600 text-white rounded-lg">
+                        <i class="fa-solid fa-calculator text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl md:text-2xl font-bold text-brand-700">Kalkulator GrowTrack Instan</h2>
+                        <p class="text-xs text-brand-600">Simulasikan perhitungan status tumbuh kembang balita sesuai acuan program asli Java Desktop.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Control Inputs -->
+                    <div class="space-y-4 bg-white p-5 rounded-xl border border-teal-100 shadow-sm">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Jenis Kelamin</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="border p-2.5 rounded-lg flex items-center justify-center gap-2 cursor-pointer text-sm font-semibold select-none bg-slate-50" id="lblMale">
+                                    <input type="radio" name="simJK" value="L" checked class="accent-brand-600" onchange="runSim()"> Laki-Laki
+                                </label>
+                                <label class="border p-2.5 rounded-lg flex items-center justify-center gap-2 cursor-pointer text-sm font-semibold select-none bg-slate-50" id="lblFemale">
+                                    <input type="radio" name="simJK" value="P" class="accent-brand-600" onchange="runSim()"> Perempuan
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Usia (Bulan)</label>
+                                <input type="number" id="simUsia" value="12" min="0" max="60" class="w-full border p-2 rounded-lg text-sm font-semibold focus:outline-brand-500" oninput="runSim()">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Lingkar Kepala (Cm)</label>
+                                <input type="number" id="simLK" value="46" step="0.1" class="w-full border p-2 rounded-lg text-sm font-semibold focus:outline-brand-500" oninput="runSim()">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Berat Badan (Kg)</label>
+                                <input type="number" id="simBB" value="9.5" step="0.1" class="w-full border p-2 rounded-lg text-sm font-semibold focus:outline-brand-500" oninput="runSim()">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Tinggi Badan (Cm)</label>
+                                <input type="number" id="simTB" value="76" step="0.1" class="w-full border p-2 rounded-lg text-sm font-semibold focus:outline-brand-500" oninput="runSim()">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Output Panel -->
+                    <div class="flex flex-col justify-between bg-brand-900 text-white p-6 rounded-xl shadow-lg relative overflow-hidden">
+                        <div class="absolute -right-8 -bottom-8 opacity-10 text-9xl">
+                            <i class="fa-solid fa-baby"></i>
+                        </div>
+                        
+                        <div class="space-y-4 z-10">
+                            <div>
+                                <span class="text-xs uppercase font-bold text-brand-100 block">Evaluasi Status Gizi</span>
+                                <span class="text-2xl md:text-3xl font-extrabold block tracking-tight text-white" id="outGizi">Normal</span>
+                            </div>
+                            
+                            <hr class="border-brand-700">
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <span class="text-[10px] text-brand-200 uppercase font-bold block">Status Lingkar Kepala</span>
+                                    <span class="text-sm font-bold block" id="outLK">Normal</span>
+                                </div>
+                                <div>
+                                    <span class="text-[10px] text-brand-200 uppercase font-bold block">Status Tinggi Badan</span>
+                                    <span class="text-sm font-bold block" id="outTBU">Normal / Ideal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 bg-brand-800/50 border border-brand-700/50 p-3 rounded-lg z-10">
+                            <p class="text-xs text-brand-100 leading-relaxed font-mono" id="outDeskripsi">
+                                Menunggu input parameter di samping untuk memetakan diagram status gizi tumbuh kembang balita...
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 9 -->
+            <section id="laporan-setting" class="scroll-mt-24 print-break">
+                <h2 class="text-2xl font-bold text-brand-600 border-b-2 border-brand-100 pb-2 mb-6 flex items-center">
+                    <i class="fa-solid fa-file-pdf mr-3"></i> 9. Laporan PDF & Pengaturan
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex items-center mb-3 text-red-500"><i class="fa-solid fa-print text-2xl mr-3"></i><h3 class="font-bold text-lg text-slate-800">Ekspor Laporan PDF</h3></div>
+                        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                            Ekspor PDF diatur menggunakan pustaka JasperReports untuk menghasilkan lembar kop surat dinas secara resmi.
+                        </p>
+                        <ul class="text-xs text-slate-500 space-y-2">
+                            <li><i class="fa-solid fa-check mr-2 text-green-500"></i><b>Filter Rentang Tanggal:</b> Cetak hanya riwayat penimbangan di tanggal tertentu.</li>
+                            <li><i class="fa-solid fa-check mr-2 text-green-500"></i><b>Pencegahan Duplikasi:</b> ID balita unik akan digunakan sebagai index barcode laporan.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-800 p-6 rounded-xl shadow-sm text-white">
+                        <div class="flex items-center mb-3 text-slate-300"><i class="fa-solid fa-gears text-2xl mr-3"></i><h3 class="font-bold text-lg">Konfigurasi Pengaturan</h3></div>
+                        <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+                            Khusus untuk admin, menu pengaturan dapat mengubah nama posyandu dan logo direktori lokal untuk diaplikasikan ke kop surat laporan secara real-time.
+                        </p>
+                        <div class="bg-slate-700 p-3 rounded-lg text-xs font-mono">
+                            UPDATE pengaturan SET nama_posyandu = ?, logo_path = ? WHERE id = 1;
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="mt-12 border-t border-slate-200 pt-6 pb-12 text-center text-sm text-slate-500 no-print">
+                <p>&copy; 2026 Sistem Informasi Monitoring Tumbuh Kembang (GrowTrack).</p>
+                <p class="mt-1">Dokumen dibuat secara otomatis. Gunakan fitur "Cetak PDF" dari browser Anda untuk menyimpan.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Responsive Layout JavaScript -->
+    <script>
+        // Sidebar Toggle for Mobile
+        const btnToggleSidebar = document.getElementById('btnToggleSidebar');
+        const btnCloseSidebar = document.getElementById('btnCloseSidebar');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            sidebarBackdrop.classList.remove('hidden');
+            setTimeout(() => sidebarBackdrop.classList.add('opacity-100'), 10);
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            sidebarBackdrop.classList.remove('opacity-100');
+            setTimeout(() => sidebarBackdrop.classList.add('hidden'), 300);
+        }
+
+        if (btnToggleSidebar) btnToggleSidebar.addEventListener('click', openSidebar);
+        if (btnCloseSidebar) btnCloseSidebar.addEventListener('click', closeSidebar);
+        if (sidebarBackdrop) sidebarBackdrop.addEventListener('click', closeSidebar);
+
+        // Auto Close Sidebar on menu item click (Mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    closeSidebar();
+                }
+            });
+        });
+
+        // Simple script to highlight active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // INTERACTIVE SIMULATOR LOGIC
+        function runSim() {
+            const jk = document.querySelector('input[name="simJK"]:checked').value;
+            const usia = parseInt(document.getElementById('simUsia').value) || 0;
+            const lk = parseFloat(document.getElementById('simLK').value) || 0;
+            const bb = parseFloat(document.getElementById('simBB').value) || 0;
+            const tb = parseFloat(document.getElementById('simTB').value) || 0;
+
+            let outGizi = "Normal";
+            let outLKStatus = "Normal";
+            let outTBUStatus = "Normal / Ideal";
+            let detailEvaluasi = "";
+
+            // Simple Standard WHO approximation for Simulation
+            // 1. LINGKAR KEPALA EVALUATION
+            let lkMin = 43.5;
+            let lkMax = 48.5;
+            if (usia === 0) {
+                lkMin = (jk === 'L') ? 31.9 : 31.5;
+                lkMax = (jk === 'L') ? 37.0 : 36.2;
+            } else if (usia <= 6) {
+                lkMin = (jk === 'L') ? 41.5 : 40.0;
+                lkMax = (jk === 'L') ? 46.0 : 45.0;
+            } else if (usia <= 12) {
+                lkMin = (jk === 'L') ? 43.5 : 42.5;
+                lkMax = (jk === 'L') ? 48.5 : 47.3;
+            } else if (usia <= 24) {
+                lkMin = (jk === 'L') ? 45.5 : 44.5;
+                lkMax = (jk === 'L') ? 50.5 : 49.5;
+            } else {
+                lkMin = (jk === 'L') ? 46.8 : 45.8;
+                lkMax = (jk === 'L') ? 52.0 : 51.0;
+            }
+
+            if (lk < lkMin) {
+                outLKStatus = "Mikrosefali (Terlalu Kecil)";
+            } else if (lk > lkMax) {
+                outLKStatus = "Makrosefali (Terlalu Besar)";
+            } else {
+                outLKStatus = "Normal / Sempurna";
+            }
+
+            // 2. TINGGI BADAN / TB/U EVALUATION (APPROXIMATE WHO FOR 12-24m)
+            let tbMedian = 75.0;
+            if (usia <= 6) tbMedian = 67.0;
+            else if (usia <= 12) tbMedian = 75.0;
+            else if (usia <= 24) tbMedian = 87.0;
+            else tbMedian = 96.0;
+
+            const diffTB = tb - tbMedian;
+            if (diffTB < -8) {
+                outTBUStatus = "Sangat Pendek (Stunted)";
+            } else if (diffTB < -4) {
+                outTBUStatus = "Pendek";
+            } else {
+                outTBUStatus = "Normal / Tinggi";
+            }
+
+            // 3. WEIGHT & GENERAL NUTRITION / STATUS GIZI (APPROXIMATE)
+            let bbMedian = 9.5;
+            if (usia <= 6) bbMedian = 7.5;
+            else if (usia <= 12) bbMedian = 9.5;
+            else if (usia <= 24) bbMedian = 12.0;
+            else bbMedian = 14.5;
+
+            // Simple check for anomaly input first
+            if (bb > 35 || tb > 130 || lk > 65) {
+                outGizi = "Anomali Data (Cek Angka!)";
+                outLKStatus = "Tidak Valid";
+                outTBUStatus = "Tidak Valid";
+                detailEvaluasi = "PERINGATAN: Nilai input melebihi batas anatomis balita untuk rentang usia balita (0-5 tahun). Mohon koreksi kesalahan ketik.";
+            } else {
+                const ratio = bb / tb;
+                const expectedRatio = bbMedian / tbMedian;
+                const ratioPercent = (ratio / expectedRatio) * 100;
+
+                if (ratioPercent < 70) {
+                    outGizi = "Gizi Buruk / Wasted";
+                } else if (ratioPercent < 85) {
+                    outGizi = "Gizi Kurang";
+                } else if (ratioPercent > 130) {
+                    outGizi = "Obesitas";
+                } else if (outTBUStatus.includes("Stunted")) {
+                    outGizi = "Stunting";
+                } else {
+                    outGizi = "Normal / Gizi Baik";
+                }
+
+                detailEvaluasi = `Evaluasi Standard WHO (${jk === 'L' ? 'Laki-laki' : 'Perempuan'}, ${usia} Bln):\n`;
+                detailEvaluasi += `• Rasio Berat terhadap Tinggi ideal. Status LK: ${outLKStatus}.\n`;
+                detailEvaluasi += `• Disarankan bidan merekapitulasi asupan gizi secara rutin tiap tanggal 10.`;
+            }
+
+            // Write to UI
+            document.getElementById('outGizi').innerText = outGizi;
+            document.getElementById('outLK').innerText = outLKStatus;
+            document.getElementById('outTBU').innerText = outTBUStatus;
+            document.getElementById('outDeskripsi').innerText = detailEvaluasi;
+
+            // Apply color alerts on Simulator result
+            const giziEl = document.getElementById('outGizi');
+            giziEl.className = "text-2xl md:text-3xl font-extrabold block tracking-tight";
+            if (outGizi.includes("Normal")) giziEl.classList.add("text-emerald-300");
+            else if (outGizi.includes("Gizi Buruk") || outGizi.includes("Stunting") || outGizi.includes("Anomali")) giziEl.classList.add("text-red-400");
+            else giziEl.classList.add("text-amber-300");
+        }
+
+        // Run on load
+        window.onload = function() {
+            runSim();
+        }
+    </script>
+</body>
+</html>
