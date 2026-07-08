@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GrowTrack - Skenario & Dokumentasi</title>
+    <title>GrowTrack - Skenario & Dokumentasi Lengkap</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -64,6 +64,7 @@
         .glass { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
         .badge-operator { background: linear-gradient(135deg, #4f46e5, #3b82f6); color: white; }
         .badge-speaker { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; }
+        .yt-timestamp { background-color: #ef4444; color: white; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-weight: bold; font-size: 13px; letter-spacing: 0.5px; }
         .tab-hidden { position: absolute !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; z-index: -10; height: 0 !important; overflow: hidden !important; }
         .tab-active { position: relative; visibility: visible; opacity: 1; transition: opacity 0.4s ease; }
 
@@ -106,11 +107,11 @@
                 <div class="flex items-center space-x-3">
                     <div class="bg-brand-600 text-white p-2 rounded-lg shadow-glow"><i class="fa-solid fa-baby"></i></div>
                     <span class="font-extrabold text-xl tracking-tight text-slate-800">GrowTrack <span class="text-brand-600">Hub</span></span>
-                    <span class="bg-brand-100 text-brand-700 text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider ml-2 border border-brand-200">Kelompok 4</span>
+                    <span class="bg-brand-100 text-brand-700 text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider ml-2 border border-brand-200">Tim Presentasi YouTube</span>
                 </div>
                 <div class="flex items-center space-x-4">
                     <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-xl font-semibold text-sm transition shadow-sm flex items-center gap-2">
-                        <i class="fa-solid fa-file-pdf"></i> Ekspor PDF
+                        <i class="fa-solid fa-file-pdf"></i> Ekspor Naskah PDF
                     </button>
                 </div>
             </div>
@@ -138,26 +139,26 @@
                 
                 <!-- Nav: Skenario Demo -->
                 <div id="nav-demo" class="nav-group">
-                    <h3 class="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3 px-4">Alur Presentasi (7 Orang)</h3>
+                    <h3 class="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3 px-4">Timeline Video YouTube (30 Menit)</h3>
                     <nav class="space-y-1 text-[13px] font-medium">
-                        <a href="#pembicara1" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-user text-amber-500 w-5"></i> 1. Pembukaan & 3 Role</a>
-                        <a href="#pembicara2" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-user text-amber-500 w-5"></i> 2. Dashboard & Form Admin</a>
-                        <a href="#pembicara3" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-user text-amber-500 w-5"></i> 3. Master Data (Ortu, Anak, Vaksin)</a>
-                        <a href="#pembicara4" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-user text-amber-500 w-5"></i> 4. Form Pemeriksaan (Fitur Sakti)</a>
-                        <a href="#pembicara5" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-user text-amber-500 w-5"></i> 5. Form Jadwal Imunisasi</a>
-                        <a href="#pembicara6" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-user text-amber-500 w-5"></i> 6. Form Konsumsi PMT</a>
-                        <a href="#pembicara7" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-user text-amber-500 w-5"></i> 7. Lima Jenis Laporan PDF</a>
+                        <a href="#pembicara1" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><span class="text-red-500 font-mono mr-1">00:00</span> 1. Intro, Login & Modul Admin</a>
+                        <a href="#pembicara2" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><span class="text-red-500 font-mono mr-1">04:30</span> 2. Master Vaksin & Orang Tua</a>
+                        <a href="#pembicara3" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><span class="text-red-500 font-mono mr-1">08:45</span> 3. Form Balita & Relasi DB</a>
+                        <a href="#pembicara4" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><span class="text-red-500 font-mono mr-1">13:20</span> 4. Pemeriksaan & Kalkulasi Sistem</a>
+                        <a href="#pembicara5" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><span class="text-red-500 font-mono mr-1">18:10</span> 5. Ubah Status Kritis & Imunisasi</a>
+                        <a href="#pembicara6" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><span class="text-red-500 font-mono mr-1">22:00</span> 6. Modul Kasir / Konsumsi PMT</a>
+                        <a href="#pembicara7" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><span class="text-red-500 font-mono mr-1">26:15</span> 7. Generate 5 Report PDF</a>
                     </nav>
                 </div>
 
                 <!-- Nav: Buku Panduan -->
                 <div id="nav-docs" class="nav-group hidden">
-                    <h3 class="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3 px-4">Panduan Sistem GrowTrack</h3>
+                    <h3 class="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3 px-4">Buku Panduan Teknis</h3>
                     <nav class="space-y-1 text-[13px] font-medium">
                         <a href="#docs-pengenalan" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-users-gear w-5 text-slate-400"></i> 1. Pengenalan & Hak Akses</a>
-                        <a href="#docs-8form" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-table-list w-5 text-slate-400"></i> 2. Penjelasan 8 Form Utama</a>
-                        <a href="#docs-periksa" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-stethoscope w-5 text-slate-400"></i> 3. Algoritma Pemeriksaan Gizi</a>
-                        <a href="#docs-5laporan" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-print w-5 text-slate-400"></i> 4. Lima (5) Jenis Laporan</a>
+                        <a href="#docs-tombol" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-computer-mouse w-5 text-slate-400"></i> 2. Fungsi Standard Tombol</a>
+                        <a href="#docs-8form" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-table-list w-5 text-slate-400"></i> 3. Penjelasan 8 Form Utama</a>
+                        <a href="#docs-periksa" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-stethoscope w-5 text-slate-400"></i> 4. Algoritma Pemeriksaan Gizi</a>
                         <a href="#docs-erd" class="nav-link block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-server w-5 text-slate-400"></i> 5. Database & ERD</a>
                     </nav>
                 </div>
@@ -166,7 +167,7 @@
                 <div id="nav-sim" class="nav-group hidden">
                     <h3 class="text-[11px] font-extrabold text-slate-400 uppercase tracking-widest mb-3 px-4">Alat Bantu Medis</h3>
                     <nav class="space-y-1 text-[13px] font-medium">
-                        <a href="#tab-sim" class="nav-link active block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-calculator w-5 text-brand-500"></i> Kalkulator Simulator</a>
+                        <a href="#tab-sim" class="nav-link active block px-4 py-2.5 rounded-xl text-slate-600"><i class="fa-solid fa-calculator w-5 text-brand-500"></i> Kalkulator Z-Score</a>
                     </nav>
                 </div>
             </div>
@@ -178,14 +179,14 @@
             <!-- HERO Title Header -->
             <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-8 md:p-12 shadow-soft border border-slate-700 text-center relative overflow-hidden text-white mb-8">
                 <div class="absolute top-0 right-0 -mr-16 -mt-16 opacity-10">
-                    <i class="fa-solid fa-users-rectangle text-9xl"></i>
+                    <i class="fa-brands fa-youtube text-9xl"></i>
                 </div>
                 <div class="relative z-10">
                     <h1 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight">
-                        Pusat Kendali <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-teal-200">GrowTrack System</span>
+                        Naskah Presentasi <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-rose-200">YouTube GrowTrack</span>
                     </h1>
-                    <p class="text-sm md:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                        Dokumentasi Lengkap Kelompok 4: Naskah Presentasi, Penjelasan 8 Form & 5 Laporan, serta Simulator Logika Z-Score.
+                    <p class="text-sm md:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed mt-2">
+                        Teleprompter detail <b>durasi 25 - 30 Menit</b> untuk 7 Orang. Dirancang urut, lambat, mendalam, dan menggunakan patokan data akurat <b>9 Juli 2026</b>.
                     </p>
                 </div>
             </div>
@@ -193,54 +194,66 @@
             <!-- TABS BUTTONS -->
             <div class="flex flex-wrap md:flex-nowrap p-1.5 space-x-1 space-y-1 md:space-y-0 bg-slate-200/60 backdrop-blur rounded-2xl w-full mx-auto mb-10 border border-slate-200 shadow-sm no-print">
                 <button id="btn-tab-demo" onclick="switchTab('demo')" class="tab-btn flex-1 bg-white text-brand-700 shadow-md px-4 md:px-6 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-microphone"></i> <span class="hidden sm:inline">Skenario</span> Demo
+                    <i class="fa-brands fa-youtube text-red-500"></i> <span class="hidden sm:inline">Script</span> YouTube
                 </button>
                 <button id="btn-tab-docs" onclick="switchTab('docs')" class="tab-btn flex-1 bg-transparent text-slate-600 hover:bg-white hover:text-slate-800 hover:shadow-sm px-4 md:px-6 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2">
                     <i class="fa-solid fa-book"></i> <span class="hidden sm:inline">Buku</span> Panduan
                 </button>
                 <button id="btn-tab-sim" onclick="switchTab('sim')" class="tab-btn flex-1 bg-transparent text-slate-600 hover:bg-white hover:text-slate-800 hover:shadow-sm px-4 md:px-6 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-calculator"></i> <span class="hidden sm:inline">AI</span> Simulator
+                    <i class="fa-solid fa-calculator"></i> <span class="hidden sm:inline">Kalkulator</span> Gizi
                 </button>
             </div>
 
             <!-- ========================================== -->
-            <!-- TAB 1: SKENARIO DEMO (PRESENTASI 7 ORANG)  -->
+            <!-- TAB 1: SKENARIO DEMO YOUTUBE (7 ORANG)     -->
             <!-- ========================================== -->
             <div id="tab-demo" class="tab-content tab-active space-y-16">
                 
                 <div class="bg-amber-50 border border-amber-200 p-5 rounded-2xl mb-8 flex items-start gap-4">
                     <i class="fa-solid fa-circle-info text-amber-500 text-xl mt-0.5"></i>
                     <p class="text-sm text-amber-800 leading-relaxed">
-                        Halaman ini didesain sebagai <b>Teleprompter</b> yang santai dan natural. Operator (1 orang pembawa mouse) dan 7 orang pembicara bisa menggunakan halaman ini di HP masing-masing sebagai teks panduan selama sidang.
+                        <b>Catatan Penting Operator:</b> Presentasi ini didesain berdurasi <b>25-30 menit</b>. Mohon untuk melakukan klik dan mengetik data secara perlahan, tidak terburu-buru. Selaraskan gerakan kursor mouse dengan ucapan pembicara agar audiens dapat memahami alur dan logika aplikasi.
                     </p>
                 </div>
 
-                <!-- PEMBICARA 1 -->
+                <!-- PEMBICARA 1 (ADMIN) -->
                 <section id="pembicara1" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-xl badge-speaker flex items-center justify-center text-lg shadow-md border border-amber-300"><i class="fa-solid fa-1"></i></div>
-                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Pembukaan & 3 Hak Akses</h2>
+                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Pengenalan, Login, & Modul Admin</h2>
                     </div>
-                    <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-5 shadow-sm relative overflow-hidden">
+                    <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-5 shadow-sm relative overflow-hidden border-l-4 border-l-indigo-600">
                         <div class="absolute right-0 top-0 w-2 h-full bg-indigo-500"></div>
                         <div class="flex items-center gap-2 text-indigo-700 font-extrabold mb-2 text-sm uppercase tracking-wider">
-                            <i class="fa-solid fa-desktop"></i> Layar / Tugas Operator
+                            <i class="fa-solid fa-desktop"></i> Arahan Layar (Tugas Operator)
                         </div>
-                        <ul class="list-disc pl-5 text-sm text-indigo-900 space-y-1">
-                            <li>Buka aplikasi. Tampilkan halaman <b>Login</b>.</li>
-                            <li>Jangan login dulu, tunggu Pembicara 1 selesai jelasin 3 Role.</li>
-                            <li>Ketik username & password perlahan, lalu klik <b>Masuk</b>.</li>
+                        <ul class="list-decimal pl-5 text-sm text-indigo-900 space-y-2">
+                            <li>Buka aplikasi di <b>Halaman Login</b>. Biarkan di layar selama pembicara melakukan intro.</li>
+                            <li>Pilih ComboBox Role "Admin", masukkan Username & Password. Klik Masuk. Tampilkan <b>Dashboard</b> selama 20 detik, gerakkan mouse perlahan menunjuk angka-angka di atas.</li>
+                            <li>Buka menu <b>Pengaturan Akun & Sistem</b> -> Tab <b>Identitas Posyandu</b>. Kita mendemokan fungsi <b>UBAH</b>.<br>
+                                <span class="bg-indigo-100 px-2 py-1 rounded text-xs block mt-1 border border-indigo-200 leading-relaxed">
+                                    <i>Data Isian:</i> Ganti tulisan di kolom Nama Kepala Posyandu menjadi "Dr. Sarah Lestari". Lalu klik tombol hijau <b>Simpan Perubahan</b>.
+                                </span>
+                            </li>
+                            <li>Pindah ke Tab <b>Manajemen Akun Pengguna</b>. Kita mendemokan tombol <b>SIMPAN</b>, <b>HAPUS</b>, dan <b>BERSIHKAN</b>.<br>
+                                <span class="bg-indigo-100 px-2 py-1 rounded text-xs block mt-1 border border-indigo-200 leading-relaxed">
+                                    <i>Data Isian:</i> Nama Lengkap: "Bidan Mawar", Username: "bidan01", Password: "123", Role: "Petugas / Bidan". <br>Klik tombol <b>Simpan</b>. Tunjukkan data masuk ke tabel. Lalu coba klik akun sembarang yang lama, klik <b>Hapus</b>. Terakhir klik <b>Bersihkan Form</b>.
+                                </span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft">
-                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3">
-                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 1 (Sebut Nama)
+                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft relative">
+                        <span class="yt-timestamp absolute -top-3 left-6 shadow-sm"><i class="fa-brands fa-youtube mr-1"></i> 00:00 - 04:30</span>
+                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3 pt-2">
+                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 1 (Sebut Nama Anda)
                         </div>
                         <div class="space-y-4 text-slate-600 leading-relaxed font-medium">
-                            <p>"Halo semuanya! Selamat pagi/siang Bapak/Ibu Dosen Penguji serta teman-teman. Kami dari <b>Kelompok 4</b> mau mendemokan aplikasi buatan kami yaitu <b>GrowTrack: Sistem Posyandu Terpadu</b>."</p>
-                            <p>"Pertama-tama kita ada di halaman Login. Nah, aplikasi kita ini punya sistem pembagian tugas yang jelas. Ada <b>3 Role atau Hak Akses</b> di sini."</p>
-                            <p>"Pertama ada <b>Admin</b>, dia ini ibarat pemegang kunci yang pegang semua akses pengaturan. Terus ada <b>Petugas / Bidan</b>, dia ini cuma bisa buka form medis kayak data balita dan periksa gizi, bagian keuangan ditutup buat dia. Dan yang ketiga ada <b>Kasir atau Kader PMT</b>, ini kebalikannya, dia cuma ngurusin logistik dan pengeluaran dana makanan aja."</p>
-                            <p>"(Tunggu operator login). Sekarang kita bakal login pakai akun Admin supaya semua fiturnya kebuka dan bisa kita tampilin."</p>
+                            <p>"Halo sobat YouTube dan rekan-rekan semuanya! Selamat datang di presentasi sistem kami. Pada kesempatan kali ini, kami dari Kelompok akan mendemonstrasikan secara mendetail aplikasi berbasis desktop buatan kami yang bernama <b>GrowTrack: Sistem Informasi Monitoring Tumbuh Kembang Posyandu Terpadu</b>."</p>
+                            <p>"Aplikasi ini dibangun menggunakan bahasa pemrograman Java dengan framework desain FlatLaf agar tampilannya modern dan minimalis, serta menggunakan database relasional MySQL. Sistem kami tidak sembarangan bisa diakses, kami menerapkan konsep Multi-User dengan 3 Hak Akses berbeda: Admin sebagai pengontrol sistem, Petugas/Bidan yang fokus pada rekam medis, dan Kasir atau Kader yang fokus pada logistik posyandu."</p>
+                            <p>"(Operator perlahan Login). Untuk mendemonstrasikan keseluruhan menu dari awal sampai akhir, kami akan masuk menggunakan kredensial tingkat tertinggi, yaitu <b>Admin</b>. Mari kita mulai."</p>
+                            <p>"Begitu berhasil masuk, kita disambut oleh <b>Dashboard interaktif</b>. Di panel ini terdapat perhitungan statistik <i>real-time</i> mulai dari jumlah balita terdaftar, pasien bulan ini, hingga peringatan dini jika ada jadwal imunisasi yang terlewat. Sebelum masuk ke transaksi medis, saya ingin menjelaskan standard navigasi di aplikasi kami. Nanti, teman-teman akan sering melihat 4 tombol utama: Tombol <b>Simpan</b> (Hijau) untuk insert data baru, <b>Ubah</b> (Kuning) untuk mengupdate data, <b>Hapus</b> (Merah), dan <b>Bersihkan</b> (Abu-abu) untuk mengosongkan kolom inputan."</p>
+                            <p>"(Operator pindah ke Menu Pengaturan). Sebagai contoh implementasi, kita masuk ke modul kewenangan Admin yaitu <b>Form Pengaturan</b>. Di sini kita bisa mengatur identitas klinik. Coba kita demokan fungsi <b>Ubah</b>. Misalnya hari ini struktur organisasi berubah, kita ganti nama Kepala Posyandu menjadi 'Dr. Sarah Lestari'. Saat kita klik Simpan Perubahan, sistem akan menembakkan query UPDATE ke database, dan nama beliau nanti akan otomatis muncul di seluruh dokumen Laporan PDF sebagai penanda tangan."</p>
+                            <p>"(Operator pindah ke Manajemen Akun). Bagian krusial kedua adalah <b>Manajemen Akun</b>. Kita demokan fungsi <b>Simpan</b>. Kita coba buatkan akun baru untuk bidan. Kita ketikkan Nama Lengkap 'Bidan Mawar', username, password, dan pilih Role-nya. Sebagai catatan keamanan, password yang baru saja diketik tidak akan disimpan mentah-mentah ke database, melainkan di-enkripsi menggunakan algoritma kriptografi canggih SHA-256. Setelah tersimpan di tabel, kita bisa mendemokan tombol <b>Hapus</b> untuk membuang akun lama, dan diakhiri dengan menekan tombol <b>Bersihkan Form</b> untuk mereset seluruh form textfield."</p>
                         </div>
                     </div>
                 </section>
@@ -249,27 +262,36 @@
                 <section id="pembicara2" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-xl badge-speaker flex items-center justify-center text-lg shadow-md border border-amber-300"><i class="fa-solid fa-2"></i></div>
-                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Dashboard & Form Admin</h2>
+                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Master Data: Form Vaksin & Orang Tua</h2>
                     </div>
                     <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-5 shadow-sm relative overflow-hidden">
                         <div class="absolute right-0 top-0 w-2 h-full bg-indigo-500"></div>
                         <div class="flex items-center gap-2 text-indigo-700 font-extrabold mb-2 text-sm uppercase tracking-wider">
-                            <i class="fa-solid fa-desktop"></i> Layar / Tugas Operator
+                            <i class="fa-solid fa-desktop"></i> Arahan Layar (Tugas Operator)
                         </div>
-                        <ul class="list-disc pl-5 text-sm text-indigo-900 space-y-1">
-                            <li>Sorot Dashboard (angka-angka & tabel stunting).</li>
-                            <li>Buka menu <b>Form Pengaturan</b>, tunjukkan isinya sekilas.</li>
-                            <li>Buka menu <b>Form User</b>, tunjukkan form buat akun.</li>
+                        <ul class="list-decimal pl-5 text-sm text-indigo-900 space-y-2">
+                            <li>Buka <b>Form Data Vaksin</b>. Kita akan mendemokan form ini pelan-pelan.<br>
+                                <span class="bg-indigo-100 px-2 py-1 rounded text-xs block mt-1 border border-indigo-200 leading-relaxed">
+                                    <i>Aksi:</i> Ketik satu data vaksin baru (Nama: Rotavirus, Merk: BioFarma, Dosis: 0.5ml, Usia: 2 Bulan, Kategori: Wajib). Klik <b>Simpan</b>. Setelah itu, klik satu data vaksin dummy di tabel, lalu klik tombol merah <b>Hapus</b>.
+                                </span>
+                            </li>
+                            <li>Buka <b>Form Orang Tua</b>. Kita akan mendemokan fitur Live Search secara perlahan:<br>
+                                <span class="bg-indigo-100 px-2 py-1 rounded text-xs block mt-1 border border-indigo-200 leading-relaxed">
+                                    <i>Aksi:</i> Ketik beberapa huruf di kotak Pencarian atas tabel, biarkan audiens melihat tabel menyaring data. Hapus kembali kotak pencarian. <br>Lalu isi form baru: Ayah: "Pak Budi", Ibu: "Bu Siti", Pekerjaan: "Wiraswasta", HP: "081234567890", Alamat: "Jl. Sudirman No 9, Jakarta". Klik <b>Simpan</b>.
+                                </span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft">
-                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3">
-                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 2 (Sebut Nama)
+                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft relative">
+                        <span class="yt-timestamp absolute -top-3 left-6 shadow-sm"><i class="fa-brands fa-youtube mr-1"></i> 04:30 - 08:45</span>
+                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3 pt-2">
+                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 2 (Sebut Nama Anda)
                         </div>
                         <div class="space-y-4 text-slate-600 leading-relaxed font-medium">
-                            <p>"Begitu login, kita langsung disambut sama <b>Dashboard</b>. Di sini tampil semua data real-time, mulai dari jumlah balita sampai tabel peringatan khusus buat anak yang gizinya kurang."</p>
-                            <p>"Nah, karena tadi kita login pakai hak akses Admin, kita punya akses ke dua form khusus. (Operator buka Pengaturan). Yang pertama ada <b>Form Pengaturan</b>. Di sini admin bisa setting nama posyandu, alamat, no telp, nama ketua posyandu, ganti logo aplikasi, dan yang paling penting ada tombol Backup/Restore Database."</p>
-                            <p>"(Operator buka Form User). Terus ada <b>Form User</b> buat manajemen akun. Di sini tempatnya kita bikin atau hapus akun buat bidan dan kasir. Tinggal masukin Nama Lengkap, Username, Password, lalu pilih Role-nya mau jadi apa."</p>
+                            <p>"Terima kasih banyak atas penjelasannya. Sekarang, mari kita beralih ke inti pelayanan dari sudut pandang seorang tenaga kesehatan. Tahap pertama sebelum memulai posyandu adalah melengkapi <b>Master Data</b>."</p>
+                            <p>"(Operator buka Form Data Vaksin). Menu master data yang pertama adalah <b>Form Data Vaksin atau Imunisasi</b>. Form ini berfungsi sebagai pusat inventaris catatan jenis imunisasi apa saja yang didistribusikan dari puskesmas. Coba kita inputkan satu data baru, misalnya vaksin Rotavirus dari Biofarma untuk bayi usia 2 bulan, lalu kita Simpan. Nah, kalau ternyata ada vaksin yang ditarik peredarannya atau kadaluarsa, kita cukup mengkliknya di tabel sebelah kanan, lalu menekan tombol Hapus. Terdapat pop-up validasi untuk memastikan agar data tidak terhapus secara tidak sengaja."</p>
+                            <p>"(Operator buka Form Orang Tua). Lanjut ke <b>Form Orang Tua</b>. Di dalam dunia kebidanan, data wali atau pemegang buku KIA (Kesehatan Ibu dan Anak) itu harus dicatat terpisah sebelum merekam data bayinya. Oh ya, tolong perhatikan kolom Pencarian di kanan atas tabel. (Operator mengetik di kolom pencarian). GrowTrack menggunakan metode <i>Live Search</i> menggunakan fungsi KeyReleased di Java. Artinya, bidan tidak perlu repot menekan tombol Enter atau tombol Cari. Begitu huruf diketik, tabel langsung menyaring database dalam hitungan milidetik."</p>
+                            <p>"Mari kita simpan data wali pasien yang baru. Kita masukkan nama ayah Pak Budi, dan yang terpenting adalah nama Ibu wajib diisi, di sini kita tulis Bu Siti. Kita lengkapi nomor handphone yang valid dan alamat rumahnya di Jakarta, lalu klik tombol hijau Simpan. Data wali berhasil didaftarkan!"</p>
                         </div>
                     </div>
                 </section>
@@ -278,27 +300,36 @@
                 <section id="pembicara3" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-xl badge-speaker flex items-center justify-center text-lg shadow-md border border-amber-300"><i class="fa-solid fa-3"></i></div>
-                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Master Data (Vaksin, Ortu, Anak)</h2>
+                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Form Balita & Relasi Database Autocomplete</h2>
                     </div>
                     <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-5 shadow-sm relative overflow-hidden">
                         <div class="absolute right-0 top-0 w-2 h-full bg-indigo-500"></div>
                         <div class="flex items-center gap-2 text-indigo-700 font-extrabold mb-2 text-sm uppercase tracking-wider">
-                            <i class="fa-solid fa-desktop"></i> Layar / Tugas Operator
+                            <i class="fa-solid fa-desktop"></i> Arahan Layar (Tugas Operator)
                         </div>
-                        <ul class="list-disc pl-5 text-sm text-indigo-900 space-y-1">
-                            <li>Klik <b>Form Vaksin</b>. Tunjukkan sekilas.</li>
-                            <li>Klik <b>Form Orang Tua</b>. Isi data form perlahan (fokus ke kolom nama ibu).</li>
-                            <li>Klik <b>Form Balita</b>. Tunjukkan cara isi tanggal lahir dan milih ortu pakai combo box pintar.</li>
+                        <ul class="list-decimal pl-5 text-sm text-indigo-900 space-y-2">
+                            <li>Buka <b>Form Data Balita</b>. Gerakkan mouse perlahan menjelaskan struktur inputan.<br>
+                                <span class="bg-indigo-100 px-2 py-1 rounded text-xs block mt-1 border border-indigo-200 leading-relaxed font-bold text-indigo-900">
+                                    <i>Data Isian Wajib Akurat:</i><br>
+                                    - Nama: "Ahmad Rayyan"<br>
+                                    - JK: "L - Laki-Laki"<br>
+                                    - Tgl Lahir: Pilih kalender, mundurkan tahun, lalu pilih tanggal <u>9 MEI 2025</u> (Krusial! Agar umurnya pas 14 bulan sesuai tanggal 9 Juli 2026).<br>
+                                    - B. Lahir: 3.2 | T. Lahir: 49<br>
+                                    - Kotak Pilih Orang Tua: JANGAN SCROLL MENU DROPDOWN! Tunjukkan fungsi ketiknya. Langsung klik di kotak, lalu ketik huruf "Siti", tekan panah bawah di keyboard, lalu Enter. <br>Klik <b>Simpan</b>.
+                                </span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft">
-                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3">
-                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 3 (Sebut Nama)
+                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft relative">
+                        <span class="yt-timestamp absolute -top-3 left-6 shadow-sm"><i class="fa-brands fa-youtube mr-1"></i> 08:45 - 13:20</span>
+                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3 pt-2">
+                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 3 (Sebut Nama Anda)
                         </div>
                         <div class="space-y-4 text-slate-600 leading-relaxed font-medium">
-                            <p>"Selanjutnya kita masuk ke Master Data. Ada 3 form utama di sini. (Operator buka Form Vaksin). Pertama ada <b>Form Vaksin</b>, ini buat nyatet stok vaksin kayak BCG, polio, beserta merk, dosis, usia pemberian, dan kategorinya wajib atau lanjutan."</p>
-                            <p>"(Operator buka Form Orang Tua). Terus sebelum daftarin anak, kita wajib daftarin walinya dulu di <b>Form Orang Tua</b>. Yang diisi ada Nama Ayah, Pekerjaan, No HP, Alamat, dan yang paling wajib itu Nama Ibu sebagai pemegang buku KIA."</p>
-                            <p>"(Operator buka Form Balita). Barulah kita ke <b>Form Balita</b>. Bidan tinggal ngisi nama anak, jenis kelamin, BB dan TB saat lahir. Nah, Tanggal Lahir ini krusial banget buat perhitungan umur nanti. Untuk milih ortunya, kita udah siapin fitur combo box otomatis biar bidan nggak repot masukin kode ID manual."</p>
+                            <p>"Terima kasih. Begitu data keluarga atau wali selesai dibuat, langkah selanjutnya adalah mendaftarkan sang anak ke dalam posyandu. (Operator buka Form Data Balita). Di dalam <b>Form Balita</b> ini, kami membuat satu fitur relasi tabel database yang sangat canggih untuk mengatasi masalah *human error*."</p>
+                            <p>"Kita simulasikan ada pasien bayi baru. Kita ketikkan namanya, Ahmad Rayyan, laki-laki. Nah, untuk bagian Tanggal Lahir, operator harus memilih dari kalender. Coba kita pilih tanggal <b>9 Mei 2025</b>. Mengapa tanggal ini sangat krusial? Karena simulasi presentasi kita dilakukan pada tanggal 9 Juli 2026, sistem nantinya harus membaca umur Rayyan tepat di angka 14 Bulan. Jadi format tanggal ini tidak boleh salah karena menjadi kunci utama kalkulasi sistem kami."</p>
+                            <p>"Kemudian kita masukkan berat dan tinggi badannya ketika pertama kali lahir. (Operator bersiap di kolom Pilih Orang Tua). Selanjutnya, mari kita lihat bagian yang paling menarik di form ini, yaitu kolom Pilih Orang Tua. Secara ilmu database, ini adalah *Foreign Key* yang menghubungkan data Balita ke tabel Orang Tua."</p>
+                            <p>"Bayangkan jika di posyandu sebuah desa ada ratusan bahkan ribuan pendaftar, pasti akan sangat melelahkan bagi bidan jika harus men-scroll daftar nama satu per satu. Di aplikasi GrowTrack, kami menanamkan fitur <i>Autocomplete Search</i> di dalam ComboBox. (Operator mengetik Siti). Bidan cukup meletakkan kursor, lalu mengetikkan nama ibunya, misal 'Siti'. Sistem akan langsung memfilter secara otomatis ID keluarga mana yang cocok. Tinggal tekan tombol Panah Bawah, lalu Enter, dan klik <b>Simpan</b>. Data Ahmad Rayyan kini terhubung permanen dengan data keluarga Bu Siti secara akurat!"</p>
                         </div>
                     </div>
                 </section>
@@ -307,27 +338,33 @@
                 <section id="pembicara4" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-xl badge-speaker flex items-center justify-center text-lg shadow-md border border-amber-300"><i class="fa-solid fa-4"></i></div>
-                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Form Pemeriksaan (Fitur Sakti)</h2>
+                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Form Pemeriksaan (Kalkulasi Sistem Otomatis)</h2>
                     </div>
                     <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-5 shadow-sm relative overflow-hidden border-l-4 border-l-indigo-600">
                         <div class="absolute right-0 top-0 w-2 h-full bg-indigo-500"></div>
                         <div class="flex items-center gap-2 text-indigo-700 font-extrabold mb-2 text-sm uppercase tracking-wider">
-                            <i class="fa-solid fa-triangle-exclamation"></i> Kritis: Layar / Tugas Operator
+                            <i class="fa-solid fa-triangle-exclamation"></i> Kritis: Arahan Layar (Tugas Operator)
                         </div>
-                        <ul class="list-disc pl-5 text-sm text-indigo-900 space-y-1">
-                            <li>Buka menu <b>Form Pemeriksaan</b>. Pilih balita.</li>
-                            <li>Isi form urut: Tgl periksa, Berat (Kg), Tinggi (Cm), Lingkar Kepala, Posisi Ukur, Status ASI, Vit A, Obat cacing, lalu ketik sedikit catatan.</li>
-                            <li><b>Tahan layar!</b> Tunjukkan saat Status Gizi berubah otomatis (keluar hasil tanpa diketik).</li>
+                        <ul class="list-decimal pl-5 text-sm text-indigo-900 space-y-2">
+                            <li>Buka menu <b>Form Pemeriksaan</b>. JANGAN DULU MENGISI DATA! Biarkan pembicara menjelaskan teori dasarnya selama 1 menit.</li>
+                            <li>Pilih pasien balita "Ahmad Rayyan" (yang baru dibuat tadi) dari combobox. Tanggal Periksa biarkan default hari ini (<b>9 Juli 2026</b>).</li>
+                            <li>Ketik Berat: <b>9.0</b>. Ketik Tinggi: <b>75</b>. Lingkar Kepala: <b>46</b>.</li>
+                            <li><b>LEPASKAN KEYBOARD! JANGAN LANGSUNG KLIK SIMPAN!</b> Biarkan audiens melihat dan membaca efek luar biasa di layar. Kotak <i>Status Gizi</i> otomatis terisi kalimat (Gizi Baik/Normal) berwarna Hijau. Area text besar <i>Catatan Bidan</i> otomatis terjabarkan analisa lengkapnya layaknya resep dokter.</li>
+                            <li>Lalu lanjutkan mengisi: Pilih Posisi Ukur (Berdiri), ASI (Sistem akan mematikan klik karena anak sudah >6 bulan), Vit A (Merah), Obat Cacing (Ya). Klik <b>Simpan</b>.</li>
                         </ul>
                     </div>
-                    <div class="bg-gradient-to-r from-brand-50 to-teal-50 rounded-2xl p-6 md:p-8 border border-brand-200 shadow-md">
-                        <div class="flex items-center gap-2 text-brand-700 font-extrabold mb-4 border-b border-brand-200 pb-3">
-                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 4 (Sebut Nama)
+                    <div class="bg-gradient-to-r from-brand-50 to-teal-50 rounded-2xl p-6 md:p-8 border border-brand-200 shadow-md relative">
+                        <span class="yt-timestamp absolute -top-3 left-6 shadow-sm"><i class="fa-brands fa-youtube mr-1"></i> 13:20 - 18:10</span>
+                        <div class="flex items-center gap-2 text-brand-700 font-extrabold mb-4 border-b border-brand-200 pb-3 pt-2">
+                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 4 (Sebut Nama Anda)
                         </div>
                         <div class="space-y-4 text-slate-700 leading-relaxed font-semibold">
-                            <p>"Nah Bapak/Ibu, ini dia fitur paling <i>sakti</i> dan inti dari aplikasi kita: <b>Form Pemeriksaan</b>."</p>
-                            <p>"Di sini bidan milih nama anak dan tanggal periksa. Terus masukin data pengukurannya kayak Berat Badan, Tinggi, Lingkar Kepala, Posisi Ukur apakah dia berdiri atau telentang, Status ASI, sampai pemberian Vitamin A dan Obat Cacing. Bidan juga bisa nambahin catatan manual."</p>
-                            <p>"Coba perhatikan layarnya. (Operator input BB dan TB). Magic-nya di sini! Begitu angkanya dimasukkan, <b>Status Gizi anaknya otomatis keluar tanpa perlu diketik manual!</b> Sistem kita bakal ngitung sendiri umur anak, nyesuain sama jenis kelamin, dan ngeluarin status gizi kayak Normal, Stunting, atau Gizi Buruk berdasarkan standar Z-Score. Ini benar-benar ngebantu bidan biar nggak usah ribet ngitung pakai kalkulator lagi."</p>
+                            <p>"Sobat YouTube, di menit ini kita akan masuk ke dalam jantung utama aplikasi kita, yaitu <b>Form Catat Pemeriksaan Posyandu</b>. Tolong perhatikan dengan saksama, karena kami menanamkan algoritma sistem yang cukup kompleks di dalam modul ini."</p>
+                            <p>"Dalam metode buku KIA konvensional, bidan yang sedang bertugas harus melewati proses yang panjang: mereka harus mengecek kalender, menghitung selisih umur anak dalam satuan bulan, lalu mencocokkan angka berat dan tinggi badan tersebut ke dalam kurva grafik warna-warni yang rumit. Di GrowTrack, kami mengubah proses manual yang memakan waktu lima menit tersebut, menjadi otomatis hanya dalam hitungan detik!"</p>
+                            <p>"Mari kita buktikan. Kita panggil data pasien Ahmad Rayyan di tanggal pemeriksaan hari ini, <b>9 Juli 2026</b>. (Operator memilih nama Rayyan). Kemudian, bidan menimbang dan mengukur anak, lalu kita ketikkan hasilnya: Berat Badannya 9.0 Kg, dan Tinggi badannya 75 cm."</p>
+                            <p>"(Operator berhenti mengetik). Perhatikan baik-baik layarnya! Tanpa kami harus mengklik tombol 'Hitung', <b>Status Gizi anaknya otomatis muncul di layar 'Normal / Gizi Baik' berwarna Hijau!</b>"</p>
+                            <p>"Bagaimana ini bisa terjadi? Di latar belakang (<i>background process</i>), algoritma Java kami seketika mengambil tanggal hari ini, mengurangi dengan tanggal lahir Rayyan, membaginya dengan rumus 30.44 hari, lalu mendapatkan hasil bahwa hari ini Rayyan berusia pas 14 Bulan. Angka tersebut lalu dikomparasi dengan Array Z-Score yang kami adopsi langsung dari standar Kementerian Kesehatan dan WHO. Jika nilai deviasinya aman, maka muncul Gizi Baik."</p>
+                            <p>"Tidak hanya itu, di kotak 'Catatan Bidan' di bagian bawah, sistem kami menyusun kalimat ringkasan medis secara otomatis layaknya asisten. Mulai dari rincian rasio Berat menurut Umur, hingga Tinggi menurut Umur. Terakhir, bidan tinggal melengkapi Posisi Pengukuran, memilih kapsul Vitamin A warna merah karena si Rayyan usianya di atas 1 tahun, memberi opsi Obat Cacing, lalu menekan tombol <b>Simpan</b>. Modul ini benar-benar memangkas waktu kerja dan menghindari kesalahan vonis gizi!"</p>
                         </div>
                     </div>
                 </section>
@@ -336,27 +373,37 @@
                 <section id="pembicara5" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-xl badge-speaker flex items-center justify-center text-lg shadow-md border border-amber-300"><i class="fa-solid fa-5"></i></div>
-                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Form Jadwal Imunisasi</h2>
+                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Koreksi Data (Ubah) Kritis & Jadwal Imunisasi</h2>
                     </div>
                     <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-5 shadow-sm relative overflow-hidden">
                         <div class="absolute right-0 top-0 w-2 h-full bg-indigo-500"></div>
                         <div class="flex items-center gap-2 text-indigo-700 font-extrabold mb-2 text-sm uppercase tracking-wider">
-                            <i class="fa-solid fa-desktop"></i> Layar / Tugas Operator
+                            <i class="fa-solid fa-desktop"></i> Arahan Layar (Tugas Operator)
                         </div>
-                        <ul class="list-disc pl-5 text-sm text-indigo-900 space-y-1">
-                            <li>Klik <b>Form Jadwal Imunisasi</b>.</li>
-                            <li>Pilih salah satu balita, lalu pilih Jenis Vaksin.</li>
-                            <li>Isi Tanggal disuntik dan Tanggal jadwal berikutnya. Pilih status (Sudah/Belum).</li>
+                        <ul class="list-decimal pl-5 text-sm text-indigo-900 space-y-2">
+                            <li>Masih di menu <b>Form Pemeriksaan</b>. Kita akan mendemokan ketangguhan sistem saat merespon <b>UBAH</b> data:<br>
+                                <span class="bg-indigo-100 px-2 py-1 rounded text-xs block mt-1 border border-indigo-200 leading-relaxed">
+                                    <i>Aksi:</i> Scroll ke tabel paling bawah, klik baris riwayat "Ahmad Rayyan" yang baru saja diinput agar datanya terlempar naik kembali ke form atas. Hapus angka 75 di kolom tinggi badan secara sengaja, lalu ketik angka yang sangat pendek, yaitu <b>62</b>. <br>Tunjuk dengan mouse bahwa Status Gizi seketika berubah warna merah gelap menjadi vonis <b>STUNTING</b>. Lalu klik tombol kuning <b>Ubah</b>.
+                                </span>
+                            </li>
+                            <li>Pindah menu ke <b>Form Jadwal Imunisasi</b>. Kita mendemokan plotting data <b>SIMPAN</b>:<br>
+                                <span class="bg-indigo-100 px-2 py-1 rounded text-xs block mt-1 border border-indigo-200 leading-relaxed">
+                                    <i>Data Isian:</i> Pilih Balita: "Ahmad Rayyan". Vaksin: "Campak". Tgl Diberikan: "9 Juli 2026". Tgl Berikutnya: Buka kalender, pilih tanggal di bulan depan misalnya "9 Agustus 2026". Status Pelaksanaan: "Belum". Klik <b>Simpan</b>.
+                                </span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft">
-                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3">
-                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 5 (Sebut Nama)
+                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft relative">
+                        <span class="yt-timestamp absolute -top-3 left-6 shadow-sm"><i class="fa-brands fa-youtube mr-1"></i> 18:10 - 22:00</span>
+                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3 pt-2">
+                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 5 (Sebut Nama Anda)
                         </div>
                         <div class="space-y-4 text-slate-600 leading-relaxed font-medium">
-                            <p>"Lanjut ke menu berikutnya, yaitu <b>Form Jadwal Imunisasi</b> buat nyatet riwayat suntikan balita."</p>
-                            <p>"Di form ini gampang banget, tinggal pilih nama anaknya, terus pilih jenis vaksin yang mau disuntikkan. Abis itu, masukin Tanggal Disuntik untuk hari ini, dan Tanggal Jadwal Berikutnya untuk bulan depan."</p>
-                            <p>"Kita juga nyediain opsi Status 'Sudah' atau 'Belum'. Kalau misalnya anaknya nggak dateng dan statusnya diset 'Belum', nanti namanya bakal otomatis jadi reminder (pengingat) di halaman depan aplikasi."</p>
+                            <p>"Luar biasa sekali ya fitur kalkulasi otomatisnya. Namun, sebuah pertanyaan muncul: Bagaimana kalau tenaga kesehatan sedang lelah lalu mengalami *Typo* atau salah mengetikkan tinggi badan ke dalam sistem?"</p>
+                            <p>"Teman-teman tidak perlu panik, karena kami menyediakan fitur keamanan <b>Ubah Data</b>. (Operator mengklik baris data di tabel). Kita panggil ulang riwayat rekam medis Rayyan tadi dari tabel, datanya akan otomatis mengisi form isian kembali. Mari kita asumsikan pengukurannya meleset, tinggi badan Rayyan aslinya sangat pendek, hanya mencapai 62 cm. (Operator menghapus 75 menjadi 62)."</p>
+                            <p>"Coba perhatikan perubahan di layarnya! Begitu angka diubah ke 62, detektor algoritma kami langsung memproses ulang *on-the-fly* secara <i>real-time</i> dan merespon dengan peringatan teks merah menyala memvonis <b>Stunting</b> pada balita ini! Sangat aman dan tanpa toleransi kesalahan hitung. Bidan hanya perlu mengklik tombol kuning Ubah untuk menimpa data yang lama."</p>
+                            <p>"(Operator berpindah ke Form Imunisasi). Baiklah, kita lanjut ke rutinitas medis berikutnya yaitu mencatat jadwal suntikan di <b>Form Jadwal Imunisasi</b>. Form ini memplot agenda penyuntikan. Kita pilih nama balitanya, lalu tentukan vaksinnya, misal kita berikan vaksin Campak. Tanggal pemberian kita catat hari ini, 9 Juli 2026."</p>
+                            <p>"Untuk jadwal suntikan berikutnya, bidan bisa menggunakan fasilitas kalender pintar untuk mengatur reminder di bulan depan, contohnya 9 Agustus 2026. Jangan lupa set Status Pelaksanaannya menjadi 'Belum' agar nantinya terekam sebagai pengingat di tabel dashboard untuk bulan depan."</p>
                         </div>
                     </div>
                 </section>
@@ -365,26 +412,31 @@
                 <section id="pembicara6" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-xl badge-speaker flex items-center justify-center text-lg shadow-md border border-amber-300"><i class="fa-solid fa-6"></i></div>
-                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Form Konsumsi PMT (Kasir)</h2>
+                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Modul Kasir Keuangan: Konsumsi PMT</h2>
                     </div>
                     <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-5 shadow-sm relative overflow-hidden">
                         <div class="absolute right-0 top-0 w-2 h-full bg-indigo-500"></div>
                         <div class="flex items-center gap-2 text-indigo-700 font-extrabold mb-2 text-sm uppercase tracking-wider">
-                            <i class="fa-solid fa-desktop"></i> Layar / Tugas Operator
+                            <i class="fa-solid fa-desktop"></i> Arahan Layar (Tugas Operator)
                         </div>
-                        <ul class="list-disc pl-5 text-sm text-indigo-900 space-y-1">
-                            <li>Klik <b>Form Konsumsi PMT</b>.</li>
-                            <li>Tunjukkan field: Kegiatan, Menu Makanan, Jumlah Balita, Biaya, Nama PJ RT.</li>
+                        <ul class="list-decimal pl-5 text-sm text-indigo-900 space-y-2">
+                            <li>Buka menu <b>Pencatatan Konsumsi PMT Warga</b>. Kita akan mendemokan alur <b>SIMPAN</b> dengan perlahan:<br>
+                                <span class="bg-indigo-100 px-2 py-1 rounded text-xs block mt-1 border border-indigo-200 leading-relaxed">
+                                    <i>Data Isian:</i> Tanggal: <b>9 Juli 2026</b>. Kegiatan: "Posyandu Balita Delima". Menu: "Bubur Kacang Hijau & Telur Puyuh". Jml Balita: "25". Biaya: "125000". RT: "001". PJ: "Ibu Tejo". Keterangan: "Dana Kas Desa". <br>Klik tombol <b>Simpan</b>. Perlihatkan datanya masuk ke tabel di sisi kanan.
+                                </span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft">
-                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3">
-                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 6 (Sebut Nama)
+                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft relative">
+                        <span class="yt-timestamp absolute -top-3 left-6 shadow-sm"><i class="fa-brands fa-youtube mr-1"></i> 22:00 - 26:15</span>
+                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3 pt-2">
+                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 6 (Sebut Nama Anda)
                         </div>
                         <div class="space-y-4 text-slate-600 leading-relaxed font-medium">
-                            <p>"Aplikasi kita ini gak cuma mikirin sisi medisnya aja, tapi juga operasional di lapangannya. Makanya kita punya <b>Form Konsumsi PMT</b>."</p>
-                            <p>"Ini ibaratnya pengganti modul kasir. Karena Posyandu itu gratis, kasirnya nggak nyatet pemasukan orang sakit, melainkan nyatet pengeluaran buat Pemberian Makanan Tambahan."</p>
-                            <p>"Kader posyandu tinggal nyatet tanggal kegiatan, nama kegiatannya, menu makanannya apa hari ini, jumlah balita yang hadir, total biayanya, ini dari RT ke berapa, siapa nama penanggung jawab RT-nya, dan darimana sumber dananya. Transparan dan gampang dilacak."</p>
+                            <p>"Terima kasih. Sebuah sistem informasi posyandu yang baik tidak hanya mengurus sisi rekam medisnya saja, melainkan juga harus bisa meng-cover sisi operasional dan finansial kegiatan di lapangannya. Maka dari itu kami menghadirkan <b>Form Pencatatan Konsumsi PMT (Pemberian Makanan Tambahan)</b> yang dirancang khusus untuk wewenang role Kasir atau Kader."</p>
+                            <p>"Konsepnya sedikit berbeda. Karena Posyandu adalah layanan masyarakat yang sifatnya gratis, maka modul kasir ini fungsinya bukan untuk mencetak struk pemasukan atau billing pembayaran pasien, melainkan untuk mem-<i>booking</i> dan membukukan aliran dana *pengeluaran* logistik asupan gizi per wilayah RT."</p>
+                            <p>"(Operator memulai input form). Mari kita simulasikan penyimpanan transaksi PMT hari ini, 9 Juli 2026. Kader atau Bendahara mengisi nama kegiatannya. Lalu mencatat menu makanannya, misalnya hari ini menunya adalah Bubur Kacang Hijau dan Telur Puyuh. Kita masukkan jumlah kehadiran, ternyata ada 25 anak balita yang menerima makanan tersebut, dengan total anggaran belanja sebesar Rp 125.000."</p>
+                            <p>"Selanjutnya, kita wajib menginput kegiatan ini diselenggarakan di RT berapa, siapa penanggung jawab RT-nya (misal Ibu Tejo), dan dari mana sumber dananya. Pencatatan yang rinci seperti ini akan sangat berguna sebagai bukti transparansi ketika Kepala Desa, Kelurahan, atau Puskesmas setempat ingin melakukan audit serapan anggaran kesehatan di wilayah tersebut."</p>
                         </div>
                     </div>
                 </section>
@@ -393,28 +445,32 @@
                 <section id="pembicara7" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-4">
                         <div class="w-10 h-10 rounded-xl badge-speaker flex items-center justify-center text-lg shadow-md border border-amber-300"><i class="fa-solid fa-7"></i></div>
-                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">5 Laporan PDF & Penutup</h2>
+                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">Generate 5 Laporan PDF & Penutup Presentasi</h2>
                     </div>
                     <div class="bg-indigo-50 border border-indigo-200 rounded-2xl p-5 mb-5 shadow-sm relative overflow-hidden">
                         <div class="absolute right-0 top-0 w-2 h-full bg-indigo-500"></div>
                         <div class="flex items-center gap-2 text-indigo-700 font-extrabold mb-2 text-sm uppercase tracking-wider">
-                            <i class="fa-solid fa-desktop"></i> Layar / Tugas Operator
+                            <i class="fa-solid fa-desktop"></i> Arahan Layar (Tugas Operator)
                         </div>
-                        <ul class="list-disc pl-5 text-sm text-indigo-900 space-y-1">
-                            <li>Klik <b>Menu Laporan</b>. Perlihatkan daftar 5 Laporan.</li>
-                            <li>Generate salah satu laporan (misal Laporan Perkembangan per Balita atau PMT).</li>
-                            <li>Tunjukkan hasil PDF-nya yang rapi di layar. Tutup PDF.</li>
+                        <ul class="list-decimal pl-5 text-sm text-indigo-900 space-y-2">
+                            <li>Buka menu <b>Cetak Laporan PDF</b>. Muncul pop-up jendela parameter *DialogLaporan*.</li>
+                            <li>Buka combobox <i>Pilih Jenis Laporan</i>. Tunjukkan kepada audiens dengan jelas bahwa ada 5 macam pilihan laporan.</li>
+                            <li>Pilih yang ke-5: <b>Laporan Perkembangan per Balita</b>. Di combobox pasien bawahnya, cari dan pilih "Ahmad Rayyan". Klik tombol <code>Tampilkan PDF</code>.</li>
+                            <li>Aplikasi PDF Reader (Adobe Acrobat atau Browser) akan terbuka seketika. <br><b>TUGAS PENTING: Lakukan scroll perlahan ke dokumen PDF tersebut dan tunjukkan 3 hal ini di layar kepada Dosen:</b> <br>1. Kop Surat di atas, <br>2. Tabel Histori Z-Score di tengah yang tadi otomatis meng-update vonisnya menjadi kata 'Stunting', <br>3. Tanda tangan di pojok kanan bawah bernama "Dr. Sarah Lestari" (Ini adalah hasil sinkronisasi dari uji coba form <i>Ubah Identitas</i> di pembicara 1 tadi).</li>
+                            <li>Tutup file PDF-nya dan kembalikan ke layar utama aplikasi.</li>
                         </ul>
                     </div>
-                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft">
-                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3">
-                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 7 (Sebut Nama)
+                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-200 shadow-soft relative">
+                        <span class="yt-timestamp absolute -top-3 left-6 shadow-sm"><i class="fa-brands fa-youtube mr-1"></i> 26:15 - 30:00</span>
+                        <div class="flex items-center gap-2 text-amber-600 font-extrabold mb-4 border-b border-slate-100 pb-3 pt-2">
+                            <i class="fa-solid fa-microphone"></i> Naskah Pembicara 7 (Sebut Nama Anda)
                         </div>
                         <div class="space-y-4 text-slate-600 leading-relaxed font-medium">
-                            <p>"Terakhir, untuk urusan rekap data bulanan, kita udah nyiapin <b>5 Jenis Laporan PDF</b> yang bisa langsung dicetak."</p>
-                            <p>"Lima laporan itu ada: Laporan Data Balita Terdaftar, Laporan Riwayat Pemeriksaan Keseluruhan, Laporan Jadwal & Pelaksanaan Imunisasi, dan Laporan Konsumsi PMT Warga."</p>
-                            <p>"Nah, satu lagi yang spesial adalah <b>Laporan Perkembangan per Balita</b>. Laporan ini isinya spesifik cuma buat satu anak, nampilin biodata lengkapnya dan histori pertumbuhannya dari bulan ke bulan."</p>
-                            <p class="pt-4 font-bold">"Semua laporan ini udah lengkap pakai kop surat otomatis. Keren banget pokoknya. Sekian presentasi demo dari Kelompok 4. Terima kasih buat perhatiannya semuanya, waktu kami kembalikan ke Bapak/Ibu Dosen!"</p>
+                            <p>"Tibalah kita di penghujung alur sistem. Puncak dari semua kerja keras pendaftaran, pemeriksaan, dan inputan data dari menit pertama tadi bermuara pada satu halaman output, yaitu menu <b>Cetak Laporan</b>. Di GrowTrack, kami memanfaatkan <i>library external iTextPDF</i> yang memungkinkan Java untuk menggambar dokumen rekapitulasi ke format PDF yang rapi dan siap cetak."</p>
+                            <p>"(Operator membuka dialog cetak). Di sini, kami tidak hanya menyediakan 1 laporan, melainkan ada <b>5 Jenis Laporan Berbeda</b>. Ada laporan rekap balita, laporan histori seluruh pemeriksaan warga bulanan, laporan distribusi jadwal imunisasi, laporan aliran dana konsumsi PMT bulanan, dan yang paling menarik adalah Laporan Perkembangan per Balita."</p>
+                            <p>"(Operator pilih laporan Ahmad Rayyan dan generate PDF). Mari kita buktikan. Kita ingin mencetak rapor milik Ahmad Rayyan, lalu kita klik Tampilkan. Nah, luar biasa sekali kan hasilnya! Laporannya langsung ter-generate secara instan tanpa loading lama. Di bagian atas sudah tersusun rapi menggunakan Kop Surat resmi."</p>
+                            <p>"Tolong perhatikan tabel grafiknya di bagian tengah! Histori pemeriksaannya tercatat sangat komprehensif lengkap dengan nilai Z-Score dan vonis Stunting yang tadi sempat kita koreksi datanya secara *real-time*. Dan yang paling membuktikan bahwa seluruh tabel kami saling berelasi adalah bagian tanda tangannya! Coba lihat di pojok kanan bawah, tertera nama Kepala Posyandu 'Dr. Sarah Lestari'. Padahal kita tidak pernah mengetik nama tersebut di menu cetak ini. Nama tersebut sinkron mengambil dari perubahan data master Pengaturan yang diedit oleh teman kami, Admin, di awal menit presentasi tadi!"</p>
+                            <p class="pt-4 font-bold text-slate-800">"Semoga sistem integrasi gizi dan rekam medis yang kami rancang sedemikian detail ini suatu hari nanti dapat benar-benar diimplementasikan untuk memudahkan para tenaga kesehatan di puskesmas dan balai desa. Sekian presentasi dan demonstrasi sistem GrowTrack dari Kelompok 4, kami ucapkan banyak terima kasih atas perhatian dan waktunya. Wassalamu'alaikum Warahmatullahi Wabarakatuh."</p>
                         </div>
                     </div>
                 </section>
@@ -454,10 +510,41 @@
                     </div>
                 </section>
 
+                <section id="docs-tombol" class="scroll-mt-32 print-break">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center text-brand-600 text-lg shadow-sm border border-brand-200"><i class="fa-solid fa-computer-mouse"></i></div>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">2. Fungsi Standard Tombol (CRUD)</h2>
+                    </div>
+                    <div class="bg-white rounded-2xl border border-slate-200 shadow-soft overflow-hidden p-6">
+                        <ul class="space-y-4 text-sm text-slate-700">
+                            <li class="flex gap-4 items-start pb-3 border-b border-slate-100">
+                                <div class="px-3 py-1 bg-brand-600 text-white font-bold rounded-lg border border-brand-700 w-28 text-center text-xs shadow-sm">SIMPAN</div>
+                                <p class="pt-0.5 text-[13px] leading-relaxed">Menjalankan eksekusi <i>Query Insert</i> ke database MySQL. Tombol ini memiliki lapisan validasi ketat; jika ada isian wajib yang terlewat, sistem akan menolak proses penambahan data.</p>
+                            </li>
+                            <li class="flex gap-4 items-start pb-3 border-b border-slate-100">
+                                <div class="px-3 py-1 bg-amber-500 text-white font-bold rounded-lg border border-amber-600 w-28 text-center text-xs shadow-sm">UBAH</div>
+                                <p class="pt-0.5 text-[13px] leading-relaxed">Menjalankan <i>Query Update</i>. Pengguna <b>wajib mengklik</b> salah satu baris data pada tabel (JTable) di sebelah kanan terlebih dahulu. Setelah data yang dipilih tersebut terangkat naik mengisi form isian, pengguna dapat merubah nilainya lalu menekan tombol kuning ini untuk menimpa data yang lama.</p>
+                            </li>
+                            <li class="flex gap-4 items-start pb-3 border-b border-slate-100">
+                                <div class="px-3 py-1 bg-red-500 text-white font-bold rounded-lg border border-red-600 w-28 text-center text-xs shadow-sm">HAPUS</div>
+                                <p class="pt-0.5 text-[13px] leading-relaxed">Menjalankan <i>Query Delete</i>. Sama seperti tombol ubah, aksi ini membutuhkan klik pada baris tabel terlebih dahulu. Sistem dirancang aman dengan menampilkan jendela Pop-up peringatan sebelum benar-benar melenyapkan baris data tersebut dari sistem.</p>
+                            </li>
+                            <li class="flex gap-4 items-start pb-3 border-b border-slate-100">
+                                <div class="px-3 py-1 bg-slate-500 text-white font-bold rounded-lg border border-slate-600 w-28 text-center text-xs shadow-sm">BERSIHKAN</div>
+                                <p class="pt-0.5 text-[13px] leading-relaxed">Merupakan tombol fungsi <i>Reset/Clear</i>. Berguna untuk mengosongkan seluruh komponen Textfield, mengembalikan ComboBox ke posisi awal (default), dan meng-generate ulang ID Kode Otomatis agar siap digunakan untuk inputan selanjutnya.</p>
+                            </li>
+                            <li class="flex gap-4 items-start">
+                                <div class="px-3 py-1 bg-white text-slate-800 font-bold rounded-lg border border-slate-300 w-28 text-center text-xs shadow-sm shadow-inner"><i class="fa-solid fa-magnifying-glass"></i> CARI...</div>
+                                <p class="pt-0.5 text-[13px] leading-relaxed">Kotak alat pencarian pintar berbasis Live Search. Tidak membutuhkan tombol eksekusi klik! Cukup mengetikkan beberapa huruf awal, sistem seketika akan memicu <i>Event KeyReleased</i> yang mem-filter dan menyaring langsung baris data pada JTable di bawahnya secara dinamis.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
                 <section id="docs-8form" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center text-brand-600 text-lg shadow-sm border border-brand-200"><i class="fa-solid fa-table-list"></i></div>
-                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">2. Penjelasan 8 Form Utama</h2>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">3. Penjelasan 8 Form Utama</h2>
                     </div>
                     <div class="bg-white rounded-2xl border border-slate-200 shadow-soft overflow-hidden">
                         <ul class="divide-y divide-slate-100 text-sm text-slate-600">
@@ -500,32 +587,37 @@
                 <section id="docs-periksa" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center text-brand-600 text-lg shadow-sm border border-brand-200"><i class="fa-solid fa-stethoscope"></i></div>
-                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">3. Algoritma Pemeriksaan Gizi</h2>
+                        <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">4. Algoritma Pemeriksaan Gizi</h2>
                     </div>
                     <div class="bg-gradient-to-r from-brand-600 to-brand-800 rounded-2xl p-6 md:p-8 mb-8 text-white shadow-lg relative overflow-hidden">
                         <i class="fa-solid fa-microchip absolute -right-6 -top-6 text-9xl opacity-10"></i>
-                        <h3 class="font-bold text-xl mb-3 relative z-10">Smart Detector Z-Score Otomatis</h3>
+                        <h3 class="font-bold text-xl mb-3 relative z-10">Kalkulasi Otomatis Tanpa Intervensi Manual</h3>
                         <p class="text-sm text-brand-100 leading-relaxed max-w-3xl relative z-10 mb-4">
-                            Fitur unggulan di mana bidan cukup mengetik <b>Berat Badan</b> dan <b>Tinggi Badan</b>. Sistem Java akan langsung menarik usia anak (berdasarkan tanggal lahir), membedah gendernya, dan menghitung otomatis Z-Score berdasarkan tabel referensi standar WHO tanpa input manual.
+                            Fitur unggulan di mana bidan cukup mengetik <b>Berat Badan</b> dan <b>Tinggi Badan</b>. Sistem Java (Class ProsesPemeriksaan.java) akan langsung memproses serangkaian tahapan secara sekejap:
                         </p>
+                        <ol class="list-decimal pl-5 text-sm text-brand-50 relative z-10 space-y-2 font-medium">
+                            <li>Sistem menarik properti usia anak dalam format (Bulan) dengan mengurangi <i>Tanggal Pemeriksaan Hari Ini</i> dikurangi <i>Tanggal Lahir Balita</i>.</li>
+                            <li>Sistem memeriksa parameter Gender anak (L/P) sebagai percabangan kurva penilaian.</li>
+                            <li>Melakukan komparasi berat/tinggi ke dalam Array konstanta Z-Score yang diadaptasi dari Kementerian Kesehatan & WHO, menghitung nilai deviasi median, lalu me-return output berupa Vonis Status Gizi tanpa butuh input karakter dari pengguna.</li>
+                        </ol>
                     </div>
                 </section>
 
                 <section id="docs-5laporan" class="scroll-mt-32 print-break">
                     <div class="flex items-center gap-4 mb-6">
                         <div class="w-10 h-10 rounded-xl bg-slate-200 flex items-center justify-center text-slate-600 text-lg shadow-sm"><i class="fa-solid fa-print"></i></div>
-                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">4. Lima (5) Jenis Laporan PDF</h2>
+                        <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight">5. Lima (5) Jenis Laporan PDF</h2>
                     </div>
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-soft">
                         <p class="text-[14px] text-slate-600 mb-5 leading-relaxed">
-                            Aplikasi terintegrasi dengan pustaka `iTextPDF` untuk mencetak laporan ber-kop dinas dinamis. Ada 5 jenis laporan yang tersedia:
+                            Aplikasi terintegrasi dengan pustaka library `iTextPDF` untuk mencetak laporan ber-kop dinas dinamis. Terdapat 5 jenis laporan yang tersedia:
                         </p>
                         <ul class="space-y-4 text-sm text-slate-700 font-medium">
                             <li class="flex gap-3 items-start"><i class="fa-solid fa-file-pdf text-red-500 mt-0.5 text-lg"></i> <div><b>Laporan Data Balita Terdaftar</b><br/><span class="font-normal text-slate-500 text-xs">Rekap seluruh anak yang terdaftar di database.</span></div></li>
-                            <li class="flex gap-3 items-start"><i class="fa-solid fa-file-pdf text-red-500 mt-0.5 text-lg"></i> <div><b>Laporan Riwayat Pemeriksaan Keseluruhan</b><br/><span class="font-normal text-slate-500 text-xs">Rekap semua kegiatan ukur BB/TB.</span></div></li>
-                            <li class="flex gap-3 items-start"><i class="fa-solid fa-file-pdf text-red-500 mt-0.5 text-lg"></i> <div><b>Laporan Jadwal & Pelaksanaan Imunisasi</b><br/><span class="font-normal text-slate-500 text-xs">Data pemberian vaksin bulan ini.</span></div></li>
-                            <li class="flex gap-3 items-start"><i class="fa-solid fa-file-pdf text-red-500 mt-0.5 text-lg"></i> <div><b>Laporan Konsumsi PMT Warga</b><br/><span class="font-normal text-slate-500 text-xs">Bukti serapan anggaran dan logistik makanan.</span></div></li>
-                            <li class="flex gap-3 items-start"><i class="fa-solid fa-file-pdf text-red-500 mt-0.5 text-lg"></i> <div><b>Laporan Perkembangan per Balita</b><br/><span class="font-normal text-slate-500 text-xs">Laporan spesifik per satu anak. Isinya biodata lengkap & riwayat pertumbuhannya dari bulan ke bulan.</span></div></li>
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-file-pdf text-red-500 mt-0.5 text-lg"></i> <div><b>Laporan Riwayat Pemeriksaan Keseluruhan</b><br/><span class="font-normal text-slate-500 text-xs">Rekap semua kegiatan ukur BB/TB seluruh balita.</span></div></li>
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-file-pdf text-red-500 mt-0.5 text-lg"></i> <div><b>Laporan Jadwal & Pelaksanaan Imunisasi</b><br/><span class="font-normal text-slate-500 text-xs">Data distribusi jenis vaksin berdasarkan agenda bulan ini.</span></div></li>
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-file-pdf text-red-500 mt-0.5 text-lg"></i> <div><b>Laporan Konsumsi PMT Warga</b><br/><span class="font-normal text-slate-500 text-xs">Bukti serapan anggaran bulanan dan rincian logistik makanan bergizi di desa.</span></div></li>
+                            <li class="flex gap-3 items-start"><i class="fa-solid fa-file-pdf text-red-500 mt-0.5 text-lg"></i> <div><b>Laporan Perkembangan per Balita</b><br/><span class="font-normal text-slate-500 text-xs">Laporan rapor spesifik khusus per satu nama anak. Memuat biodata ortu, parameter lahir, dan tabel riwayat pengukuran pertumbuhan beserta status Stunting/Gizi Buruk/Normal dari bulan ke bulan.</span></div></li>
                         </ul>
                     </div>
                 </section>
@@ -533,7 +625,7 @@
                 <section id="docs-erd" class="scroll-mt-32 print-break pt-8">
                     <div class="flex items-center gap-4 mb-6 text-brand-700">
                         <div class="w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center text-lg shadow-glow"><i class="fa-solid fa-server"></i></div>
-                        <h2 class="text-2xl font-extrabold tracking-tight">5. Database & ERD</h2>
+                        <h2 class="text-2xl font-extrabold tracking-tight">6. Database & ERD</h2>
                     </div>
                     <div class="bg-white rounded-2xl border border-slate-200 shadow-soft overflow-hidden">
                         <div class="p-4 md:p-8 overflow-x-auto flex justify-center bg-white">
@@ -591,9 +683,8 @@
 
             </div> <!-- End Tab 2 -->
 
-
             <!-- ========================================== -->
-            <!-- TAB 3: SIMULATOR GIZI AI                   -->
+            <!-- TAB 3: SIMULATOR KALKULATOR GIZI           -->
             <!-- ========================================== -->
             <div id="tab-sim" class="tab-content tab-hidden space-y-16">
                 <section id="sim-calc" class="scroll-mt-32 print-break pb-12">
@@ -602,7 +693,7 @@
                             <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8 border-b border-slate-100 pb-6">
                                 <div>
                                     <h2 class="text-xl md:text-2xl font-extrabold text-slate-800 mb-1"><i class="fa-solid fa-calculator text-brand-500 mr-2"></i>Web Simulator Algoritma Gizi</h2>
-                                    <p class="text-xs text-slate-500">Kalkulator ini mensimulasikan persis logika sistem yang berjalan di dalam <b>Form Pemeriksaan</b>.</p>
+                                    <p class="text-xs text-slate-500">Kalkulator ini mensimulasikan persis perhitungan sistematis yang dieksekusi secara otomatis di dalam modul <b>Form Pemeriksaan</b>.</p>
                                 </div>
                             </div>
 
@@ -621,22 +712,22 @@
                                     <div class="grid grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-2">Usia (Bulan)</label>
-                                            <input type="number" id="simUsia" value="24" min="0" max="60" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" oninput="runSim()">
+                                            <input type="number" id="simUsia" value="14" min="0" max="60" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" oninput="runSim()">
                                         </div>
                                         <div>
                                             <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-2">Lingkar Kepala (Cm)</label>
-                                            <input type="number" id="simLK" value="48.5" step="0.1" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" oninput="runSim()">
+                                            <input type="number" id="simLK" value="46.0" step="0.1" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" oninput="runSim()">
                                         </div>
                                     </div>
 
                                     <div class="grid grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-2">Berat Badan (Kg)</label>
-                                            <input type="number" id="simBB" value="9.5" step="0.1" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" oninput="runSim()">
+                                            <input type="number" id="simBB" value="9.0" step="0.1" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" oninput="runSim()">
                                         </div>
                                         <div>
                                             <label class="block text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-2">Tinggi Badan (Cm)</label>
-                                            <input type="number" id="simTB" value="78" step="0.1" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" oninput="runSim()">
+                                            <input type="number" id="simTB" value="75.0" step="0.1" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl text-sm font-bold focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" oninput="runSim()">
                                         </div>
                                     </div>
                                 </div>
@@ -647,7 +738,7 @@
                                         <i class="fa-solid fa-notes-medical"></i>
                                     </div>
                                     <div class="relative z-10">
-                                        <span class="text-[10px] uppercase font-bold tracking-widest text-brand-400 mb-1 block">Output Hitungan Gizi Cerdas</span>
+                                        <span class="text-[10px] uppercase font-bold tracking-widest text-brand-400 mb-1 block">Output Hasil Parameter</span>
                                         <div class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4" id="outGizi">Menghitung...</div>
                                         
                                         <div class="grid grid-cols-2 gap-4 border-t border-slate-700 pt-4 mt-2">
